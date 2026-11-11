@@ -262,7 +262,7 @@ const DEFS: Def[] = [
     name: 'Vende 6 — ¿sabías que ahora puedes vender en VMC?',
     subject: 'Vende tu auto sin llamadas a toda hora',
     preheader: 'Publica tu auto, recibe propuestas y decide tú.',
-    stage: 'Vende',
+    stage: 'Vende', leadsTo: ['valoriza-7-vende-y-valoriza'],
     hero: hero({ img: 'publica.jpg', alt: 'Vendedor entregando las llaves de su auto', eyebrow: 'Ahora puedes vender en VMC', title: `Publica tu auto y ${acc('recibe propuestas')}`, perks: ['Propuestas', 'Tú decides', 'Sin llamadas'], text: 'Publícalo como oferta negociable: los compradores te envían propuestas a Mi Garaje y tú decides. Sin llamadas a cualquier hora.', cta: 'Publicar', url: PUBLICAR_URL }),
     body: [
       HOLA, gap(8),
@@ -271,6 +271,23 @@ const DEFS: Def[] = [
       rows([['precio', 'Recibe propuestas', 'Los compradores te dicen cuánto pagarían.'], ['verificado', 'Tú decides', 'Acepta, rechaza o haz una contrapropuesta.'], ['negociaciones', 'Responde preguntas', 'Los compradores te pueden escribir antes de proponer.']]),
       gap(32), closing('publicar', 'Publica tu auto en VMC', 'Y recibe propuestas en Mi Garaje.', 'Publicar mi auto', PUBLICAR_URL),
       gap(16), link('¿No sabes a cuánto publicarlo? Valorízalo gratis', VALORIZA_URL),
+    ],
+  },
+  {
+    id: 'valoriza-7-vende-y-valoriza',
+    name: 'Vende 7 — ¿sabías que en VMC puedes vender? Valoriza primero',
+    subject: '¿Sabías que en VMC también puedes vender?',
+    preheader: 'Valoriza tu auto gratis y descubre a cuánto publicarlo.',
+    stage: 'Vende',
+    hero: hero({ img: 'vender.jpg', alt: 'Mujer con la llave de su auto, lista para vender', eyebrow: '¿Sabías que en VMC puedes vender?', title: `Antes de publicar, descubre ${acc('a cuánto venderlo')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'Ahora puedes vender tu auto en VMC. Empieza por valorizarlo: en minutos tienes una referencia para fijar tu precio.', cta: 'Valorizar', url: VALORIZA_URL }),
+    body: [
+      HOLA, gap(8),
+      p(`Publicar con un precio al azar es la forma más rápida de perder tiempo o perder plata. ${b('Valorizar primero')} te da un punto de partida.`),
+      gap(28), title('De tu garaje a la venta', 'Así vendes en VMC'), gap(14),
+      rows([['valorizaciones', 'Valoriza', 'Conoce el valor de referencia de tu auto, gratis.'], ['publicar', 'Publica', 'Como oferta negociable, con tu precio.'], ['negociaciones', 'Recibe propuestas', 'Acepta, rechaza o haz una contrapropuesta.']], true),
+      gap(24), note(REF),
+      gap(32), closing('precio', '¿A cuánto publicarías tu auto?', 'Descúbrelo antes de ponerlo a la venta.', 'Valorizar mi auto', VALORIZA_URL),
+      gap(16), link('¿Ya sabes tu precio? Publica tu auto aquí', PUBLICAR_URL),
     ],
   },
 ];

@@ -37,6 +37,7 @@ export const PENDIENTES: Record<string, RevisionPendiente> = {
   'valoriza-4-valorizar-y-publicar': { nota: AMBAS },
   'valoriza-5-nuevo-canal-de-venta': { nota: URL_PUBLICAR },
   'valoriza-6-vender-en-vmc': { nota: AMBAS },
+  'valoriza-7-vende-y-valoriza': { nota: AMBAS },
 };
 
 export function estadoDe(id: string): RevisionEstado {
