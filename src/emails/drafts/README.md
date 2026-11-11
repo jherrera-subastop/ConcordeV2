@@ -1,7 +1,7 @@
 # Cinco borradores de correo en Concorde
 
 Base: `AaronCoorahua/ConcordeV2`, rama principal `master`, commit `f92fcc9`.
-Estos borradores son para revisión. Integrar este código no los incorpora a los 50 correos de producción ni habilita envíos, campañas o nuevas condiciones legales.
+Julio validó los correos 01, 02 y 03 el 11/11/2026: están listos para desarrollo y aparecen juntos en la primera sección de la galería. Los correos 04 y 05 de condiciones y términos permanecen abajo, pendientes de revisión. El estado se define en `index.ts` y se muestra también en el editor y la vista individual. Las comprobaciones técnicas previas al envío se conservan. Integrar este código no incorpora los borradores al catálogo de producción ni habilita envíos, campañas o nuevas condiciones legales.
 
 ## Revisión
 
@@ -10,6 +10,7 @@ Estos borradores son para revisión. Integrar este código no los incorpora a lo
 - Editor: `/correos/borradores/{id}`. Incluye asunto, preencabezado, pendientes, controles de banner/footer y copia de HTML.
 - Vista individual: `/correos/borradores/{id}/vista`. Su aviso de borrador no se copia al HTML del correo.
 - Las ediciones del editor son temporales; el contenido persistente está en los cinco módulos de esta carpeta.
+- Los tres correos listos muestran «Momento de envío» en su tarjeta y editor: valorización terminada y guardada (01), publicación recién enviada y en revisión (02), y publicación aprobada tras la revisión y ya publicada (03). Son indicaciones de Julio para desarrollo; no se insertan en el HTML destinado al usuario.
 
 Se reutilizan `generateEmail`, las secciones existentes, las tipologías de banner, el footer Compacto y `BannerLab`. Los borradores no pertenecen a `EMAILS`. El catálogo de 50 correos, su contenido y su renderer permanecen intactos.
 
@@ -17,7 +18,7 @@ Se reutilizan `generateEmail`, las secciones existentes, las tipologías de bann
 
 1. **Valorización → publicación**. Banner centrado morado. Título «¡Ya valorizaste tu vehículo! Estás a un paso de encontrar el precio que buscas.». Texto sobre Negociable y aceptar, contraproponer o rechazar propuestas. Panel de pago único en vidrio claro, título de 26/34 y monto de 24/32. Conserva el símbolo existente `>S< 25`, sin añadir otro CTA. Después aparecen la miniatura del video, el lema «Tu vehículo, tu precio, tu trato.» y «¡Publica ahora!» hacia `https://www.vmcsubastas.com/zona/publicar`.
 2. **Publicación en revisión**. Banner centrado negociable. Texto breve sin plazo prometido, enlace a Mi Garaje y referencia a la campana. Ejemplo móvil en iPhone, una sola publicación EN REVISIÓN y nubecita PUBLICADA, expresamente condicionada a la aprobación. CTA «¡Ir a mi Garaje!» a `https://www.vmcsubastas.com/zona`.
-3. **Publicación exitosa**. Banner centrado negociable. Conserva el tutorial existente de `83f8032`: siete pasos, nota de 24 horas, video y miniatura originales de 47 s. Usa «vehículo», saludo común y cuerpo de 14/22. El destino `{{url_mi_garaje}}` sigue pendiente.
+3. **Publicación exitosa**. Banner centrado negociable. Conserva el tutorial existente de `83f8032`: siete pasos, nota de 24 horas, video y miniatura originales de 47 s. Usa «vehículo», saludo común y cuerpo de 14/22. Los resaltados del saludo, Negociaciones, Mi Garaje y la nota de 24 horas usan el mismo morado `#3b1782` del correo 02, sin cambiar el texto ni el renderer de producción. El destino `{{url_mi_garaje}}` sigue pendiente.
 4. **Condiciones: aviso previo**. Banner Texto apilado Dark y CTA Secondary morado. Conserva el texto solicitado y sus cuatro viñetas. `xx/12/2026`, el enlace de condiciones y el PDF final son pendientes explícitos, no fechas ni versiones confirmadas.
 5. **Condiciones: entrada en vigencia**. Banner Texto apilado Dark y CTA Secondary morado. Conserva los cuatro pasos solicitados, con «opción de aceptar». El borrador no acredita que exista una nueva versión vigente ni que el flujo descrito esté implementado.
 

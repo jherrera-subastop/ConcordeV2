@@ -60,6 +60,8 @@ export interface BannerLabProps {
   figmaBaseName?: string;
   /** Estado de revisión del correo (ver src/emails/revisionStatus.ts). */
   estado?: RevisionEstado;
+  /** Optional draft workflow label; production defaults stay unchanged. */
+  estadoLabel?: string;
   /** Qué falta para poder revisarlo; null si está listo. */
   nota?: string | null;
   /**
@@ -336,7 +338,7 @@ function FigmaPanel({ figmaRef, baseName, matchHeight, scale }: { figmaRef?: Fig
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function BannerLab({ html, title, subject, bannerTitle, initialPreset, initialComparing = true, categoria, figmaRef, figmaBaseName = "correo", estado = "listo", nota = null, nav = null }: BannerLabProps): JSX.Element {
+export default function BannerLab({ html, title, subject, bannerTitle, initialPreset, initialComparing = true, categoria, figmaRef, figmaBaseName = "correo", estado = "listo", estadoLabel, nota = null, nav = null }: BannerLabProps): JSX.Element {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -478,7 +480,7 @@ export default function BannerLab({ html, title, subject, bannerTitle, initialPr
           }}
         >
           <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: "currentColor", flexShrink: 0 }} />
-          {pendiente ? "Pendiente" : "Listo para revisar"}
+          {estadoLabel ?? (pendiente ? "Pendiente" : "Listo para revisar")}
         </span>
       </div>
 

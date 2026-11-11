@@ -25,8 +25,8 @@ for (const draft of EMAIL_DRAFTS) {
   const exported = renderDraft(draft);
   for (const section of draft.sections) {
     let before = renderSection(section);
-    if (section.type === "text" && section.content.emphasisColor === "vault") {
-      before = before.replace(/<(?:strong|a)\b[^>]*style="[^"]*"[^>]*>/g,
+    if ((section.type === "text" || section.type === "note") && section.content.emphasisColor === "vault") {
+      before = before.replace(/<(?:strong|a|b)\b[^>]*style="[^"]*"[^>]*>/g,
         tag => tag.replace(/color:[^;]+;/, "color:#3b1782;"));
     }
     const after = renderDraftSection(section);

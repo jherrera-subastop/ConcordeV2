@@ -10,6 +10,8 @@ export interface EmailDraft {
   preheader: string;
   bannerTitle: string;
   category: string;
+  /** Development handoff only. Never included in recipient-facing email HTML. */
+  trigger?: string;
   preset: LabPreset;
   concept: string;
   sections: Section[];
@@ -34,10 +36,10 @@ const escape = (text: string): string => text.replace(/&/g, "&amp;").replace(/</
  * Inline styles also preserve this sizing in email clients that drop head CSS. */
 export function renderDraftSection(section: Section): string {
   let html = renderSection(section);
-  // Explicit opt-in for review email02: inline vault-700 emphasis and links.
+  // Explicit opt-in for emails 02/03: the same inline vault-700 emphasis.
   // No global recoloring, and the production renderer is unchanged.
-  if (section.type === "text" && section.content.emphasisColor === "vault") {
-    html = html.replace(/<(?:strong|a)\b[^>]*style="[^"]*"[^>]*>/g,
+  if ((section.type === "text" || section.type === "note") && section.content.emphasisColor === "vault") {
+    html = html.replace(/<(?:strong|a|b)\b[^>]*style="[^"]*"[^>]*>/g,
       tag => tag.replace(/color:[^;]+;/, "color:#3b1782;"));
   }
   const bodyType = (tag: string): string => tag

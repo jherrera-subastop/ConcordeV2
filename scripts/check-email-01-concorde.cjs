@@ -12,6 +12,10 @@ const { EMAIL_DRAFTS, renderDraft, renderDraftBase } = require("../src/emails/dr
 const { renderDraftSection } = require("../src/emails/drafts/shared.ts");
 const { renderPublicationBenefit } = require("../src/emails/drafts/publicationBenefit.ts");
 const draft = EMAIL_DRAFTS.find(item => item.id === "valorizacion-publicacion");
+const intro = draft.sections.find(section => section.type === "text" && section.content.text.startsWith("Acabas de valorizar"));
+const introHtml = renderDraftSection(intro);
+assert(/<a href="https:\/\/www\.vmcsubastas\.com\/zona\/publicar"[^>]*text-decoration:underline;[^>]*><strong[^>]*font-weight:700;[^>]*>publícalo en VMC Subastas<\/strong><\/a>/.test(introHtml), "The publication phrase must retain its wording and bold style, with an underlined link to zona/publicar");
+assert.equal(introHtml.replace(/<[^>]*>/g, "").trim(), "Acabas de valorizar tu vehículo. Ahora da el siguiente paso: publícalo en VMC Subastas con la modalidad Negociable y recibe ofertas sin comisiones, ni intermediarios.");
 const panel = draft.sections.find(section => section.content.variant === "publication-benefit");
 const html = renderDraftSection(panel);
 const plain = html.replace(/<br\s*\/?\s*>/g, " ").replace(/<[^>]*>/g, " ").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/\s+/g, " ").trim();

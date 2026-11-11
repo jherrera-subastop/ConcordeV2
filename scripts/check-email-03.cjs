@@ -14,7 +14,7 @@ const { renderDraft } = require("../src/emails/drafts/shared.ts");
 const { EMAILS } = require("../src/emails/prodEmails.ts");
 const original = EMAILS.find(email => email.id === "oferta-publicada-vendedor");
 assert(original, "Missing original seller publication email");
-// Only the headline, draft merge tags and the requested generic vehicle wording may differ.
+// Only the headline, draft merge tags, vehicle wording, requested inline link and emphasis style may differ.
 const expectedSections = original.sections.map(section => {
   const content = { ...section.content };
   if (section.type === "title") content.text = draft.bannerTitle;
@@ -22,6 +22,8 @@ const expectedSections = original.sections.map(section => {
   if (section.type === "cta") content.url = "{{url_mi_garaje}}";
   if (content.text === "¡Excelentes noticias! La publicación de tu auto ya está activa.") content.text = "¡Excelentes noticias! La publicación de tu vehículo ya está activa.";
   if (content.s4 === "Toca tu auto|Ves tus propuestas y su plazo") content.s4 = "Toca tu vehículo|Ves tus propuestas y su plazo";
+  if (section.type === "text" && content.text.includes('**“Mi Garaje”**')) content.text = content.text.replace('**“Mi Garaje”**', '{[**“Mi Garaje”**|https://www.vmcsubastas.com/zona]}');
+  if ((section.type === "text" && /__|\*\*/.test(content.text)) || section.type === "note") content.emphasisColor = "vault";
   return { type: section.type, content };
 });
 assert.deepEqual(draft.sections.map(({ type, content }) => ({ type, content })), expectedSections,
@@ -35,6 +37,11 @@ const videos = draft.sections.filter(section => section.type === "video");
 assert.equal(videos.length, 1);
 assert.equal(videos[0].content.caption, "Ver tutorial · 47 s");
 const html = renderDraft(draft);
+const emphasis = html.match(/<strong\b[^>]*>/g) || [];
+assert.equal(emphasis.length, 4, "Keep the existing greeting, two navigation labels and 24-hour emphasis");
+assert(emphasis.every(tag => tag.includes("color:#3b1782;")), "Email 03 emphasis must match email 02 vault purple");
+assert(/<a href="https:\/\/www\.vmcsubastas\.com\/zona"[^>]*><strong[^>]*>“Mi Garaje”<\/strong><\/a>/.test(html), "The inline Mi Garaje label must link to zona without changing its wording or emphasis");
+assert(/<b style="font-size:16px;line-height:24px;color:#3b1782;">Dato clave:<\/b>/.test(html), "The note label must use the same emphasis color");
 for (const entry of Object.values(steps[0].content)) {
   for (const text of entry.split("|")) assert(html.includes(text), "Missing rendered step: " + text);
 }

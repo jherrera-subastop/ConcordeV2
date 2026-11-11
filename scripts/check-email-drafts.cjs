@@ -9,7 +9,7 @@ require.extensions[".ts"] = function(module, filename) {
   const output = ts.transpileModule(code, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText;
   module._compile(output, filename);
 };
-const { EMAIL_DRAFTS, renderDraft, renderDraftBase } = require("../src/emails/drafts/index.ts");
+const { EMAIL_DRAFTS, isDraftReadyForDevelopment, renderDraft, renderDraftBase } = require("../src/emails/drafts/index.ts");
 const { renderDraftSection } = require("../src/emails/drafts/shared.ts");
 const { linkDraftHelpButton, DRAFT_HELP_URL } = require("../src/emails/drafts/helpLink.ts");
 const { generateEmail } = require("../src/emails/prodEmailTemplates.ts");
@@ -17,6 +17,14 @@ const { EMAILS } = require("../src/emails/prodEmails.ts");
 const { BANNER_OPTIONS, FOOTER_OPTIONS } = require("../src/emails/headerSwap.ts");
 assert.equal(EMAIL_DRAFTS.length, 5);
 assert.equal(new Set(EMAIL_DRAFTS.map(d=>d.id)).size, 5);
+assert.deepEqual(EMAIL_DRAFTS.filter(d => isDraftReadyForDevelopment(d.id)).map(d => d.id), ["valorizacion-publicacion", "publicacion-revision", "publicacion-exitosa"], "Only the three emails validated by Julio are ready for development");
+assert.deepEqual(EMAIL_DRAFTS.filter(d => !isDraftReadyForDevelopment(d.id)).map(d => d.id), ["condiciones-aviso-previo", "condiciones-vigentes"], "Both legal notices must remain pending");
+assert.equal(isDraftReadyForDevelopment("unknown-email"), false);
+assert.deepEqual(EMAIL_DRAFTS.filter(d => isDraftReadyForDevelopment(d.id)).map(d => d.trigger), [
+  "Cuando el usuario termina la valorización de su vehículo y la guarda.",
+  "Cuando el usuario acaba de publicar su vehículo y la publicación queda en revisión.",
+  "Cuando la publicación supera la revisión, se aprueba y queda publicada.",
+], "Development triggers must match Julio's confirmed flow");
 for (const d of EMAIL_DRAFTS) {
   assert(!EMAILS.some(e=>e.id===d.id), "Draft leaked into production");
   assert(d.pending.length > 0);
@@ -24,6 +32,10 @@ for (const d of EMAIL_DRAFTS) {
   assert(FOOTER_OPTIONS.some(b=>b.id===d.preset.footer));
   assert.equal(d.sections.filter(s=>s.type==="cta").length, 1);
   const html = renderDraft(d);
+  if (d.trigger) {
+    assert(!html.includes(d.trigger), "Development trigger leaked into recipient-facing HTML");
+    assert(!renderDraftBase(d).includes(d.trigger), "Development trigger leaked into the editable email body");
+  }
   assert(html.includes("BORRADOR"));
   assert(html.includes(d.bannerTitle));
   assert(html.includes(d.preheader));
@@ -59,7 +71,7 @@ const published = EMAIL_DRAFTS.find(d=>d.id==="publicacion-exitosa");
 const valuation = EMAIL_DRAFTS.find(d=>d.id==="valorizacion-publicacion");
 assert.equal(valuation.bannerTitle, "¡Ya valorizaste tu vehículo! Estás a un paso de encontrar el precio que buscas.");
 assert.equal(valuation.sections.find(section => section.type === "title").content.text, valuation.bannerTitle);
-assert.deepEqual(valuation.sections.filter(section => section.type === "text").map(section => section.content.text.replace(/__/g, "")), [
+assert.deepEqual(valuation.sections.filter(section => section.type === "text").map(section => renderDraftSection(section).replace(/<[^>]*>/g, "").trim()), [
   "Hola, {{nombre}}",
   "Acabas de valorizar tu vehículo. Ahora da el siguiente paso: publícalo en VMC Subastas con la modalidad Negociable y recibe ofertas sin comisiones, ni intermediarios.",
   "Tú defines tu expectativa de venta. Los compradores verificados podrán enviarte propuestas que puedes aceptar, contraproponer o rechazar. ¡Tú decides con cuál avanzar!",
