@@ -61,22 +61,40 @@ function button(text: string, url: string): string {
 const acc = (t: string) => `<span style="color:#fbc47d;">${t}</span>`;
 
 /**
- * Hero oscuro de marca (como los banners «Publica en VMC»): logo dentro, imagen a
- * sangre, título blanco con acento naranja, CTA y una tira de beneficios abajo.
+ * Hero con el texto SOBRE la foto. Las fotos tienen a las personas a la derecha y
+ * fondo oscuro a la izquierda: ahí va el copy, sobre un degradado de marca.
+ * En móvil (ver heroMobile) la foto queda arriba y el texto se funde abajo.
+ * Fallback: sin soporte de background-image (Outlook) se ve el morado de marca.
  */
+const HERO_SHADE = 'linear-gradient(90deg,rgba(34,0,92,0.97) 0%,rgba(34,0,92,0.88) 40%,rgba(34,0,92,0.25) 66%,rgba(34,0,92,0) 80%)';
 function hero(o: { img: string; alt: string; eyebrow: string; title: string; text: string; cta: string; url: string; perks: [string, string, string] }): string {
-  const perk = (t: string, i: number) => `<td class="ds-in" width="33%" align="center" style="padding:14px 6px;${i ? 'border-left:1px solid rgba(255,255,255,0.14);' : ''}font-family:${F};font-size:13px;line-height:17px;font-weight:700;color:#ffffff;animation-delay:${0.6 + i * 0.1}s;"><span style="color:${DS.orange};">&#9679;</span>&nbsp; ${t}</td>`;
-  return `${T(`bgcolor="${DS.v900}" class="ds-in" style="border-radius:24px;background-image:radial-gradient(120% 70% at 85% 100%,rgba(237,137,54,0.28) 0%,rgba(237,137,54,0) 60%),linear-gradient(180deg,#22005c 0%,#3b1782 100%);box-shadow:0 18px 40px rgba(34,0,92,0.28);"`)}
-<tr><td style="padding:22px 28px 18px;">${logo(84)}</td></tr>
-<tr><td style="font-size:0;line-height:0;overflow:hidden;"><img class="ds-zoom" src="${IMG}/${o.img}" alt="${o.alt}" width="600" border="0" style="display:block;width:100%;max-width:100%;height:auto;"></td></tr>
-<tr><td style="padding:28px 28px 30px;font-family:${F};">
+  const src = `${IMG}/${o.img}`;
+  return `${T(`style="border-radius:24px;box-shadow:0 18px 40px rgba(34,0,92,0.28);"`)}<tr>
+<td class="ds-hero" background="${src}" bgcolor="${DS.v900}" data-hero="${src}" valign="top" style="border-radius:24px;background-color:${DS.v900};background-image:${HERO_SHADE},url('${src}');background-size:100% 100%,cover;background-position:0 0,right center;background-repeat:no-repeat;">
+${T()}<tr>
+<td class="ds-hero-copy" width="60%" valign="top" style="padding:26px 0 30px 30px;font-family:${F};">
+<div style="margin-bottom:46px;">${logo(84)}</div>
 <p class="ds-in" style="margin:0;font-size:12px;line-height:16px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:${DS.orange};animation-delay:.15s;">${o.eyebrow}</p>
-<h1 class="ds-h1 ds-in" style="margin:10px 0 0;font-family:${F};font-size:38px;line-height:42px;font-weight:800;letter-spacing:-0.04em;color:#ffffff;animation-delay:.25s;">${o.title}</h1>
-<p class="ds-in" style="margin:14px 0 26px;font-size:17px;line-height:26px;color:#e8ddff;animation-delay:.35s;">${o.text}</p>
+<h1 class="ds-h1 ds-in" style="margin:10px 0 0;font-family:${F};font-size:36px;line-height:40px;font-weight:800;letter-spacing:-0.04em;color:#ffffff;text-shadow:0 2px 16px rgba(34,0,92,0.6);animation-delay:.25s;">${o.title}</h1>
+<p class="ds-in" style="margin:14px 0 24px;font-size:16px;line-height:24px;color:#e8ddff;animation-delay:.35s;">${o.text}</p>
 <div class="ds-in" style="animation-delay:.45s;">${button(o.cta, o.url)}</div>
-</td></tr>
-<tr><td style="padding:0 16px 16px;">${T(`style="border-radius:16px;background-color:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);"`)}<tr>${o.perks.map(perk).join('')}</tr></table></td></tr>
-</table>`;
+<p class="ds-in" style="margin:16px 0 0;font-size:13px;line-height:18px;font-weight:600;color:#cfbaff;animation-delay:.55s;">${o.perks.join(' &nbsp;·&nbsp; ')}</p>
+</td>
+<td class="ds-hero-gap" width="40%" style="font-size:0;line-height:0;">&nbsp;</td>
+</tr></table>
+</td></tr></table>`;
+}
+
+/** En móvil: foto arriba a todo el ancho y el texto debajo, fundido con un degradado vertical. */
+function heroMobile(src: string): string {
+  return `<style>
+@media only screen and (max-width:480px){
+.ds-hero{background-image:linear-gradient(180deg,rgba(34,0,92,0) 0px,rgba(34,0,92,0) 120px,rgba(34,0,92,1) 230px),url('${src}')!important;background-size:100% 100%,100% auto!important;background-position:0 0,center top!important}
+.ds-hero-copy{display:block!important;width:100%!important;box-sizing:border-box;padding:22px 22px 28px!important}
+.ds-hero-copy > div:first-child{margin-bottom:150px!important}
+.ds-hero-gap{display:none!important}
+}
+</style>`;
 }
 
 /** Cierre: tarjeta lavanda centrada con ícono grande, título y CTA. */
@@ -145,6 +163,7 @@ const MOTION = `<style>
 </style>`;
 const RESPONSIVE = `<style>
 @media only screen and (max-width:480px){
+table[width="600"],td[width="600"]{width:100%!important;box-sizing:border-box}
 .ds-stack{display:block!important;width:100%!important;box-sizing:border-box}
 td.ds-stack[width="4%"]{height:14px!important}
 .ds-h1{font-size:30px!important;line-height:34px!important}
@@ -162,8 +181,9 @@ interface Def {
 function build(d: Def): string {
   const marker: Section = { id: 'body', type: 'text', content: { text: MARK } };
   const body = [gap(28), ...d.body, gap(36)].join('\n');
+  const src = /data-hero="([^"]+)"/.exec(d.hero)?.[1] ?? '';
   return glassNegociableEmail([marker], d.subject, d.preheader, d.hero)
-    .replace('</head>', `${MOTION}\n${RESPONSIVE}\n</head>`)
+    .replace('</head>', `${MOTION}\n${RESPONSIVE}\n${heroMobile(src)}\n</head>`)
     .replace(new RegExp(`<tr><td[^>]*>${MARK}</td></tr>`), body);
 }
 
