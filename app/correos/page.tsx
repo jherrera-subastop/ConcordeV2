@@ -69,6 +69,11 @@ export default function CorreosPage(): JSX.Element {
           los correos que hoy están en producción, intercambiando su tipología de header, footer y fondo.
         </p>
 
+        <Link href="/correos/borradores" style={{ display: "block", padding: "18px 20px", marginBottom: 24, border: "1px solid var(--ui-border)", borderRadius: 12, color: "var(--ui-ink)", textDecoration: "none", background: "var(--ui-subtle)" }}>
+          <strong>Revisar los cinco borradores nuevos →</strong>
+          <span style={{ display: "block", marginTop: 5, fontSize: 13, color: "var(--ui-body)" }}>Publicación de vehículos y actualización de condiciones. Borradores de revisión, no enviados ni incorporados al catálogo de producción.</span>
+        </Link>
+
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 20 }}>
           {CARDS.map(function renderCard(c) {
             return (

@@ -30,10 +30,11 @@ import type { JSX, ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import CopyHtmlButton from "@/app/correos/_components/CopyHtmlButton";
 import EmailFrame, { EMAIL_FRAME_W, type EmailFrameHandle } from "@/app/correos/_components/EmailFrame";
-import { BANNER_OPTIONS, FOOTER_OPTIONS, buildBannerFor, buildFooterFor, swapEmailHeader, swapEmailFooter, stripBodyTitle, presetForCategory, toneLabelForCategory, type BannerText } from "@/src/emails/headerSwap";
+import { BANNER_OPTIONS, FOOTER_OPTIONS, buildBannerFor, buildFooterFor, swapEmailHeader, swapEmailFooter, stripBodyTitle, presetForCategory, toneLabelForCategory, type BannerText, type LabPreset } from "@/src/emails/headerSwap";
 import { V2_TONE_OPTIONS, type V2Tone } from "@/src/emails/tipologiasV2";
 import type { RevisionEstado } from "@/src/emails/revisionStatus";
 import type { FigmaRef } from "@/src/emails/figmaRef";
+import { linkDraftHelpButton } from "@/src/emails/drafts/helpLink";
 
 const ORIGINAL = "original";
 const TONE_IDS = new Set(V2_TONE_OPTIONS.map(function id(o) { return o.tone; }));
@@ -44,6 +45,10 @@ export interface BannerLabProps {
   title: string;
   /** Asunto real — default del título editable del banner. */
   subject: string;
+  /** Draft-specific title and preset. Omitted by all existing production pages. */
+  bannerTitle?: string;
+  initialPreset?: LabPreset;
+  initialComparing?: boolean;
   /** Nombre de la categoría — default del pill del banner. */
   categoria: string;
   /**
@@ -331,14 +336,14 @@ function FigmaPanel({ figmaRef, baseName, matchHeight, scale }: { figmaRef?: Fig
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function BannerLab({ html, title, subject, categoria, figmaRef, figmaBaseName = "correo", estado = "listo", nota = null, nav = null }: BannerLabProps): JSX.Element {
+export default function BannerLab({ html, title, subject, bannerTitle, initialPreset, initialComparing = true, categoria, figmaRef, figmaBaseName = "correo", estado = "listo", nota = null, nav = null }: BannerLabProps): JSX.Element {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
 
   // La composición con la que abre el correo si la URL no dice otra cosa: las
   // categorías del flujo de subasta arrancan ya maquetadas (ver headerSwap).
-  const preset = useMemo(function resolvePreset() { return presetForCategory(categoria); }, [categoria]);
+  const preset = useMemo(function resolvePreset() { return initialPreset ?? presetForCategory(categoria); }, [categoria, initialPreset]);
 
   // Estado en la URL (C9): banner / footer / tono se leen del query string y,
   // si no están, caen al preset de la categoría.
@@ -388,7 +393,7 @@ export default function BannerLab({ html, title, subject, categoria, figmaRef, f
   // Vista dividida correo ↔ Figma (toggle, no hold: hay que poder mirar ambos).
   // Arranca ABIERTA: al entrar a un correo lo primero que se hace es cotejarlo
   // contra su referencia, así que ahorra un clic en el caso normal.
-  const [comparing, setComparing] = useState(true);
+  const [comparing, setComparing] = useState(initialComparing);
   // Alto ya escalado del correo — la referencia de Figma se iguala a él.
   const [previewH, setPreviewH] = useState<number | null>(null);
   const frameRef = useRef<EmailFrameHandle | null>(null);
@@ -403,7 +408,7 @@ export default function BannerLab({ html, title, subject, categoria, figmaRef, f
   const swappedHtml = useMemo(function compute() {
     let out = html;
     if (bannerOn) {
-      const resolved: BannerText = { titulo: titulo.trim() || subject };
+      const resolved: BannerText = { titulo: titulo.trim() || bannerTitle || subject };
       const bannerHtml = buildBannerFor(bannerId, tone, resolved);
       // El banner de tipología YA rotula el título de campaña: dejar además el
       // bloque `title` del cuerpo lo repetiría justo debajo.
@@ -413,8 +418,8 @@ export default function BannerLab({ html, title, subject, categoria, figmaRef, f
       const footerHtml = buildFooterFor(footerId, tone);
       if (footerHtml) out = swapEmailFooter(out, footerHtml);
     }
-    return out;
-  }, [html, bannerId, footerId, tone, titulo, subject, bannerOn, footerOn]);
+    return linkDraftHelpButton(out);
+  }, [html, bannerId, footerId, tone, titulo, subject, bannerTitle, bannerOn, footerOn]);
 
   // El preview siempre muestra la composición activa: al comparar contra Figma la
   // referencia va al lado, no en lugar del correo.
@@ -497,7 +502,7 @@ export default function BannerLab({ html, title, subject, categoria, figmaRef, f
           opacity: bannerOn ? 1 : 0.5, transition: "opacity 0.15s ease",
         }}
       >
-        <Field label="Título del banner" value={titulo} onChange={setTitulo} placeholder={bannerOn ? subject : "—"} disabled={!bannerOn} />
+        <Field label="Título del banner" value={titulo} onChange={setTitulo} placeholder={bannerOn ? (bannerTitle || subject) : "—"} disabled={!bannerOn} />
       </div>
 
       {/* Recorrido de revisión: anterior · N de 45 · siguiente. */}
@@ -544,7 +549,7 @@ export default function BannerLab({ html, title, subject, categoria, figmaRef, f
         {/* Pista permanente del tono propio: el modal solo sale la primera vez,
             así que esta línea recuerda cuál es el color de la categoría. */}
         <span style={{ fontSize: 11, color: "var(--ui-muted)", lineHeight: 1.45, marginTop: -6 }}>
-          {categoria} usa <strong style={{ color: "var(--ui-body)", fontWeight: 700 }}>{toneLabelForCategory(categoria)}</strong> como fondo de marca.
+          {categoria} usa <strong style={{ color: "var(--ui-body)", fontWeight: 700 }}>{(initialPreset ? (V2_TONE_OPTIONS.find(option => option.tone === preset.tone)?.label ?? "") : toneLabelForCategory(categoria))}</strong> como fondo de marca.
         </span>
 
       </aside>
@@ -591,7 +596,7 @@ export default function BannerLab({ html, title, subject, categoria, figmaRef, f
     {pendingTone && (
       <ToneAlert
         categoria={categoria}
-        toneLabel={toneLabelForCategory(categoria)}
+        toneLabel={(initialPreset ? (V2_TONE_OPTIONS.find(option => option.tone === preset.tone)?.label ?? "") : toneLabelForCategory(categoria))}
         onCancel={function cancel() { setPendingTone(null); }}
         onConfirm={confirmTone}
       />
