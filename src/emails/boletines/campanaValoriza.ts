@@ -61,40 +61,21 @@ function button(text: string, url: string): string {
 const acc = (t: string) => `<span style="color:#fbc47d;">${t}</span>`;
 
 /**
- * Hero con el texto SOBRE la foto. Las fotos tienen a las personas a la derecha y
- * fondo oscuro a la izquierda: ahí va el copy, sobre un degradado de marca.
- * En móvil (ver heroMobile) la foto queda arriba y el texto se funde abajo.
- * Fallback: sin soporte de background-image (Outlook) se ve el morado de marca.
+ * Hero póster («efecto profundidad»): palabra gigante DETRÁS de las personas y la
+ * foto fundida hacia abajo en el morado de marca, donde sigue el texto vivo.
+ * El efecto está horneado en la imagen (hero/valoriza-N.jpg, recortes de Abraham +
+ * ~/Desktop/recortes-valoriza/poster.py), así que se ve igual en Gmail, Apple Mail y Outlook.
  */
-const HERO_SHADE = 'linear-gradient(90deg,rgba(34,0,92,0.97) 0%,rgba(34,0,92,0.88) 40%,rgba(34,0,92,0.25) 66%,rgba(34,0,92,0) 80%)';
 function hero(o: { img: string; alt: string; eyebrow: string; title: string; text: string; cta: string; url: string; perks: [string, string, string] }): string {
-  const src = `${IMG}/${o.img}`;
-  return `${T(`style="border-radius:24px;box-shadow:0 18px 40px rgba(34,0,92,0.28);"`)}<tr>
-<td class="ds-hero" background="${src}" bgcolor="${DS.v900}" data-hero="${src}" valign="top" style="border-radius:24px;background-color:${DS.v900};background-image:${HERO_SHADE},url('${src}');background-size:100% 100%,cover;background-position:0 0,right center;background-repeat:no-repeat;">
-${T()}<tr>
-<td class="ds-hero-copy" width="60%" valign="top" style="padding:26px 0 30px 30px;font-family:${F};">
-<div style="margin-bottom:46px;">${logo(84)}</div>
-<p class="ds-in" style="margin:0;font-size:12px;line-height:16px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:${DS.orange};animation-delay:.15s;">${o.eyebrow}</p>
-<h1 class="ds-h1 ds-in" style="margin:10px 0 0;font-family:${F};font-size:36px;line-height:40px;font-weight:800;letter-spacing:-0.04em;color:#ffffff;text-shadow:0 2px 16px rgba(34,0,92,0.6);animation-delay:.25s;">${o.title}</h1>
-<p class="ds-in" style="margin:14px 0 24px;font-size:16px;line-height:24px;color:#e8ddff;animation-delay:.35s;">${o.text}</p>
+  return `${T(`bgcolor="${DS.v900}" class="ds-in" style="border-radius:24px;background-color:${DS.v900};box-shadow:0 18px 40px rgba(34,0,92,0.28);"`)}
+<tr><td style="font-size:0;line-height:0;border-radius:24px 24px 0 0;overflow:hidden;"><img class="ds-zoom" src="${IMG}/hero/${o.img}" alt="${o.alt}" width="600" border="0" style="display:block;width:100%;max-width:100%;height:auto;border-radius:24px 24px 0 0;"></td></tr>
+<tr><td class="ds-hero-copy" style="padding:4px 32px 32px;font-family:${F};">
+${T()}<tr><td valign="middle">${logo(68)}</td><td align="right" valign="middle" style="font-family:${F};font-size:11px;line-height:14px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:${DS.orange};">${o.eyebrow}</td></tr></table>
+<h1 class="ds-h1 ds-in" style="margin:18px 0 0;font-family:${F};font-size:38px;line-height:42px;font-weight:800;letter-spacing:-0.04em;color:#ffffff;animation-delay:.25s;">${o.title}</h1>
+<p class="ds-in" style="margin:14px 0 24px;font-size:17px;line-height:26px;color:#e8ddff;animation-delay:.35s;">${o.text}</p>
 <div class="ds-in" style="animation-delay:.45s;">${button(o.cta, o.url)}</div>
 <p class="ds-in" style="margin:16px 0 0;font-size:13px;line-height:18px;font-weight:600;color:#cfbaff;animation-delay:.55s;">${o.perks.join(' &nbsp;·&nbsp; ')}</p>
-</td>
-<td class="ds-hero-gap" width="40%" style="font-size:0;line-height:0;">&nbsp;</td>
-</tr></table>
 </td></tr></table>`;
-}
-
-/** En móvil: foto arriba a todo el ancho y el texto debajo, fundido con un degradado vertical. */
-function heroMobile(src: string): string {
-  return `<style>
-@media only screen and (max-width:480px){
-.ds-hero{background-image:linear-gradient(180deg,rgba(34,0,92,0) 0px,rgba(34,0,92,0) 120px,rgba(34,0,92,1) 230px),url('${src}')!important;background-size:100% 100%,100% auto!important;background-position:0 0,center top!important}
-.ds-hero-copy{display:block!important;width:100%!important;box-sizing:border-box;padding:22px 22px 28px!important}
-.ds-hero-copy > div:first-child{margin-bottom:150px!important}
-.ds-hero-gap{display:none!important}
-}
-</style>`;
 }
 
 /** Cierre: tarjeta lavanda centrada con ícono grande, título y CTA. */
@@ -164,6 +145,7 @@ const MOTION = `<style>
 const RESPONSIVE = `<style>
 @media only screen and (max-width:480px){
 table[width="600"],td[width="600"]{width:100%!important;box-sizing:border-box}
+.ds-hero-copy{padding:4px 22px 28px!important}
 .ds-stack{display:block!important;width:100%!important;box-sizing:border-box}
 td.ds-stack[width="4%"]{height:14px!important}
 .ds-h1{font-size:30px!important;line-height:34px!important}
@@ -181,9 +163,8 @@ interface Def {
 function build(d: Def): string {
   const marker: Section = { id: 'body', type: 'text', content: { text: MARK } };
   const body = [gap(28), ...d.body, gap(36)].join('\n');
-  const src = /data-hero="([^"]+)"/.exec(d.hero)?.[1] ?? '';
   return glassNegociableEmail([marker], d.subject, d.preheader, d.hero)
-    .replace('</head>', `${MOTION}\n${RESPONSIVE}\n${heroMobile(src)}\n</head>`)
+    .replace('</head>', `${MOTION}\n${RESPONSIVE}\n</head>`)
     .replace(new RegExp(`<tr><td[^>]*>${MARK}</td></tr>`), body);
 }
 
@@ -195,7 +176,7 @@ const DEFS: Def[] = [
     subject: '¿Ese auto vale lo que piden?',
     preheader: 'Antes de enviar tu propuesta, valorízalo: gratis y en minutos.',
     stage: 'Valoriza', leadsTo: ['valoriza-2-antes-de-vender'],
-    hero: hero({ img: 'comprar.jpg', alt: 'Pareja revisando en el celular el valor de un auto', eyebrow: 'Antes de comprar, valoriza', title: `Propón sabiendo ${acc('cuánto vale')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'En una oferta negociable, tú haces la propuesta. Valoriza el auto antes y propón con sustento.', cta: 'Valorizar', url: VALORIZA_URL }),
+    hero: hero({ img: 'valoriza-1.jpg', alt: '¿Cuánto? — Pareja revisando en el celular el valor de un auto', eyebrow: 'Antes de comprar, valoriza', title: `Propón sabiendo ${acc('cuánto vale')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'En una oferta negociable, tú haces la propuesta. Valoriza el auto antes y propón con sustento.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
       HOLA, gap(8),
       p(`El vendedor publica un precio, pero tú puedes enviarle tu propuesta. Con una valorización, ${b('sabes cuánto proponer')}.`),
@@ -212,7 +193,7 @@ const DEFS: Def[] = [
     subject: '¿Cuánto deberías pedir por tu auto?',
     preheader: 'Ni tan bajo que pierdas, ni tan alto que no se venda.',
     stage: 'Valoriza', leadsTo: ['valoriza-3-por-que-valorizar'],
-    hero: hero({ img: 'vender.jpg', alt: 'Mujer con la llave de su auto, lista para vender', eyebrow: 'Antes de vender, valoriza', title: `El precio que pides ${acc('decide si vendes')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'Si pides muy poco, pierdes plata. Si pides demasiado, tu auto no se vende. Valoriza y pide con sustento.', cta: 'Valorizar', url: VALORIZA_URL }),
+    hero: hero({ img: 'valoriza-2.jpg', alt: '¿Precio? — Mujer con la llave de su auto, lista para vender', eyebrow: 'Antes de vender, valoriza', title: `El precio que pides ${acc('decide si vendes')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'Si pides muy poco, pierdes plata. Si pides demasiado, tu auto no se vende. Valoriza y pide con sustento.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
       HOLA, gap(8),
       p(`El precio correcto no se adivina. ${b('Una valorización te da un punto de partida')} para poner tu auto a la venta.`),
@@ -229,7 +210,7 @@ const DEFS: Def[] = [
     subject: 'Mismo modelo, mismo año… ¿distinto valor?',
     preheader: 'Dos autos iguales pueden valer muy distinto. Te mostramos por qué.',
     stage: 'Valoriza', leadsTo: ['valoriza-4-valorizar-y-publicar'],
-    hero: hero({ img: 'recorrido.jpg', alt: 'Persona revisando su auto junto a un velocímetro', eyebrow: '¿Por qué valorizar?', title: `Dos autos iguales ${acc('no valen lo mismo')}`, perks: ['Estado', 'Recorrido', 'Mantenimiento'], text: 'Misma marca, mismo modelo, mismo año. Aun así, el estado y el recorrido pueden cambiar mucho su valor.', cta: 'Valorizar', url: VALORIZA_URL }),
+    hero: hero({ img: 'valoriza-3.jpg', alt: '140,000 km — Persona revisando su auto junto a un velocímetro', eyebrow: '¿Por qué valorizar?', title: `Dos autos iguales ${acc('no valen lo mismo')}`, perks: ['Estado', 'Recorrido', 'Mantenimiento'], text: 'Misma marca, mismo modelo, mismo año. Aun así, el estado y el recorrido pueden cambiar mucho su valor.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
       HOLA, gap(8),
       p('Mira estos dos autos: misma marca, mismo modelo, mismo año. En papel son iguales. Su valor, no.'),
@@ -250,7 +231,7 @@ const DEFS: Def[] = [
     subject: 'Tu valorización ya no se queda en un número',
     preheader: 'Valoriza hoy, guárdala en Mi Garaje y publica cuando quieras.',
     stage: 'Valoriza', leadsTo: ['valoriza-5-nuevo-canal-de-venta'],
-    hero: hero({ img: 'valoriza.jpg', alt: 'Persona valorizando su auto desde el celular', eyebrow: 'Nuevo en VMC', title: `Valorízalo hoy. ${acc('Véndelo cuando quieras.')}`, perks: ['Valoriza', 'Guarda', 'Publica'], text: 'Valoriza tu auto, guarda la valorización en Mi Garaje y publícalo cuando decidas vender.', cta: 'Valorizar', url: VALORIZA_URL }),
+    hero: hero({ img: 'valoriza-4.jpg', alt: 'Hoy — Persona valorizando su auto desde el celular', eyebrow: 'Nuevo en VMC', title: `Valorízalo hoy. ${acc('Véndelo cuando quieras.')}`, perks: ['Valoriza', 'Guarda', 'Publica'], text: 'Valoriza tu auto, guarda la valorización en Mi Garaje y publícalo cuando decidas vender.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
       HOLA, gap(8),
       p(`Todo en un mismo lugar, ${b('desde Mi Garaje')}:`),
@@ -267,7 +248,7 @@ const DEFS: Def[] = [
     subject: '¿Compras autos? Ahora también véndelos aquí',
     preheader: 'Un nuevo canal de venta: publica en VMC y recibe propuestas.',
     stage: 'Vende', leadsTo: ['valoriza-6-vender-en-vmc'],
-    hero: hero({ img: 'canal.jpg', alt: 'Comprador y vendedor cerrando un trato junto a una camioneta', eyebrow: 'Un nuevo canal de venta', title: `¿Compras en VMC? ${acc('Sé revendedor.')}`, perks: ['Publica', 'Recibe propuestas', 'Tú decides'], text: 'Si compras autos en VMC, ahora también puedes venderlos aquí. Publica y recibe propuestas de compradores que ya buscan en VMC.', cta: 'Publicar', url: PUBLICAR_URL }),
+    hero: hero({ img: 'valoriza-5.jpg', alt: 'Revende — Comprador y vendedor cerrando un trato junto a una camioneta', eyebrow: 'Un nuevo canal de venta', title: `¿Compras en VMC? ${acc('Sé revendedor.')}`, perks: ['Publica', 'Recibe propuestas', 'Tú decides'], text: 'Si compras autos en VMC, ahora también puedes venderlos aquí. Publica y recibe propuestas de compradores que ya buscan en VMC.', cta: 'Publicar', url: PUBLICAR_URL }),
     body: [
       HOLA, gap(8),
       p(`Ya conoces VMC como comprador. Ahora es también ${b('tu canal para vender')}: compra, valoriza y vuelve a vender en un mismo lugar.`),
@@ -283,7 +264,7 @@ const DEFS: Def[] = [
     subject: 'Vende tu auto sin llamadas a toda hora',
     preheader: 'Publica tu auto, recibe propuestas y decide tú.',
     stage: 'Vende', leadsTo: ['valoriza-7-vende-y-valoriza'],
-    hero: hero({ img: 'publica.jpg', alt: 'Vendedor entregando las llaves de su auto', eyebrow: 'Ahora puedes vender en VMC', title: `Publica tu auto y ${acc('recibe propuestas')}`, perks: ['Propuestas', 'Tú decides', 'Sin llamadas'], text: 'Publícalo como oferta negociable: los compradores te envían propuestas a Mi Garaje y tú decides. Sin llamadas a cualquier hora.', cta: 'Publicar', url: PUBLICAR_URL }),
+    hero: hero({ img: 'valoriza-6.jpg', alt: 'Propuestas — Vendedor entregando las llaves de su auto', eyebrow: 'Ahora puedes vender en VMC', title: `Publica tu auto y ${acc('recibe propuestas')}`, perks: ['Propuestas', 'Tú decides', 'Sin llamadas'], text: 'Publícalo como oferta negociable: los compradores te envían propuestas a Mi Garaje y tú decides. Sin llamadas a cualquier hora.', cta: 'Publicar', url: PUBLICAR_URL }),
     body: [
       HOLA, gap(8),
       p(`Sin anuncios en mil sitios ni llamadas a cualquier hora: ${b('todo pasa en Mi Garaje')}. Así funciona:`),
@@ -299,7 +280,7 @@ const DEFS: Def[] = [
     subject: '¿Sabías que en VMC también puedes vender?',
     preheader: 'Valoriza tu auto gratis y descubre a cuánto publicarlo.',
     stage: 'Vende',
-    hero: hero({ img: 'vender.jpg', alt: 'Mujer con la llave de su auto, lista para vender', eyebrow: '¿Sabías que en VMC puedes vender?', title: `Antes de publicar, descubre ${acc('a cuánto venderlo')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'Ahora puedes vender tu auto en VMC. Empieza por valorizarlo: en minutos tienes una referencia para fijar tu precio.', cta: 'Valorizar', url: VALORIZA_URL }),
+    hero: hero({ img: 'valoriza-7.jpg', alt: '¿A cuánto? — Mujer con la llave de su auto, lista para vender', eyebrow: '¿Sabías que en VMC puedes vender?', title: `Antes de publicar, descubre ${acc('a cuánto venderlo')}`, perks: ['Gratis', 'En minutos', 'Sin compromiso'], text: 'Ahora puedes vender tu auto en VMC. Empieza por valorizarlo: en minutos tienes una referencia para fijar tu precio.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
       HOLA, gap(8),
       p(`Publicar con un precio al azar es la forma más rápida de perder tiempo o perder plata. ${b('Valorizar primero')} te da un punto de partida.`),
