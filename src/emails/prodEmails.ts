@@ -172,7 +172,7 @@ export const STAGE_ORDER: Record<string, string[]> = {
   'Negociable': ['Inicio', 'Negociación', 'Alertas', 'Resultado'],
   'Proceso Interno Mapfre': ['Invitación', 'Participación', 'Cierre', 'Resultado'],
   'Calificación de Compra': ['Invitación', 'Recordatorio', 'Último día'],
-  'Campaña Valoriza': ['Leads WhatsApp', 'Compradores', 'Vendedores'],
+  'Campaña Valoriza': ['Valoriza', 'Vende'],
 };
 
 // mismos gradientes que ya usan los CTA de email-templates.ts (G_PRIMARY / G_NEGOTIABLE),

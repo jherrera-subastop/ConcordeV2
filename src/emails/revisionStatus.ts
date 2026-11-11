@@ -27,22 +27,16 @@ export interface RevisionPendiente {
  * mientras esté vacío, el filtro «Pendientes» del catálogo no se pinta.
  */
 const URL_VALORIZA = 'Falta la URL real del flujo de valorización para el CTA (hoy apunta a la home).';
-const CAMPOS_AVT = `${URL_VALORIZA} Confirmar con AVT los datos que pide el formulario (el paso 1 dice: marca, modelo, año, recorrido y estado).`;
-const MAQUETA = 'Maqueta: se rehace con el design system VMC cuando se aprueben los 4 iniciales (A1–A4).';
+const URL_PUBLICAR = 'Falta la URL real del flujo de publicación para el CTA (hoy apunta a Mi Garaje).';
+const AMBAS = 'Faltan las URLs reales de valorización (hoy a la home) y de publicación (hoy a Mi Garaje).';
 
 export const PENDIENTES: Record<string, RevisionPendiente> = {
-  'valoriza-a1-leads-whatsapp': { nota: URL_VALORIZA },
-  'valoriza-a2-leads-whatsapp': { nota: CAMPOS_AVT },
-  'valoriza-a3-leads-whatsapp': { nota: URL_VALORIZA },
-  'valoriza-a4-leads-whatsapp': { nota: `${URL_VALORIZA} También falta la URL de publicación (enlace «Publica tu auto aquí»).` },
-  'valoriza-b1-compradores': { nota: MAQUETA },
-  'valoriza-b2-compradores': { nota: MAQUETA },
-  'valoriza-b3-compradores': { nota: MAQUETA },
-  'valoriza-b4-compradores': { nota: MAQUETA },
-  'valoriza-c1-vendedores': { nota: MAQUETA },
-  'valoriza-c2-vendedores': { nota: MAQUETA },
-  'valoriza-c3-vendedores': { nota: MAQUETA },
-  'valoriza-c4-vendedores': { nota: MAQUETA },
+  'valoriza-1-antes-de-comprar': { nota: URL_VALORIZA },
+  'valoriza-2-antes-de-vender': { nota: URL_VALORIZA },
+  'valoriza-3-por-que-valorizar': { nota: URL_VALORIZA },
+  'valoriza-4-valorizar-y-publicar': { nota: AMBAS },
+  'valoriza-5-nuevo-canal-de-venta': { nota: URL_PUBLICAR },
+  'valoriza-6-vender-en-vmc': { nota: AMBAS },
 };
 
 export function estadoDe(id: string): RevisionEstado {
