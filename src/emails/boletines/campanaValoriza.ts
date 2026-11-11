@@ -93,16 +93,32 @@ const p = (html: string, o: { size?: number; color?: string; align?: string } = 
 const b = (t: string) => `<b style="color:${DS.v700};">${t}</b>`;
 const HOLA = p('Hola {{Nombre usuario.Ejem: Gabriel Bruno}},');
 
-/** Título de sección: antetítulo naranja + título violeta (jerarquía del Index). */
-const title = (kicker: string, text: string) => row(`<p style="margin:0;font-family:${F};font-size:12px;line-height:16px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:${DS.orange};">${kicker}</p><h2 style="margin:6px 0 0;font-family:${F};font-size:22px;line-height:28px;font-weight:800;letter-spacing:-0.02em;color:${DS.v700};">${text}</h2>`, '0 28px');
-
-/** Filas con ícono de vidrio (estilo «Empresas y vendedores»). `steps` antepone «Paso n». */
-function rows(items: [Icono, string, string][], steps = false): string {
-  const r = items.map(([ic, t, d], i) => `<tr><td class="ds-in" style="padding:16px 20px;${i ? `border-top:1px solid ${DS.divider};` : ''}animation-delay:${0.1 + i * 0.12}s;">${T()}<tr>
-<td width="60" valign="middle"><div class="ds-pop" style="display:inline-block;padding:8px;border-radius:16px;background-color:${DS.lav};animation-delay:${0.25 + i * 0.12}s;">${icon(ic)}</div></td>
-<td valign="middle" style="padding-left:16px;font-family:${F};">${steps ? `<div style="font-size:11px;line-height:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:${DS.orange};">Paso ${i + 1}</div>` : ''}<div style="margin-top:${steps ? 3 : 0}px;font-size:16px;line-height:22px;font-weight:800;letter-spacing:-0.01em;color:${DS.v700};">${t}</div><div style="margin-top:3px;font-size:14px;line-height:20px;color:${DS.muted};">${d}</div></td>
+/**
+ * Celular con una pantalla REAL de VMC (capturas del flujo, cel/*.png) junto a la lista:
+ * el producto se ve, no se describe. En móvil el celular queda arriba, centrado.
+ */
+function cel(img: string, alt: string, kicker: string, head: string, items: [Icono, string, string][]): string {
+  const li = items.map(([ic, t, d], i) => `<tr><td class="ds-in" style="padding:${i ? 14 : 0}px 0 0;animation-delay:${0.2 + i * 0.12}s;">${T()}<tr>
+<td width="44" valign="top"><div style="display:inline-block;padding:4px;border-radius:12px;background-color:${DS.lav};">${icon(ic, 32)}</div></td>
+<td valign="top" style="padding-left:12px;font-family:${F};"><div style="font-size:15px;line-height:20px;font-weight:800;color:${DS.v700};">${t}</div><div style="margin-top:2px;font-size:14px;line-height:20px;color:${DS.muted};">${d}</div></td>
 </tr></table></td></tr>`).join('');
-  return row(`${T(`bgcolor="#ffffff" style="border-radius:20px;border:1px solid ${DS.divider};box-shadow:${DS_SHADOW};"`)}${r}</table>`, '0 16px');
+  return row(`${T(`bgcolor="${DS.lav}" style="border-radius:24px;background-image:linear-gradient(135deg,#f5f0ff 0%,#ffffff 70%);border:1px solid ${DS.divider};"`)}<tr>
+<td class="ds-stack ds-cel" width="46%" align="center" valign="middle" style="padding:20px 0 12px 12px;"><img class="ds-zoom" src="${IMG}/cel/${img}" alt="${alt}" width="230" border="0" style="display:block;width:230px;max-width:100%;height:auto;margin:0 auto;"></td>
+<td class="ds-stack ds-cel-copy" width="54%" valign="middle" style="padding:24px 24px 24px 8px;font-family:${F};">
+<p style="margin:0;font-size:12px;line-height:16px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:${DS.orange};">${kicker}</p>
+<h2 style="margin:6px 0 18px;font-family:${F};font-size:22px;line-height:28px;font-weight:800;letter-spacing:-0.02em;color:${DS.v700};">${head}</h2>
+${T()}${li}</table>
+</td></tr></table>`, '0 16px');
+}
+
+/** Tira de 3 celulares: el recorrido completo en pantallas reales, paso a paso. */
+function cels(items: [string, string, string, string][]): string {
+  const c = items.map(([img, alt, t, d], i) => `<td class="ds-in" width="33%" align="center" valign="top" style="padding:0 4px;font-family:${F};animation-delay:${0.1 + i * 0.15}s;">
+<img src="${IMG}/cel/${img}" alt="${alt}" width="176" border="0" style="display:block;width:100%;max-width:176px;height:auto;margin:0 auto;">
+<div style="margin-top:6px;font-size:11px;line-height:14px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:${DS.orange};">Paso ${i + 1}</div>
+<div style="margin-top:3px;font-size:16px;line-height:21px;font-weight:800;color:${DS.v700};">${t}</div>
+<div style="margin-top:3px;font-size:13px;line-height:18px;color:${DS.muted};">${d}</div></td>`).join('');
+  return row(`${T()}<tr>${c}</tr></table>`, '0 12px');
 }
 
 /** Nota referencial: ícono de fecha + texto, en lavanda. */
@@ -147,6 +163,8 @@ const RESPONSIVE = `<style>
 table[width="600"],td[width="600"]{width:100%!important;box-sizing:border-box}
 .ds-hero-copy{padding:4px 22px 28px!important}
 .ds-stack{display:block!important;width:100%!important;box-sizing:border-box}
+.ds-cel{padding:24px 0 0!important}
+.ds-cel-copy{padding:16px 24px 26px!important}
 td.ds-stack[width="4%"]{height:14px!important}
 .ds-h1{font-size:30px!important;line-height:34px!important}
 }
@@ -180,8 +198,7 @@ const DEFS: Def[] = [
     body: [
       HOLA, gap(8),
       p(`El vendedor publica un precio, pero tú puedes enviarle tu propuesta. Con una valorización, ${b('sabes cuánto proponer')}.`),
-      gap(28), title('Antes de proponer', 'Tres ventajas de valorizar'), gap(14),
-      rows([['precio', 'Sabes cuánto proponer', 'Tu propuesta parte de un valor de referencia.'], ['compras', 'Detectas oportunidades', 'Ves si el precio está por debajo de su valor.'], ['negociaciones', 'Negocias con argumentos', 'Si llega una contrapropuesta, sabes si te conviene.']]),
+      gap(28), cel('resultado.png', 'Pantalla de resultado de una valorización en VMC', 'Antes de proponer', 'Tu valorización, en tu celular', [['precio', 'Sabes cuánto proponer', 'Tu propuesta parte de un valor de referencia.'], ['compras', 'Detectas oportunidades', 'Ves si el precio está por debajo de su valor.'], ['negociaciones', 'Negocias con argumentos', 'Si llega una contrapropuesta, sabes si te conviene.']]),
       gap(24), note(REF),
       gap(32), closing('valorizaciones', 'Antes de proponer, valoriza', 'Gratis, en minutos y desde tu celular.', 'Valorizar un auto', VALORIZA_URL),
       gap(24), ps('Valorizar en VMC es gratis, siempre.'),
@@ -197,8 +214,7 @@ const DEFS: Def[] = [
     body: [
       HOLA, gap(8),
       p(`El precio correcto no se adivina. ${b('Una valorización te da un punto de partida')} para poner tu auto a la venta.`),
-      gap(28), title('Antes de publicar', 'Tres ventajas de valorizar'), gap(14),
-      rows([['valorizaciones', 'Un precio con sustento', 'Según el estado y el recorrido de tu auto.'], ['precio', 'Ni regalado ni estancado', 'Ni tan bajo que pierdas, ni tan alto que no se venda.'], ['vender', 'Negocias con confianza', 'Sabes si aceptar, rechazar o contraproponer.']]),
+      gap(28), cel('resultado.png', 'Pantalla de resultado de una valorización en VMC, con el botón Publicar', 'Antes de publicar', 'Sabes cuánto vale. Luego, publicas', [['valorizaciones', 'Un precio con sustento', 'Según el estado y el recorrido de tu auto.'], ['precio', 'Ni regalado ni estancado', 'Ni tan bajo que pierdas, ni tan alto que no se venda.'], ['vender', 'Negocias con confianza', 'Sabes si aceptar, rechazar o contraproponer.']]),
       gap(24), note(REF),
       gap(32), closing('vender', 'Pide con sustento', 'Conoce el valor de referencia de tu auto antes de publicarlo.', 'Valorizar mi auto', VALORIZA_URL),
       gap(24), ps('Valorizar es gratis y no te obliga a vender.'),
@@ -219,8 +235,7 @@ const DEFS: Def[] = [
         { tag: 'Auto A', chips: ['45,000 km', 'Mantenimiento al día', 'Sin choques'], value: 'Más alto', pct: 86, high: true },
         { tag: 'Auto B', chips: ['140,000 km', 'Sin historial', 'Golpes por reparar'], value: 'Más bajo', pct: 46, high: false },
       ]),
-      gap(28), title('La diferencia', 'Lo que más mueve el valor'), gap(14),
-      rows([['km', 'El recorrido', 'Cuántos kilómetros tiene.'], ['verificado', 'El estado', 'Carrocería, pintura y mecánica.'], ['fecha', 'El mantenimiento', 'Si está al día y documentado.']]),
+      gap(28), cel('formulario.png', 'Formulario de valorización de VMC con año y kilómetros', 'La diferencia', 'Lo que más mueve el valor', [['km', 'El recorrido', 'Cuántos kilómetros tiene.'], ['verificado', 'El estado', 'Carrocería, pintura y mecánica.'], ['fecha', 'El mantenimiento', 'Si está al día y documentado.']]),
       gap(32), closing('km', '¿Cuánto vale el tuyo?', 'Tu estado y tu recorrido, no una tabla genérica.', 'Valorizar mi auto', VALORIZA_URL),
       gap(24), ps('Por eso una tabla genérica no te dice cuánto vale el tuyo. Una valorización, sí. Y es gratis.'),
     ],
@@ -236,7 +251,7 @@ const DEFS: Def[] = [
       HOLA, gap(8),
       p(`Todo en un mismo lugar, ${b('desde Mi Garaje')}:`),
       gap(18),
-      rows([['valorizaciones', 'Valoriza', 'Gratis y en minutos, desde tu celular.'], ['docs', 'Guarda', 'Tu valorización queda en Mi Garaje.'], ['publicar', 'Publica', 'Como oferta negociable, cuando decidas vender.']], true),
+      cels([['formulario.png', 'Formulario de valorización', 'Valoriza', 'Gratis, desde tu celular.'], ['resultado.png', 'Resultado de la valorización con Guardar y Publicar', 'Guarda', 'Queda en Mi Garaje.'], ['propuestas.png', 'Propuestas recibidas en Mi Garaje', 'Publica', 'Y recibe propuestas.']]),
       gap(24), note(REF),
       gap(32), closing('docs', 'Empieza por valorizar', 'Queda guardada en Mi Garaje para cuando decidas publicar.', 'Valorizar mi auto', VALORIZA_URL),
       gap(16), link('¿Ya valorizaste? Publica tu auto aquí', PUBLICAR_URL),
@@ -252,8 +267,7 @@ const DEFS: Def[] = [
     body: [
       HOLA, gap(8),
       p(`Ya conoces VMC como comprador. Ahora es también ${b('tu canal para vender')}: compra, valoriza y vuelve a vender en un mismo lugar.`),
-      gap(28), title('Tu nuevo ciclo', 'Compra, valoriza y vende'), gap(14),
-      rows([['compras', 'Compra', 'Encuentra la oportunidad en VMC.'], ['valorizaciones', 'Valoriza', 'Conoce su valor de referencia, gratis.'], ['crecimiento', 'Vende', 'Publícalo como oferta negociable.']], true),
+      gap(28), cel('mi-garaje.png', 'Mi Garaje en VMC con Publica tu vehículo y Valoriza tu vehículo', 'Tu nuevo ciclo', 'Compra, valoriza y vende', [['compras', 'Compra', 'Encuentra la oportunidad en VMC.'], ['valorizaciones', 'Valoriza', 'Conoce su valor de referencia, gratis.'], ['crecimiento', 'Vende', 'Publícalo como oferta negociable.']]),
       gap(32), closing('crecimiento', 'Tu auto, frente a compradores de VMC', 'Publica y deja que las propuestas lleguen a ti.', 'Publicar mi auto', PUBLICAR_URL),
       gap(24), ps('Antes de publicar, valoriza: un precio con sustento vende mejor.'),
     ],
@@ -269,7 +283,7 @@ const DEFS: Def[] = [
       HOLA, gap(8),
       p(`Sin anuncios en mil sitios ni llamadas a cualquier hora: ${b('todo pasa en Mi Garaje')}. Así funciona:`),
       gap(18),
-      rows([['precio', 'Recibe propuestas', 'Los compradores te dicen cuánto pagarían.'], ['verificado', 'Tú decides', 'Acepta, rechaza o haz una contrapropuesta.'], ['negociaciones', 'Responde preguntas', 'Los compradores te pueden escribir antes de proponer.']]),
+      cel('responder.png', 'Pantalla de una propuesta con Aceptar y Contraproponer', 'Así funciona', 'Las propuestas llegan a Mi Garaje', [['precio', 'Recibe propuestas', 'Los compradores te dicen cuánto pagarían.'], ['verificado', 'Tú decides', 'Acepta, rechaza o haz una contrapropuesta.'], ['negociaciones', 'Responde preguntas', 'Los compradores te pueden escribir antes de proponer.']]),
       gap(32), closing('publicar', 'Publica tu auto en VMC', 'Y recibe propuestas en Mi Garaje.', 'Publicar mi auto', PUBLICAR_URL),
       gap(16), link('¿No sabes a cuánto publicarlo? Valorízalo gratis', VALORIZA_URL),
     ],
@@ -284,8 +298,7 @@ const DEFS: Def[] = [
     body: [
       HOLA, gap(8),
       p(`Publicar con un precio al azar es la forma más rápida de perder tiempo o perder plata. ${b('Valorizar primero')} te da un punto de partida.`),
-      gap(28), title('De tu garaje a la venta', 'Así vendes en VMC'), gap(14),
-      rows([['valorizaciones', 'Valoriza', 'Conoce el valor de referencia de tu auto, gratis.'], ['publicar', 'Publica', 'Como oferta negociable, con tu precio.'], ['negociaciones', 'Recibe propuestas', 'Acepta, rechaza o haz una contrapropuesta.']], true),
+      gap(28), cel('formulario.png', 'Formulario de valorización de VMC', 'De tu garaje a la venta', 'Así vendes en VMC', [['valorizaciones', 'Valoriza', 'Conoce el valor de referencia de tu auto, gratis.'], ['publicar', 'Publica', 'Como oferta negociable, con tu precio.'], ['negociaciones', 'Recibe propuestas', 'Acepta, rechaza o haz una contrapropuesta.']]),
       gap(24), note(REF),
       gap(32), closing('precio', '¿A cuánto publicarías tu auto?', 'Descúbrelo antes de ponerlo a la venta.', 'Valorizar mi auto', VALORIZA_URL),
       gap(16), link('¿Ya sabes tu precio? Publica tu auto aquí', PUBLICAR_URL),
