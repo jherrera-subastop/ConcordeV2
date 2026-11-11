@@ -35,12 +35,21 @@ const SHELL = `bgcolor="#f3efff" style="border-radius:24px;background-image:${MI
 
 const logo = (w: number) => `<img src="${LOGO}" width="${w}" alt="vmc Subastas" border="0" style="display:block;width:${w}px;height:auto;">`;
 
-function banner(): string {
+/** Textos del banner. Por defecto, los de «oferta-publicada-vendedor». */
+export interface GlassHero { badge: string; title: string; accent: string }
+const HERO_OFERTA: GlassHero = {
+  badge: "", // sin pastilla: el banner de «Oferta publicada» ya no la lleva
+  title: "¡Tu vehículo ya está publicado! &#128663;",
+  accent: "Prepárate para recibir ofertas",
+};
+
+function banner(h: GlassHero): string {
   return `<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#5a35c2" style="border-radius:24px;background-image:${BRAND_SKY};">
 <tr><td align="center" style="padding:30px 24px 28px;font-family:${FONT};">
 <table border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;"><tr><td>${logo(132)}</td></tr></table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top:24px;border-radius:20px;${PANE}"><tr><td align="center" style="padding:22px 24px 26px;">
-<h1 style="margin:0;font-size:26px;font-weight:800;line-height:1.25;letter-spacing:-0.02em;color:#3b1782;font-family:${FONT};">¡Tu vehículo ya está publicado! &#128663;<br><span style="color:#00898b;">Prepárate para recibir ofertas</span></h1>
+${h.badge ? `<table border="0" cellpadding="0" cellspacing="0" align="center"><tr><td style="border-radius:9999px;padding:5px 14px;background-color:rgba(0,174,177,0.10);border:1px solid rgba(0,174,177,0.35);font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#00797b;">${h.badge}</td></tr></table>` : ""}
+<h1 style="margin:${h.badge ? "14px 0 0" : "0"};font-size:26px;font-weight:800;line-height:1.25;letter-spacing:-0.02em;color:#3b1782;font-family:${FONT};">${h.title}<br><span style="color:#00898b;">${h.accent}</span></h1>
 </td></tr></table>
 </td></tr></table>`;
 }
@@ -71,8 +80,10 @@ const LIGHT_HEAD = `<meta name="color-scheme" content="light only">
 <style>:root{color-scheme:light only;supported-color-schemes:light;}</style>`;
 
 /** El correo completo: cuerpo del renderer + banner/footer glass. */
-export function glassNegociableEmail(sections: Section[], subject: string, preheader: string): string {
-  let html = swapEmailFooter(stripBodyTitle(swapEmailHeader(generateEmail(sections, subject), banner())), FOOTER);
+/** `hero`: textos para el banner glass, o el HTML de un banner propio (campaña Valoriza). */
+export function glassNegociableEmail(sections: Section[], subject: string, preheader: string, hero: GlassHero | string = HERO_OFERTA): string {
+  const top = typeof hero === "string" ? hero : banner(hero);
+  let html = swapEmailFooter(stripBodyTitle(swapEmailHeader(generateEmail(sections, subject), top)), FOOTER);
   // Preheader: el texto gris que la bandeja muestra junto al asunto. Va oculto
   // al inicio del body; los &zwnj; evitan que el cliente rellene con el cuerpo.
   const pre = `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#ffffff;opacity:0;">${preheader}${"&zwnj;&nbsp;".repeat(60)}</div>`;
