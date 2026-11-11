@@ -96,11 +96,6 @@ ${pill(o.kicker, '#0b2b2b', C.aqua)}
 </td></tr></table>`;
 }
 
-/** Carta: franja mínima, para el correo que debe sentirse personal. */
-function heroLetter(): string {
-  return `${T(`bgcolor="#3b1782" style="border-radius:20px;background-image:linear-gradient(90deg,#3b1782 0%,#5a35c2 100%);"`)}<tr><td style="padding:16px 24px;">${logo(84)}</td></tr></table>`;
-}
-
 // ─── PIEZAS PROTAGONISTAS ────────────────────────────────────────────────────
 const TONE_GRAD: Record<Tone, [string, string, string]> = {
   teal: ['#00aeb1', 'linear-gradient(110deg,#00aeb1 0%,#5f7de0 50%,#8460e5 100%,#00aeb1 150%)', 'rgba(0,174,177,0.40)'],
@@ -260,6 +255,7 @@ const RESPONSIVE = `<style>
 @media only screen and (max-width:480px){
 .vmc-big{font-size:36px!important}
 .vmc-huge{font-size:68px!important}
+.ds-h1{font-size:26px!important;line-height:30px!important}
 .vmc-stack{display:block!important;width:100%!important;box-sizing:border-box}
 td.vmc-stack[width="8%"],td.vmc-stack[width="3%"]{padding:10px 0!important}
 }
@@ -280,96 +276,159 @@ function build(d: Def): string {
     .replace(new RegExp(`<tr><td[^>]*>${MARK}</td></tr>`), body);
 }
 
+// ─── DESIGN SYSTEM VMC (vmc-index-lab · @vmc/concorde-adapter tokens) ────────
+// Fuente: packages/concorde-adapter/src/tokens.css, Button primary (Concorde) y
+// HomeCampaignBanner / anuncio «Valoriza tu auto en VMC» del feed VMC ahora.
+// Lo usan los 4 boletines iniciales (A1–A4). B y C siguen como maqueta.
+const DS = {
+  ink: '#191c1c', muted: '#667085', v300: '#cfbaff', v500: '#8460e5', v700: '#3b1782',
+  v900: '#22005c', orange: '#ed8936', divider: '#e8ddff', lav: '#f5f0ff',
+};
+const DS_SHADOW = '0 0 16px 4px rgba(32,0,104,0.10)';
+const IMG = `${CDN}/correos/campana-valoriza`;
+
+/** Botón primario Concorde: naranja→violeta, borde degradado y brillo arriba. */
+function dsButton(text: string, url: string): string {
+  return `<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-radius:9999px;box-shadow:0 2px 6px rgba(237,137,54,0.30),0 10px 24px rgba(132,96,229,0.22);"><tr>
+<td bgcolor="#fbc47d" style="padding:2px;border-radius:9999px;background-image:linear-gradient(135deg,#ffffff 0%,#fbc47d 25%,#ae8eff 75%,#ffffff 100%);">
+<a class="vmc-cta" href="${url}" target="_blank" style="display:inline-block;padding:14px 44px;border-radius:9999px;background-color:${DS.orange};background-image:linear-gradient(rgba(255,255,255,0.17) 0%,rgba(255,255,255,0) 55%),linear-gradient(135deg,#ed8936 0%,#ed8936 40%,#8460e5 100%);font-family:${F};font-size:16px;line-height:20px;font-weight:600;color:#ffffff;text-decoration:none;text-shadow:0 1px 3px rgba(0,0,0,0.25);">${text}&nbsp;&rarr;</a>
+</td></tr></table>`;
+}
+
+/** Header compacto + tarjeta de campaña: imagen de marca arriba, copy y CTA abajo. */
+function dsHero(o: { img: string; alt: string; eyebrow: string; title: string; text: string; cta: string; url: string }): string {
+  return `${T()}<tr><td bgcolor="${DS.v900}" style="padding:16px 24px;border-radius:20px;background-image:linear-gradient(90deg,#22005c 0%,#3b1782 60%,#5a35c2 100%);">${logo(92)}</td></tr>
+<tr><td height="16" style="height:16px;font-size:0;line-height:0;">&nbsp;</td></tr>
+<tr><td>${T(`bgcolor="#ffffff" class="vmc-rise" style="border-radius:20px;border:1px solid ${DS.divider};box-shadow:${DS_SHADOW};"`)}
+<tr><td style="font-size:0;line-height:0;"><img src="${o.img}" alt="${o.alt}" width="566" border="0" style="display:block;width:100%;max-width:566px;height:auto;border-radius:20px 20px 0 0;"></td></tr>
+<tr><td style="padding:24px 28px 28px;font-family:${F};">
+<p style="margin:0;font-size:13px;line-height:18px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:${DS.orange};">${o.eyebrow}</p>
+<h1 class="ds-h1" style="margin:8px 0 0;font-family:${F};font-size:30px;line-height:34px;font-weight:800;letter-spacing:-0.03em;color:${DS.v700};">${o.title}</h1>
+<p style="margin:12px 0 22px;font-size:15px;line-height:22px;color:${DS.ink};">${o.text}</p>
+${dsButton(o.cta, o.url)}
+</td></tr></table></td></tr></table>`;
+}
+
+const dsP = (html: string, o: { size?: number; color?: string; align?: string } = {}) =>
+  row(`<p style="margin:0;font-family:${F};font-size:${o.size ?? 15}px;line-height:${o.size && o.size < 15 ? 20 : 22}px;color:${o.color ?? DS.ink};text-align:${o.align ?? 'left'};">${html}</p>`, '0 28px');
+const dsB = (t: string) => `<b style="color:${DS.v700};">${t}</b>`;
+const DS_HOLA = dsP('Hola {{Nombre usuario.Ejem: Gabriel Bruno}},');
+
+/** Título de sección del Index («Lotes para explorar»). */
+const dsTitle = (title: string, sub = '') => row(`<h2 style="margin:0;font-family:${F};font-size:22px;line-height:28px;font-weight:800;letter-spacing:-0.02em;color:${DS.v700};">${title}</h2>${sub ? `<p style="margin:4px 0 0;font-family:${F};font-size:13px;line-height:18px;color:${DS.muted};">${sub}</p>` : ''}`, '0 28px');
+
+/** Filas tipo «Empresas y vendedores»: círculo lavanda, título, detalle y flecha. */
+function dsRows(items: [string, string, string][]): string {
+  const r = items.map(([mark, t, d], i) => `<tr><td style="padding:14px 18px;${i ? `border-top:1px solid ${DS.divider};` : ''}">${T()}<tr>
+<td width="48" valign="middle"><div style="width:40px;height:40px;line-height:40px;border-radius:50%;background-color:${DS.lav};font-family:${F};font-size:${mark.length > 2 ? 18 : 16}px;font-weight:800;color:${DS.v700};text-align:center;">${mark}</div></td>
+<td valign="middle" style="padding-left:12px;font-family:${F};"><div style="font-size:15px;line-height:20px;font-weight:700;color:${DS.ink};">${t}</div><div style="margin-top:2px;font-size:13px;line-height:18px;color:${DS.muted};">${d}</div></td>
+</tr></table></td></tr>`).join('');
+  return row(`${T(`bgcolor="#ffffff" style="border-radius:20px;border:1px solid ${DS.divider};box-shadow:${DS_SHADOW};"`)}${r}</table>`, '0 16px');
+}
+
+/** Puntos con check (columna derecha del HomeCampaignBanner). */
+function dsPoints(items: string[]): string {
+  return row(`${T()}${items.map((t) => `<tr><td width="34" valign="top" style="padding:0 0 12px;"><div style="width:24px;height:24px;line-height:24px;border-radius:50%;background-color:${DS.v700};font-family:${F};font-size:13px;font-weight:800;color:#ffffff;text-align:center;">✓</div></td><td valign="top" style="padding:2px 0 12px;font-family:${F};font-size:15px;line-height:20px;font-weight:500;color:${DS.v700};">${t}</td></tr>`).join('')}</table>`, '0 28px');
+}
+
+/** Nota referencial (lavanda, radio md). */
+const dsNote = (html: string) => row(`${T(`bgcolor="${DS.lav}" style="border-radius:8px;"`)}<tr><td style="padding:14px 16px;font-family:${F};font-size:13px;line-height:19px;color:${DS.v700};">${html}</td></tr></table>`, '0 28px');
+
+/** Dos cards tipo OfferCard: mismo auto, distinto estado y recorrido. */
+function dsCompare(cards: { tag: string; chips: string[]; value: string; pct: number; high: boolean }[]): string {
+  const card = (c: (typeof cards)[number]) => `<td class="vmc-stack" width="48%" valign="top" bgcolor="#ffffff" style="border-radius:20px;border:1px solid ${DS.divider};box-shadow:${DS_SHADOW};">
+<div style="position:relative;"><img src="${IMG}/yaris.jpg" alt="Mismo modelo, año 2018" width="260" border="0" style="display:block;width:100%;height:auto;border-radius:20px 20px 0 0;"></div>
+<div style="padding:14px 16px 18px;font-family:${F};">
+<span style="display:inline-block;border-radius:9999px;padding:4px 12px;background-color:${c.high ? DS.v700 : DS.orange};font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:#ffffff;">${c.tag}</span>
+<div style="margin-top:10px;font-size:17px;line-height:22px;font-weight:800;color:${DS.ink};">2018 · Mismo modelo</div>
+<div style="margin-top:8px;">${c.chips.map((x) => `<span style="display:inline-block;margin:0 4px 6px 0;border-radius:9999px;padding:3px 10px;background-color:#f2f4f7;font-size:12px;line-height:16px;color:${DS.muted};">${x}</span>`).join('')}</div>
+<div style="margin-top:8px;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:${DS.muted};">Valor referencial</div>
+<div style="margin-top:2px;font-size:20px;line-height:26px;font-weight:800;color:${c.high ? DS.v700 : DS.orange};">${c.value}</div>
+<div style="margin-top:10px;height:8px;border-radius:9999px;background-color:#eef0f3;font-size:0;line-height:0;"><div class="vmc-grow" style="width:${c.pct}%;height:8px;border-radius:9999px;background-color:${DS.orange};background-image:linear-gradient(90deg,#ed8936 0%,#8460e5 100%);">&nbsp;</div></div>
+</div></td>`;
+  return row(`${T()}<tr>${card(cards[0])}<td class="vmc-stack" width="4%" style="font-size:0;">&nbsp;</td>${card(cards[1])}</tr></table>`, '0 16px');
+}
+
+/** Cierre centrado con el CTA y P.D. */
+const dsCta = (text: string, url: string) => row(`${T()}<tr><td align="center">${dsButton(text, url)}</td></tr></table>`);
+const dsPs = (html: string) => dsP(`<b style="color:${DS.v500};">P.D.</b> ${html}`, { size: 14, color: DS.muted });
+const DS_REF = 'Tu valorización es un <b>valor referencial con fecha</b>: una guía para decidir, no un precio fijo de venta.';
+
 // ─── LOS 12 CORREOS ──────────────────────────────────────────────────────────
 const DEFS: Def[] = [
-  // ── A · LEADS WHATSAPP ────────────────────────────────────────────────────
+  // ── A · LEADS WHATSAPP — los 4 INICIALES, con el design system VMC ───────
+  // Cada uno toma una línea literal del audio del jefe.
   {
     id: 'valoriza-a1-leads-whatsapp',
-    name: 'Valoriza A1 — tu valorización te espera',
-    subject: 'Tu valorización te está esperando (es gratis)',
-    preheader: 'Descubre cuánto vale tu auto en minutos. Sin costo, siempre.',
+    name: 'Valoriza A1 — antes de comprar o vender, valoriza',
+    subject: 'Antes de comprar o vender, valoriza (gratis)',
+    preheader: 'Nos escribiste por WhatsApp para valorizar. Ahora lo haces en minutos.',
     stage: 'Leads WhatsApp', leadsTo: ['valoriza-a2-leads-whatsapp'],
-    hero: heroDark({ kicker: '100% gratis, siempre', big: '¿Cuánto vale', accent: 'tu auto?', sub: 'Nos lo preguntaste por WhatsApp. Hoy te damos la respuesta en minutos, sin pagar nada.', emoji: '🚗' }),
+    hero: dsHero({ img: `${IMG}/whatsapp.jpg`, alt: 'Usuaria con su auto recibiendo un mensaje de WhatsApp', eyebrow: 'Valoriza tu auto en VMC', title: 'Antes de comprar o vender, valoriza', text: 'Hace un tiempo nos escribiste por WhatsApp para saber cuánto vale tu auto. Ahora lo descubres tú, en minutos y gratis.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
-      HOLA, gap(10),
-      p(`Hace un tiempo nos escribiste para saber cuánto vale tu auto. Tu valorización ya está lista para ti: ${b('solo falta que la pidas')}.`),
-      gap(28),
-      ticket({ title: 'Tu valorización', rows: [['Marca y modelo', 'Tu auto'], ['Estado', 'Lo evaluamos'], ['Recorrido', 'Lo evaluamos']], label: 'Valor estimado', value: 'S/ ¿ ? ? ?', foot: 'Gratis · listo en minutos' }),
-      gap(28),
-      cta('Quiero valorizar mi auto', VALORIZA_URL, 'teal', 'Sin costo, sin compromiso de venta.'),
-      gap(40),
-      timeline([['Valoriza', 'Conoce el precio real de tu auto.'], ['Guarda', 'Queda en Mi Garaje para cuando lo necesites.'], ['Publica', 'Si decides vender, con un clic.']], 'Y después, si quieres…'),
-      gap(28),
-      ps('Dos autos del mismo modelo pueden valer muy distinto. Eso te lo contamos en el próximo correo.'),
+      DS_HOLA, gap(8),
+      dsP(`Valorizar es el primer paso de cualquier decisión con tu auto. ${dsB('Y en VMC es gratis, siempre.')}`),
+      gap(28), dsTitle('¿Por qué valorizar?'), gap(14),
+      dsRows([['🛒', 'Si vas a comprar', 'Sabes cuánto ofrecer y no pagas de más.'], ['🔑', 'Si vas a vender', 'Pides un precio con sustento y vendes con confianza.'], ['S/', 'Siempre gratis', 'Sin costo y sin compromiso de venta.']]),
+      gap(24), dsNote(DS_REF),
+      gap(28), dsCta('Valorizar mi auto', VALORIZA_URL),
+      gap(24), dsPs('En el próximo correo te contamos cómo se valoriza, paso a paso.'),
     ],
   },
   {
     id: 'valoriza-a2-leads-whatsapp',
-    name: 'Valoriza A2 — dos autos iguales, dos precios',
-    subject: 'Mismo auto, dos precios distintos. ¿Por qué?',
-    preheader: 'El estado y el recorrido mueven el precio más de lo que crees.',
+    name: 'Valoriza A2 — cómo se valoriza',
+    subject: 'Así se valoriza tu auto en VMC, paso a paso',
+    preheader: 'Tres pasos desde tu celular y tu valorización queda guardada.',
     stage: 'Leads WhatsApp', leadsTo: ['valoriza-a3-leads-whatsapp'],
-    hero: heroGiant({ kicker: 'Dato que vale', word: 'A ≠ B', line: 'Mismo auto. Dos precios.', sub: 'Misma marca, mismo modelo, mismo año… y no valen lo mismo.' }),
+    hero: dsHero({ img: `${IMG}/valoriza.jpg`, alt: 'Persona valorizando su auto desde el celular', eyebrow: 'Paso a paso', title: 'Así se valoriza tu auto', text: 'No tienes que llevarlo a ningún lado: lo haces desde tu celular, en minutos.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
-      HOLA, gap(10),
-      p('Mira estos dos. En papel son idénticos. En la vida real, uno vale bastante más que el otro:'),
-      gap(24),
-      versus({
-        a: { tag: 'Auto A', title: 'Toyota Yaris 2018', attrs: ['🛣️ 45,000 km', '🔧 Mantenimientos al día', '✨ Pintura original'], pct: 88, verdict: 'Vale más', good: true },
-        b: { tag: 'Auto B', title: 'Toyota Yaris 2018', attrs: ['🛣️ 140,000 km', '🔧 Sin historial', '🎨 Golpes por reparar'], pct: 48, verdict: 'Vale menos', good: false },
-      }),
-      gap(28),
-      p(`El ${b('recorrido')}, el ${b('mantenimiento')} y el ${b('estado')} mueven el precio. Por eso una tabla genérica no te dice cuánto vale ${hi('el tuyo')}. Una valorización, sí.`),
-      gap(28),
-      cta('Quiero saber cuánto vale el mío', VALORIZA_URL, 'violet'),
-      gap(24),
-      ps('Es gratis y no te obliga a vender nada.'),
+      DS_HOLA, gap(8),
+      dsP(`Valorizar en ${dsB('VMC Subastas')} toma tres pasos:`),
+      gap(18),
+      dsRows([['1', 'Ingresa los datos de tu auto', 'Marca, modelo, año, recorrido y estado.'], ['2', 'Recibe tu valorización', 'Un valor referencial, con la fecha del día.'], ['3', 'Guárdala en Mi Garaje', 'Para consultarla cuando la necesites.']]),
+      gap(24), dsNote(DS_REF),
+      gap(28), dsCta('Valorizar mi auto', VALORIZA_URL),
+      gap(24), dsPs('¿Por qué dos autos iguales pueden valer distinto? Te lo contamos en el próximo correo.'),
     ],
   },
   {
     id: 'valoriza-a3-leads-whatsapp',
-    name: 'Valoriza A3 — valoriza, guarda y publica',
-    subject: 'Nuevo: valoriza, guarda y publica tu auto',
-    preheader: 'Tu valorización ahora te lleva directo a vender, si quieres.',
+    name: 'Valoriza A3 — mismo modelo, distinto estado y recorrido',
+    subject: 'Mismo auto, dos valores distintos. ¿Por qué?',
+    preheader: 'El estado y el recorrido cambian el valor de tu auto.',
     stage: 'Leads WhatsApp', leadsTo: ['valoriza-a4-leads-whatsapp'],
-    hero: heroPhoto({ img: IMG_AUTO, alt: 'Auto listo para publicar en VMC', kicker: 'Nuevo en VMC', big: 'Valoriza. Guarda.', accent: 'Publica.' }),
+    hero: dsHero({ img: `${IMG}/recorrido.jpg`, alt: 'Persona revisando su auto junto a un velocímetro', eyebrow: 'Dato que vale', title: 'Misma marca, mismo modelo, distinto valor', text: 'El estado y el recorrido hacen la diferencia. Por eso conviene valorizar el tuyo.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
-      HOLA, gap(10),
-      p(`Saber cuánto vale tu auto es el primer paso. Ahora, con tu valorización lista, puedes ${b('publicarlo en VMC')} y empezar a recibir propuestas. Todo en un mismo lugar.`),
-      gap(28),
-      bento({
-        big: { emoji: '🔍', title: 'Valoriza gratis', text: 'El precio real de tu auto según su estado y recorrido, en minutos.' },
-        a: { emoji: '💾', title: 'Guarda', text: 'Queda en Mi Garaje, sin apuro.' },
-        b: { emoji: '🚀', title: 'Publica', text: 'Con un clic, cuando decidas.' },
-      }),
-      gap(20),
-      bigStats([['Gratis', 'Valorizar'], ['1 clic', 'Para publicar'], ['24 h', 'Para responder']]),
-      gap(32),
-      cta('Quiero valorizar y publicar'),
-      gap(24),
-      ps('Publicar es opcional. Puedes valorizar hoy y decidir después.'),
+      DS_HOLA, gap(8),
+      dsP('Mira estos dos autos: misma marca, mismo modelo, mismo año. En papel son iguales. Su valor, no.'),
+      gap(22),
+      dsCompare([
+        { tag: 'Auto A', chips: ['45,000 km', 'Mantenimiento al día', 'Sin choques'], value: 'Más alto', pct: 86, high: true },
+        { tag: 'Auto B', chips: ['140,000 km', 'Sin historial', 'Golpes por reparar'], value: 'Más bajo', pct: 46, high: false },
+      ]),
+      gap(28), dsTitle('Lo que más mueve el valor'), gap(14),
+      dsPoints(['El recorrido: cuántos kilómetros tiene.', 'El estado: carrocería, pintura y mecánica.', 'El mantenimiento: si está al día y documentado.']),
+      gap(18), dsCta('Valorizar mi auto', VALORIZA_URL),
+      gap(24), dsPs(`Ahora tu valorización no se queda en un número: ${dsB('puedes guardarla y publicar tu auto')}. Te lo contamos en el próximo correo.`),
     ],
   },
   {
     id: 'valoriza-a4-leads-whatsapp',
-    name: 'Valoriza A4 — último recordatorio',
-    subject: '¿Aún quieres saber cuánto vale tu auto?',
-    preheader: 'Te toma minutos, es gratis y no te obliga a vender.',
+    name: 'Valoriza A4 — valoriza, guarda y publica',
+    subject: 'Nuevo: valoriza, guarda y publica tu auto',
+    preheader: 'Un nuevo canal de ventas para ti: publica en VMC y recibe ofertas.',
     stage: 'Leads WhatsApp',
-    hero: heroLetter(),
+    hero: dsHero({ img: `${IMG}/publica.jpg`, alt: 'Vendedor entregando las llaves de su auto', eyebrow: 'Nuevo en VMC', title: 'Ahora puedes valorizar, guardar y publicar', text: 'Con tu valorización lista, publica tu auto en VMC y recibe ofertas. Un nuevo canal de ventas para ti.', cta: 'Valorizar', url: VALORIZA_URL }),
     body: [
-      row(`<h1 class="vmc-big vmc-rise" style="margin:0;font-family:${F};font-size:46px;line-height:1.05;font-weight:800;letter-spacing:-0.04em;color:${C.purple};">¿Seguimos? <span class="vmc-float" style="display:inline-block;">🙌</span></h1>`, '0 24px'),
+      DS_HOLA, gap(8),
+      dsP(`Todo en un mismo lugar, ${dsB('desde Mi Garaje')}:`),
       gap(18),
-      HOLA, gap(10),
-      p('No queremos llenarte el correo, así que vamos directo: tu valorización sigue disponible y te la guardamos.'),
-      gap(22),
-      checks(['Es gratis, siempre.', 'Te toma unos minutos.', 'No te obliga a vender.']),
-      gap(26),
-      cta('Quiero valorizar mi auto', VALORIZA_URL, 'teal'),
-      gap(28),
-      p('Si ya no te interesa, no pasa nada: este es nuestro último correo sobre el tema.', { size: 14, align: 'center', color: '#7a6f96' }),
-      gap(8),
-      p('— El equipo de VMC Subastas', { size: 14, align: 'center', color: C.violet }),
+      dsRows([['1', 'Valoriza', 'Gratis y en minutos.'], ['2', 'Guarda', 'Tu valorización queda en Mi Garaje.'], ['3', 'Publica', 'Cuando decidas vender, y recibe ofertas.']]),
+      gap(28), dsTitle('Publica tu auto en VMC y recibe ofertas'), gap(14),
+      dsPoints(['Los compradores te envían sus propuestas.', 'Tú decides: aceptar, contraproponer o rechazar.', 'Te pueden enviar preguntas antes de ofertar.']),
+      gap(18), dsCta('Valorizar mi auto', VALORIZA_URL),
+      gap(18), dsP(`¿Ya valorizaste? <a href="${PUBLICAR_URL}" target="_blank" style="font-weight:700;color:${DS.v500};text-decoration:underline;">Publica tu auto aquí</a>.`, { size: 14, align: 'center', color: DS.muted }),
     ],
   },
 
@@ -552,7 +611,7 @@ const DEFS: Def[] = [
 ];
 
 export const CAMPANA_VALORIZA: EmailTemplate[] = DEFS.map((d) => ({
-  id: d.id, name: d.name, subject: d.subject, category: CATEGORIA, stage: d.stage, leadsTo: d.leadsTo,
+  id: d.id, name: /-a\d-/.test(d.id) ? d.name : `${d.name} (maqueta)`, subject: d.subject, category: CATEGORIA, stage: d.stage, leadsTo: d.leadsTo,
   sections: [],
   html: build(d),
 }));
