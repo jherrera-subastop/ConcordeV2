@@ -31,10 +31,7 @@ const URL_PUBLICAR = 'Falta la URL real del flujo de publicación para el CTA (h
 const AMBAS = 'Faltan las URLs reales de valorización (hoy a la home) y de publicación (hoy a Mi Garaje).';
 
 export const PENDIENTES: Record<string, RevisionPendiente> = {
-  'valoriza-1-antes-de-comprar': { nota: URL_VALORIZA },
-  'valoriza-2-antes-de-vender': { nota: URL_VALORIZA },
   'valoriza-3-por-que-valorizar': { nota: URL_VALORIZA },
-  'valoriza-4-valorizar-y-publicar': { nota: AMBAS },
   'valoriza-5-nuevo-canal-de-venta': { nota: URL_PUBLICAR },
   'valoriza-6-vender-en-vmc': { nota: AMBAS },
   'valoriza-7-vende-y-valoriza': { nota: AMBAS },
