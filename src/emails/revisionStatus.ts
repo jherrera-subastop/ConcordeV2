@@ -26,7 +26,16 @@ export interface RevisionPendiente {
  * es como se marca el siguiente que aparezca —basta con volver a añadir su id—;
  * mientras esté vacío, el filtro «Pendientes» del catálogo no se pinta.
  */
-export const PENDIENTES: Record<string, RevisionPendiente> = {};
+const URL_VALORIZA = 'Falta la URL real del flujo de valorización para el CTA (hoy apunta a la home).';
+const URL_PUBLICAR = 'Falta la URL real del flujo de publicación para el CTA (hoy apunta a Mi Garaje).';
+const AMBAS = 'Faltan las URLs reales de valorización (hoy a la home) y de publicación (hoy a Mi Garaje).';
+
+export const PENDIENTES: Record<string, RevisionPendiente> = {
+  'valoriza-3-por-que-valorizar': { nota: URL_VALORIZA },
+  'valoriza-5-nuevo-canal-de-venta': { nota: URL_PUBLICAR },
+  'valoriza-6-vender-en-vmc': { nota: AMBAS },
+  'valoriza-7-vende-y-valoriza': { nota: AMBAS },
+};
 
 export function estadoDe(id: string): RevisionEstado {
   return Object.prototype.hasOwnProperty.call(PENDIENTES, id) ? "pendiente" : "listo";

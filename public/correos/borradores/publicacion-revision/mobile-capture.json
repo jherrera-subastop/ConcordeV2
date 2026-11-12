@@ -1,0 +1,111 @@
+{
+  "sourceUrl": "http://127.0.0.1:3226/m/vmc?propuesta=0&llegada=publicacion&pag=glass",
+  "sourceCommit": "c880184333ba7bf6731cca006d0a06df8e8d0928",
+  "viewport": {
+    "width": 390,
+    "height": 760,
+    "deviceScaleFactor": 2
+  },
+  "source": "Illustrative composition adapted from the existing Mi Garaje demo, as requested by Julio. One native example publication. Not a literal production screenshot or real account.",
+  "hidden": [
+    "Development controls #lab-dock/.lab-dock",
+    "Next.js development indicator"
+  ],
+  "modificationsToProductUi": "DOM-only illustrative composition. Full native header intact. Account details and promotional rail hidden. Other activity sections collapsed, unrelated counters hidden, publication list limited to its native first example row, pagination removed. Row grid places original review badge at right and wraps the complete review sentence. Source repository unchanged.",
+  "bellLabel": "Notificaciones: 1 sin leer",
+  "sectionText": "S/\nMis publicaciones\n1\n1 notificación sin abrir\nToyota Corolla 2019\nTu publicación está siendo revisada por el equipo VMC\nEN REVISIÓN",
+  "nextState": {
+    "label": "PUBLICADA",
+    "classes": "badgestatus badgestatus--live",
+    "placement": "Floating illustrative speech bubble over the lower empty area, conditional label: Siguiente estado, si se aprueba. Captured original Mi Garaje badge; no overlap with header or current publication."
+  },
+  "qa": {
+    "visibleVehicleCount": 1,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 64,
+      "right": 390,
+      "bottom": 64
+    },
+    "logo": {
+      "x": 68,
+      "y": 13,
+      "width": 90,
+      "height": 38,
+      "right": 158,
+      "bottom": 51
+    },
+    "row": {
+      "x": 20,
+      "y": 435.390625,
+      "width": 350,
+      "height": 122,
+      "right": 370,
+      "bottom": 557.390625
+    },
+    "name": {
+      "x": 88,
+      "y": 461.390625,
+      "width": 162,
+      "height": 20,
+      "right": 250,
+      "bottom": 481.390625
+    },
+    "badge": {
+      "x": 260,
+      "y": 458.390625,
+      "width": 100,
+      "height": 26,
+      "right": 360,
+      "bottom": 484.390625
+    },
+    "bell": {
+      "x": 288,
+      "y": 14,
+      "width": 36,
+      "height": 36,
+      "right": 324,
+      "bottom": 50
+    },
+    "overflow": false
+  },
+  "annotationQa": {
+    "overlapsHeader": false,
+    "overlapsPublication": false,
+    "upperLabelPresent": false,
+    "caption": "Ejemplo basado en la interfaz de VMC",
+    "bubbleText": "Siguiente estado,\nsi se aprueba:",
+    "bubble": {
+      "x": 271,
+      "y": 598.0625,
+      "width": 225,
+      "height": 116.21875
+    }
+  },
+  "pointerQa": {
+    "target": "EN REVISIÓN",
+    "targetX": 394.9230769230769,
+    "targetY": 468.03421474358976,
+    "badgeRight": 387.9230769230769,
+    "badgeCenterY": 468.03421474358976,
+    "gap": 7,
+    "laneX": 447
+  },
+  "limitations": "The source has no publication-approval notification message. No such message has been manufactured. One publication remains under review; no approval is simulated.",
+  "files": [
+    {
+      "file": "mi-garaje-mobile-example.png",
+      "sha256": "4c8671ef6901d9cc993fb36d3dd479faf4e5d8bd69a7da5b4c17977bf84dea74"
+    },
+    {
+      "file": "badge-publicada-real.png",
+      "sha256": "6511ce0d417d4d6008282cee0981afbbd38ff8f12ee8f9b09e8a1d3fc5d3ad36"
+    },
+    {
+      "file": "mi-garaje-iphone.png",
+      "sha256": "32520534b0f8e04ab535467bff62806e9dce7c6f7f7bd31fd78686b65d7e23e4"
+    }
+  ]
+}

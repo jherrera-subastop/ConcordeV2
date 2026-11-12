@@ -159,6 +159,33 @@ function EmailGrid({ emails }: { emails: EmailTemplate[] }): JSX.Element {
   );
 }
 
+/** Valoriza 2 ya fue revisado; se separa para distinguirlo de lo que sigue en avance. */
+function CampanaValorizaReviewGroups({ emails }: { emails: EmailTemplate[] }): JSX.Element {
+  const terminados = emails.filter(function terminado(email) { return estadoDe(email.id) === "listo"; });
+  const enAvance = emails.filter(function pendiente(email) { return estadoDe(email.id) === "pendiente"; });
+  const headingStyle = { margin: 0, fontSize: 14, fontWeight: 800, color: INK, letterSpacing: "-0.01em" };
+  const metaStyle = { fontSize: 12, color: "var(--ui-muted)", fontWeight: 600 };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+      <section aria-labelledby="valoriza-terminados">
+        <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 10 }}>
+          <h3 id="valoriza-terminados" style={headingStyle}>Terminados</h3>
+          <span style={metaStyle}>{terminados.length} {terminados.length === 1 ? "correo" : "correos"}</span>
+        </div>
+        <EmailGrid emails={terminados} />
+      </section>
+      <section aria-labelledby="valoriza-en-avance" style={{ paddingTop: 20, borderTop: `1px solid ${DIVIDER}` }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 10 }}>
+          <h3 id="valoriza-en-avance" style={headingStyle}>En avance</h3>
+          <span style={metaStyle}>{enAvance.length} correos</span>
+        </div>
+        <EmailGrid emails={enAvance} />
+      </section>
+    </div>
+  );
+}
+
 // ─── Categoría colapsable ─────────────────────────────────────────────────────
 
 /**
@@ -212,22 +239,34 @@ function CategoriaSection({
           </span>
         )}
       </button>
-      {abierta && <EmailGrid emails={emails} />}
+      {abierta && (categoria === "Campaña Valoriza"
+        ? <CampanaValorizaReviewGroups emails={emails} />
+        : <EmailGrid emails={emails} />)}
     </section>
   );
 }
 
 // ─── Catálogo ─────────────────────────────────────────────────────────────────
 
-export default function VariantesCatalog(): JSX.Element {
+export default function VariantesCatalog({
+  initialCategory = null,
+  focusMode = false,
+}: {
+  /** Categoría con la que debe arrancar el catálogo. */
+  initialCategory?: string | null;
+  /** Vista de revisión directa: una sola campaña, sin controles ni otras categorías. */
+  focusMode?: boolean;
+} = {}): JSX.Element {
   const [query, setQuery] = useState("");
-  const [active, setActive] = useState<{ category: string | null; stage: string | null }>({ category: null, stage: null });
+  const [active, setActive] = useState<{ category: string | null; stage: string | null }>({ category: initialCategory, stage: null });
   const [soloPendientes, setSoloPendientes] = useState(false);
   /**
    * Categorías abiertas. Arranca VACÍO: todas plegadas, así lo primero que se ve
    * es el índice completo de las 15 categorías y no una sola galería infinita.
    */
-  const [abiertas, setAbiertas] = useState<ReadonlySet<string>>(new Set());
+  const [abiertas, setAbiertas] = useState<ReadonlySet<string>>(
+    initialCategory ? new Set([initialCategory]) : new Set(),
+  );
 
   const toggle = useCallback(function toggle(categoria: string) {
     setAbiertas(function prev(p) {
@@ -273,7 +312,7 @@ export default function VariantesCatalog(): JSX.Element {
       .filter(function nonEmpty(g) { return g.emails.length > 0; });
   }, [filtrado, active.category, vistaPlana]);
 
-  const showDiagram = Boolean(active.category) && Boolean(STAGE_ORDER[active.category ?? ""]) && !vistaPlana;
+  const showDiagram = !focusMode && Boolean(active.category) && Boolean(STAGE_ORDER[active.category ?? ""]) && !vistaPlana;
 
   /** Pill de filtro: fila horizontal, no columna — libera el ancho del sidebar. */
   const pillStyle = function pillStyle(isActive: boolean) {
@@ -289,7 +328,7 @@ export default function VariantesCatalog(): JSX.Element {
   return (
     <div>
       {/* ── Barra de filtros: buscador + categorías en una fila ── */}
-      <div style={{ position: "sticky", top: 56, zIndex: 10, background: "#ffffff", paddingTop: 4, paddingBottom: 10, marginBottom: 14, borderBottom: `1px solid ${DIVIDER}` }}>
+      {!focusMode && <div style={{ position: "sticky", top: 56, zIndex: 10, background: "#ffffff", paddingTop: 4, paddingBottom: 10, marginBottom: 14, borderBottom: `1px solid ${DIVIDER}` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
           <input
             value={query}
@@ -375,7 +414,7 @@ export default function VariantesCatalog(): JSX.Element {
             );
           })}
         </div>
-      </div>
+      </div>}
 
       {/* ── Main ── */}
       <main>
