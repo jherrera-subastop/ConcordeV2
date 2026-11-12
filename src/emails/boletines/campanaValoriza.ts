@@ -27,7 +27,8 @@ const PUBLICAR_DIRECTO_URL = 'https://www.vmcsubastas.com/zona/publicar';
 
 const CATEGORIA = 'Campaña Valoriza';
 
-const CDN = 'https://concorde-v2-theta.vercel.app';
+// Dominio de producción que sirve los assets de la campaña en los emails.
+const CDN = 'https://concorde-rosy.vercel.app';
 const IMG = `${CDN}/correos/campana-valoriza`;
 const LOGO = `${CDN}/logo-vmc@3x.png`; // blanco
 
