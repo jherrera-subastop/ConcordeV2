@@ -1,0 +1,34 @@
+/* DropModal */
+.dm { box-sizing: border-box; width: min(400px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; overflow: auto; border: 0; border-radius: 20px; background: #fff; color: #191C1C; box-shadow: 0 24px 60px -16px rgba(32,0,104,.45); font-family: var(--vmc-font-display, 'Plus Jakarta Sans', -apple-system, sans-serif); animation: dm-in .22s ease-out; }
+.dm::backdrop { background: rgba(27,19,64,.5); animation: dm-fade .22s ease-out; }
+.dm *, .dm *::before, .dm *::after { box-sizing: border-box; }
+@keyframes dm-in { from { opacity: 0; transform: translateY(10px) scale(.97); } }
+@keyframes dm-fade { from { opacity: 0; } }
+
+.dm__box { display: grid; justify-items: center; gap: 12px; padding: 24px; }
+.dm__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #FEF3E7; color: #C2570C; }
+.dm h2 { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.25; text-align: center; color: #1B1340; }
+.dm__warn { margin: -4px 0 0; font-size: 13.5px; line-height: 1.4; text-align: center; color: #6B6878; }
+
+/* Vehículo */
+.dm__car { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px; border-radius: 12px; background: #F6F4FB; }
+.dm__car img { flex: none; width: 56px; height: 42px; border-radius: 8px; object-fit: cover; }
+.dm__car span { display: grid; gap: 2px; min-width: 0; }
+.dm__car b { font-size: 14px; font-weight: 700; }
+.dm__car small { font-size: 12.5px; color: #6B6878; }
+
+/* Motivo */
+.dm__why { display: grid; gap: 2px; width: 100%; margin: 0; padding: 0; border: 0; }
+.dm__why legend { padding: 0 0 4px; font-size: 13.5px; font-weight: 700; }
+.dm__why label { display: flex; align-items: center; gap: 10px; padding: 6px 4px; border-radius: 8px; font-size: 14px; cursor: pointer; }
+.dm__why label:hover { background: #F6F4FB; }
+.dm__why input { flex: none; width: 17px; height: 17px; margin: 0; accent-color: #3D2299; }
+.dm__why textarea { width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid #DCD5F3; border-radius: 10px; font: inherit; font-size: 14px; resize: vertical; }
+
+/* Cancelar manda; Dar de baja queda pequeño para no tocarlo por casualidad */
+.dm__cancel { width: 100%; min-height: 48px; margin-top: 4px; border: 0; border-radius: 999px; background: #3D2299; color: #fff; font: inherit; font-size: 15.5px; font-weight: 700; cursor: pointer; }
+.dm__cancel:hover { background: #321B80; }
+.dm__cancel:focus-visible { outline: 2px solid #8460E5; outline-offset: 2px; }
+.dm__drop { padding: 6px 12px; border: 0; border-radius: 8px; background: none; color: #B42318; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+.dm__drop:hover:not(:disabled) { background: #FDECEA; }
+.dm__drop:disabled { color: #A9A6B3; cursor: not-allowed; }

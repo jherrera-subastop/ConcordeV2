@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publica en VMC</title>
+<!-- Campaña «Publica en VMC» (22/10, 4.ª versión): un solo sistema para todas las piezas, como una campaña real.
+     · Foto: vehículo seminuevo estacionado en Lima, luz de tarde (serie generada con IA, public/banners/publica/).
+     · El morado de marca entra desde el lado del texto y se funde con la foto; texto blanco, acento crema, CTA primary de Concorde.
+     · En 1532 × 200, la bajada y el CTA van en un panel de vidrio.
+     Cambian solo el mensaje y la foto. 08–10 = Valorizar (AVT). Estilo «Personaje»: &e=personaje. Uso: publica-vmc.html?v=01-auto&f=side400 · f = side264 | side400 | strip776 | strip1532 | mini311 (claro, para el detalle de la oferta) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{--brand:#1E0A52;--brand-rgb:30 10 82;--cream:#FFE2C2;--font:'Plus Jakarta Sans',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--font);-webkit-font-smoothing:antialiased;overflow:hidden;background:transparent}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+
+.bn{position:relative;display:flex;flex-direction:column;height:100%;overflow:hidden;isolation:isolate;border-radius:16px;color:#fff;
+  background:radial-gradient(60% 90% at 0% 100%,rgb(237 137 54 / 28%) 0%,rgb(237 137 54 / 0%) 70%),var(--brand)}
+.bn > *{position:relative;z-index:2}
+/* Foto + velo de marca: la foto ocupa su lado y el velo la funde con el morado del lado del texto. */
+.ph{position:absolute !important;z-index:0 !important;display:block;object-fit:cover;transition:transform .8s cubic-bezier(.2,0,0,1)}
+.veil{position:absolute !important;z-index:1 !important;pointer-events:none}
+.bn:hover .ph{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.ph{transition:none}.bn:hover .ph{transform:none}}
+
+.tx{display:grid;gap:8px;justify-items:start}
+.pill{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 10px 0 8px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap;
+  border:1px solid rgb(255 255 255 / 28%);background:rgb(255 255 255 / 14%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:#FBC47D}
+h1{font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--cream)}
+.lede{font-weight:500;color:rgb(255 255 255 / 86%);text-wrap:pretty}
+.steps{list-style:none;counter-reset:s;display:grid;gap:6px}
+.steps li{counter-increment:s;display:flex;align-items:center;gap:8px;font-weight:600;white-space:nowrap}
+.steps li::before{content:counter(s);display:grid;place-items:center;flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgb(255 255 255 / 18%);font-size:11px;font-weight:800}
+.cta{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;border-radius:9999px;font-weight:700;white-space:nowrap;color:#fff;
+  background:linear-gradient(135deg,#ED8936 0%,#ED8936 25%,#8460E5 100%);box-shadow:rgb(10 0 40 / 35%) 0 8px 18px -6px;transition:transform .15s}
+.bn:hover .cta{transform:translateY(-1px)}
+
+/* ── Verticales: texto arriba sobre morado; foto abajo a todo el ancho, el velo la funde hacia arriba. ── */
+[data-f^=side] .ph{left:0;bottom:0;width:100%;height:var(--ph-h);object-position:var(--pos,50% 60%)}
+[data-f^=side] .ph{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 45%);mask-image:linear-gradient(180deg,transparent 0%,#000 45%)}
+[data-f^=side] .cta{align-self:stretch;margin-top:auto}
+[data-f=side264] .bn{--ph-h:136px;padding:14px;gap:8px}
+[data-f=side264] h1{font-size:17px;line-height:20px}
+[data-f=side264] .cta{height:34px;font-size:13px}
+[data-f=side400] .bn{--ph-h:200px;padding:18px 16px 16px;gap:10px}
+[data-f=side400] h1{font-size:23px;line-height:26px}
+[data-f=side400] .lede{font-size:12px;line-height:16px}
+[data-f=side400] .steps li{font-size:12px}
+[data-f=side400] .cta{height:40px;font-size:14px}
+
+/* ── Franjas: texto a la izquierda; foto a la derecha a todo el alto, el velo la funde hacia la izquierda. ── */
+[data-f^=strip] .ph{top:0;right:0;height:100%;width:var(--ph-w);object-position:var(--pos,50% 60%)}
+[data-f^=strip] .ph{-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+.veil{display:none}
+[data-f=strip776] .bn{--ph-w:440px;padding:26px 28px;gap:10px}
+[data-f=strip776] .tx{max-width:360px}
+[data-f=strip776] h1{font-size:27px;line-height:31px}
+[data-f=strip776] .lede{font-size:13px;line-height:18px}
+[data-f=strip776] .steps{grid-auto-flow:column;justify-content:start;gap:14px}
+[data-f=strip776] .steps li{font-size:12px}
+[data-f=strip776] .cta{height:40px;padding:0 24px;font-size:14px;margin-top:auto}
+/* 1532 × 200: titular | foto ancha | panel de vidrio (bajada o pasos + CTA) sobre la foto. */
+[data-f=strip1532] .bn{--ph-w:880px;flex-direction:row;align-items:center;padding:0 40px}
+[data-f=strip1532] .tx{width:560px;gap:10px}
+/* La foto no se estira a 880 px (a 200 de alto cortaba el vehículo): ancho según su proporción, fundida en ambos lados;
+   el vidrio pisa solo su borde derecho. */
+[data-f=strip1532] .ph{left:var(--l);right:auto;width:var(--w);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 82%,transparent 100%)}
+[data-f=strip1532] .veil{display:none}
+[data-f=strip1532] h1{font-size:40px;line-height:44px}
+[data-f=strip1532] .gl{position:absolute;z-index:3;right:40px;top:50%;transform:translateY(-50%);width:340px;display:grid;gap:12px;padding:18px 20px;border-radius:16px;
+  border:1px solid rgb(255 255 255 / 30%);background:rgb(var(--brand-rgb) / 38%);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);
+  box-shadow:rgb(10 0 40 / 35%) 0 12px 28px -10px,inset 0 1px 0 rgb(255 255 255 / 30%)}
+[data-f=strip1532] .gl .lede{font-size:14px;line-height:20px}
+[data-f=strip1532] .gl .steps li{font-size:14px}
+[data-f=strip1532] .gl .cta{align-self:stretch;height:44px;font-size:15px}
+
+/* ══ Estilo «Personaje» (22/10, ?e=personaje): dirección de los banners de Max (morado intenso, estelas de luz naranja/violeta,
+   píldora rellena, CTA naranja con aro blanco), con una persona en vez del robot. El personaje es un PNG recortado
+   (personaje/<toma>.png, 2048 px, fondo transparente); mientras no exista se ve su silueta con el nombre de la toma. ══ */
+[data-e=personaje] .bn{background:radial-gradient(55% 110% at 82% 55%,#7C4DF2 0%,rgb(124 77 242 / 0%) 70%),linear-gradient(115deg,#4A1DB8 0%,#2C0E8C 45%,#170849 100%)}
+[data-e=personaje] .ph,[data-e=personaje] .veil{display:none}
+.tr{position:absolute !important;inset:0;z-index:0 !important;width:100%;height:100%;pointer-events:none;overflow:visible}
+.tr path,.tr ellipse{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.tr .o{stroke:url(#gO);stroke-width:5;filter:drop-shadow(0 0 4px #FF9A3C) drop-shadow(0 0 14px #FF7A00)}
+.tr .o2{stroke:url(#gO);stroke-width:2;opacity:.8;filter:drop-shadow(0 0 6px #FF9A3C)}
+.tr .vi{stroke:url(#gV);stroke-width:6;filter:drop-shadow(0 0 6px #C9A8FF) drop-shadow(0 0 18px #8A5CFF)}
+/* Resplandor de piso bajo el personaje (como el halo bajo Max). */
+.pj::before{content:"";position:absolute;left:50%;bottom:-18%;width:130%;height:36%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgb(255 154 60 / 55%),rgb(132 96 229 / 25%) 60%,transparent);filter:blur(6px);z-index:-1}
+.pj{position:absolute !important;z-index:1 !important;display:grid;place-items:end center;pointer-events:none}
+.pj img{display:block;height:100%;width:auto;filter:drop-shadow(0 18px 24px rgb(10 0 40 / 45%))}
+/* Silueta provisional hasta tener la toma. */
+.pj .sil{height:100%;aspect-ratio:3/2;display:grid;place-items:end center;position:relative}
+.pj .sil svg{height:100%;width:auto}
+.pj .sil b{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);padding:3px 8px;border-radius:999px;font-size:10px;font-weight:700;white-space:nowrap;color:#1E0A52;background:#FFE2C2}
+[data-e=personaje] .pill{border:1px solid rgb(255 255 255 / 35%);background:#6B42DE;-webkit-backdrop-filter:none;backdrop-filter:none}
+[data-e=personaje] .pill::before{display:none}
+[data-e=personaje] .pill{padding:0 10px}
+[data-e=personaje] h1 em{color:#fff}
+[data-e=personaje] .cta{background:linear-gradient(180deg,#FFB061 0%,#F07F22 100%);box-shadow:0 0 0 2px #fff,rgb(240 127 34 / 45%) 0 8px 22px -4px}
+[data-e=personaje] .bn:hover .pj img{transform:translateY(-2px)}
+/* Verticales: personaje abajo a la derecha, el CTA lo pisa por delante. */
+[data-e=personaje][data-f^=side] .pj{right:-6px;bottom:0;height:var(--pj-h)}
+[data-e=personaje][data-f=side264] .bn{--pj-h:150px}
+[data-e=personaje][data-f=side400] .bn{--pj-h:190px}
+[data-e=personaje][data-f^=side] .cta{position:relative;z-index:3}
+/* Franjas: personaje a la derecha a todo el alto. */
+[data-e=personaje][data-f^=strip] .pj{bottom:0;height:100%}
+[data-e=personaje][data-f=strip776] .pj{right:24px}
+[data-e=personaje][data-f=strip776] .tx{max-width:420px}
+[data-e=personaje][data-f=strip1532] .bn{flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;padding:0 48px}
+[data-e=personaje][data-f=strip1532] .tx{width:auto;gap:6px}
+[data-e=personaje][data-f=strip1532] h1{font-size:36px;line-height:40px}
+[data-e=personaje][data-f=strip1532] .lede{font-size:14px;line-height:20px}
+[data-e=personaje][data-f=strip1532] .steps{grid-auto-flow:column;justify-content:start;gap:16px}
+[data-e=personaje][data-f=strip1532] .steps li{font-size:14px}
+[data-e=personaje][data-f=strip1532] .cta{height:40px;padding:0 28px;font-size:15px;margin-top:4px}
+[data-e=personaje][data-f=strip1532] .pj{right:180px}
+
+/* ── Fondos (22/10): seis estilos de la familia de Max, uno por pieza (?bg= para forzar uno). Centro del sujeto por formato. ── */
+[data-f^=side]{--cx:62%;--cy:88%}
+[data-f=strip776]{--cx:78%;--cy:96%}
+[data-f=strip1532]{--cx:80%;--cy:96%}
+.dc{position:absolute !important;inset:0;z-index:0 !important;pointer-events:none;overflow:hidden;border-radius:inherit}
+/* estelas: la base de arriba (degradado + 3 estelas). */
+/* órbita: anillos de luz alrededor de la base del sujeto (como el halo de la rueda de Max). */
+[data-bg=orbita] .bn{background:radial-gradient(40% 60% at var(--cx) 80%,#7A48F0 0%,rgb(122 72 240 / 0%) 70%),linear-gradient(135deg,#1F0B66 0%,#0F0438 60%,#08021F 100%)}
+[data-bg=orbita] .tr .o{stroke-width:7}[data-bg=orbita] .tr .vi{stroke-width:8}[data-bg=orbita] .tr .o2{stroke-width:3;opacity:1}
+/* aurora: manchas de color difusas (magenta, naranja, turquesa), sin líneas. */
+[data-bg=aurora] .bn{background:radial-gradient(55% 80% at var(--cx) 20%,rgb(232 72 196 / 85%),transparent 70%),radial-gradient(50% 75% at calc(var(--cx) + 8%) 100%,rgb(255 138 40 / 90%),transparent 70%),radial-gradient(40% 60% at 0% 100%,rgb(70 200 235 / 40%),transparent 70%),linear-gradient(160deg,#4A169E 0%,#2A0A66 100%)}
+/* rayos: haces de luz que salen de detrás del sujeto, con foco naranja abajo. */
+[data-bg=rayos] .bn{background:radial-gradient(35% 55% at var(--cx) 100%,rgb(255 170 80 / 75%),transparent 70%),linear-gradient(200deg,#8A5CFA 0%,#4B1FC0 45%,#21086B 100%)}
+.ry{background:repeating-conic-gradient(from 0deg at var(--cx) 105%,rgb(255 220 180 / 22%) 0 2.5deg,transparent 2.5deg 9deg);
+  -webkit-mask-image:radial-gradient(75% 95% at var(--cx) 100%,#000 25%,transparent 75%);mask-image:radial-gradient(75% 95% at var(--cx) 100%,#000 25%,transparent 75%)}
+/* pista: noche, piso en perspectiva con horizonte naranja (para moto y calle). */
+[data-bg=pista] .bn{background:radial-gradient(60% 40% at 50% 64%,rgb(255 120 40 / 35%),transparent 70%),linear-gradient(180deg,#0A0322 0%,#1C0858 60%,#0A0322 100%)}
+.gr{position:absolute !important;left:-50%;right:-50%;bottom:-2px;height:62%;transform:perspective(160px) rotateX(58deg);transform-origin:50% 100%;
+  background:repeating-linear-gradient(90deg,rgb(190 150 255 / 75%) 0 1.5px,transparent 1.5px 36px),repeating-linear-gradient(0deg,rgb(190 150 255 / 75%) 0 1.5px,transparent 1.5px 22px);
+  -webkit-mask-image:linear-gradient(0deg,#000 20%,transparent 90%);mask-image:linear-gradient(0deg,#000 20%,transparent 90%)}
+.hz{position:absolute !important;left:35%;right:0;bottom:36%;height:2px;background:linear-gradient(90deg,transparent,#FF9A3C 40%,#FFC27A 70%,transparent);box-shadow:0 0 18px 4px rgb(255 140 50 / 55%)}
+/* burbujas: globos de chat de vidrio flotando junto al sujeto (Max y Negociable). */
+[data-bg=burbujas] .bn{background:radial-gradient(60% 90% at var(--cx) 40%,#B08CFF 0%,rgb(176 140 255 / 0%) 70%),linear-gradient(120deg,#6A3BE6 0%,#4A1FC0 50%,#2B0C80 100%)}
+.bb{position:absolute !important;border-radius:14px 14px 14px 4px;border:1px solid rgb(255 255 255 / 55%);background:linear-gradient(160deg,rgb(255 255 255 / 34%),rgb(255 255 255 / 10%));
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:inset 0 1px 0 rgb(255 255 255 / 60%),0 8px 20px -8px rgb(10 0 40 / 50%)}
+.bb.b1{right:4%;top:10%;width:15%;height:30%}
+.bb.b2{right:20%;top:30%;width:9%;height:18%;border-radius:12px 12px 4px 12px}
+.sp{position:absolute !important;right:6%;top:6%;width:14px;height:14px;border-top:3px solid #FF9A3C;border-radius:50%;transform:rotate(30deg);filter:drop-shadow(0 0 4px #FF9A3C)}
+[data-f^=side] .bb.b1{right:8%;top:auto;bottom:40%;width:34%;height:9%}
+[data-f^=side] .bb.b2{right:46%;top:auto;bottom:33%;width:20%;height:6%}
+[data-f^=side] .sp{top:auto;bottom:52%}
+
+/* ══ Fotos de escena (22/10): una persona real distinta por pieza con su vehículo, el fondo ya viene en la foto.
+   Tres encuadres por pieza (personaje/<pieza>-h|v|s.jpg): h franjas, v riel 400, s barra 264. El fondo del banner va del
+   fondo pintado con los colores reales del borde de la foto (blend.js), igual que en los banners de Max. ══ */
+.art{position:absolute !important;z-index:0 !important;display:block;pointer-events:none}
+[data-f^=strip] .art{top:0;right:0;height:100%;width:auto;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%)}
+[data-f^=side] .art{left:0;bottom:0;width:100%;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 35%);mask-image:linear-gradient(180deg,transparent 0%,#000 35%)}
+[data-foto] [data-f^=side] .cta,[data-foto][data-f^=side] .cta{position:relative;z-index:3}
+[data-foto][data-f=strip1532] .bn{flex-direction:column;align-items:flex-start;justify-content:center}
+/* Fundido corto: el fondo ya trae los colores del borde de la foto (blend.js). */
+[data-foto][data-f^=strip] .art{-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 32%);mask-image:linear-gradient(90deg,transparent 0%,#000 32%)}
+[data-foto][data-f^=side] .art{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 28%);mask-image:linear-gradient(180deg,transparent 0%,#000 28%)}
+/* Fondo de foto claro (estudio lila): texto morado oscuro. */
+/* Foto a la izquierda en franjas (izq): la toma entra por la izquierda y el bloque de texto + CTA ocupa los últimos 420 px. */
+[data-lado=izq] .art{left:0;right:auto;-webkit-mask-image:linear-gradient(270deg,transparent 0%,#000 32%) !important;mask-image:linear-gradient(270deg,transparent 0%,#000 32%) !important}
+[data-lado=izq][data-f=strip776] .bn{display:grid;justify-content:end;align-content:center;justify-items:start;padding:0 36px;gap:14px} /* columna del ancho del texto, pegada a la derecha; todo alineado a su borde izquierdo */
+/* Franja móvil con foto a la izquierda: título en dos líneas, bloque y CTA juntos al centro, luz detrás del texto y foto más clara. */
+[data-lado=izq][data-f=strip776] h1{font-size:28px;line-height:32px}
+[data-lado=izq][data-f=strip776] h1 em{display:block}
+[data-lado=izq][data-f=strip776] .cta{margin-top:0}
+[data-lado=izq][data-f=strip776] .art{filter:brightness(1.15) contrast(1.05)}
+/* lleno: foto a sangre, sin máscara ni fondo pintado; un velo suave solo detrás del texto. */
+body[data-lleno][data-f] .art{inset:0;width:100%;height:100%;object-fit:cover;-webkit-mask-image:none !important;mask-image:none !important;filter:none !important}
+[data-lleno][data-lado=izq] .bn::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(270deg,rgb(var(--velo,34 16 92) / 70%) 0%,rgb(var(--velo,34 16 92) / 45%) 40%,rgb(var(--velo,34 16 92) / 0%) 62%) !important}
+[data-lleno]:not([data-lado=izq])[data-f^=strip] .bn::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgb(var(--velo,34 16 92) / 70%) 0%,rgb(var(--velo,34 16 92) / 45%) 40%,rgb(var(--velo,34 16 92) / 0%) 62%)}
+[data-lleno][data-f=strip776]:not([data-lado=izq]) .bn{justify-content:center;gap:14px;padding:0 36px}
+[data-lleno][data-f=strip776] h1{font-size:28px;line-height:32px}
+[data-lleno][data-f=strip776] h1 em{display:block}
+[data-lleno][data-f=strip776] .cta{margin-top:0}
+[data-lleno][data-f^=side] .bn::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgb(var(--velo,34 16 92) / 70%) 0%,rgb(var(--velo,34 16 92) / 35%) 32%,rgb(var(--velo,34 16 92) / 0%) 50%,rgb(var(--velo,34 16 92) / 0%) 78%,rgb(var(--velo,34 16 92) / 60%) 100%)}
+[data-lado=izq][data-f=strip776] .bn::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(42% 85% at 70% 40%,rgb(132 96 229 / 50%) 0%,rgb(132 96 229 / 0%) 70%),
+    radial-gradient(22% 70% at 44% 105%,rgb(255 138 31 / 45%) 0%,rgb(255 138 31 / 0%) 70%),
+    radial-gradient(30% 50% at 100% 0%,rgb(201 168 255 / 25%) 0%,rgb(201 168 255 / 0%) 70%)}
+[data-lado=izq][data-f=strip1532] .bn{display:grid;justify-content:end;align-content:center;justify-items:start;gap:10px;padding:0 64px} /* columna del ancho del texto, pegada a la derecha */
+/* luz: estelas de velocidad curvas (naranja y magenta, como las de la foto) que salen del auto, se encienden en el tramo entre la foto
+   y el texto (pegado a la derecha) y se atenúan detrás de él; brillo magenta al medio. Las dibuja el script (svg .luz). */
+[data-luz] .bn::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(22% 140% at 46% 60%,rgb(214 51 160 / 35%) 0%,rgb(214 51 160 / 0%) 70%),
+    radial-gradient(30% 120% at 82% 40%,rgb(150 70 230 / 25%) 0%,rgb(150 70 230 / 0%) 70%)}
+[data-luz] .luz{position:absolute !important;inset:0;z-index:1 !important;width:100%;height:100%;pointer-events:none}
+[data-tono=claro] .bn{color:#2A0C80}
+[data-tono=claro] .lede{color:#3D3550}
+[data-tono=claro] h1 em{color:#6B42DE}
+/* Riel 400: la foto ocupa los 210 px de abajo (cabeza a rodillas) para no pisar bajadas largas ni pasos. */
+/* Verticales con toma 9:16 (22/10): la persona entera en el riel; en la barra, de la cabeza a los muslos y por encima del CTA. */
+[data-foto][data-f=side400] .art{height:250px;object-fit:cover;object-position:50% 0%}
+[data-foto][data-f=side264] .art{height:170px;object-fit:cover;object-position:50% 0%}
+/* Con los 3 pasos el texto baja más: la foto del riel se achica para no pisar la cabeza. */
+[data-foto][data-f=side400] .bn:has(.steps) .art{height:200px}
+[data-foto]:not([data-tono=claro]) .lede{color:#fff;text-shadow:0 1px 2px rgb(20 8 60 / 45%),0 0 14px rgb(20 8 60 / 40%)} /* bajada legible sobre fondos claros (cian, lavanda) */
+[data-tono=claro] .steps li::before{background:rgb(42 12 128 / 12%)}
+
+/* Píldora de vidrio (22/10): translúcida con desenfoque, borde claro y brillo arriba; en fondo claro, vidrio blanco con texto morado. */
+.bn .pill{color:#fff;border:1px solid rgb(255 255 255 / 38%);background:linear-gradient(180deg,rgb(255 255 255 / 26%),rgb(255 255 255 / 10%));-webkit-backdrop-filter:blur(10px) saturate(160%);backdrop-filter:blur(10px) saturate(160%);box-shadow:inset 0 1px 0 rgb(255 255 255 / 45%),0 4px 12px -4px rgb(10 0 40 / 35%)}
+.bn .pill::before{display:none}
+[data-tono=claro] .bn .pill,[data-t=claro] .bn .pill{color:#3B1782;border-color:rgb(90 53 194 / 28%);background:linear-gradient(180deg,rgb(255 255 255 / 80%),rgb(255 255 255 / 45%));box-shadow:inset 0 1px 0 #fff,0 4px 12px -6px rgb(58 26 156 / 35%)}
+
+/* CTA del DS (22/10): receta del botón primary de Concorde (degradado naranja → violeta, borde degradado blanco → #FBC47D →
+   #AE8EFF → blanco, brillo interior) sin ícono (22/10: Abraham descartó la ranura con ícono). */
+.bn .cta{position:relative;overflow:hidden;padding:0 28px;border:2px solid transparent;color:#fff;text-shadow:rgb(0 0 0 / 25%) 0 1px 3px;
+  background-image:linear-gradient(135deg,#ED8936 0%,#ED8936 40%,#8460E5 100%),linear-gradient(135deg,#fff 0%,#FBC47D 25%,#AE8EFF 75%,#fff 100%);
+  background-origin:padding-box,border-box;background-clip:padding-box,border-box;
+  box-shadow:rgb(255 255 255 / 28%) 0 1px 0 2px inset,rgb(237 137 54 / 30%) 0 2px 6px,rgb(10 0 40 / 30%) 0 8px 18px -8px}
+.bn .cta::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(rgb(255 255 255 / 17%) 0%,transparent 55%);pointer-events:none}
+.bn:hover .cta{transform:translateY(-1px) scale(1.02);box-shadow:rgb(255 255 255 / 22%) 0 1px 0 2px inset,rgb(132 96 229 / 35%) 0 8px 24px,rgb(237 137 54 / 40%) 0 4px 10px}
+@media (prefers-reduced-motion:reduce){.bn:hover .cta{transform:none}}
+/* Mini 311 × 60 (23/10): el mismo molde que el mini de Max (max-vmc.html), con la foto de «01-auto» (persona real con sus llaves). */
+[data-f=mini311] .bn{flex-direction:row;align-items:center;gap:12px;padding:6px 14px 6px 6px;border-radius:12px;color:#2A0C80;
+  background:radial-gradient(70px 70px at 30px 50%,rgb(255 226 194 / 85%),rgb(255 226 194 / 0%)),linear-gradient(90deg,#FDF1E6 0%,#F6F0FE 55%,#FFFFFF 100%)}
+[data-f=mini311] .thumb{flex:none;width:48px;height:48px;border-radius:10px;background:url(personaje/01-auto-s.jpg) 46% 14% / 300% auto no-repeat}
+[data-f=mini311] .tx{gap:1px;min-width:0;flex:1}
+[data-f=mini311] h1{font-size:15px;line-height:19px;letter-spacing:-.01em;white-space:nowrap}
+[data-f=mini311] .lede{font-size:12px;line-height:16px;color:#3D3550}
+[data-f=mini311] .go{flex:none;width:20px;height:20px;color:#5A35C2}
+/* Hero del index (vmc-index-lab, 27/10): 600 × 300 (366 × 300 en móvil) para 14–16. El banner secundario (17–19) va en index-campana.html. */
+[data-ix] .art{position:absolute !important;z-index:0 !important;inset:0;width:100%;height:100%;object-fit:cover}
+[data-ix=hero] .bn{justify-content:center;padding:0 36px}
+[data-ix=hero] .bn::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgb(34 16 92 / 92%) 0%,rgb(34 16 92 / 72%) 42%,rgb(34 16 92 / 0%) 72%)}
+[data-ix=hero][data-lado=izq] .bn{align-items:flex-end}
+[data-ix=hero][data-lado=izq] .bn::before{background:linear-gradient(270deg,rgb(34 16 92 / 92%) 0%,rgb(34 16 92 / 72%) 42%,rgb(34 16 92 / 0%) 72%)}
+[data-ix=hero] .tx{max-width:300px;gap:10px}
+[data-ix=hero] h1{font-size:30px;line-height:34px}
+[data-ix] h1 em{display:block}
+[data-ix=hero] .lede{font-size:14px;line-height:20px}
+[data-ix] .cta{height:40px;padding:0 24px;font-size:14px;margin-top:6px}
+[data-f=ixheroM] .bn{justify-content:flex-end;align-items:stretch;padding:20px}
+[data-f=ixheroM] .bn::before{background:linear-gradient(0deg,rgb(34 16 92 / 95%) 0%,rgb(34 16 92 / 78%) 45%,rgb(34 16 92 / 0%) 75%) !important}
+[data-f=ixheroM] h1{font-size:24px;line-height:28px}
+[data-f=ixheroM] .lede{font-size:13px;line-height:18px}
+</style></head>
+<body>
+<a class="bn" target="_blank" rel="noopener"></a>
+<script src="blend.js"></script>
+<script>
+const P = "publica/";
+// s / h: encuadre de la foto (object-position) en verticales y franjas, para que el vehículo quede entero.
+const V = {
+  "01-auto":       { izq: ["strip776"], lleno: ["side264", "strip776"], img: "tucson.jpg",  s: "70% 70%", h: "72% 62%", pill: "0% Comisión", pre: "Tu auto, tu precio,", em: "tu trato.", long: "Recibe ofertas hoy mismo y cierra al mejor precio.", short: "Recibe ofertas hoy mismo y cierra al mejor precio.", cta: "Publica tu auto" },
+  // Copy y dato de la tarjeta «Un solo pago» del index (vmc-index-lab).
+  "02-pago":       { lleno: ["side264", "side400", "strip776"], izq: ["strip1532"], luz: ["strip1532"], img: "corolla.jpg", s: "68% 70%", h: "70% 62%", pill: "25 SubasCoins · 0% comisión", pillS: "0% comisión", pre: "Un solo pago,", em: "hasta que lo vendas.", long: "Sin pagos mensuales ni renovaciones: el 100% de la venta es tuyo.", short: "El 100% de la venta es tuyo.", cta: "Publica ahora" },
+  "03-moto":       { lleno: ["side264", "side400", "strip776"], izq: ["strip1532"], luz: ["strip1532"], img: "cb190r.jpg",  s: "66% 70%", h: "64% 62%", rv: .44, pill: "0% Comisión", pre: "¡Recibe ofertas", em: "por tu moto hoy!", long: "Y véndela al mejor postor en VMC.", short: "Y véndela al mejor postor en VMC.", cta: "Publica tu moto" },
+  "04-pasos":      { lleno: ["side264", "strip776"], izq: ["strip1532"], luz: ["strip1532"], fundeV: "12%", img: "hilux.jpg",   s: "55% 70%", h: "55% 66%", pill: "Publica en VMC", pre: "¡Un solo pago", em: "hasta que lo vendas!", long: "Sin comisiones ni intermediarios.", short: "Sin comisiones ni intermediarios.", cta: "Empezar ahora" },
+  "05-propuestas": { rv: .46, lleno: ["side264", "side400", "strip776"], izq: ["strip1532"], luz: ["strip1532"], img: "swift.jpg",   s: "52% 70%", h: "54% 64%", pill: "Negociable", pre: "Tú pones el precio,", em: "ellos te proponen.", long: "Publica tu auto como Negociable y negocia directo con los compradores.", short: "Negocia directo con compradores.", cta: "Publica tu auto" },
+  "06-cero":       { lleno: ["side264", "side400", "strip776"], izq: ["strip776", "strip1532"], luz: ["strip1532"], img: "rio.jpg",     s: "52% 70%", h: "54% 66%", pill: "0% de comisión", pre: "Vende tu auto", em: "sin comisión.", long: "Pagas 25 SubasCoins al publicar y el 100% de la venta es tuyo.", short: "El 100% de la venta es tuyo.", cta: "Publica ahora" },
+  "07-moto-calle": { lleno: ["side264", "side400", "strip776"], izq: ["strip776", "strip1532"], luz: ["strip1532"], img: "pulsar.jpg",  s: "50% 72%", h: "52% 66%", pill: "Publica en VMC", pre: "Tu moto también", em: "se vende en VMC.", long: "Publícala y recibe propuestas de compradores.", short: "Recibe propuestas de compradores.", cta: "Publica tu moto" },
+  // Valorizar (motor AVT, 22/10): el CTA abre Valorizar en vez de Publicar. Pasos = los de Valorizar en AVT (vehículo → detalles → resultado).
+  "08-valor":      { lleno: ["side264", "side400", "strip776"], izq: ["strip1532"], luz: ["strip1532"], img: "corolla.jpg", s: "68% 70%", h: "70% 62%", to: "valuar", rv: .55, pill: "Valoriza en VMC", pre: "¡Descubre cuánto", em: "vale tu vehículo!", long: "El precio justo que buscas, en minutos.", short: "El precio justo que buscas, en minutos.", cta: "Valoriza tu auto" },
+  "09-valor-pasos":{ lleno: ["side264", "strip776"], izq: ["strip1532"], luz: ["strip1532"], fundeV: "12%", img: "hilux.jpg",   s: "55% 70%", h: "55% 66%", to: "valuar", pill: "Valoriza en VMC", pre: "Valoriza tu auto", em: "antes de venderlo.", steps: ["Elige tu auto", "Detállalo", "Conoce su valor"], cta: "Valorizar ahora" },
+  "10-valor-publica":{ lleno: ["side264", "strip776"], izq: ["strip776", "strip1532"], luz: ["strip1532"], img: "swift.jpg", s: "52% 70%", h: "54% 64%", to: "valuar", pill: "Valoriza y publica", pre: "Conoce su valor", em: "y publícalo en VMC.", long: "Valoriza tu auto, guarda el resultado y publícalo cuando quieras.", short: "Valoriza, guarda y publica.", cta: "Valoriza tu auto" },
+  // Max, el asistente AI de VMC (22/10): único con personaje. Copy de la referencia de Max (registro, En Vivo, Negociable, SubasCoins);
+  // no promociona catálogo ni valorización. Siempre en estilo «Personaje».
+  "11-max-dudas":  { max: true, pill: "Max, el asistente AI de VMC", pillS: "Max · asistente AI", pre: "¿Tienes dudas para participar?", em: "Max te orienta.", long: "Encuentra rápido la información del Centro de Ayuda que necesitas.", short: "Encuentra rápido la ayuda que necesitas.", cta: "¡Hablar con Max!" },
+  "12-max-guia":   { max: true, pill: "Max, el asistente AI de VMC", pillS: "Max · asistente AI", pre: "Tu guía para participar", em: "en VMC.", long: "Encuentra en conversación la ayuda para registrarte, participar y entender cómo funciona VMC.", short: "Regístrate, participa y entiende VMC.", cta: "¡Preguntar a Max!" },
+  "13-max-coins":  { max: true, pill: "Max, el asistente AI de VMC", pillS: "Max · asistente AI", pre: "¿Qué son los SubasCoins?", em: "Pregúntale a Max.", long: "Max te explica tu billetera, los SubasCoins y cómo pagar lo que ganes.", short: "Billetera y SubasCoins, explicados.", cta: "¡Preguntar a Max!" },
+  // Tomas del index (vmc-index-lab, 26/10): una sola foto 2000 × 1116 por pieza (foto), recortada por formato con s (verticales).
+  // Copy del hero y el banner secundario del index; provisional, Julio lo ajusta. href: destino fuera de Publicar/Valorizar.
+  "14-whatsapp":   { ix: "70% 30%", foto: "hero-whatsapp.jpg",  s: "68% 30%", href: "#whatsapp", pill: "Canal de WhatsApp", pillS: "WhatsApp", pre: "Entérate primero", em: "de las subastas.", long: "Únete al canal de VMC y recibe los lotes nuevos antes que nadie.", short: "Recibe los lotes nuevos antes que nadie.", cta: "Unirme al canal" },
+  "15-publica-ofertas": { ix: "30% 30%", der: true, foto: "hero-publica.jpg", s: "10% 30%", izq: ["strip776", "strip1532"], pill: "Publica en VMC", pre: "Publica tu auto<br>", em: "y recibe ofertas.", long: "Recibe propuestas y elige la que más te convenga.", short: "Recibe propuestas y tú eliges.", cta: "Publicar mi auto" },
+  "16-negociable": { ix: "70% 20%", foto: "hero-negociable.jpg", s: "62% 25%", pill: "Negociable", pre: "Tú pones el precio", em: "y ellos te proponen.", long: "Publica como Negociable y negocia directo con los compradores.", short: "Negocia directo con compradores.", cta: "Publicar como negociable", ctaS: "Publicar" },
+  "17-flota":      { ix: "62% 40%", foto: "subastop-flota.jpg", s: "62% 30%", href: "https://www.subastop.com/cita?utm_source=vmc&utm_medium=banner&utm_campaign=venta_empresa", pill: "Subastop · Venta para empresas", pillS: "Subastop", pre: "¿Vehículos parados?", em: "Ponlos a la venta.", long: "Un vehículo o toda una flota: cuéntanos qué quieres vender.", short: "Un vehículo o toda una flota.", cta: "Quiero vender mi flota" },
+  "18-valor-index":{ ix: "75% 30%", foto: "valoriza-auto.jpg",  s: "72% 25%", to: "valuar", pill: "Valoriza en VMC", pre: "¿Cuánto vale", em: "tu auto?", long: "Responde unas preguntas y conoce el valor estimado de tu auto.", short: "Conoce el valor estimado de tu auto.", cta: "Valoriza tu auto" },
+  "19-moto-index": { ix: "72% 22%", foto: "publica-moto.jpg",   s: "76% 25%", pill: "Publica en VMC", pre: "¿Vendes tu moto?", em: "Publícala en VMC.", long: "Los compradores te hacen propuestas y tú decides cuál aceptar.", short: "Te proponen y tú decides.", cta: "Publica tu moto" },
+};
+// Estilo «Personaje»: toma del personaje por pieza (las mismas 6 tomas sirven a las 10 piezas). Prompts en /banners-publica.
+const TOMA = { "01-auto": "llaves", "02-pago": "festejo", "03-moto": "moto", "04-pasos": "celular", "05-propuestas": "celular", "06-cero": "festejo",
+  "07-moto-calle": "moto", "08-valor": "valor", "09-valor-pasos": "senala", "10-valor-publica": "valor",
+  "11-max-dudas": "max-saluda", "12-max-guia": "max-explica", "13-max-coins": "max-celular" };
+// Fondo por pieza: dentro de cada campaña no se repite. ?bg= fuerza uno (para comparar en el lab).
+const BG = { "01-auto": "estelas", "02-pago": "aurora", "03-moto": "pista", "04-pasos": "orbita", "05-propuestas": "burbujas", "06-cero": "rayos",
+  "07-moto-calle": "estelas", "08-valor": "orbita", "09-valor-pasos": "aurora", "10-valor-publica": "rayos",
+  "11-max-dudas": "burbujas", "12-max-guia": "estelas", "13-max-coins": "orbita" };
+// Variaciones del hero del index (27/10, pedido de Julio): mismo copy, otra toma (fondo Concorde distinto, pose expresiva y objeto de vidrio).
+Object.assign(V, {
+  "14-whatsapp-a": { ...V["14-whatsapp"], foto: "hero-whatsapp-a.jpg", ix: "75% 30%" },
+  "14-whatsapp-c": { ...V["14-whatsapp"], foto: "hero-whatsapp-c.jpg", ix: "78% 30%" },
+  "15-publica-a": { ...V["15-publica-ofertas"], foto: "hero-publica-a.jpg", ix: "15% 30%" },
+  "16-negociable-a": { ...V["16-negociable"], foto: "hero-negociable-a.jpg", ix: "75% 30%" },
+  "16-negociable-b": { ...V["16-negociable"], foto: "hero-negociable-b.jpg", ix: "85% 30%" },
+  "14-whatsapp-e": { ...V["14-whatsapp"], foto: "hero-whatsapp-e.jpg", ix: "70% 30%" },
+  "15-publica-c": { ...V["15-publica-ofertas"], foto: "hero-publica-c.jpg", ix: "30% 30%" },
+  "15-publica-d": { ...V["15-publica-ofertas"], foto: "hero-publica-d.jpg", ix: "22% 30%" },
+  "16-negociable-c": { ...V["16-negociable"], foto: "hero-negociable-c.jpg", ix: "82% 30%" },
+});
+// Piezas con foto de escena: en el riel la bajada va corta para que no pise la cabeza.
+const FOTOS = ["01-auto", "02-pago", "03-moto", "04-pasos", "05-propuestas", "06-cero", "07-moto-calle", "08-valor", "09-valor-pasos", "10-valor-publica"];
+const F = ["side264", "side400", "strip776", "strip1532", "mini311", "ixhero", "ixheroM"];
+const q = new URLSearchParams(location.search);
+const v = V[q.get("v")] ? q.get("v") : "01-auto", f = F.includes(q.get("f")) ? q.get("f") : "side400";
+const x = V[v], wide = f === "strip1532", side = f.startsWith("side");
+document.body.dataset.f = f;
+const pj = q.get("e") === "personaje" || !!x.max;
+if (pj) document.body.dataset.e = "personaje";
+const FONDOS = ["estelas", "orbita", "aurora", "rayos", "pista", "burbujas"];
+const bg = FONDOS.includes(q.get("bg")) ? q.get("bg") : BG[v];
+if (pj) document.body.dataset.bg = bg;
+const lede = f === "side264" ? "" : x.steps ? `<ol class="steps">${x.steps.map((t) => `<li>${t}</li>`).join("")}</ol>` : `<p class="lede">${f === "strip776" || side && (x.max || x.foto || FOTOS.includes(v)) ? x.short : x.long}</p>`;
+const head = `<span class="pill">${side && x.pillS || x.pill}</span><h1>${x.pre} <em>${x.em}</em></h1>`;
+const cta = `<span class="cta">${side && x.ctaS || x.cta}</span>`; // ctaS: CTA corto si el largo no cabe en 200 px
+// 1532: 16:9 → 640 px de ancho; 4:3 (verticales generadas) → 480 px, más a la derecha para quedar junto al vidrio.
+const wide169 = ["tucson.jpg", "corolla.jpg", "cb190r.jpg"].includes(x.img);
+const w15 = wide169 ? "--w:640px;--l:560px" : "--w:480px;--l:690px";
+const media = `<img class="ph" src="${P}${x.img}" alt="" style="--pos:${side ? x.s : x.h};${w15}"><span class="veil"></span>`;
+const bn = document.querySelector(".bn");
+// Estelas: curvas en un viewBox 100 × 100 estirado al banner; el trazo no se deforma (non-scaling-stroke).
+const trails = `<svg class="tr" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <linearGradient id="gO" x1="0" x2="1"><stop offset="0" stop-color="#FF8A1F" stop-opacity="0"/><stop offset=".45" stop-color="#FFB25C"/><stop offset="1" stop-color="#FF7A00" stop-opacity=".2"/></linearGradient>
+  <linearGradient id="gV" x1="0" x2="1"><stop offset="0" stop-color="#A57BFF" stop-opacity="0"/><stop offset=".6" stop-color="#C9A8FF"/><stop offset="1" stop-color="#8A5CFF" stop-opacity=".3"/></linearGradient></defs>
+  ${side ? `<path class="o" d="M-5 78 C 30 92, 70 70, 105 52"/><path class="o2" d="M-5 86 C 35 98, 72 80, 105 64"/><path class="vi" d="M-5 96 C 40 86, 70 96, 105 80"/>`
+         : `<path class="o" d="M30 112 C 55 80, 75 70, 105 30"/><path class="o2" d="M38 115 C 62 88, 80 78, 105 48"/><path class="vi" d="M45 110 C 68 92, 85 88, 105 70"/>`}</svg>`;
+const ring = (cx, cy) => `<svg class="tr" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs>
+  <linearGradient id="gO" x1="0" x2="1"><stop offset="0" stop-color="#FF8A1F" stop-opacity="0"/><stop offset=".5" stop-color="#FFB25C"/><stop offset="1" stop-color="#FF7A00" stop-opacity=".2"/></linearGradient>
+  <linearGradient id="gV" x1="1" x2="0"><stop offset="0" stop-color="#A57BFF" stop-opacity="0"/><stop offset=".5" stop-color="#C9A8FF"/><stop offset="1" stop-color="#8A5CFF" stop-opacity=".3"/></linearGradient></defs>
+  <ellipse class="o" cx="${cx}" cy="${cy}" rx="30" ry="8"/><ellipse class="vi" cx="${cx}" cy="${cy}" rx="42" ry="13" stroke-dasharray="60 30"/><ellipse class="o2" cx="${cx}" cy="${cy}" rx="22" ry="5"/></svg>`;
+const DECO = {
+  estelas: () => trails,
+  orbita: () => ring(side ? 62 : f === "strip776" ? 78 : 80, side ? 92 : 98),
+  aurora: () => "",
+  rayos: () => `<span class="dc ry"></span>`,
+  pista: () => `<span class="dc"><span class="gr"></span><span class="hz"></span></span>`,
+  burbujas: () => `<span class="dc"><span class="bb b1"></span><span class="bb b2"></span><span class="sp"></span></span>`,
+};
+const sil = `<span class="sil"><svg viewBox="0 0 240 160" aria-hidden="true"><path d="M52 30a18 18 0 1 1 0 36a18 18 0 1 1 0-36zM18 160c0-34 15-84 34-84s34 50 34 84zM96 160v-34c0-8 6-14 14-16l22-4 20-24c4-5 10-8 17-8h34c8 0 15 5 18 12l12 22c4 2 7 7 7 12v40z" fill="rgb(255 255 255 / 10%)" stroke="rgb(255 255 255 / 45%)" stroke-width="1.5" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/></svg><b>Toma: ${TOMA[v]}</b></span>`;
+const figura = `<span class="pj"><img src="personaje/${TOMA[v]}.png" alt=""></span>`;
+// Fotos de escena por pieza. Los colores de borde ya no se usan para el fondo (ahora es la foto desenfocada); queda solo «claro».
+const FOTO = {
+  "01-auto": { h: "#2C133B", v: "#311421", s: "#2D1221" },
+  "02-pago": { h: "#302039", v: "#FAA897", s: "#F9AD96" },
+  "03-moto": { h: "#130923", v: "#0A0B1F", s: "#0C0C21" },
+  "04-pasos": { h: "#221C0D", v: "#747870", s: "#484F46" },
+  "05-propuestas": { h: "#D3BAE8", v: "#B19CC5", s: "#BDAAD2" }, // tomas nuevas (27/10) con fondo saturado: texto blanco
+  "06-cero": { h: "#2E0F70", v: "#009095", s: "#D46E20" }, // tomas nuevas (27/10)
+  "07-moto-calle": { h: "#2A154A", v: "#170D30", s: "#180D33" },
+  "08-valor": { h: "#403566", v: "#2A243E", s: "#1E1A32" },
+  "09-valor-pasos": { h: "#3F1C64", v: "#6499A3", s: "#59A3B0" },
+  "10-valor-publica": { h: "#482594", v: "#A966A2", s: "#B673A2" },
+};
+const foto = pj && (FOTO[v] || x.foto && {});
+if (f === "mini311") bn.innerHTML = `<span class="thumb"></span><div class="tx"><h1>${x.pre}</h1><p class="lede">${x.short}</p></div>
+  <svg class="go" viewBox="0 0 20 20" aria-hidden><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 7l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+else if (f.startsWith("ix") && x.ix) { // hero del index: x.ix = encuadre de la foto; der = texto a la derecha
+  document.body.dataset.ix = "hero";
+  if (x.der) document.body.dataset.lado = "izq";
+  bn.innerHTML = `<img class="art" src="vmc/${x.foto}" alt="" style="object-position:${x.ix}"><div class="tx">${head}<p class="lede">${f === "ixheroM" ? x.short : x.long}</p>${cta}</div>`;
+}
+else if (foto) {
+  const enc = side ? (f === "side400" ? "v" : "s") : f === "strip1532" ? "w" : "h";
+  document.body.dataset.foto = "1";
+  if (foto.claro) document.body.dataset.tono = "claro";
+  const izq = !side && !!x.izq?.includes(f); // izq: formatos donde la persona va a la izquierda y el texto a la derecha
+  if (izq) document.body.dataset.lado = "izq";
+  const lleno = !!x.lleno?.includes(f); // lleno: la toma ya viene al formato del banner (fondo de estudio incluido) y lo cubre entero
+  if (lleno) document.body.dataset.lleno = "1";
+  const funde = f === "side400" && x.fundeV ? `;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 ${x.fundeV});mask-image:linear-gradient(180deg,transparent 0%,#000 ${x.fundeV})` : ""; // fundeV: fundido corto arriba en el riel (cabeza alta en la toma)
+  if (x.luz?.includes(f)) document.body.dataset.luz = "1"; // luz: las estelas de la foto siguen por todo el banner
+  const LUZ = x.luz?.includes(f) ? `<svg class="luz" viewBox="0 0 1532 200" preserveAspectRatio="none" aria-hidden="true"><defs>
+    ${["#FF9A4A", "#FF4FBF"].map((c, i) => `<linearGradient id="lz${i}" gradientUnits="userSpaceOnUse" x1="230" x2="1532"><stop offset="0" stop-color="${c}" stop-opacity="0"/>
+      <stop offset=".08" stop-color="${c}" stop-opacity=".9"/><stop offset=".4" stop-color="${c}" stop-opacity=".8"/><stop offset=".56" stop-color="${c}" stop-opacity=".12"/>
+      <stop offset="1" stop-color="${c}" stop-opacity=".12"/></linearGradient>`).join("")}
+    <filter id="lzb" x="-5%" y="-50%" width="110%" height="200%"><feGaussianBlur stdDeviation="4"/></filter></defs>
+    ${[[120, 15, 0], [130, 42, 1], [145, 74, 0], [160, 108, 1], [172, 140, 0]].map(([y0, y1, c]) => { const d = `M230 ${y0} C 700 ${y0 + 4}, 1120 ${y0 - 12}, 1532 ${y1}`;
+      return `<path d="${d}" fill="none" stroke="url(#lz${c})" stroke-width="7" opacity=".55" filter="url(#lzb)"/><path d="${d}" fill="none" stroke="url(#lz${c})" stroke-width="1.6"/>`; }).join("")}</svg>` : "";
+  const src = x.foto ? `vmc/${x.foto}` : `personaje/${v}-${enc}.jpg`;
+  bn.innerHTML = `<img class="art" src="${src}" alt=""${x.foto && side ? ` style="object-position:${x.s}"` : funde ? ` style="${funde.slice(1)}"` : ""}>${LUZ}<div class="tx">${head}${lede}</div>${cta}`;
+  if (lleno && f === "side400") { // riel real ~290×320 (no 200×400): la toma 1:2 a sangre mostraba solo el fondo; se baja para que x.rv (alto de la cabeza, 0-1) quede justo bajo el texto y se vea el vehículo
+    const art = bn.querySelector(".art"), tx = bn.querySelector(".tx");
+    const baja = () => { if (!art.naturalWidth) return; const b = bn.getBoundingClientRect(), h = b.width * art.naturalHeight / art.naturalWidth;
+      if (h <= b.height) return; const o = (x.rv ?? .45) * h - (tx.getBoundingClientRect().bottom - b.top + 8);
+      art.style.objectPosition = `50% ${Math.max(0, Math.min(100, o / (h - b.height) * 100))}%`; };
+    art.complete ? baja() : art.addEventListener("load", baja); document.fonts.ready.then(baja); addEventListener("resize", baja); }
+  if (side && !lleno) { // la foto arranca bajo el texto: el riel real cambia de ancho y alto, y con 200-250 px fijos la cabeza pisaba los pasos
+    const art = bn.querySelector(".art"), tx = bn.querySelector(".tx"), alto = parseFloat(getComputedStyle(art).height);
+    const cabe = () => { art.style.height = `${Math.min(alto, bn.getBoundingClientRect().bottom - tx.getBoundingClientRect().bottom + 6)}px`; };
+    cabe(); document.fonts.ready.then(cabe); addEventListener("resize", cabe); }
+  if (!lleno) blendBanner(bn, bn.querySelector(".art"), side, !!foto.claro, izq);
+  else { // velo del color de la foto: el borde más oscuro (arriba, abajo, izquierda o derecha), un poco más oscuro aún
+    const im = bn.querySelector(".art");
+    const tono = () => { const c = document.createElement("canvas"); c.width = c.height = 8; const g = c.getContext("2d"); g.drawImage(im, 0, 0, 8, 8);
+      const d = g.getImageData(0, 0, 8, 8).data, px = (i, j) => [...d.slice((j * 8 + i) * 4, (j * 8 + i) * 4 + 3)];
+      const prom = (ps) => [0, 1, 2].map((k) => ps.reduce((a, p) => a + p[k], 0) / ps.length), r8 = [...Array(8).keys()];
+      const bordes = [r8.map((i) => px(i, 0)), r8.map((i) => px(i, 7)), r8.map((j) => px(0, j)), r8.map((j) => px(7, j))].map(prom);
+      const lum = (c) => 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+      const os = bordes.reduce((a, b) => lum(b) < lum(a) ? b : a).map((v) => Math.round(v * 0.8));
+      bn.style.setProperty("--velo", os.join(" ")); };
+    im.complete && im.naturalWidth ? tono() : im.addEventListener("load", tono); }
+}
+else if (pj) { bn.innerHTML = `${DECO[bg]()}${figura}<div class="tx">${head}${lede}</div>${cta}`; 
+  // Max: mientras no estén sus tomas, la ilustración actual (ConcordeV2/Banners/assets). Persona + vehículo: silueta.
+  bn.querySelector(".pj img").onerror = function () { if (x.max) { this.onerror = null; this.src = "max/max-avatar.png"; } else this.outerHTML = sil; }; }
+else bn.innerHTML = wide ? `${media}<div class="tx">${head}</div><div class="gl">${lede}${cta}</div>` : `${media}<div class="tx">${head}${lede}</div>${cta}`;
+// ponytail: en el lab el CTA abre Publicar de la maqueta VMC; en producción va la URL real de Publicar (por confirmar).
+// ponytail: Max todavía no tiene destino en el lab (chat de Max por definir): #max.
+bn.href = x.href ? `${x.href}${x.href.includes("?") ? "&" : "?"}utm_content=${v}_${f}` : x.max ? `#max?utm_content=${v}_${f}` : `/m/vmc-${x.to || "publica"}?utm_source=vmc&utm_medium=banner&utm_campaign=${x.to ? "valoriza" : "publica"}_vmc&utm_content=${v}_${f}`;
+const pre = x.pre.replace("<br>", "");
+bn.setAttribute("aria-label", `${pre} ${x.em} ${x.cta}`);
+document.title = `${pre} ${x.em}`;
+</script>
+</body></html>

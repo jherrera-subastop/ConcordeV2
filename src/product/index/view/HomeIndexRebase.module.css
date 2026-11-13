@@ -1,0 +1,96 @@
+/* Lienzo fijo de 1024 centrado (como vmc-index-final-review): el sidebar solo empuja al contenido.
+   Abierto 226 + 798 · cerrado 76 + 948. --sb lo fija el estado del sidebar. */
+.desktopShell { --sb: 226px; display: grid; grid-template-columns: var(--sb) minmax(0, 1fr);
+  grid-template-rows: 64px minmax(0, 1fr); width: min(100%, 1024px); min-width: 0; margin: 0 auto;
+  transition: grid-template-columns 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
+.desktopShell[data-collapsed] { --sb: 76px; }
+.tickerRow { display: none; }
+.desktopShell > header { position: sticky; top: 0; z-index: 4; grid-column: 2; grid-row: 1; }
+/* overflow visible y encima del header: la cabecera del Sidebar (logo + hamburguesa) mide 226 aunque
+   el sidebar se cierre a 76, y debe verse sobre el header (así lo diseña Concorde). */
+.sidebarRail { position: sticky; top: 0; z-index: 5; grid-column: 1; grid-row: 1 / -1; align-self: start; height: 100dvh; overflow: visible; }
+.mainColumn { min-width: 0; grid-column: 2; grid-row: 2; background: #ffffff; } /* contenido sobre blanco; morado alrededor */
+.mobileShell { display: none; min-width: 0; overflow-x: clip; background: #fff; }
+.brandLogo { display: block; width: 119px; height: 45px; object-fit: contain; }
+.mobileBrand { display: inline-flex; align-items: center; gap: 10px; }
+.mobileBrand .brandLogo { width: 96px; height: auto; }
+.mobileLogo { display: block; width: 96px; height: 30px; object-fit: contain; }
+
+/* Layout only: visual surfaces remain inside approved Concorde candidates. */
+.page { width: 100%; margin: 0; padding: 16px 12px 56px; display: grid; align-content: start; gap: 30px; box-sizing: border-box; }
+.firstFold { display: grid; grid-template-columns: minmax(0, 1fr) 236px; gap: 16px; align-items: stretch; }
+.lots, .categorySection, .stores { min-width: 0; display: grid; gap: 12px; }
+.lotsIntro, .sectionLine { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.offerRail { min-width: 0; display: flex; gap: 16px; overflow-x: auto; padding: 8px 4px 16px; }
+.categoryRail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.categoryTile { min-width: 0; display: grid; grid-template-rows: 118px auto; gap: 8px; overflow: hidden; }
+.categoryTile > img { width: 100%; height: 118px; display: block; object-fit: cover; }
+.categoryTileFooter { display: flex; align-items: center; gap: 10px; }
+.categoryTileFooter > span { white-space: nowrap; }
+.storeLinks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.storeLink { display: flex; align-items: center; min-width: 0; gap: 12px; }
+.storeInitial { display: inline-grid; place-items: center; flex: 0 0 auto; width: 40px; height: 40px; }
+
+/* Publicidad de Subastop en el hueco del banner del sidebar (200 × 264): reemplaza el marcador «Banner» de Concorde. */
+.desktopShell :global([data-slot="sidebar-banner"]), .mobileShell :global([data-slot="sidebar-banner"]) { position: relative; overflow: hidden; }
+.desktopShell :global([data-slot="sidebar-banner"] > span), .mobileShell :global([data-slot="sidebar-banner"] > span) { display: none; }
+.sideAd { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; }
+.sideAd iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+@media (max-width: 1023px) {
+  .desktopShell { display: none; }
+  .mobileShell { display: block; }
+  .mobileShell, .mobileShell .sbm-root, .mobileShell [data-block="header"], .mobileShell [data-block="homepage"] {
+    width: 100% !important; max-width: 100% !important; box-sizing: border-box; }
+  .mobileShell > header { position: sticky; top: 0; z-index: 8; }
+  .page { width: 100%; padding: 18px 16px 44px; gap: 26px; }
+  .firstFold { grid-template-columns: 1fr; }
+  .categoryRail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lotsIntro, .sectionLine { align-items: flex-start; flex-direction: column; }
+}
+
+/* Modo Feed (móvil): barra inferior tipo Instagram con Inicio y Feed. --tabbar deja libre el alto de la barra
+   (54 + margen inferior como el del iPhone, donde va la barra de inicio). */
+.mobileShell[data-feedmode] { --tabbar: calc(54px + max(env(safe-area-inset-bottom), 20px)); padding-bottom: var(--tabbar); }
+.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: grid; grid-template-columns: 1fr 1fr; align-items: start;
+  height: var(--tabbar); background: rgba(255,255,255,0.96); border-top: 1px solid #ECE8F6; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.tab { position: relative; display: grid; place-items: center; height: 54px; padding: 0; border: 0; color: #8A879C; background: none; cursor: pointer; }
+.tab[aria-current="page"] { color: #3B1782; }
+.tab:focus-visible { outline: 2px solid #8460E5; outline-offset: -6px; border-radius: 12px; }
+/* Punto naranja de «en vivo» sobre el ícono del feed. */
+.tabLive { position: absolute; top: 12px; left: calc(50% + 9px); width: 8px; height: 8px; border-radius: 50%; background: #FF7A1A; box-shadow: 0 0 0 2px #fff; }
+/* Feed a pantalla completa (como X): ocupa el alto entre el header (64) y la barra; plano, sin la caja de card. */
+.feedView { display: flex; height: calc(100dvh - 64px - var(--tabbar, 0px)); background: #fff; }
+.feedView[data-sub] { height: calc(100dvh - 64px - 44px); } /* bajo las pestañas o la barra «‹ Inicio» */
+
+/* Variante «Pestañas arriba», como X: header y pestañas fijos arriba; al bajar el header se esconde y quedan solo las
+   pestañas, al subir vuelve. Pestañas de X: 53 de alto, texto 15, activa en negrita con línea redondeada de 4 px del ancho
+   del texto (morado VMC en lugar del azul de X), fondo blanco translúcido con blur y filete #EFF3F4. */
+.mobileShell[data-xbar] > :global(.sbm-root) > :global(header) { position: sticky; top: 0; z-index: 9; transition: transform 0.25s ease; }
+.mobileShell[data-xhide] > :global(.sbm-root) > :global(header) { transform: translateY(-100%); }
+.toptabs { position: sticky; top: 0; z-index: 8; display: grid; grid-template-columns: 1fr 1fr; height: 53px; background: rgba(255,255,255,0.85);
+  border-bottom: 1px solid #EFF3F4; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: top 0.25s ease; }
+.mobileShell[data-xbar] .toptabs { top: 64px; }
+.mobileShell[data-xhide] .toptabs { top: 0; }
+.toptabs button { display: flex; justify-content: center; padding: 0; border: 0; background: none; cursor: pointer; transition: background 0.2s;
+  font: 500 15px/1 var(--vmc-font-display, 'Plus Jakarta Sans', sans-serif); color: #536471; }
+.toptabs button:hover { background: rgba(15,20,25,0.06); }
+.toptabs button span { position: relative; display: inline-flex; align-items: center; gap: 6px; height: 100%; }
+.toptabs button[aria-current="page"] { font-weight: 700; color: #0F1419; }
+.toptabs button[aria-current="page"] span::after { content: ""; position: absolute; left: 50%; bottom: 0; min-width: 56px; width: 100%; height: 4px;
+  transform: translateX(-50%); border-radius: 999px; background: #3B1782; }
+.toptabs button:focus-visible { outline: 2px solid #8460E5; outline-offset: -4px; border-radius: 8px; }
+.toptabs i { width: 6px; height: 6px; border-radius: 50%; background: #FF7A1A; }
+/* Feed como X: desplaza la página (sin scroll propio), así el header se esconde al bajar. */
+.feedPage { min-height: calc(100dvh - 117px); background: #fff; }
+.feedPage :global(.va) { border-radius: 0; box-shadow: none; }
+/* Variante «Franja en vivo»: barra para volver del feed al inicio. */
+.backbar { position: sticky; top: 0; z-index: 6; display: flex; align-items: center; height: 44px; padding: 0 8px; background: #fff; border-bottom: 1px solid #ECE8F6; }
+.backbar button { display: inline-flex; align-items: center; gap: 2px; height: 36px; padding: 0 10px 0 4px; border: 0; border-radius: 10px; background: none; cursor: pointer;
+  font: 700 14px/1 var(--vmc-font-display, 'Plus Jakarta Sans', sans-serif); color: #3B1782; }
+.backbar button:focus-visible { outline: 2px solid #8460E5; outline-offset: 1px; }
+.feedView :global(.va) { border-radius: 0; box-shadow: none; }
+
+@media (max-width: 560px) {
+  .categoryRail, .storeLinks { grid-template-columns: 1fr; }
+}

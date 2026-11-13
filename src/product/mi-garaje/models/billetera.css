@@ -1,0 +1,75 @@
+/* Mi billetera · letras (22/10, comentario de Silvana): «Mi billetera» y «Transacciones» se notaban poco sobre el degradado.
+   Solo color, tamaño y peso de las letras; el fondo de la tarjeta no cambia. Panel «Mi billetera» del lab (arriba a la
+   izquierda, para no tapar la tarjeta mientras se compara). */
+.f-sw--bill { top:16px; bottom:auto; left:16px; right:auto; max-width:300px; }
+.g--vmc.g-page[data-billetera] .f-wallet header a .g-chev { color:currentColor; }
+.g--vmc.g-page:is([data-billetera="fuerte"], [data-billetera="naranja"], [data-billetera="lila"], [data-billetera="subrayado"]) .f-wallet h2 { font-size:1.125rem; font-weight:800; }
+.g--vmc.g-page[data-billetera="blanco"] .f-wallet header a { color:#fff; font-weight:700; }
+.g--vmc.g-page:is([data-billetera="fuerte"], [data-billetera="subrayado"]) .f-wallet header a { color:#fff; font-size:.8125rem; font-weight:700; }
+.g--vmc.g-page[data-billetera="naranja"] .f-wallet header a { color:#FDD8A4; font-size:.8125rem; font-weight:700; }
+.g--vmc.g-page[data-billetera="lila"] .f-wallet header a { color:#CFBAFF; font-size:.8125rem; font-weight:700; }
+.g--vmc.g-page:is([data-billetera="subrayado"], [data-billetera="brillo"]) .f-wallet header a { text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; }
+/* Hover: blanco y subrayado (en las blancas el color ya no puede subir). */
+.g--vmc.g-page:not([data-billetera="actual"]) .f-wallet header a:hover { color:#fff; text-decoration:underline; text-underline-offset:3px; }
+
+/* ── SubasCoins: el signo >S< delante del monto (Concorde) ───────────── */
+.f-wallet__sign { margin-right:5px; font-size:.62em; font-weight:700; letter-spacing:0; color:#E8DEFF; vertical-align:.1em; }
+
+
+/* ── Tarjeta ─────────────────────────────────────────────────── */
+/* Las variantes de tarjeta llevan el título fuerte; Transacciones según cada una. */
+.g--vmc.g-page:is([data-billetera="esmerilado"], [data-billetera="halo"], [data-billetera="brillo"], [data-billetera="primary"], [data-billetera="live"], [data-billetera="pildora"]) .f-wallet h2 { font-size:1.125rem; font-weight:800; }
+.g--vmc.g-page:is([data-billetera="halo"], [data-billetera="brillo"], [data-billetera="primary"], [data-billetera="live"]) .f-wallet header a { color:#fff; font-size:.8125rem; font-weight:700; }
+
+/* Píldora (y Borde esmerilado): Transacciones como botón de vidrio. */
+.g--vmc.g-page:is([data-billetera="pildora"], [data-billetera="esmerilado"]) .f-wallet header a { gap:4px; min-height:28px; padding:0 8px 0 12px; border-radius:9999px; background:rgba(255,255,255,.12);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.34); color:#fff; font-size:.8125rem; font-weight:700; transition:background .15s; }
+.g--vmc.g-page:is([data-billetera="pildora"], [data-billetera="esmerilado"]) .f-wallet header a:hover { background:rgba(255,255,255,.22); text-decoration:none; }
+.g--vmc.g-page[data-billetera="esmerilado"] .f-wallet header a { box-shadow:inset 0 0 0 1px rgba(207,186,255,.75), 0 0 12px rgba(174,142,255,.35); }
+
+/* Borde esmerilado: marco degradado (el del botón secundario) y halo violeta alrededor. */
+.g--vmc.g-page[data-billetera="esmerilado"] .f-src .f-wallet { box-shadow:0 0 0 4px rgba(174,142,255,.16), 0 0 28px rgba(132,96,229,.45), 0 12px 32px rgba(34,0,92,.28); }
+.g--vmc.g-page[data-billetera="esmerilado"] .f-wallet::after { content:""; position:absolute; inset:0; z-index:1; border-radius:inherit; padding:1.5px; pointer-events:none;
+  background:linear-gradient(135deg, #CFBAFF 0%, #fff 35%, #AE8EFF 65%, #CFBAFF 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+
+/* Halo: una luz recorre el borde de la billetera sin parar (conic-gradient que gira, enmascarado a un marco de 2 px), con un
+   resplandor que la sigue. El barrido diagonal anterior (.f-wallet__shine) queda apagado. */
+.f-wallet__shine, .f-wallet__beam { display:none; }
+@property --fw-ang { syntax:"<angle>"; inherits:false; initial-value:0deg; }
+.g--vmc.g-page[data-billetera="halo"] .f-wallet__beam { display:block; position:absolute; inset:0; z-index:2; border-radius:inherit; padding:2.5px; pointer-events:none;
+  background:conic-gradient(from var(--fw-ang), transparent 0deg, transparent 200deg, rgba(174,142,255,.55) 270deg, #CFBAFF 315deg, #fff 345deg, #FBC47D 356deg, transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation:f-wallet-beam 4s linear infinite; }
+.g--vmc.g-page[data-billetera="halo"] .f-src .f-wallet { box-shadow:0 0 0 1px rgba(207,186,255,.3), 0 0 26px rgba(132,96,229,.4), 0 12px 32px rgba(34,0,92,.28); }
+@keyframes f-wallet-beam { to { --fw-ang:360deg; } }
+/* En producción, con prefers-reduced-motion: reduce, la luz no debe girar. En el lab no se aplica: Windows con las
+   animaciones apagadas lo activa en Chrome y el halo se vería quieto. */
+
+/* Fondo primary (degradado del botón primary) y Fondo live (naranja de EN VIVO), con el borde degradado de cada uno. */
+.g--vmc.g-page:is([data-billetera="primary"], [data-billetera="live"]) .f-src .f-wallet { border:1.5px solid transparent; background-origin:padding-box, border-box; background-clip:padding-box, border-box; }
+.g--vmc.g-page[data-billetera="primary"] .f-src .f-wallet { background-image:linear-gradient(135deg, #ED8936 0%, #C76F5E 34%, #8460E5 72%, #5A35C2 100%), linear-gradient(135deg, #fff 0%, #FBC47D 25%, #AE8EFF 75%, #fff 100%);
+  box-shadow:0 12px 32px rgba(132,96,229,.35), 0 4px 12px rgba(237,137,54,.25); }
+.g--vmc.g-page[data-billetera="live"] .f-src .f-wallet { background-image:linear-gradient(135deg, #F4AC59 0%, #ED8936 40%, #B25614 100%), linear-gradient(135deg, #FBC47D 0%, rgba(255,255,255,.45) 40%, #D46E20 75%, #FBC47D 100%);
+  box-shadow:0 12px 32px rgba(237,137,54,.4); }
+.g--vmc.g-page:is([data-billetera="primary"], [data-billetera="live"]) .f-wallet { text-shadow:0 1px 2px rgba(60,20,0,.22); }
+.g--vmc.g-page:is([data-billetera="primary"], [data-billetera="live"]) .f-wallet :is(.f-wallet__bal dt, .f-wallet__bal dd small, .f-wallet__sign) { color:rgba(255,255,255,.92); }
+.g--vmc.g-page:is([data-billetera="primary"], [data-billetera="live"]) .f-wallet__bal div + div { border-left-color:rgba(255,255,255,.35); }
+.g--vmc.g-page:is([data-billetera="primary"], [data-billetera="live"]) .f-wallet .psec { text-shadow:rgba(0,0,0,.3) 0 1px 3px; }
+
+/* Panel más ancho: tres grupos sin que los botones se partan en muchas filas. */
+.f-sw--bill { max-width:340px; }
+.f-sw--bill > .f-sw__hint { padding-top:8px; border-top:1px solid #EEE9FB; }
+/* Con la píldora, título y botón entran en una línea en los 268 px de la tarjeta. */
+.g--vmc.g-page:is([data-billetera="pildora"], [data-billetera="esmerilado"]) .f-wallet h2 { font-size:1.0625rem; white-space:nowrap; }
+.g--vmc.g-page:is([data-billetera="pildora"], [data-billetera="esmerilado"]) .f-wallet header { gap:8px; }
+.g--vmc.g-page:is([data-billetera="pildora"], [data-billetera="esmerilado"]) .f-wallet header a { flex:none; min-height:26px; padding:0 6px 0 10px; font-size:.75rem; white-space:nowrap; }
+
+/* Brillo de carta: una luz blanca cruza por dentro toda la tarjeta, de la esquina superior izquierda a la inferior derecha,
+   como el reflejo de una carta coleccionable. La banda es más grande que la tarjeta y va en diagonal (45°); pasa en 3.5 s
+   y espera hasta completar 7 s. Igual que el halo, en el lab no la frena «reducir movimiento». */
+.g--vmc.g-page[data-billetera="brillo"] .f-wallet__shine { display:block; position:absolute; z-index:2; left:-50%; top:-50%; width:200%; height:200%; pointer-events:none;
+  background:linear-gradient(135deg, transparent 40%, rgba(255,255,255,.06) 44%, rgba(255,255,255,.22) 47%, rgba(255,255,255,.55) 50%, rgba(255,255,255,.22) 53%, rgba(255,255,255,.06) 56%, transparent 60%);
+  mix-blend-mode:screen; transform:translate(-50%, -50%); animation:f-wallet-card 7s cubic-bezier(.45,0,.25,1) .4s infinite; }
+.g--vmc.g-page[data-billetera="brillo"] .f-src .f-wallet { box-shadow:0 0 0 1px rgba(207,186,255,.3), 0 12px 32px rgba(34,0,92,.28); }
+@keyframes f-wallet-card { 0% { transform:translate(-50%, -50%); } 50%, 100% { transform:translate(50%, 50%); } }

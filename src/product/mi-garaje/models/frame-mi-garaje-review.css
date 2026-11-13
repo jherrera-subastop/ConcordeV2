@@ -1,0 +1,73 @@
+/* Layout only. Concorde owns typography, surfaces, controls and internal anatomy. */
+.garage-review__shell { display:grid; grid-template-columns:auto minmax(0,1fr); min-height:100vh; }
+.garage-review__main { min-width:0; }
+.garage-review__sidebar { display:flex; }
+.garage-review__content { display:grid; gap:40px; max-width:1200px; margin:0 auto; padding:32px 40px 24px; }
+.garage-review__intro { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; }
+.garage-review__utilities,.garage-review__brand { display:flex; align-items:center; gap:20px; }
+.garage-review__overview { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:40px; align-items:start; }
+.garage-review__start { display:grid; justify-items:start; align-content:start; gap:20px; padding:16px 0; }
+.garage-review__primary-actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.garage-review__start p { margin:0; max-width:400px; }
+.garage-review__wallet { display:grid; gap:16px; }
+.garage-review__heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.garage-review__heading > .cardtitle { flex:0 1 auto; }
+.garage-review__link { display:flex; flex-shrink:0; }
+.garage-review__balances { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:0; padding:0 12px; }
+.garage-review__balances > div { display:grid; gap:6px; }
+.garage-review__balances dd { margin:0; }
+.garage-review__wallet-action { display:flex; padding:0 12px; }
+.garage-review__work,.garage-review__continuity { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; align-items:start; }
+.garage-review__section { display:grid; align-content:start; gap:16px; min-width:0; }
+.garage-review__section > p { margin:0; padding:0 12px; max-width:460px; }
+.garage-review__vehicles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; }
+.garage-review__vehicle { display:grid; gap:12px; min-width:0; }
+.garage-review__offer.pcard { width:100%; min-width:0; }
+.garage-review__vehicle-context { display:grid; justify-items:start; gap:6px; padding:0 4px; }
+.garage-review__vehicle-context p { margin:0; }
+.garage-review__live { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; padding:0 12px; }
+.garage-review__live-label { display:flex; align-items:center; gap:10px; }
+.garage-review__negotiation-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 12px; }
+.garage-review__section-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; padding:0 8px; }
+.garage-review__activity { display:flex; flex-wrap:wrap; align-items:center; gap:20px; }
+.garage-review__activity-links { display:flex; flex-wrap:wrap; gap:12px 32px; }
+.garage-review__note { padding:0 12px; }
+.garage-review__mobile-header { display:none; }
+.garage-review__wallet-card.wbc,.garage-review__activity-card.actcard { width:100%; }
+.garage-review__participation-tabs { display:flex; }
+.garage-review__negotiations { display:grid; gap:24px; min-width:0; padding:0 4px; }
+.garage-review__negotiations p { margin:0; }
+.garage-review__negotiation-row { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.garage-review__negotiation-row > div { display:grid; gap:4px; min-width:0; }
+.garage-review__avt { min-height:calc(100vh - 64px); align-content:start; }
+.garage-review__avt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; align-items:start; }
+.garage-review__avt-form,.garage-review__avt-description { display:grid; gap:24px; align-content:start; }
+.garage-review__field { display:grid; gap:8px; }
+.garage-review__input.pinput-root { width:100%; }
+.garage-review__avt-data { display:grid; gap:20px; padding:0 12px; }
+.garage-review__avt-data > div { display:grid; gap:6px; }
+.garage-review__avt-data dd,.garage-review__avt-data p { margin:0; }
+.garage-review__saved-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; padding:24px 0; }
+@media(max-width:1199px) {
+  .garage-review__sidebar,.garage-review__desktop-header { display:none; }
+  .garage-review__shell { display:block; }
+  .garage-review__mobile-header { display:block; }
+  .garage-review__content { padding:28px 32px 24px; gap:32px; }
+}
+@media(max-width:799px) {
+  .garage-review__avt-grid { grid-template-columns:1fr; gap:32px; }
+  .garage-review__overview,.garage-review__work,.garage-review__continuity { grid-template-columns:1fr; gap:32px; }
+  .garage-review__content { max-width:620px; padding:24px 16px; gap:32px; }
+  .garage-review__intro { align-items:flex-start; gap:12px; }
+  .garage-review__utilities { padding:0 8px; gap:24px; }
+  .garage-review__start { padding:0; gap:16px; }
+  .garage-review__primary-actions { gap:12px; }
+  .garage-review__vehicles { gap:12px; }
+  .garage-review__activity { display:grid; gap:12px; }
+  .garage-review__activity-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 8px; align-items:start; padding:0 8px; }
+  .garage-review__activity-links > .pprofilebtn { justify-self:start; }
+}
+@media(max-width:370px) {
+  .garage-review__activity-links { grid-template-columns:1fr; }
+  .garage-review__vehicles { grid-template-columns:1fr; }
+}

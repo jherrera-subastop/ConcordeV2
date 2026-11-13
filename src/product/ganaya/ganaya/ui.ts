@@ -1,0 +1,24 @@
+// The new-flow UI boundary. Frozen provider: config/ganaya-concorde-source.json.
+export { default as Header } from "@/src/product/ganaya/ganaya-concorde/bloques/header/desktop/Header";
+export { default as Sidebar } from "@/src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/Sidebar";
+export type { SidebarNavItem } from "@/src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/Sidebar";
+export { default as SidebarMobile, SidebarMenuButton } from "@/src/product/ganaya/ganaya-concorde/bloques/sidebar/mobile/SidebarMobile";
+export { default as Button } from "@/src/product/ganaya/ganaya-concorde/components/Button";
+export { default as CardTitle } from "@/src/product/ganaya/ganaya-concorde/components/CardTitle";
+export { default as CardViewer } from "@/src/product/ganaya/ganaya-concorde/components/CardViewer";
+export { default as AuctionStatus } from "@/src/product/ganaya/ganaya-concorde/components/AuctionStatus";
+export { default as Accordion } from "@/src/product/ganaya/ganaya-concorde/components/Accordion";
+export { default as DetailCard } from "@/src/product/ganaya/ganaya-concorde/components/DetailCard";
+export { default as OfferCard } from "@/src/product/ganaya/ganaya-concorde/components/OfferCard";
+export { default as ConditionPill } from "@/src/product/ganaya/ganaya-concorde/components/ConditionPill";
+export { default as TermsSelector } from "@/src/product/ganaya/ganaya-concorde/components/TermsSelector";
+export { default as Input } from "@/src/product/ganaya/ganaya-concorde/components/Input";
+export { default as Table } from "@/src/product/ganaya/ganaya-concorde/components/Table";
+export { default as CheckIcon } from "@/src/product/ganaya/ganaya-concorde/components/CheckIcon";
+export { default as TabSelector } from "@/src/product/ganaya/ganaya-concorde/components/TabSelector";
+export { default as BadgeStatus } from "@/src/product/ganaya/ganaya-concorde/components/BadgeStatus";
+export { default as OfferIcon } from "@/src/product/ganaya/ganaya-concorde/components/OfferIcon";
+export { default as TodayIcon } from "@/src/product/ganaya/ganaya-concorde/components/TodayIcon";
+export { default as CategoryIcon } from "@/src/product/ganaya/ganaya-concorde/components/CategoryIcon";
+export { default as BusinessIcon } from "@/src/product/ganaya/ganaya-concorde/components/BusinessIcon";
+export { default as ServiceCenterIcon } from "@/src/product/ganaya/ganaya-concorde/components/ServiceCenterIcon";

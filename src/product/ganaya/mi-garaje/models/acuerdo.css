@@ -1,0 +1,27 @@
+/* Acuerdo (ver Acuerdo.tsx). Badges con la forma de BadgeStatus (9 px, píldora, 80 de ancho mín.); el color dice la etapa:
+   teal = en negociación (el mismo de NEGOCIABLE), magenta = SubasChat (con acuerdo), verde = vendida, gris = no concretada. */
+.ac-badge { gap:4px; padding:3px 8px; }
+.ac-badge svg { flex:none; }
+.badgestatus.ac-badge--negociacion { background-image:linear-gradient(135deg, #30E8EC 0%, #00CACE 45%, #008688 100%); box-shadow:rgba(0,134,136,.4) 0 2px 10px, rgba(255,255,255,.14) 0 1px 0 inset; }
+/* SubasChat: el magenta del lab (#CC00FF → #FF0066), como «te toca» en las negociaciones. */
+.badgestatus.ac-badge--aceptada { background-image:linear-gradient(135deg, #CC00FF 0%, #E6007E 55%, #FF0066 100%); box-shadow:rgba(204,0,255,.35) 0 2px 10px, rgba(255,255,255,.14) 0 1px 0 inset; }
+.badgestatus.ac-badge--vendida { background-image:linear-gradient(135deg, #4ADE80 0%, #16A34A 55%, #15803D 100%); box-shadow:rgba(22,163,74,.35) 0 2px 10px, rgba(255,255,255,.14) 0 1px 0 inset; }
+.badgestatus.ac-badge--no { color:#4A4855; background:#ECECEE; border-color:#DCDCE0; backdrop-filter:none; -webkit-backdrop-filter:none; }
+.fr--publication .fr__deal-note { color:#191C1C; font-weight:400; }
+
+/* Cabecera del panel de la negociación con el chat abierto: la tarjeta del auto lleva al detalle de la oferta. */
+.g-qv__go-link { display:inline-flex; align-items:center; gap:4px; font-size:.8125rem; font-weight:600; color:#5A35C2; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(90,53,194,.35); }
+.g-qv__go-link:hover { color:#3B1782; text-decoration-color:currentColor; }
+.g-qv__go-link:focus-visible { outline:2px solid #8460E5; outline-offset:2px; border-radius:4px; }
+.g-qv__go-link svg { transition:transform .15s; } .g-qv__go-link:hover svg { transform:translate(1px,-1px); }
+/* Toda la tarjeta: foto y ficha forman un solo enlace (ocupa las dos primeras columnas de la cabecera) con su estado al pasar. */
+a.g-qv__go { grid-column:1 / 3; display:grid; grid-template-columns:auto 1fr; align-items:center; column-gap:16px; margin:-8px; padding:8px; border-radius:16px; color:inherit; text-decoration:none; transition:background .15s, box-shadow .15s; }
+a.g-qv__go:hover { background:#F8F5FF; box-shadow:inset 0 0 0 1px #E0D4FF; }
+a.g-qv__go:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+a.g-qv__go .g-qv__pic { position:relative; }
+/* Con enlace y tarjeta a la vez, el enlace es texto dentro del enlace mayor: se ve, pero no es otro destino. */
+a.g-qv__go .g-qv__go-link { text-decoration-color:rgba(90,53,194,.35); }
+a.g-qv__go:hover .g-qv__go-link { color:#3B1782; text-decoration-color:currentColor; }
+a.g-qv__go:hover .g-qv__go-link svg { transform:translate(1px,-1px); }
+@media (prefers-reduced-motion:reduce) { a.g-qv__go, .g-qv__go-link svg { transition:none; } }
+#lab-dock .lab-dock__col > .f-sw--acuerdo:not(.f-sw--closed) { order:-2; flex:none; overflow:visible; }

@@ -308,3 +308,6 @@ import { NOMBRE_WIDTH, NOMBRE_HEIGHT } from "@/src/blocks/nombre/desktop/dimensi
 - **Skill docs**: `.claude/skills/` — un SKILL.md por cada comando
 - **Component catalog**: `http://localhost:3000` (local development)
 - **AGENTS.md**: Read before writing custom code — Next.js version has breaking changes
+
+## Pantallas vigentes integradas (2026-11-13)
+Para nuevas pantallas o modernización de mockups, consulta primero `docs/integracion/README.md` y `public/producto/registry.json`. `/producto` reúne snapshots de código ejecutables de Index, detalle Basic, Mi Garaje, publicación, valorización y Ganá Ya con procedencia. Elige primero la pantalla/flujo equivalente y luego sus componentes; no compongas una pantalla genérica perdiendo shell, logo o estados. Los namespaces `src/product/*` conservan variantes de sus fuentes: no son componentes canónicos normalizados ni prueban aprobación o conexión backend. La skill de generación por componente no sustituye este análisis de pantalla. Mantén separados producido, revisado, aprobado y publicado.

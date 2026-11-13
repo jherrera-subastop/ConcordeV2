@@ -1,0 +1,13 @@
+{
+ "publica/*.jpg": {
+  "source": "Generadas con IA (GPT Image 2.5 en Higgsfield) por Abraham Huacchillo el 21/10/2026",
+  "changes": "Redimensionadas a 1400 px"
+ },
+ "publica-v1/*": {
+  "auto-nivus.png": "VW Taigo/Nivus de Mi Garaje (Wikimedia, Alexander Migl, CC BY-SA 4.0), recortado con rembg",
+  "auto-sedan.png y foto-sedan.jpg": "fotos de demo del index",
+  "foto-corolla.jpg": "Toyota Corolla de Mi Garaje (Wikimedia, Mateusmatsuda, CC BY 4.0)",
+  "foto-moto.jpg": "Honda CB 190R (Wikimedia, RL GNZLZ, CC BY-SA 2.0)",
+  "vendedor.png": "demo del index"
+ }
+}

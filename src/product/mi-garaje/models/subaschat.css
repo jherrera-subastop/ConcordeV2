@@ -1,0 +1,249 @@
+/* SubasChat (models/SubasChat.tsx) + panel de revisión de estados (models/Oferta.tsx). */
+:root { --rev-w: 240px; --sc-h: 603px; /* 603: el chat termina a la par de «Información general» (columna izquierda) */ --sc-ease: cubic-bezier(0.3, 0, 0, 1); }
+
+/* ── Chat dentro del DetailCard (311 de ancho; reemplaza banner + cuerpo bajo el header oscuro) ── */
+/* Ventana de chat en el lugar del DetailCard: mismo ancho (311), radio y sombra que las cards del bloque. */
+/* min(…, 100%): en un contenedor más angosto que 311 (pantallas < 360) el chat se encoge en vez de desbordar */
+.sc { position: relative; box-sizing: border-box; width: min(311px, 100%); height: var(--sc-h); display: flex; flex-direction: column; overflow: hidden; text-align: left; background: #fff; border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.1) 0 0 16px 4px; animation: sc-open 0.28s var(--sc-ease); }
+@keyframes sc-open { from { opacity: 0; transform: translateY(8px); } }
+/* Fluido (móvil / ?chat=solo): todo el ancho y el alto visible. 100vh de respaldo → 100dvh → --sc-vh
+   (visualViewport, lo pone SubasChat: se encoge con el teclado también en iOS). Safe-area para notch y barra de inicio. */
+.sc--fluid { width: 100%; max-width: 480px; height: 100vh; height: 100dvh; height: var(--sc-vh, 100dvh); border-radius: 0; box-shadow: none; }
+.sc--fluid .sc__head { height: auto; min-height: 64px; padding-top: env(safe-area-inset-top); padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right)); }
+.sc--fluid .sc__compose { padding-left: max(8px, env(safe-area-inset-left)); padding-right: max(8px, env(safe-area-inset-right)); }
+.sc--fluid .sc__bubble { max-width: min(84%, 360px); }
+.sc__head { display: flex; align-items: center; gap: 10px; height: 64px; padding: 0 14px 0 12px; color: #fff; background: linear-gradient(157deg, #5A35C2 0%, #2e0f70 50%, #100030 100%); } /* = .pdetail__head del DetailCard */
+.sc__avatar { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: #3B1782; background: #fff; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45); }
+.sc__who { flex: 1; min-width: 0; }
+.sc__who b { display: block; font-size: 15px; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sc__who span { display: block; font-size: 12px; opacity: 0.95; }
+.sc__deal { flex: none; text-align: right; line-height: 1.2; }
+.sc__deal small { display: block; font-size: 12px; opacity: 0.9; }
+.sc__deal b { font-size: 16px; }
+.sc__note p { flex: 1; margin: 0; }
+.sc__note button { flex: none; display: grid; place-items: center; width: 24px; height: 24px; margin-top: -3px; border: 0; border-radius: 50%; color: #00595b; background: transparent; cursor: pointer; }
+.sc__note button:hover { background: rgba(0, 89, 91, 0.12); }
+.sc__note { display: flex; align-items: flex-start; gap: 6px; padding: 8px 6px 8px 12px; font-size: 12px; line-height: 1.4; color: #00595b; background: #E0F5F5; }
+
+.sc__offline { display: flex; align-items: center; gap: 8px; padding: 7px 12px; font-size: 12px; font-weight: 600; color: #7a4b00; background: #fff6e5; border-bottom: 1px solid #f3e2bf; }
+.sc__offline::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: #d98a00; }
+
+/* Cuerpo: la lista con scroll + el chip «↓ N mensajes nuevos» flotando encima (fuera del role="log") */
+.sc__body { flex: 1; min-height: 0; position: relative; display: flex; flex-direction: column; }
+.sc__jump { position: absolute; left: 0; right: 0; bottom: 10px; width: max-content; margin: 0 auto; padding: 7px 14px; border: 0; border-radius: 999px; font: inherit; font-size: 12px; font-weight: 700; color: #fff; background: #3B1782; box-shadow: 0 4px 12px rgba(34, 0, 92, 0.28); cursor: pointer; animation: sc-in 0.15s ease-out; }
+.sc__list { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 10px 8px; display: flex; flex-direction: column; gap: 6px; background: #f7f6fb; }
+.sc__day { align-self: center; margin: 4px 0; }
+.sc__day span { padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; color: #55526b; background: #e7e5f0; } /* ≥ 4.5:1 (AA) */
+.sc__row { display: flex; flex-direction: column; align-items: flex-start; animation: sc-in 0.18s ease-out; }
+.sc__row.is-mine { align-items: flex-end; }
+.sc__row.is-cont { margin-top: -4px; } /* ráfaga: 2px entre burbujas del mismo emisor (gap 6) */
+@keyframes sc-in { from { opacity: 0; transform: translateY(6px); } }
+.sc__bubble { max-width: 84%; padding: 8px 12px 6px; border-radius: 16px 16px 16px 4px; color: #191C1C; background: #fff; box-shadow: 0 1px 2px rgba(34, 0, 92, 0.08); transition: opacity 0.2s; }
+.is-mine > .sc__bubble { border-radius: 16px 16px 4px 16px; color: #fff; background-image: linear-gradient(150deg, #8460e5 0%, #3b1782 100%); box-shadow: rgba(32, 0, 104, 0.16) 0 2px 8px; }
+/* Ráfaga: la esquina del lado del emisor se aplana arriba en las que continúan (la de abajo ya va a 4px) */
+.is-cont > .sc__bubble { border-top-left-radius: 4px; }
+.is-mine.is-cont > .sc__bubble { border-top-left-radius: 16px; border-top-right-radius: 4px; }
+.sc__bubble p { margin: 0; font-size: 14px; line-height: 1.4; white-space: pre-wrap; overflow-wrap: anywhere; }
+.sc__bubble.has-img { padding: 4px 4px 6px; }
+.sc__bubble img { display: block; max-width: 200px; max-height: 180px; border-radius: 12px; }
+.sc__bubble.has-img p { padding: 6px 8px 0; }
+/* Enviando: se atenúa solo el tick, no el texto (opacity .6 en la burbuja bajaba el blanco de 3:1) */
+.sc__bubble.is-sending .sc__tick { opacity: 0.7; }
+.sc__bubble.is-failed { opacity: 0.75; outline: 2px solid #d64545; outline-offset: 1px; }
+/* Hora: color sólido en vez de opacity .7 (en la burbuja propia no llegaba a AA) */
+.sc__meta { display: flex; justify-content: flex-end; gap: 4px; margin-top: 2px; font-size: 11px; color: #6b6880; }
+.is-mine > .sc__bubble .sc__meta { color: rgba(255, 255, 255, 0.9); }
+.sc__bubble.has-img .sc__meta { padding-right: 6px; }
+.sc__tick { font-style: normal; }
+.sc__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.sc__fail { margin-top: 4px; max-width: 90%; font-size: 12px; color: #b42318; text-align: right; }
+.sc__fail button { margin-left: 8px; padding: 0; border: 0; font: inherit; font-weight: 700; color: #3B1782; text-decoration: underline; background: none; cursor: pointer; }
+.sc__bubble a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.sc__row:not(.is-mine) .sc__bubble a { color: #3B1782; }
+
+.sc__typing { display: inline-flex; gap: 4px; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: #fff; box-shadow: 0 1px 2px rgba(34, 0, 92, 0.08); }
+.sc__typing i { width: 7px; height: 7px; border-radius: 50%; background: #8460e5; animation: sc-dot 1.1s infinite ease-in-out; }
+.sc__typing i:nth-child(2) { animation-delay: 0.15s; }
+.sc__typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes sc-dot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.45; } 30% { transform: translateY(-5px); opacity: 1; } }
+.sc__typing-l { margin: 3px 0 0 4px; font-size: 11px; color: #6b6880; }
+
+.sc__skel { display: flex; flex-direction: column; gap: 10px; }
+.sc__skel span { height: 38px; width: 62%; border-radius: 16px; background: linear-gradient(90deg, #ebe9f3 25%, #f6f5fa 50%, #ebe9f3 75%); background-size: 200% 100%; animation: sc-shine 1.2s infinite linear; }
+.sc__skel .is-r { align-self: flex-end; width: 48%; }
+.sc__skel .is-short { width: 36%; }
+@keyframes sc-shine { to { background-position: -200% 0; } }
+
+.sc__empty, .sc__locked { margin: auto; display: grid; justify-items: center; gap: 10px; max-width: 260px; text-align: center; color: #6b6880; }
+.sc__empty svg, .sc__locked svg { color: #8460e5; }
+.sc__empty p, .sc__locked p { margin: 0; font-size: 14px; line-height: 1.45; }
+.sc__locked { flex: 1; align-content: center; }
+.sc__locked b { font-size: 16px; color: #3B1782; }
+
+/* minmax(0, 1fr): con 1fr la columna no baja del ancho propio del botón (padding por defecto) y las 8 no caben en 311 */
+.sc__emojis { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 3px; padding: 6px 8px 0; border-top: 1px solid #ecebf3; animation: sc-in 0.15s ease-out; }
+.sc__emojis button { min-width: 0; height: 34px; padding: 0; border: 0; border-radius: 10px; font-size: 18px; line-height: 1; background: #f3f1fa; cursor: pointer; }
+.sc__emojis button:hover { background: #e7e2fb; }
+.sc__compose { display: flex; align-items: flex-end; gap: 2px; padding: 8px; padding-bottom: max(8px, env(safe-area-inset-bottom)); border-top: 1px solid #ecebf3; }
+.sc__emojis + .sc__compose, .sc__hint + .sc__compose, .sc__emojis + .sc__hint { border-top: 0; }
+/* Fila sobre el compositor: aviso de imagen (izq.) y contador desde el 90 % del límite (der.) */
+.sc__hint { display: flex; align-items: baseline; gap: 8px; padding: 6px 14px 0; font-size: 12px; line-height: 1.35; border-top: 1px solid #ecebf3; }
+.sc__notice { color: #b42318; }
+.sc__count { margin-left: auto; flex: none; color: #6b6880; font-variant-numeric: tabular-nums; }
+.sc__count.is-over { color: #b42318; font-weight: 700; }
+.sc__compose textarea[aria-invalid="true"] { border-color: #d64545; }
+/* 16px: con menos iOS Safari hace zoom al enfocar. La altura la fija SubasChat según el texto (hasta 120px). */
+.sc__compose textarea { flex: 1; min-width: 0; box-sizing: border-box; height: 40px; min-height: 40px; max-height: 120px; padding: 8px 14px; border: 1px solid #c9c5dc; border-radius: 20px; font: inherit; font-size: 16px; line-height: 22px; resize: none; overflow-y: auto; }
+.sc__compose textarea:focus { outline: none; border-color: #8460e5; box-shadow: 0 0 0 3px rgba(132, 96, 229, 0.25); }
+/* Foco por teclado visible en todos los botones del chat (el anillo por defecto no se ve sobre el violeta) */
+.sc button:focus-visible { outline: 2px solid #5A35C2; outline-offset: 2px; }
+.sc__tool, .sc__send { flex: none; display: grid; place-items: center; width: 36px; height: 40px; border: 0; border-radius: 50%; font-size: 19px; cursor: pointer; }
+.sc__tool { color: #3B1782; background: transparent; }
+.sc__tool:hover, .sc__tool[aria-pressed="true"] { background: #f3f1fa; }
+.sc__send { width: 40px; margin-left: 4px; color: #fff; background: linear-gradient(135deg, #008a8d, #8460e5); /* #00a8ab daba ~2.9:1 con el icono blanco */ transition: transform 0.12s, opacity 0.2s; }
+.sc__send:active { transform: scale(0.92); }
+.sc__send:disabled, .sc__tool:disabled { opacity: 0.4; cursor: default; }
+
+/* Confirmación al abrir un enlace de fuera de SubasCars */
+.sc__leave { position: absolute; inset: 0; z-index: 5; display: grid; place-items: center; padding: 16px; background: rgba(16, 0, 48, 0.45); animation: sc-fade 0.15s ease-out; }
+@keyframes sc-fade { from { opacity: 0; } }
+.sc__leave-card { width: 100%; box-sizing: border-box; padding: 18px 16px 14px; border-radius: 12px; background: #fff; box-shadow: 0 12px 32px rgba(34, 0, 92, 0.3); }
+.sc__leave-card b { display: block; font-size: 16px; color: #3B1782; }
+.sc__leave-card p { margin: 8px 0 14px; font-size: 13px; line-height: 1.45; color: #45425a; }
+.sc__host { font-weight: 700; color: #191C1C; overflow-wrap: anywhere; }
+.sc__leave-act { display: flex; justify-content: flex-end; gap: 8px; }
+.sc__leave-act button, .sc__leave-act a { display: inline-grid; place-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; font: inherit; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; }
+.sc__leave-act button { border: 1px solid #c9c5dc; color: #3B1782; background: #fff; }
+.sc__leave-act a { border: 0; color: #fff; background: #3B1782; }
+.sc__leave-act a:focus-visible { outline: 2px solid #5A35C2; outline-offset: 2px; }
+
+/* ── Panel de revisión (estados) · fijo a la derecha ────── */
+.rev {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 60; width: var(--rev-w); overflow-y: auto;
+  padding: 16px 14px; box-sizing: border-box; background: #fff; border-left: 1px solid #e3e1ec; font-size: 13px;
+}
+.rev h2 { margin: 0 0 2px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: #3B1782; }
+.rev > p { margin: 0 0 14px; color: #6b6880; font-size: 12px; }
+.rev__group { margin-bottom: 16px; }
+.rev__label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #8a879c; }
+.rev__seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 3px; border-radius: 10px; background: #f3f1fa; }
+.rev__seg button { padding: 7px 0; border: 0; border-radius: 8px; font: inherit; font-weight: 600; color: #5b5870; background: transparent; cursor: pointer; }
+.rev__seg button[aria-pressed="true"] { color: #3B1782; background: #fff; box-shadow: 0 1px 3px rgba(34, 0, 92, 0.12); }
+.rev__opt { display: block; width: 100%; margin-bottom: 4px; padding: 8px 10px; border: 1px solid #e3e1ec; border-radius: 10px; font: inherit; text-align: left; background: #fff; cursor: pointer; }
+.rev__opt b { display: block; color: #191C1C; }
+.rev__opt small { display: block; margin-top: 2px; font-size: 11.5px; line-height: 1.35; color: #6b6880; }
+.rev__opt:hover { border-color: #b9a8ef; }
+.rev__opt[aria-pressed="true"] { border-color: #8460e5; background: #f3effd; }
+.rev__opt[aria-pressed="true"] b { color: #3B1782; }
+.rev__act { width: 100%; padding: 9px 10px; border: 1px dashed #8460e5; border-radius: 10px; font: inherit; font-weight: 600; color: #3B1782; background: #fff; cursor: pointer; }
+.rev__act:disabled { opacity: 0.45; cursor: default; }
+.rev__act + .rev__act { margin-top: 6px; }
+.rev__act[aria-pressed="true"] { border-style: solid; background: #fff6e5; color: #7a4b00; border-color: #d98a00; }
+.rev__pend { margin: 0; padding: 10px 10px 10px 26px; border-radius: 10px; color: #7a4b00; background: #fff6e5; font-size: 12px; line-height: 1.4; }
+.rev__pend li + li { margin-top: 6px; }
+.rev__toggle { display: none; }
+
+/* El contenido deja libre el ancho del panel de revisión */
+.of-main { padding: 24px calc(var(--rev-w) + 16px) 24px 16px; display: grid; justify-items: center; overflow-x: auto; }
+/* El canvas de detalle tiene 1024px fijos: el panel de revisión queda por fuera
+   y no puede restarle ancho a las dos columnas del bloque Detalle. */
+/* En VMC el detalle llena la columna principal, como en vmcsubastas.com: sin padding ni fondo gris alrededor.
+   El lienzo mide 799 y la columna 795: se ajusta al ancho (las dos columnas internas van con space-between). */
+.kit-shell--vmc .of-main { padding: 0; overflow: visible; }
+.kit-shell--vmc .of-main > [data-block="detalle"] { width: 100% !important; }
+
+@media (max-width: 1100px) {
+  :root { --rev-w: 0px; }
+  .of-main { padding-right: 16px; }
+  .rev { top: 80px; left: auto; bottom: auto; right: 16px; width: 260px; max-height: 70vh; border: 1px solid #e3e1ec; border-radius: 14px; box-shadow: 0 12px 32px rgba(34, 0, 92, 0.22); }
+  .rev:not(.is-open) { width: auto; padding: 0; overflow: hidden; }
+  .rev:not(.is-open) > :not(.rev__toggle) { display: none; }
+  .rev__toggle { display: block; width: 100%; padding: 10px 14px; border: 0; font: inherit; font-weight: 700; color: #3B1782; background: #fff; cursor: pointer; text-align: left; }
+}
+/* Táctil: áreas de toque de 44px (en escritorio se quedan en 36–40 para no ensanchar el compositor de 311) */
+@media (pointer: coarse) {
+  .sc__tool, .sc__send { width: 44px; height: 44px; }
+  .sc__compose textarea { min-height: 44px; padding-top: 10px; padding-bottom: 10px; }
+  .sc__note button { width: 32px; height: 32px; margin: -6px -4px 0 0; }
+  .sc__emojis button { height: 40px; }
+  .sc__fail button { padding: 8px 4px; }
+}
+/* Vista ?chat=solo: el chat centrado a pantalla completa, sin el lienzo del Detalle */
+.of-solo { display: flex; justify-content: center; min-height: 100vh; min-height: 100dvh; padding-right: var(--rev-w); background: #ecebf3; }
+.rev__seg a { display: block; padding: 7px 0; border-radius: 8px; font-weight: 600; text-align: center; text-decoration: none; color: #5b5870; }
+.rev__seg a[aria-current="page"] { color: #3B1782; background: #fff; box-shadow: 0 1px 3px rgba(34, 0, 92, 0.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .sc, .sc__row, .sc__emojis, .sc__jump, .sc__leave { animation: none; }
+}
+/* Detalle con chat: los acordeones de la izquierda con el mismo radio (8) que las tarjetas de la derecha. */
+.of-main [data-block="detalle"] .pacc { border-radius: 8px; overflow: hidden; }
+/* Móvil (21/10): el bloque Detalle de Concorde es un lienzo de escritorio (799 de ancho, todo en absoluto) y en 390 px
+   cortaba la columna derecha (DetailCard / propuesta / chat). Sin tocar concorde/: se apila en una columna con
+   el orden foto → tarjeta de acción → condiciones → acordeones → resto; las piezas ya traen max-width:100%. */
+@media (max-width: 767px) {
+  .kit-shell--vmc .of-main > [data-block="detalle"] { height: auto !important; padding: 16px 16px 24px; }
+  .of-main [data-block="detalle"] > div { position: static !important; display: flex !important; flex-direction: column; gap: 16px; }
+  .of-main [data-block="detalle"] > div > div { display: contents !important; } /* columnas izquierda y derecha */
+  .of-main [data-block="detalle"] > div > div > * { width: 100% !important; max-width: none; box-sizing: border-box; }
+  .of-main [data-block="detalle"] > div > div:first-child > :first-child { order: 1; } /* AuctionStatus + CardViewer */
+  .of-main [data-block="detalle"] > div > div:last-child > :first-child { order: 2; } /* DetailCard / propuesta / chat */
+  .of-main [data-block="detalle"] > div > div:last-child > :nth-child(2) { order: 3; justify-content: space-evenly !important; } /* condiciones */
+  .of-main [data-block="detalle"] > div > div:first-child > * { order: 4; } /* acordeones */
+  .of-main [data-block="detalle"] > div > div:last-child > * { order: 5; }
+  .of-main [data-block="detalle"] [data-slot="secondary-banner"] { position: static !important; transform: none !important; width: 100% !important; margin-top: 16px; }
+  .of-main [data-block="detalle"] .pdetail, .of-main [data-block="detalle"] .pp, .of-main [data-block="detalle"] .sc { width: 100%; }
+  .of-main [data-block="detalle"] .pcardv__thumb { flex: 1 1 0; min-width: 0; }
+}
+/* Comprador (21/10): info breve en el chat recién abierto, misma receta que .pp__how (tarjeta de propuesta). */
+.sc__intro { margin: auto 0; display: grid; gap: 12px; padding: 16px; border-radius: 12px; background: color-mix(in srgb, #00A8AB 9%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, #00A8AB 35%, #fff); color: #191C1C; }
+.sc__intro > b { font-size: 14px; font-weight: 700; color: #3B1782; }
+.sc__intro ol { margin: 0; padding: 0; list-style: none; counter-reset: sc; display: grid; gap: 10px; }
+.sc__intro li { counter-increment: sc; display: grid; grid-template-columns: 20px 1fr; gap: 8px; font-size: 12px; line-height: 1.45; }
+.sc__intro li::before { content: counter(sc); display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #00A8AB; color: #fff; font-size: 12px; font-weight: 700; }
+.sc__intro li b { font-weight: 700; color: #006466; }
+
+/* Chat cerrado (3 meses después de concretar, decisión de Julio 21/10): el historial queda, el compositor no. */
+.sc__closed { margin: 0; padding: 12px 16px; padding-bottom: max(12px, env(safe-area-inset-bottom)); border-top: 1px solid #ecebf3; font-size: 12px; line-height: 1.4; color: #5F5B6B; text-align: center; }
+.sc__note small { display: block; margin-top: 2px; font-size: 11px; opacity: .85; }
+
+/* DS (21/10) · Aviso del acuerdo: receta Negociable (como el aviso tutorial de Mi Garaje), cyan-700 → 900, texto blanco. */
+.sc__note { padding:10px 8px 10px 14px; color:#fff; background:linear-gradient(90deg, #00A8AB 0%, #006466 100%); font-size:13px; font-weight:700; }
+.sc__note small { font-size:11px; font-weight:400; opacity:.92; }
+.sc__note button { color:#fff; } .sc__note button:hover { background:rgba(255,255,255,.18); }
+/* Tarjeta «Cómo sigue tu compra»: blanca (sombra del ConfirmModal), CardTitle con corchetes, línea de tiempo con el paso
+   actual en cian Negociable y los siguientes en vault-200; ProfileButton al pie. */
+.sc__intro { gap:14px; padding:16px; border-radius:16px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.08); }
+.sc__intro .cardtitle { justify-self:start; }
+.sc__intro ol { gap:0; counter-reset:none; }
+.sc__intro li { position:relative; display:grid; grid-template-columns:1fr; gap:2px; padding:0 0 14px 22px; font-size:12px; line-height:1.4; }
+.sc__intro li::before { content:""; position:absolute; left:3px; top:4px; width:10px; height:10px; border-radius:50%; background:#fff; box-shadow:inset 0 0 0 2px #CFBAFF; }
+.sc__intro li::after { content:""; position:absolute; left:7px; top:18px; bottom:2px; width:2px; border-radius:2px; background:#E8DEFF; }
+.sc__intro li:last-child { padding-bottom:0; } .sc__intro li:last-child::after { display:none; }
+.sc__intro li.is-now::before { background:#00A8AB; box-shadow:0 0 0 3px #E0F7F7; }
+.sc__intro li b { font-size:13px; font-weight:700; color:#3B1782; }
+.sc__intro li span { color:#5F5B6B; }
+.sc__intro > .pprofile, .sc__intro > a { justify-self:start; }
+.sc__intro-head { display:flex; align-items:baseline; justify-content:space-between; gap:8px; }
+.sc__intro-head b { font-size:16px; font-weight:700; color:#3B1782; }
+.sc__intro-head span { flex:none; font-size:12px; font-weight:600; color:#006466; }
+.sc__note.is-closed { background:linear-gradient(90deg, #5F5B6B 0%, #3B3846 100%); } /* cerrado: gris, ya no es una invitación a escribir */
+
+/* Aviso del sistema (23/10): como el de WhatsApp al activar los mensajes temporales; centrado, crema, con candado, debajo del día. */
+.sc__sys { align-self:center; display:flex; align-items:flex-start; gap:6px; max-width:86%; margin:2px auto 8px; padding:6px 10px; border-radius:8px; background:#FFF5D6; color:#5E4B12;
+  font-size:.6875rem; line-height:1.45; text-align:center; box-shadow:0 1px .5px rgba(0,0,0,.08); }
+.sc__sys b { font-weight:700; }
+.sc__sys svg { flex:none; margin-top:2px; color:#9A7B1E; }
+/* Verificación de compra a las dos semanas: una tarjeta de sistema dentro del
+   historial, no un modal. Usa la misma jerarquía de etiqueta, título y CTA de Concorde. */
+.sc__verify { align-self:center; width:min(92%, 370px); margin:10px auto 14px; padding:16px; box-sizing:border-box; border:1px solid var(--vmc-color-vault-200); border-radius:16px; color:var(--foreground); background:var(--vmc-color-base-white); box-shadow:rgba(0,0,0,.1) 0 0 16px 4px; text-align:left; }
+.sc__verify-kicker { display:block; margin-bottom:8px; color:var(--vmc-color-teal-600); font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+.sc__verify-head { display:flex; align-items:center; gap:8px; }
+.sc__verify-mark { display:grid; flex:none; place-items:center; width:28px; height:28px; border-radius:50%; color:var(--vmc-color-base-white); background:var(--vmc-color-teal-500); box-shadow:0 0 0 4px color-mix(in srgb,var(--vmc-color-teal-500) 12%,transparent); }
+.sc__verify b { display:block; font-size:14px; color:var(--vmc-color-vault-700); }
+.sc__verify p { margin:8px 0 14px; font-size:12px; line-height:1.42; color:#6B6878; }
+.sc__verify small { display:block; padding:9px 10px; border-radius:8px; font-size:11.5px; line-height:1.4; color:#6B6878; background:var(--vmc-color-vault-100); }
+.sc__verify-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+/* Botones Concorde: preservan el gradiente y el borde definidos por el componente,
+   solo se compactan al ancho de este aviso. */
+.sc__verify-actions :is(.pneg,.poutline) { width:100%; min-width:0; height:36px; padding:0 8px; font-size:12px; line-height:16px; }

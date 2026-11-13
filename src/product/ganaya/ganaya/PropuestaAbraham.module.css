@@ -1,0 +1,75 @@
+/* Propuesta Abraham (primer diseño): un solo CTA principal (Gana Ya), Participa como secundario, costos y plazo visibles. Tokens VMC existentes. */
+.stack { display:grid; gap:16px; width:100%; font-family:var(--vmc-font-display); color:var(--vmc-color-vault-900); }
+.card { border-radius:0 0 var(--vmc-radius-md) var(--vmc-radius-md); overflow:hidden; background:var(--vmc-color-base-white); box-shadow:var(--vmc-shadow-card); font-family:var(--vmc-font-display); color:var(--vmc-color-vault-900); }
+.headOnly:global(.pdetail) { width:100%; border-radius:0; box-shadow:none; }
+.headOnly :global(.pdetail__body) { display:none; }
+.body { display:grid; gap:16px; padding:24px 20px; }
+.option { display:grid; gap:8px; justify-items:center; text-align:center; }
+.kicker { margin:0; font-size:var(--vmc-font-size-caption); line-height:1.4; font-weight:var(--vmc-font-weight-bold); letter-spacing:.06em; text-transform:uppercase; color:var(--vmc-color-vault-500); }
+.primary { width:100%; justify-content:center; }
+.desc,.base,.deadline { margin:0; font-size:var(--vmc-font-size-label); line-height:var(--vmc-line-height-body); }
+.base b { font-weight:var(--vmc-font-weight-bold); }
+.deadline { font-size:var(--vmc-font-size-caption); color:var(--vmc-color-vault-700); }
+.costs { margin:0; width:100%; display:grid; gap:4px; padding:8px 12px; border-radius:var(--vmc-radius-md); background:color-mix(in srgb,var(--vmc-color-background-disabled) 30%,var(--vmc-color-base-white)); font-size:var(--vmc-font-size-caption); }
+.costs > div { display:flex; justify-content:space-between; gap:12px; }
+.costs dt { color:var(--vmc-color-vault-700); }
+.costs dd { margin:0; font-weight:var(--vmc-font-weight-bold); text-align:right; }
+.ok { color:var(--vmc-color-vault-700); }
+.warn { color:var(--vmc-color-orange-700); }
+.divider { display:flex; align-items:center; gap:12px; color:var(--vmc-color-vault-500); font-size:var(--vmc-font-size-caption); }
+.divider::before,.divider::after { content:""; flex:1; border-top:1px solid var(--vmc-color-divider,var(--vmc-color-background-disabled)); }
+.secondary { width:100%; min-height:44px; padding:0 20px; border:1.5px solid var(--vmc-color-vault-700); border-radius:var(--vmc-radius-full); background:var(--vmc-color-base-white); color:var(--vmc-color-vault-700); font:inherit; font-size:var(--vmc-font-size-body); font-weight:var(--vmc-font-weight-medium); cursor:pointer; }
+.secondary:hover { background:color-mix(in srgb,var(--vmc-color-vault-700) 8%,var(--vmc-color-base-white)); }
+.secondary:focus-visible { outline:2px solid var(--vmc-color-vault-700); outline-offset:2px; }
+.notice { margin:0; padding:12px 16px; border-radius:var(--vmc-radius-md); background:var(--vmc-color-orange-tint,var(--vmc-color-base-white)); border:1px solid var(--vmc-color-orange-400); font-size:var(--vmc-font-size-label); }
+@media(max-width:767px){ .stack,.card { order:2; } }
+/* Alineación de escritorio: tarjeta = galería + miniaturas de Detalle (521 px), para que «Información general» y las
+ * condiciones arranquen a la misma altura. Se gana el espacio apretando separaciones, sin tocar contenido.
+ * ponytail: alto fijo; si cambia la galería, ajustar este número. */
+@media(min-width:768px){
+ .card { display:flex; flex-direction:column; min-height:521px; }
+ .body { flex:1; gap:12px; padding:16px 20px 20px; align-content:center; }
+ .option { gap:6px; }
+}
+
+/* Variante «botones juntos»: dos recuadros iguales para comparar (Gana Ya con el borde de acento), botones agrupados con 12 px
+ * (proximidad NN/g sin pegar la acción con dinero a la otra; WCAG 2.5.8). Misma escala tipográfica que el primer diseño. */
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.choice { display:grid; gap:2px; align-content:start; justify-items:center; text-align:center; padding:10px 8px; border-radius:var(--vmc-radius-md);
+ background:color-mix(in srgb,var(--vmc-color-background-disabled) 30%,var(--vmc-color-base-white)); border:1.5px solid transparent; }
+.choiceGy { background:var(--vmc-color-base-white); border-color:color-mix(in srgb,var(--vmc-color-orange-400) 70%,var(--vmc-color-base-white)); }
+.choice h2 { margin-bottom:2px; }
+.amount { margin:0; font-size:var(--vmc-font-size-body); line-height:var(--vmc-line-height-body); font-weight:var(--vmc-font-weight-bold); color:var(--vmc-color-vault-700); white-space:nowrap; }
+.choiceMeta { margin:0; font-size:var(--vmc-font-size-caption); line-height:var(--vmc-line-height-caption); color:var(--vmc-color-vault-700); }
+.actions { display:grid; gap:12px; }
+.actions .secondary { min-height:48px; }
+.body > .desc,.body > .deadline { text-align:center; }
+.compare { margin-inline:-4px; }
+.choice { padding:10px 6px; }
+.choice .kicker { white-space:nowrap; letter-spacing:.02em; }
+.choiceMeta span { display:block; white-space:nowrap; }
+
+/* Variante «mínima»: dos botones-tarjeta con acción, pista y precio; una nota; explicación plegada. ~20 palabras visibles. */
+.minima { align-content:center; gap:14px; }
+.question { margin:0; text-align:center; font-size:var(--vmc-font-size-body); line-height:var(--vmc-line-height-body); font-weight:var(--vmc-font-weight-bold); color:var(--vmc-color-vault-700); }
+.tiles { display:grid; gap:12px; }
+.tiles .tileGy,.tile { width:100%; height:auto; min-height:64px; padding:10px 16px 10px 12px; justify-content:flex-start; text-align:left; }
+.tiles .tileGy > span:nth-child(2) { flex:1; display:flex; align-items:center; justify-content:space-between; gap:8px; white-space:normal; }
+.tile { display:flex; align-items:center; gap:8px; border:1.5px solid var(--vmc-color-vault-700); border-radius:var(--vmc-radius-full); background:var(--vmc-color-base-white); color:var(--vmc-color-vault-700); font:inherit; cursor:pointer; }
+.tile:hover { background:color-mix(in srgb,var(--vmc-color-vault-700) 8%,var(--vmc-color-base-white)); }
+.tile:focus-visible { outline:2px solid var(--vmc-color-vault-700); outline-offset:2px; }
+.tileIcon { display:grid; place-items:center; width:28px; height:28px; flex:none; }
+.tile .tileText { flex:1; }
+.tileText { display:grid; gap:0; line-height:1.2; }
+.tileText b { font-size:16px; font-weight:600; }
+.tileText small,.tilePrice small { font-size:12px; font-weight:400; opacity:.9; }
+.tilePrice { font-size:var(--vmc-font-size-body); font-weight:var(--vmc-font-weight-bold); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.minima .deadline { text-align:center; }
+.more { font-size:var(--vmc-font-size-caption); color:var(--vmc-color-vault-700); text-align:center; }
+.more summary { cursor:pointer; font-weight:var(--vmc-font-weight-bold); text-decoration:underline; text-underline-offset:2px; }
+.more p { margin:6px 0 0; font-size:var(--vmc-font-size-label); line-height:var(--vmc-line-height-label); }
+.tiles { gap:14px; }
+.tiles .tileGy,.tile { min-height:76px; padding-inline:14px 18px; }
+.tileText small { white-space:nowrap; }
+.tilePrice { font-size:17px; }
+.minima { gap:18px; }

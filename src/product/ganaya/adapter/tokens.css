@@ -1,0 +1,43 @@
+/* Directly transcribed from the public Concorde V2 component fallbacks. This
+   is the adapter's token surface, not a second palette or local design system. */
+:root {
+  --vmc-font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --vmc-font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --vmc-color-base-white: #ffffff;
+  --vmc-color-ink: #191c1c;
+  --vmc-color-neutral-700: #667085;
+  --vmc-color-vault-300: #cfbaff;
+  --vmc-color-vault-700: #3b1782;
+  --vmc-color-vault-800: #2e0f70;
+  --vmc-color-vault-900: #22005c;
+  --vmc-color-orange-600: #ed8936;
+  --vmc-color-glass-stroke: rgba(255, 255, 255, 0.42);
+  --vmc-color-glass-dark: rgba(32, 0, 104, 0.58);
+  --vmc-color-glass-hero: rgba(34, 0, 92, 0.78);
+  --vmc-color-glass-benefit: rgba(46, 15, 112, 0.82);
+  --vmc-color-hero-scrim: rgba(15, 0, 60, 0.22);
+  --vmc-color-divider: #e8ddff;
+  --vmc-border-glass: 1px solid rgba(255, 255, 255, 0.42);
+  --vmc-border-divider: 1px solid #e8ddff;
+  --vmc-radius-md: 8px;
+  --vmc-radius-xl: 20px;
+  --vmc-radius-full: 9999px;
+  --vmc-shadow-card: rgba(32, 0, 104, 0.10) 0 0 16px 4px;
+  --vmc-font-size-caption: 11px;
+  --vmc-font-size-label: 13px;
+  --vmc-font-size-body: 15px;
+  --vmc-font-size-title: 30px;
+  --vmc-font-size-hero: 38px;
+  --vmc-font-size-arrow: 32px;
+  --vmc-font-weight-medium: 500;
+  --vmc-font-weight-bold: 800;
+  --vmc-line-height-caption: 16px;
+  --vmc-line-height-label: 18px;
+  --vmc-line-height-body: 22px;
+  --vmc-line-height-title: 34px;
+  --vmc-line-height-hero: 42px;
+  --vmc-line-height-arrow: 32px;
+  --vmc-glass-blur: blur(12px);
+  --vmc-letter-spacing-label: 0.08em;
+  --vmc-letter-spacing-tight: -0.03em;
+}

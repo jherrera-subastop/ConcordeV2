@@ -1,0 +1,48 @@
+/* Mis publicaciones con casuísticas (ver MisPublicaciones.tsx) */
+.mp { display: grid; gap: 10px; }
+/* Fila en dos niveles (05/11, Julio): a la izquierda nombre y motivo; a la derecha los íconos o las propuestas y debajo el badge, todos pegados al borde derecho */
+.mp-row { grid-template-columns: auto minmax(0, 1fr) auto !important; grid-template-rows: auto auto; grid-template-areas: "img main more" "img main side" !important; gap: 2px 12px !important; align-items: center !important; }
+.mp-row .fr__img { grid-area: img; }
+.mp-row .fr__main { grid-area: main; }
+.mp-row .mp-more { grid-area: more; justify-self: end; margin-right: -6px; }
+.g--vmc.g-page .fr.mp-row .fr__side { grid-area: side; align-self: end; display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end; margin: 0; }
+/* Con propuestas, el número va arriba del badge, donde irían los íconos */
+.g--vmc.g-page .fr.mp-row:has(.fr__proposals) .fr__side { grid-row: 1 / span 2; grid-column: 3; flex-direction: column-reverse; justify-content: flex-start; }
+/* Lo que dice la fila tras una acción (dónde se vendió o el motivo): negro y en negrita */
+.mp-note { color: #191C1C !important; font-weight: 700 !important; white-space: normal !important; overflow: visible !important; }
+/* Al republicar una desierta, baja a su lugar deslizándose */
+.mp-sliding::view-transition-group(*) { animation-duration: .55s; animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+/* Desierta: fijada arriba */
+.mp-row--desierta { background: #F8F5FF; }
+/* Dar de baja: la salida de cuando expira una negociación (crece, se achica y se va), también con las animaciones del sistema apagadas */
+@media (prefers-reduced-motion: reduce) { .g-page .fr.mp-row.is-negotiation-leaving { position: relative; z-index: 2; animation: fr-salida-crece var(--salida-ms, 1.2s) ease-in-out var(--salida-espera, 0s) forwards; } }
+.mp-empty { margin: 8px 10px; font-size: 13px; color: #6B6878; }
+
+/* Menú ⋯ */
+.mp-more { position: relative; display: inline-flex; align-items: center; gap: 2px; }
+.mp-more__btn { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--mp-ic, #3B1782); cursor: pointer; }
+.mp-more__btn:hover, .mp-more__btn[aria-expanded="true"] { background: #F3EFFD; }
+.mp-more__btn.is-danger { color: var(--mp-ic-danger, var(--mp-ic, #3B1782)); }
+/* Estilos de los íconos (lab): con fondo o borde, el botón queda alineado con el borde del badge */
+.mp-more__txt { display: none; }
+.mp:not([data-ic-style="solo"]) .mp-more { margin-right: 0; gap: 6px; }
+.mp[data-ic-style="fondo"] .mp-more__btn { background: color-mix(in srgb, var(--mp-ic) 11%, transparent); }
+.mp[data-ic-style="fondo"] .mp-more__btn.is-danger { background: color-mix(in srgb, var(--mp-ic-danger) 11%, transparent); }
+.mp[data-ic-style="contorno"] .mp-more__btn { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--mp-ic) 38%, transparent); }
+.mp[data-ic-style="contorno"] .mp-more__btn.is-danger { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--mp-ic-danger) 38%, transparent); }
+.mp[data-ic-style="fondo"] .mp-more__btn:hover, .mp[data-ic-style="contorno"] .mp-more__btn:hover { background: color-mix(in srgb, var(--mp-ic) 18%, transparent); }
+@media (min-width: 768px) {
+  .mp[data-ic-style="texto"] .mp-more__btn:has(.mp-more__txt) { display: inline-flex; gap: 6px; width: auto; padding: 0 12px 0 9px; border-radius: 999px; background: color-mix(in srgb, var(--mp-ic) 11%, transparent); }
+  .mp[data-ic-style="texto"] .mp-more__btn.is-danger:has(.mp-more__txt) { background: color-mix(in srgb, var(--mp-ic-danger) 11%, transparent); }
+  .mp[data-ic-style="texto"] .mp-more__txt { display: inline; font: 600 12.5px/1 var(--vmc-font-display); white-space: nowrap; }
+}
+@media (max-width: 767px) { .mp[data-ic-style="texto"] .mp-more__btn { background: color-mix(in srgb, var(--mp-ic) 11%, transparent); } }
+.mp-more__btn:focus-visible { outline: 2px solid #8460E5; outline-offset: 2px; }
+.mp-veil { position: fixed; inset: 0; z-index: 60; }
+.mp-menu { position: fixed; z-index: 61; display: grid; min-width: 230px; padding: 6px; border: 1px solid #E6E1F5; border-radius: 12px; background: #fff;
+  box-shadow: 0 12px 28px -8px rgba(32,0,104,.25); font-family: var(--vmc-font-display); }
+.mp-menu button { padding: 9px 12px; border: 0; border-radius: 8px; background: none; color: #1B1340; font: inherit; font-size: 13.5px; text-align: left; cursor: pointer; }
+.mp-menu button:hover { background: #F5F2FD; }
+.mp-menu button.is-danger { color: #B42318; }
+
+

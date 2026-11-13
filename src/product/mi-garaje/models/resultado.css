@@ -1,0 +1,103 @@
+/* Resultado de Valorizar · direcciones «Claro» y «Vidrio» (16/10, PROPUESTA para Julio).
+   Mismo sistema que el Campo VMC del formulario: tokens --f-*, tarjeta con anillo de 1 px, radio 16/12,
+   jerarquía 40/700 cifra · 20/700 título · 16/700 sección · 14/600 etiqueta · 14/400 texto · 12/400 meta,
+   espacios 4 · 8 · 16 · 24 · 32. */
+.rv { --rv-ink:var(--f-ink,#3B1782); --rv-text:var(--f-text,#191C1C); --rv-muted:var(--f-muted,#6B6878); --rv-hair:var(--f-hair,#E1E3E2); --rv-tint:var(--f-tint,#F5F0FF);
+  container-type:inline-size; display:grid; gap:16px; }
+.rv-card { display:grid; gap:16px; align-content:start; padding:24px; border-radius:var(--f-r-card,16px); background:#fff; box-shadow:0 0 0 1px var(--rv-hair), 0 1px 2px rgba(34,0,92,.06); min-width:0; }
+.rv-card__head { display:grid; gap:4px; }
+.rv-card__head--row { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+.rv-card__head--row > div { display:grid; gap:4px; }
+.rv-card h2 { margin:0; font-size:1rem; font-weight:700; color:var(--rv-ink); }
+.rv-card__head p { margin:0; font-size:.875rem; color:var(--rv-muted); text-wrap:pretty; }
+.rv-pair { display:grid; gap:16px; }
+@container (min-width:880px) { .rv-pair { grid-template-columns:1fr 1fr; } }
+
+/* Valor: la cifra manda; el mercado la acompaña en la misma tarjeta. */
+.rv-hero { gap:8px; padding:32px; }
+.rv-hero__top { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.rv-meta { margin:0; font-size:.75rem; color:var(--rv-muted); }
+.rv-chip { flex:none; padding:4px 10px; border-radius:9999px; font-size:.75rem; font-weight:700; color:var(--rv-ink); background:var(--rv-tint); }
+.rv .rv-hero__h { margin:8px 0 0; font-size:.875rem; font-weight:600; color:var(--rv-ink); outline:none; }
+.rv-big { font-size:2.5rem; line-height:1.1; font-weight:700; letter-spacing:-0.02em; color:var(--rv-ink); }
+.rv-sub { margin:0 0 16px; font-size:.875rem; color:var(--rv-muted); }
+.rv-legal { margin:16px 0 0; padding-top:16px; border-top:1px solid var(--rv-hair); font-size:.75rem; line-height:1.5; color:var(--rv-muted); max-width:75ch; }
+
+/* Gráficos */
+.rv-plot { position:relative; min-width:0; }
+.rv-w { contain:inline-size; min-width:0; } /* el ancho lo pone la tarjeta, no el SVG (si no, el ResizeObserver se mide a sí mismo) */
+.rv-svg { display:block; overflow:visible; font-family:var(--vmc-font-display); }
+.rv-svg:focus-visible, .rv-hit:focus-visible { outline:2px solid #8460E5; outline-offset:2px; border-radius:4px; }
+.rv-hit { outline:none; }
+.rv-tick { font-size:12px; font-variant-numeric:tabular-nums; }
+.rv-tick--now { font-weight:700; }
+.rv-lab { font-size:14px; font-weight:700; }
+.rv-lab--n { font-weight:600; }
+.rv-val { font-size:14px; font-weight:600; font-variant-numeric:tabular-nums; }
+.rv-val--b { font-weight:700; }
+.rv-tip { position:absolute; z-index:4; transform:translate(-50%, calc(-100% - 12px)); pointer-events:none; display:grid; gap:2px; padding:8px 12px; border-radius:8px; white-space:nowrap;
+  background:#22005C; color:#fff; box-shadow:0 8px 24px rgba(34,0,92,.28); font-size:.75rem; }
+.rv-tip b { font-size:.8125rem; } .rv-tip span { color:#CFBAFF; }
+.rv-legend { list-style:none; margin:8px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:.75rem; color:var(--rv-muted); }
+.rv-legend li { display:flex; align-items:center; gap:6px; }
+.rv-legend i { width:10px; height:10px; border-radius:9999px; }
+.rv-legend .rv-sw-band { width:18px; border-radius:4px; box-shadow:inset 0 0 0 1px rgba(132,96,229,.25); }
+
+/* Momento de venta */
+.rv-signal { flex:none; display:inline-flex; align-items:center; gap:8px; padding:6px 12px 6px 8px; border-radius:9999px; font-size:.875rem; font-weight:700; color:#fff; background:#2E0F70; }
+.rv-note { margin:0; font-size:.875rem; color:var(--rv-text); }
+.rv-note b { color:var(--rv-ink); }
+.rv-months { margin:0; display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:.75rem; color:var(--rv-muted); }
+.rv-months em { font-style:normal; font-weight:600; font-size:.75rem; padding:4px 10px; border-radius:9999px; background:var(--rv-tint); color:var(--rv-ink); }
+
+/* Vidrio: el escenario violeta de VMC con luces de marca; las tarjetas son paneles esmerilados. */
+.rv-stage { position:relative; isolation:isolate; display:grid; gap:16px; padding:16px; border-radius:20px; overflow:hidden;
+  background:radial-gradient(55% 40% at 88% 4%, rgba(237,137,54,.55), transparent 70%), radial-gradient(60% 45% at 0% 38%, rgba(132,96,229,.75), transparent 70%),
+    radial-gradient(50% 35% at 100% 82%, rgba(204,0,255,.28), transparent 70%), linear-gradient(180deg,#2E0F70,#22005C); }
+.rv--vidrio .rv-card { color:#fff; background:linear-gradient(140deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+  -webkit-backdrop-filter:blur(18px) saturate(140%); backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3), inset 0 0 0 1px rgba(255,255,255,.16), 0 12px 32px rgba(16,0,48,.35); }
+.rv--vidrio { --rv-ink:#fff; --rv-text:#fff; --rv-muted:#D9CCFF; --rv-hair:rgba(255,255,255,.16); --rv-tint:rgba(255,255,255,.14); }
+.rv--vidrio .rv-chip { box-shadow:inset 0 0 0 1px rgba(255,255,255,.22); }
+.rv--vidrio .rv-signal { background:rgba(16,0,48,.45); box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); }
+.rv--vidrio .rv-legend .rv-sw-band { box-shadow:inset 0 0 0 1px rgba(255,255,255,.3); }
+@media (prefers-reduced-transparency:reduce) { .rv--vidrio .rv-card { -webkit-backdrop-filter:none; backdrop-filter:none; background:#3B1782; } }
+
+@media (max-width:600px) {
+  .rv-card { padding:20px 16px; } .rv-hero { padding:24px 16px; } .rv-big { font-size:2.25rem; }
+  .rv-card__head--row { flex-direction:column; } .rv-stage { padding:12px; margin-inline:-4px; }
+}
+
+/* Lo común del resultado (comparables y detalles) en el mismo material cuando se usa una dirección nueva. */
+.fl-result--rv { gap:16px; }
+.fl-result--rv > .fl-avt__card, .fl-result--rv > .fl-acc { padding:24px; border-radius:var(--f-r-card,16px); background:#fff; box-shadow:0 0 0 1px var(--f-hair,#E1E3E2), 0 1px 2px rgba(34,0,92,.06); }
+.fl-result--rv > .fl-acc { padding:0 24px; }
+.fl-result--rv .cardtitle { padding:0; }
+.fl-result--rv .cardtitle__bracket { display:none; } /* las esquinas de Concorde son de vitrina; aquí la sección se nombra con su título */
+.fl-result--rv .cardtitle__title { font-size:1rem; font-weight:700; color:var(--f-ink,#3B1782); }
+.fl-result--rv .cardtitle__subtitle { font-size:.875rem; color:var(--f-muted,#6B6878); }
+.fl-result--rv .ptable thead tr { background:var(--f-tint,#F5F0FF); background-image:none; }
+.fl-result--rv .ptable__th { padding:10px 16px; font-size:.75rem; letter-spacing:0; text-transform:none; color:var(--f-ink,#3B1782); border-bottom:0; }
+.fl-result--rv .ptable__th:first-child { border-radius:8px 0 0 8px; } .fl-result--rv .ptable__th:last-child { border-radius:0 8px 8px 0; }
+.fl-result--rv .ptable__td { padding:12px 16px; font-size:.875rem; font-weight:400; color:var(--f-text,#191C1C); font-variant-numeric:tabular-nums; }
+.fl-result--rv .pacc__header { padding:0; min-height:56px; }
+.fl-result--rv .pacc--open .pacc__header { box-shadow:none; }
+.fl-result--rv .pacc__content-pad { padding:0 0 24px; }
+
+/* Explicado: el rango es la cifra (como Zillow/Redfin); el valor más probable va debajo. */
+.rv-big--range { font-size:2rem; }
+.rv-big--range span { color:var(--rv-muted); font-weight:400; }
+.rv-likely { margin:0; font-size:.875rem; color:var(--rv-text); }
+.rv-likely b { color:var(--rv-ink); }
+
+/* Simulador «¿Cuándo te conviene vender?» */
+.rv-when { display:grid; gap:12px; }
+.rv-when__read { display:grid; gap:2px; padding:16px; border-radius:var(--f-r-field,12px); background:var(--rv-tint); }
+.rv-when__read span { font-size:.875rem; font-weight:600; color:var(--rv-ink); }
+.rv-when__read b { font-size:1.5rem; font-weight:700; line-height:1.2; color:var(--rv-ink); font-variant-numeric:tabular-nums; }
+.rv-when__read small { font-size:.75rem; color:var(--rv-muted); }
+.rv-when__range { display:grid; }
+.rv-when__range input { accent-color:#8460E5; height:24px; cursor:pointer; }
+.rv-when__range input:focus-visible { outline:2px solid #8460E5; outline-offset:4px; border-radius:9999px; }
+.rv-sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+@media (max-width:600px) { .rv-big--range { font-size:1.625rem; } }

@@ -1,0 +1,85 @@
+/* FeaturedCard (usa también light-bar.css) */
+@keyframes vfc-holo-idle { 0% { background-position: 0% 0%; } 100% { background-position: 100% 100%; } }
+@keyframes vfc-like-pop { 0% { transform: scale(1); } 35% { transform: scale(1.4); } 65% { transform: scale(0.85); } 85% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+/* Caja: se inclina hacia el mouse (--rx, --ry) */
+.vfc { position: relative; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; border-radius: 8px; border: 1px solid #E9E3FF; background: #fff;
+  font-family: var(--vmc-font-display, 'Plus Jakarta Sans', -apple-system, sans-serif); color: #191C1C; cursor: pointer;
+  box-shadow: rgba(0,0,0,0.07) 0 0 16px 4px;
+  transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.2s ease, box-shadow 0.2s; }
+.vfc *, .vfc *::before, .vfc *::after { box-sizing: border-box; }
+.vfc:hover { transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-3px); box-shadow: oklch(0.22 0.18 285 / 0.12) 0 12px 20px; }
+
+/* Brillo holográfico y reflejo que siguen al mouse (--mx, --my) */
+.vfc-holo { position: absolute; inset: 0; z-index: 3; pointer-events: none; background-size: 260% 260%;
+  background-image: linear-gradient(115deg, transparent 28%, rgba(132,96,229,0.07) 38%, rgba(0,218,224,0.06) 46%, rgba(255,150,57,0.06) 54%, rgba(132,96,229,0.05) 62%, transparent 72%);
+  animation: vfc-holo-idle 5s ease-in-out infinite alternate; }
+.vfc:hover .vfc-holo { animation: none; background-position: var(--mx, 50%) var(--my, 50%); }
+.vfc-glare { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0; transition: opacity 0.2s;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 30%), rgba(255,255,255,0.28), transparent 42%); }
+.vfc:hover .vfc-glare { opacity: 1; }
+
+/* Foto */
+.vfc-media { position: relative; flex: none; height: 132px; overflow: hidden; background: #ECEAF3; border-bottom-right-radius: 100% 44px; }
+.vfc-media > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.vfc-count { position: absolute; left: 8px; bottom: 8px; z-index: 2; display: inline-flex; align-items: center; gap: 4px; height: 20px; padding: 0 7px;
+  border-radius: 6px; font-size: 10px; font-weight: 700; color: #fff; background: rgba(16,0,48,0.6); }
+.vfc-dots { position: absolute; left: 50%; bottom: 10px; z-index: 2; display: flex; gap: 4px; transform: translateX(-50%); }
+.vfc-dots i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.55); }
+.vfc-dots i:first-child { background: #fff; }
+
+/* Pills */
+.vfc-cond { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.vfc-pills { position: absolute; top: 8px; left: 8px; z-index: 2; display: flex; gap: 4px; }
+.vfc-pill { display: inline-flex; align-items: center; gap: 5px; height: 18px; padding: 0 8px 0 6px; border-radius: 999px; font-size: 9px; font-weight: 700; letter-spacing: 0.07em;
+  color: #fff; text-transform: uppercase; white-space: nowrap; box-shadow: rgba(0,0,0,0.18) 0 2px 6px; }
+.vfc-pill svg { flex: none; width: 10px; height: 10px; }
+.vfc-pill--live { background: linear-gradient(135deg, #FF9639 0%, #EF852E 40%, #BE3D00 100%); }
+.vfc-pill--negotiable { background: linear-gradient(110deg, #00A9B0 0%, #3F7FD0 45%, #6A35D6 100%); }
+.vfc-pill--featured { background: linear-gradient(135deg, #8460E5 0%, #3B1782 100%); }
+/* Condición del bien (se ve en la card antes de entrar): una pill por estado.
+   BASIC = blanca con borde lila (como el botón secondary); el resto, degradé vivo como En vivo / Destacado.
+   Ninguna usa rojo ni ámbar: informan, no alertan. */
+.vfc-pill--basic { color: #3B1782; border: 1px solid transparent; padding: 0 3px; gap: 0; height: 18px; box-sizing: border-box; overflow: hidden; cursor: default; outline: none;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F6F2FF 100%) padding-box, linear-gradient(135deg, #CFBAFF 0%, #FFFFFF 35%, #AE8EFF 65%, #CFBAFF 100%) border-box;
+  box-shadow: rgba(132,96,229,0.22) 0 2px 6px; transition: padding 0.25s ease, box-shadow 0.25s; }
+.vfc-pill--basic b { font: inherit; max-width: 0; margin: 0; opacity: 0; overflow: hidden; white-space: nowrap; transition: max-width 0.28s ease, margin 0.28s ease, opacity 0.2s ease; }
+/* Publicación de usuario: solo el ícono; al pasar el mouse (o enfocar/tocar) se extiende y dice Basic. */
+.vfc-pill--basic:hover, .vfc-pill--basic:focus-visible, .vfc-pill--basic:focus, .vlg-row__thumb:hover .vfc-pill--basic { padding-right: 7px; box-shadow: rgba(132,96,229,0.4) 0 2px 8px; }
+.vfc-pill--basic:hover b, .vfc-pill--basic:focus-visible b, .vfc-pill--basic:focus b, .vlg-row__thumb:hover .vfc-pill--basic b { max-width: 56px; margin-left: 5px; opacity: 1; }
+.vfc-pill--seminuevo { background: linear-gradient(135deg, #4FB8FF 0%, #2F8CF0 40%, #0B4FB8 100%); }
+.vfc-pill--operativo { background: linear-gradient(135deg, #3FD584 0%, #1FAE62 40%, #0A7A3F 100%); }
+.vfc-pill--inoperativo { background: linear-gradient(135deg, #8FA3CC 0%, #6B7FAE 40%, #3D4F7D 100%); }
+.vfc-pill--siniestrado { background: linear-gradient(135deg, #F27AB0 0%, #D9559F 40%, #8F2468 100%); }
+
+/* Favorito */
+.vfc-likepos { position: absolute; top: 8px; right: 8px; z-index: 2; display: grid; place-items: center; }
+.vfc-like { position: relative; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 30px; height: 30px; padding: 2px; overflow: hidden;
+  border: 1.44px solid transparent; border-radius: 9999px; outline: none; cursor: pointer;
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(135deg, #E8DDFF 0%, #ffffff 40%, #CFBAFF 75%, #AE8EFF 100%);
+  background-origin: padding-box, border-box; background-clip: padding-box, border-box;
+  box-shadow: rgba(132,96,229,0.14) 0 2px 8px; transition: transform 0.15s cubic-bezier(0.25,0.8,0.25,1), box-shadow 0.2s; }
+.vfc-like::before { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 9999px; pointer-events: none; background: linear-gradient(rgba(255,255,255,0.55) 0%, transparent 50%); }
+.vfc-like svg { position: relative; z-index: 2; }
+.vfc-like:hover { transform: scale(1.1) translateY(-1px); box-shadow: rgba(32,0,104,0.2) 0 6px 14px; }
+.vfc-like:active { transform: scale(0.92); }
+.vfc-like:focus-visible { outline: 2px solid oklch(0.62 0.20 285); outline-offset: 2px; }
+.vfc-like--on { background-image: linear-gradient(135deg, #8460E5 0%, #3B1782 100%), linear-gradient(135deg, #FBC47D 0%, #FBC47D 100%);
+  box-shadow: rgba(132,96,229,0.35) 0 2px 8px, inset 0 1px 0 rgba(255,255,255,0.22); }
+.vfc-like--pop svg { animation: vfc-like-pop 0.38s cubic-bezier(0.34,1.56,0.64,1) 1; }
+
+/* Datos */
+.vfc-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 12px 8px 14px 10px; }
+.vfc-name { margin: 0; overflow: hidden; font-size: 16px; font-weight: 800; line-height: 1.15; color: #1B1442; text-overflow: ellipsis; white-space: nowrap; }
+.vfc-sub { margin: 2px 0 0; font-size: 11px; color: #6B6880; }
+.vfc-chips { display: flex; flex-wrap: nowrap; gap: 4px; }
+.vfc-chip { display: inline-flex; align-items: center; gap: 3px; padding: 4px 5px; border: 1px solid #E3E1EC; border-radius: 6px; font-size: 10px; color: #3F3F4A; white-space: nowrap; }
+.vfc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 11px; line-height: 1.2; color: #3F3F4A; white-space: nowrap; }
+.vfc-stats span { display: flex; align-items: center; gap: 4px; }
+.vfc-time { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #3F3F4A; }
+.vfc-spacer { flex: 1; }
+.vfc-pricerow { display: flex; align-items: center; gap: 8px; }
+.vfc-label { margin: 0 0 1px; display: flex; align-items: center; gap: 4px; font-size: 11px; color: #6B6880; }
+.vfc-price { margin: 0; font-size: 18px; font-weight: 800; line-height: 1.1; color: #4C1EBC; white-space: nowrap; }
+.vfc-offer { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 800; color: #00777A; }

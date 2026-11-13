@@ -1,0 +1,124 @@
+/* Light Ganá Ya variant requested by Julio. Existing Concorde tokens only. */
+.button {
+ display:inline-flex; align-items:center; justify-content:center; gap:8px;
+ min-height:var(--vmc-space-button-height-md); max-width:100%; padding:5px 15px;
+ border:3px solid transparent; border-radius:var(--vmc-radius-full);
+ background-image:linear-gradient(115deg,var(--vmc-color-base-white) 35%,color-mix(in srgb,var(--vmc-color-orange-tint) 55%,var(--vmc-color-base-white))),
+  linear-gradient(110deg,var(--vmc-color-orange-700),var(--vmc-color-vault-500) 50%,var(--vmc-color-teal-600));
+ background-origin:padding-box,border-box; background-clip:padding-box,border-box;
+ color:var(--vmc-color-vault-700); font-family:var(--vmc-font-display);
+ font-size:var(--vmc-text-label-md); font-weight:var(--vmc-font-weight-bold); line-height:var(--vmc-line-height-body);
+ box-shadow:0 2px 8px color-mix(in srgb,var(--vmc-color-vault-500) 16%,transparent),0 1px 0 var(--vmc-color-base-white) inset;
+ cursor:pointer; position:relative; isolation:isolate;
+ transition:transform .18s ease,box-shadow .18s ease;
+}
+.emblem { display:grid; place-items:center; width:28px; height:28px; flex:none; border-radius:var(--vmc-radius-full);
+ color:var(--vmc-color-vault-600); border:2px solid transparent;
+ background-image:linear-gradient(var(--vmc-color-base-white),var(--vmc-color-base-white)),
+  linear-gradient(140deg,var(--vmc-color-orange-700),var(--vmc-color-vault-400),var(--vmc-color-teal-600));
+ background-origin:padding-box,border-box; background-clip:padding-box,border-box; }
+.label,.price { white-space:nowrap; }
+.price { color:var(--vmc-color-vault-700); }
+.separator { color:var(--vmc-color-vault-500); }
+.button:hover:not(:disabled) { transform:translateY(-1px);
+ background-image:linear-gradient(115deg,var(--vmc-color-base-white) 20%,var(--vmc-color-orange-tint)),
+  linear-gradient(110deg,var(--vmc-color-orange-700),var(--vmc-color-vault-600) 50%,var(--vmc-color-teal-600));
+ box-shadow:0 4px 12px color-mix(in srgb,var(--vmc-color-vault-500) 24%,transparent),0 1px 0 var(--vmc-color-base-white) inset; }
+.button:active:not(:disabled) { transform:translateY(1px); box-shadow:0 2px 4px color-mix(in srgb,var(--vmc-color-vault-500) 18%,transparent) inset; }
+.button:focus-visible { outline:3px solid var(--vmc-color-vault-600); outline-offset:4px;
+ box-shadow:0 0 0 2px var(--vmc-color-base-white),0 0 0 5px var(--vmc-color-vault-600); }
+.button:disabled { cursor:not-allowed; transform:none; box-shadow:none; background:var(--vmc-color-background-disabled);
+ color:var(--vmc-color-vault-700); border-color:var(--vmc-color-background-disabled); }
+.button:disabled .price { color:inherit; }
+.button:disabled .emblem { background:transparent; color:inherit; border-color:currentColor; }
+/* Como Concorde: con movimiento reducido no hay transición, pero el hover y el press sí cambian de tamaño. */
+@media(prefers-reduced-motion:reduce){.button{transition:none}}
+@media(forced-colors:active){.button{border-color:ButtonText;background:ButtonFace;color:ButtonText}.price,.emblem{color:ButtonText}.emblem{background:ButtonFace;border-color:ButtonText}.button:focus-visible{outline-color:Highlight}}
+
+/* ── Estilos en revisión (12/11, Aarón) ─────────────────────────────────────────────────────────
+   Copia la receta del CTA de DetailCard («¡Vamos a negociar!» / «Participa»): relleno a → b que en hover gira,
+   se ilumina, sube y crece entero (5 %, un poco más que el 2 % de Concorde, pedido por Aarón) con resplandor detrás; en press se oscurece y se hunde. Solo cambia la paleta.
+   Las paletas nuevas viven en ganaya-propuesta-tokens.css (propuesta, no Concorde); «tricolor» usa tokens. */
+@property --gy-a { syntax:"<angle>"; inherits:true; initial-value:135deg; }
+@property --gy-c1 { syntax:"<color>"; inherits:true; initial-value:transparent; }
+@property --gy-c2 { syntax:"<color>"; inherits:true; initial-value:transparent; }
+@property --gy-border { syntax:"*"; inherits:true; }
+@property --gy-stroke-angle { syntax:"<angle>"; inherits:false; initial-value:0deg; }
+
+.animatedStroke { display:none; position:absolute; inset:0; z-index:4; pointer-events:none; padding:1px; border-radius:inherit;
+ background:conic-gradient(from var(--gy-stroke-angle),var(--vmc-color-teal-600) 0deg,var(--vmc-color-base-white) 30deg,var(--vmc-color-vault-400) 78deg,var(--vmc-color-teal-500) 145deg,var(--vmc-color-base-white) 205deg,var(--vmc-color-vault-500) 255deg,var(--vmc-color-teal-600) 360deg);
+ -webkit-mask:linear-gradient(var(--vmc-color-ink) 0 0) content-box,linear-gradient(var(--vmc-color-ink) 0 0); -webkit-mask-composite:xor; mask-composite:exclude;
+ box-shadow:0 0 3px color-mix(in srgb,var(--vmc-color-teal-500) 55%,transparent); animation:gy-stroke-travel 1.7s linear infinite; }
+:global(.pdetail__gy) .animatedStroke { display:block; }
+@keyframes gy-stroke-travel { to { --gy-stroke-angle:360deg; } }
+
+.fuego,.esmeralda,.magenta,.oro,.tricolor {
+ height:var(--vmc-space-button-height-md); min-width:186px; padding:0 20px 0 10px; gap:8px;
+ border:2px solid transparent; overflow:hidden; position:relative; isolation:auto;
+ font-size:16px; line-height:20px; font-weight:600; color:var(--vmc-color-base-white);
+ text-shadow:color-mix(in srgb,var(--vmc-color-ink) 25%,transparent) 0 1px 3px;
+ background-image:linear-gradient(var(--gy-a),var(--gy-c1) 0%,var(--gy-c1) 40%,var(--gy-c2) 100%),var(--gy-border);
+ background-origin:padding-box,border-box; background-clip:padding-box,border-box;
+ box-shadow:color-mix(in srgb,var(--vmc-color-base-white) 28%,transparent) 0 1px 0 2px inset,color-mix(in srgb,var(--gy-c1) 30%,transparent) 0 2px 6px;
+ transition:--gy-a .4s cubic-bezier(.25,.8,.25,1),--gy-c1 .35s,--gy-c2 .35s,transform .2s cubic-bezier(.25,.8,.25,1),box-shadow .25s;
+ transform:translateZ(0);
+}
+.fuego::before,.esmeralda::before,.magenta::before,.oro::before,.tricolor::before { content:""; position:absolute; inset:0; border-radius:var(--vmc-radius-full);
+ background:linear-gradient(color-mix(in srgb,var(--vmc-color-base-white) 17%,transparent) 0%,transparent 55%); pointer-events:none; z-index:1; }
+.fuego::after,.esmeralda::after,.magenta::after,.oro::after,.tricolor::after { content:""; position:absolute; inset:-4px; border-radius:var(--vmc-radius-full);
+ background:linear-gradient(135deg,var(--gy-c1),var(--gy-c2)); filter:blur(14px); opacity:0; z-index:-1; transition:opacity .3s,filter .3s; }
+.fuego .price,.esmeralda .price,.magenta .price,.oro .price,.tricolor .price,
+.fuego .separator,.esmeralda .separator,.magenta .separator,.oro .separator,.tricolor .separator { color:inherit; }
+.fuego .label,.esmeralda .label,.magenta .label,.oro .label,.tricolor .label,
+.fuego .price,.esmeralda .price,.magenta .price,.oro .price,.tricolor .price,
+.fuego .separator,.esmeralda .separator,.magenta .separator,.oro .separator,.tricolor .separator,
+.fuego .emblem,.esmeralda .emblem,.magenta .emblem,.oro .emblem,.tricolor .emblem { position:relative; z-index:2; }
+.fuego .emblem,.esmeralda .emblem,.magenta .emblem,.oro .emblem,.tricolor .emblem { color:var(--vmc-color-base-white);
+ border:1.5px solid color-mix(in srgb,var(--vmc-color-base-white) 65%,transparent); background:color-mix(in srgb,var(--vmc-color-base-white) 18%,transparent); }
+
+.fuego:hover:not(:disabled),.esmeralda:hover:not(:disabled),.magenta:hover:not(:disabled),.oro:hover:not(:disabled),.tricolor:hover:not(:disabled) {
+ --gy-a:220deg; transform:translateY(-2px) scale(1.05);
+ background-image:linear-gradient(var(--gy-a),var(--gy-c1) 0%,var(--gy-c1) 40%,var(--gy-c2) 100%),var(--gy-border);
+ box-shadow:color-mix(in srgb,var(--vmc-color-base-white) 22%,transparent) 0 1px 0 2px inset,color-mix(in srgb,var(--vmc-color-vault-500) 35%,transparent) 0 8px 24px,color-mix(in srgb,var(--gy-c1) 40%,transparent) 0 4px 10px; }
+.fuego:hover:not(:disabled)::after,.esmeralda:hover:not(:disabled)::after,.magenta:hover:not(:disabled)::after,.oro:hover:not(:disabled)::after,.tricolor:hover:not(:disabled)::after { opacity:.6; filter:blur(18px); }
+/* Hover más brilloso: el reflejo superior se enciende */
+.fuego::before,.esmeralda::before,.magenta::before,.oro::before,.tricolor::before { transition:opacity .25s; }
+.fuego:hover:not(:disabled)::before,.esmeralda:hover:not(:disabled)::before,.magenta:hover:not(:disabled)::before,.oro:hover:not(:disabled)::before,.tricolor:hover:not(:disabled)::before {
+ background:linear-gradient(color-mix(in srgb,var(--vmc-color-base-white) 34%,transparent) 0%,color-mix(in srgb,var(--vmc-color-base-white) 6%,transparent) 60%,transparent 100%); }
+.fuego:active:not(:disabled),.esmeralda:active:not(:disabled),.magenta:active:not(:disabled),.oro:active:not(:disabled),.tricolor:active:not(:disabled) {
+ --gy-a:135deg; color:color-mix(in srgb,var(--vmc-color-base-white) 82%,var(--vmc-color-neutral-700)); transform:scale(.97) translateY(1px);
+ box-shadow:color-mix(in srgb,var(--vmc-color-ink) 22%,transparent) 0 2px 5px 2px inset,color-mix(in srgb,var(--vmc-color-ink) 12%,transparent) 0 1px 3px; }
+.fuego:active:not(:disabled)::after,.esmeralda:active:not(:disabled)::after,.magenta:active:not(:disabled)::after,.oro:active:not(:disabled)::after,.tricolor:active:not(:disabled)::after { opacity:0; }
+.fuego:focus-visible,.esmeralda:focus-visible,.magenta:focus-visible,.oro:focus-visible,.tricolor:focus-visible { outline:none; transform:scale(.98);
+ box-shadow:color-mix(in srgb,var(--vmc-color-base-white) 28%,transparent) 0 1px 0 2px inset,0 0 0 3px color-mix(in srgb,var(--vmc-color-vault-500) 45%,transparent); }
+
+.fuego { --gy-c1:var(--ganaya-prop-fuego-a); --gy-c2:var(--ganaya-prop-fuego-b);
+ --gy-border:linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--ganaya-prop-fuego-edge) 25%,var(--ganaya-prop-fuego-edge-2) 75%,var(--vmc-color-base-white) 100%); }
+.fuego:hover:not(:disabled) { --gy-c1:var(--ganaya-prop-fuego-a-hover); --gy-c2:var(--ganaya-prop-fuego-b-hover); }
+.fuego:active:not(:disabled) { --gy-c1:var(--ganaya-prop-fuego-a-press); --gy-c2:var(--ganaya-prop-fuego-b-press); }
+.esmeralda { --gy-c1:var(--ganaya-prop-esmeralda-a); --gy-c2:var(--ganaya-prop-esmeralda-b);
+ --gy-border:linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--ganaya-prop-esmeralda-edge) 25%,var(--ganaya-prop-esmeralda-edge-2) 75%,var(--vmc-color-base-white) 100%); }
+.esmeralda:hover:not(:disabled) { --gy-c1:var(--ganaya-prop-esmeralda-a-hover); --gy-c2:var(--ganaya-prop-esmeralda-b-hover); }
+.esmeralda:active:not(:disabled) { --gy-c1:var(--ganaya-prop-esmeralda-a-press); --gy-c2:var(--ganaya-prop-esmeralda-b-press); }
+.magenta { --gy-c1:var(--ganaya-prop-magenta-a); --gy-c2:var(--ganaya-prop-magenta-b);
+ --gy-border:linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--ganaya-prop-magenta-edge) 25%,var(--ganaya-prop-magenta-edge-2) 75%,var(--vmc-color-base-white) 100%); }
+.magenta:hover:not(:disabled) { --gy-c1:var(--ganaya-prop-magenta-a-hover); --gy-c2:var(--ganaya-prop-magenta-b-hover); }
+.magenta:active:not(:disabled) { --gy-c1:var(--ganaya-prop-magenta-a-press); --gy-c2:var(--ganaya-prop-magenta-b-press); }
+.oro { --gy-c1:var(--ganaya-prop-oro-a); --gy-c2:var(--ganaya-prop-oro-b);
+ --gy-border:linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--ganaya-prop-oro-edge) 25%,var(--ganaya-prop-oro-edge-2) 75%,var(--vmc-color-base-white) 100%); }
+.oro:hover:not(:disabled) { --gy-c1:var(--ganaya-prop-oro-a-hover); --gy-c2:var(--ganaya-prop-oro-b-hover); }
+.oro:active:not(:disabled) { --gy-c1:var(--ganaya-prop-oro-a-press); --gy-c2:var(--ganaya-prop-oro-b-press); }
+
+/* Tricolor con tokens de Concorde: naranja → lila → teal (relleno de tres paradas) */
+.tricolor { --gy-c1:var(--vmc-color-orange-600); --gy-c2:var(--vmc-color-teal-500);
+ --gy-border:linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--vmc-color-orange-400) 25%,var(--vmc-color-vault-300) 55%,var(--vmc-color-teal-400) 80%,var(--vmc-color-base-white) 100%);
+ background-image:linear-gradient(var(--gy-a),var(--gy-c1) 0%,var(--vmc-color-vault-500) 50%,var(--gy-c2) 100%),var(--gy-border); }
+.tricolor:hover:not(:disabled) { --gy-c1:var(--vmc-color-orange-400); --gy-c2:var(--vmc-color-teal-400);
+ background-image:linear-gradient(var(--gy-a),var(--gy-c1) 0%,var(--vmc-color-vault-500) 50%,var(--gy-c2) 100%),var(--gy-border); }
+.tricolor:active:not(:disabled) { --gy-c1:var(--vmc-color-orange-700); --gy-c2:var(--vmc-color-teal-600);
+ background-image:linear-gradient(var(--gy-a),var(--gy-c1) 0%,var(--vmc-color-vault-600) 50%,var(--gy-c2) 100%),var(--gy-border); }
+
+@media(prefers-reduced-motion:reduce){
+ .fuego,.esmeralda,.magenta,.oro,.tricolor,.fuego::before,.esmeralda::before,.magenta::before,.oro::before,.tricolor::before{transition:none}
+ .animatedStroke{animation:none}
+}

@@ -1,0 +1,6 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../../..');
+const routes=['app/producto/mi-garaje/page.tsx','app/producto/mi-garaje/m/[id]/page.tsx','app/producto/mi-garaje/publicaciones/page.tsx','app/producto/mi-garaje/components/page.tsx'];
+for(const f of routes)assert.ok(fs.existsSync(path.join(root,f)),f);
+const page=fs.readFileSync(path.join(root,routes[1]),'utf8');for(const id of ['vmc','vmc-propuesta','vmc-valuar','vmc-publica','vmc-valorizaciones'])assert.ok(page.includes('"'+id+'"'),id);
+let files=0;function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,e.name);if(e.isDirectory())walk(f);else if(/\.(tsx?|jsx?|css|html)$/.test(f)){files++;const text=fs.readFileSync(f,'utf8');assert.ok(!/["'\x60]\/m\//.test(text),'unmapped route '+f);for(const m of text.matchAll(/["'\x60(](\/producto-assets\/mi-garaje\/[^"'\x60\s)<>{}]+)/g)){const asset=m[1].split('?')[0];if(!asset.includes('$'))assert.ok(fs.existsSync(path.join(root,'public',asset)),asset);}}}}walk(__dirname);console.log('Mi Garaje integration: '+files+' source files checked; 4 routes and namespaced static assets OK');

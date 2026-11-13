@@ -1,0 +1,22 @@
+.banner { position:relative; isolation:isolate; overflow:hidden; min-width:0; width:100%; min-height:192px;
+ display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:24px; padding:24px 30px;
+ background:linear-gradient(110deg,var(--vmc-color-vault-900),var(--vmc-color-vault-700));
+ border:1px solid color-mix(in srgb,var(--vmc-color-orange-400) 60%,transparent); color:var(--vmc-color-base-white);
+ font-family:var(--vmc-font-display); }
+.banner::before { content:""; position:absolute; inset:0; z-index:-1;
+ background:radial-gradient(ellipse at 95% 90%,color-mix(in srgb,var(--vmc-color-orange-600) 24%,transparent),transparent 65%); }
+.decor { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:-1; }
+.copy { min-width:0; display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+.tag { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--vmc-color-orange-400); border-radius:var(--vmc-radius-full);
+ padding:5px 12px; font-size:var(--vmc-font-size-label); font-weight:var(--vmc-font-weight-bold);
+ letter-spacing:var(--vmc-letter-spacing-label); color:var(--vmc-color-orange-tint); background:var(--vmc-color-glass-hero); }
+.copy h1 { margin:0; max-width:440px; font-size:var(--vmc-font-size-title); line-height:var(--vmc-line-height-title);
+ font-weight:var(--vmc-font-weight-bold); letter-spacing:var(--vmc-letter-spacing-tight); }
+.copy h1 span { color:var(--vmc-color-orange-400); }
+.counter { display:flex; align-items:baseline; gap:12px; flex:none; }
+.counter > span { font-size:var(--vmc-font-size-body); font-weight:var(--vmc-font-weight-bold); }
+.counter strong { font-size:calc(var(--vmc-font-size-hero)*2); line-height:1; font-weight:var(--vmc-font-weight-bold);
+ color:var(--vmc-color-orange-tint); text-shadow:0 3px 0 var(--vmc-color-vault-900); }
+@media(max-width:600px){.banner{padding:20px 16px;gap:16px;grid-template-columns:minmax(0,1fr) 72px;min-height:192px}
+ .copy h1{font-size:calc(var(--vmc-font-size-title)*.8);line-height:1.16}.counter{flex-direction:column;align-items:center;gap:4px}
+ .counter strong{font-size:calc(var(--vmc-font-size-hero)*1.7)}.counter > span{font-size:var(--vmc-font-size-label)}}

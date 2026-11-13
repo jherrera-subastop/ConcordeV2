@@ -1,0 +1,29 @@
+/* Colores PROPUESTOS para el botón Ganá Ya (12/11, Aarón). No son tokens de Concorde ni están aprobados:
+ * son opciones de revisión para un botón que no use el teal de Negociable, el lila de Primary ni el naranja de En Vivo.
+ * Cada paleta sigue la receta del CTA de DetailCard: dos colores (a → b) en reposo, versión iluminada en hover,
+ * versión oscurecida en press, borde claro y color de resplandor. Si se elige una, pasa a Concorde como token. */
+:root {
+  /* Fuego: rojo fuego → ámbar (va con el ícono de llama) */
+  --ganaya-prop-fuego-a: #ff4f2b;  --ganaya-prop-fuego-b: #ffa31a;
+  --ganaya-prop-fuego-a-hover: #ff9466;  --ganaya-prop-fuego-b-hover: #ffd75e;
+  --ganaya-prop-fuego-a-press: #c9300f;  --ganaya-prop-fuego-b-press: #d17a00;
+  --ganaya-prop-fuego-edge: #ffd2bf;  --ganaya-prop-fuego-edge-2: #ffe08a;
+
+  /* Esmeralda: verde ganancia → verde profundo */
+  --ganaya-prop-esmeralda-a: #12c47a;  --ganaya-prop-esmeralda-b: #0a7d55;
+  --ganaya-prop-esmeralda-a-hover: #5ef5b4;  --ganaya-prop-esmeralda-b-hover: #22d491;
+  --ganaya-prop-esmeralda-a-press: #0b8a55;  --ganaya-prop-esmeralda-b-press: #065c3e;
+  --ganaya-prop-esmeralda-edge: #b5f5d6;  --ganaya-prop-esmeralda-edge-2: #5fe0a8;
+
+  /* Magenta: fucsia → coral */
+  --ganaya-prop-magenta-a: #e0359f;  --ganaya-prop-magenta-b: #ff5a5f;
+  --ganaya-prop-magenta-a-hover: #ff7fd4;  --ganaya-prop-magenta-b-hover: #ffa594;
+  --ganaya-prop-magenta-a-press: #a81c74;  --ganaya-prop-magenta-b-press: #cc3540;
+  --ganaya-prop-magenta-edge: #ffc2e6;  --ganaya-prop-magenta-edge-2: #ffb3a8;
+
+  /* Oro: dorado → bronce (trofeo) */
+  --ganaya-prop-oro-a: #f2b200;  --ganaya-prop-oro-b: #c9720a;
+  --ganaya-prop-oro-a-hover: #ffe36b;  --ganaya-prop-oro-b-hover: #ffb43d;
+  --ganaya-prop-oro-a-press: #b88400;  --ganaya-prop-oro-b-press: #8f4f05;
+  --ganaya-prop-oro-edge: #fff0b3;  --ganaya-prop-oro-edge-2: #ffd27a;
+}

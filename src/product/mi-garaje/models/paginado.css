@@ -1,0 +1,22 @@
+/* Paginado de las secciones de Tu actividad (ver Paginado.tsx). Mismos tokens que las filas: vault #3B1782 · #5A35C2 · #8460E5. */
+.pg-foot { display:flex; align-items:center; justify-content:center; padding:6px 0 2px; }
+.pg-nums { --pg:22px; --pg-f:.75rem; gap:4px; }
+.pg-nums--s { --pg:18px; --pg-f:.6875rem; gap:2px; padding-top:4px; }
+.pg-nums__set { display:flex; align-items:center; gap:2px; }
+.pg-arrow, .pg-num { display:grid; place-items:center; min-width:var(--pg); height:var(--pg); padding:0 3px; box-sizing:border-box; border:0; border-radius:9999px; background:none;
+  font:inherit; font-size:var(--pg-f); font-weight:600; line-height:1; color:#6B6878; cursor:pointer; transition:background .15s, color .15s, box-shadow .15s; }
+.pg-nums--s .pg-arrow svg { width:12px; height:12px; }
+.pg-arrow { color:#3B1782; } .pg-arrow:disabled { opacity:.3; cursor:default; }
+.pg-num:hover, .pg-arrow:hover:not(:disabled) { background:#F5F0FF; color:#3B1782; }
+.pg-num:focus-visible, .pg-arrow:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+/* Páginas: la actual en círculo violeta sólido. */
+.pg-nums--paginas .pg-num[aria-current="page"] { background:#3B1782; color:#fff; font-weight:700; }
+/* Páginas glass: los números en una píldora de vidrio; la actual, violeta translúcido con brillo y borde lila. */
+.pg-nums--glass .pg-nums__set { padding:2px; border-radius:9999px; background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(245,240,255,.7));
+  box-shadow:inset 0 0 0 1px rgba(174,142,255,.45), inset 0 1px 0 #fff, 0 2px 8px rgba(132,96,229,.15); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+.pg-nums--glass .pg-num[aria-current="page"] { color:#fff; font-weight:700; background:linear-gradient(160deg, rgba(174,142,255,.95) 0%, rgba(132,96,229,.92) 45%, rgba(90,53,194,.95) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(255,255,255,.25), 0 2px 6px rgba(90,53,194,.35); }
+.pg-nums--glass .pg-arrow { background:rgba(255,255,255,.7); box-shadow:inset 0 0 0 1px rgba(174,142,255,.4); }
+.pg-chk { display:flex; align-items:center; gap:8px; font-size:.75rem; cursor:pointer; } .pg-chk input { accent-color:#5A35C2; }
+/* El panel va primero en su columna del dock (es el que se está revisando), entero y sin recortarse. */
+#lab-dock .lab-dock__col > .f-sw--pag:not(.f-sw--closed) { order:-1; flex:none; overflow:visible; }

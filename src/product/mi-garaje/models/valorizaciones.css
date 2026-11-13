@@ -1,0 +1,171 @@
+/* Mis valorizaciones · lenguaje del Modelo 3 (Fernando+). */
+.vz { gap:24px; }
+.vz-back a { display:inline-flex; align-items:center; gap:4px; font-size:.875rem; font-weight:700; color:#5A35C2; text-decoration:none; }
+.vz-back a:hover { color:var(--ink); }
+.vz-back a:focus-visible { outline:2px solid #8460E5; outline-offset:3px; border-radius:6px; }
+.vz-back__chev { display:grid; transform:rotate(180deg); }
+.vz-top { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+.vz-top h1 { margin:0; font-size:2.5rem; line-height:1.05; font-weight:800; letter-spacing:-0.03em; color:var(--ink); }
+.vz-top p { margin:6px 0 0; font-size:1rem; color:var(--muted); }
+
+
+.vz-empty { display:grid; justify-items:center; gap:12px; padding:48px 24px; border-radius:24px; background:#fff; text-align:center; box-shadow:0 1px 3px rgba(34,0,92,.05), 0 8px 24px rgba(34,0,92,.06); }
+.vz-empty h2 { margin:4px 0 0; font-size:1.5rem; font-weight:800; letter-spacing:-0.02em; color:var(--ink); }
+.vz-empty > p { margin:0; max-width:46ch; font-size:.9375rem; line-height:1.5; color:color-mix(in srgb,#191C1C 82%,#fff); }
+.vz-steps { list-style:none; margin:8px 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,200px)); gap:12px; counter-reset:s; text-align:left; }
+.vz-steps li { counter-increment:s; display:grid; gap:4px; padding:14px; border-radius:14px; background:#F5F0FF; font-size:.8125rem; line-height:1.4; color:color-mix(in srgb,#191C1C 82%,#fff); }
+.vz-steps li::before { content:counter(s); display:grid; place-items:center; width:24px; height:24px; border-radius:9999px; font-size:.75rem; font-weight:800; color:#fff; background:linear-gradient(160deg,#8460E5,#3B1782); }
+.vz-steps b { display:block; color:var(--ink); }
+
+
+@media (max-width:767px) {
+  .vz-top h1 { font-size:2rem; }
+  .vz-steps { grid-template-columns:1fr; }
+  .vz-empty { padding:32px 18px; }
+}
+
+
+
+.vz-pair { margin:0; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.vz-pair div { display:grid; gap:1px; padding:12px 14px; border-radius:14px; background:#F5F0FF; }
+.vz-pair div:first-child { background:#FFF8F1; box-shadow:inset 0 0 0 1px #FDD8A4; }
+.vz-pair dt { font-size:.75rem; font-weight:600; color:#5A35C2; }
+.vz-pair div:first-child dt { color:#B25614; }
+.vz-pair dd { margin:0; font-size:1.25rem; font-weight:800; letter-spacing:-0.01em; color:var(--ink); font-variant-numeric:tabular-nums; }
+.vz-pair small { font-size:.6875rem; color:var(--muted); }
+.vz-factors dd.is-down { color:#B25614; }
+.vz-factors dd.is-up { color:#006466; }
+.vz-factors { margin:0; display:grid; }
+.vz-factors div { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px solid var(--line); font-size:.8125rem; }
+.vz-factors dt { color:var(--muted); }
+.vz-factors dd { margin:0; font-weight:700; color:var(--ink); text-align:right; }
+.vz-empty { gap:14px; }
+
+/* Rango «US$ 9,890 – 11,690» en una línea a 390 px */
+@media (max-width:480px) { .vz-pair dd { font-size:1.0625rem; white-space:nowrap; } }
+
+/* Miniatura de la tarjeta: foto 64×48 si ya pasó por Publicar; si no, el ícono de vidrio en el mismo recuadro. */
+.vz > * { min-width:0; }
+.vz-row__pic { display:block; width:64px; height:48px; border-radius:10px; object-fit:cover; }
+.vz-row__ico { display:grid; place-items:center; background:#F5F0FF; color:#5A35C2; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+
+
+/* Resultado guardado: el Revela del flujo dentro de la página, con la fecha y el estado arriba. */
+.vz-res { gap:16px; }
+.vz-res__saved { margin:0; display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:.875rem; color:#6B6878; }
+.vz-res__saved b { color:#B25614; }
+/* Maqueta VMC: su propio margen (como .g--vmc.g-page en Mi Garaje) y la escala de título de página de Mi Garaje (20/700 en escritorio). */
+.vz--vmc.g-page { max-width:none; padding:24px 16px 64px; gap:24px; }
+@media (min-width:1024px) { .vz--vmc .vz-top h1 { font-size:1.25rem; font-weight:700; letter-spacing:0; } .vz--vmc .vz-top p { font-size:.875rem; } .vz--vmc .vz-top { align-items:center; } }
+
+/* ── Tarjeta por vehículo (16/10) ──
+   Primero lo que pide una acción: «Lista para publicar» es la tarjeta completa (valor, cuánto pierde si espera, señal y
+   Publicar). Las publicadas / en revisión son compactas, con la identidad Negociable: borde degradado de CardViewer negotiable
+   (blanco → #30E8EC → #5A35C2 → blanco), brillo teal y la píldora NEGOCIABLE de Recomendados. El valor siempre en tinta: es
+   el de mercado, no el precio de la oferta.
+   Jerarquía: valor 32/800 · vehículo 17/700 · datos 15/700 · rótulos y notas 13–12/500 en gris. */
+.vz-cards { list-style:none; margin:0; padding:0; display:grid; gap:16px; }
+.vz-cards > li { display:grid; }
+.vz-card { min-width:0; display:grid; grid-template-columns:minmax(0,1fr); align-content:start; gap:20px; padding:24px; border-radius:16px; background:#fff; box-shadow:0 0 16px 4px rgba(0,0,0,.08); }
+.vz-card--neg { gap:16px; padding:18px 22px; border:2px solid transparent;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#fff 0%,#30E8EC 30%,#5A35C2 70%,#fff 100%) border-box;
+  box-shadow:0 0 16px 4px rgba(0,0,0,.08); } /* sin brillo teal: la identidad la dan el borde y la píldora */
+.vz-card__head { display:grid; grid-template-columns:64px minmax(0,1fr) auto; align-items:center; gap:14px; }
+.vz-card__head h2 { margin:0; font-size:1.0625rem; line-height:1.3; font-weight:700; color:#191C1C; }
+.vz-card__head small { display:block; margin-top:2px; font-size:.8125rem; font-weight:500; color:#6B6878; }
+.vz-card__tags { display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:6px; }
+.vz-neg { display:inline-flex; align-items:center; padding:4px 10px; border-radius:9999px; font-size:.625rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:#fff;
+  background-image:linear-gradient(135deg,#30E8EC 0%,#00CACE 45%,#008688 100%); box-shadow:rgba(0,134,136,.4) 0 2px 10px, rgba(255,255,255,.14) 0 1px 0 inset; }
+/* Completa (lista para publicar) */
+.vz-card__value { display:grid; gap:4px; }
+.vz-card__value small { font-size:.8125rem; font-weight:500; color:#6B6878; }
+.vz-card__value b { display:flex; align-items:center; gap:10px; font-size:2rem; line-height:1.1; font-weight:800; letter-spacing:-0.02em; color:var(--ink); font-variant-numeric:tabular-nums; }
+.vz-card__value em { font-style:normal; font-size:.75rem; font-weight:700; padding:3px 8px; border-radius:9999px; letter-spacing:0; color:#B25614; background:#FFF1E5; }
+.vz-card__value em.is-up { color:#006466; background:#E6F4F4; }
+.vz-card__value span { font-size:.8125rem; font-weight:500; color:#6B6878; font-variant-numeric:tabular-nums; }
+.vz-card__facts { margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(0,1fr)); gap:8px; }
+.vz-card__facts div { display:grid; align-content:start; gap:4px; padding:12px 14px; border-radius:12px; background:#F7F5FC; min-width:0; }
+.vz-card__facts div.is-loss { background:#FFF6EE; } /* lo que cuesta esperar, en el naranja de la acción */
+.vz-card__facts dt { font-size:.75rem; font-weight:500; color:#6B6878; }
+.vz-card__facts dd { margin:0; display:grid; gap:2px; font-size:.9375rem; line-height:1.25; font-weight:700; color:#191C1C; font-variant-numeric:tabular-nums; }
+.vz-card__facts .is-loss dd { color:#B25614; }
+.vz-card__facts dd small { font-size:.75rem; font-weight:500; color:#6B6878; }
+.vz-card__foot { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:16px; padding-top:16px; border-top:1px solid #ECEAF2; }
+.vz-card__foot > .pvbtn, .vz-card__foot > button:last-child { width:100%; }
+/* Compacta (publicada / en revisión) */
+.vz-card__pub { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:16px; padding-top:14px; border-top:1px solid #ECEAF2; }
+.vz-card__pub dl { margin:0; display:grid; grid-template-columns:184px minmax(0,1fr); gap:4px 24px; } /* columnas fijas: las compactas se alinean entre sí */
+.vz-card__pub dt { font-size:.75rem; font-weight:500; color:#6B6878; }
+.vz-card__pub dd { margin:2px 0 0; font-size:.9375rem; font-weight:700; color:#191C1C; font-variant-numeric:tabular-nums; }
+.vz-card__go { display:flex; align-items:center; gap:16px; }
+.vz-card__go > :last-child { white-space:nowrap; }
+.vz-more { all:unset; cursor:pointer; font-size:.875rem; font-weight:700; color:#5A35C2; white-space:nowrap; text-decoration:underline; text-decoration-color:#D9CFF5; text-underline-offset:4px; }
+.vz-more:hover { color:#3B1782; text-decoration-color:currentColor; }
+.vz-more:focus-visible { outline:2px solid #8460E5; outline-offset:3px; border-radius:4px; }
+@media (min-width:720px) {
+  .vz-card--todo { grid-template-columns:minmax(0,1.1fr) minmax(0,1.2fr); column-gap:24px; }
+  .vz-card--todo .vz-card__head, .vz-card__foot { grid-column:1 / -1; }
+  .vz-card__value { align-self:center; }
+  .vz-card__foot { grid-template-columns:1fr minmax(240px,auto); } .vz-card__foot .vz-more { justify-self:start; }
+}
+.vz-top__t { display:flex; align-items:center; gap:12px; }
+.vz-top__t > svg, .vz-top__t > span:first-child { flex:none; }
+.vz-add { all:unset; box-sizing:border-box; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:0 16px; border-radius:12px; border:1.5px dashed #D9CFF5; font-size:.9375rem; font-weight:700; color:#5A35C2; transition:background-color .15s; }
+.vz-add span { display:grid; place-items:center; width:28px; height:28px; border-radius:9999px; background:#F5F0FF; }
+.vz-add:hover { background:#F8F6FC; }
+.vz-add:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+
+/* Análisis en panel lateral, como la vista rápida de Mi Garaje; en móvil sube como hoja. */
+.vz-panel { padding:0; border:0; margin:0 0 0 auto; width:min(720px,100vw); max-width:none; height:100dvh; max-height:none; background:#F4F3F8; box-shadow:-20px 0 60px rgba(16,0,48,.25); overflow:auto; overscroll-behavior:contain; }
+.vz-panel::backdrop { background:rgba(16,0,48,.45); backdrop-filter:blur(2px); }
+.vz-panel[open] { animation:g-qv-in .28s cubic-bezier(.16,1,.3,1); }
+.vz-panel[open]::backdrop { animation:vz-fade .28s ease-out; }
+.vz-panel.is-closing { animation:vz-out .2s cubic-bezier(.4,0,1,1) forwards; }
+.vz-panel.is-closing::backdrop { animation:vz-fade .2s ease-in reverse forwards; }
+@keyframes vz-out { to { transform:translateX(32px); opacity:0; } }
+@keyframes vz-out-down { to { transform:translateY(40px); opacity:0; } }
+@keyframes vz-fade { from { opacity:0; } }
+.vz-panel__grip { display:none; }
+.vz-panel__in { display:grid; gap:16px; padding:0 20px 24px; }
+.vz-panel__bar { position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 -20px; padding:12px 20px; background:#F4F3F8; border-bottom:1px solid #ECEAF2; }
+.vz-panel__id { display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; min-width:0; }
+.vz-panel__id b { font-size:1rem; font-weight:700; color:var(--ink); }
+.vz-panel__x { all:unset; flex:none; cursor:pointer; display:grid; place-items:center; width:36px; height:36px; border-radius:9999px; font-size:1.5rem; color:#3B1782; background:#fff; }
+.vz-panel__x:focus-visible { outline:2px solid #8460E5; }
+@media (max-width:640px) {
+  .vz-card { padding:18px; gap:16px; } .vz-card--neg { padding:16px; }
+  .vz-card__head { grid-template-columns:56px minmax(0,1fr); gap:12px; }
+  .vz-card .vz-row__pic { width:56px; height:42px; }
+  .vz-card__tags { grid-column:1 / -1; justify-content:flex-start; }
+  .vz-card__value b { font-size:1.75rem; }
+  .vz-card__facts { grid-template-columns:1fr; }
+  .vz-card__foot { grid-template-columns:1fr; } .vz-card__foot .vz-more { order:1; justify-self:center; } /* Publicar primero, a ancho completo */
+  .vz-card__pub { grid-template-columns:1fr; } .vz-card__pub dl { grid-template-columns:1fr 1fr; gap:4px 16px; } .vz-card__go { flex-direction:column-reverse; align-items:stretch; gap:12px; } .vz-card__go .vz-more { align-self:center; }
+  .vz-panel { inset:auto 0 0 0; margin:0; width:100vw; height:auto; max-height:92dvh; border-radius:20px 20px 0 0; }
+  .vz-panel[open] { animation-name:g-qv-up; }
+  .vz-panel.is-closing { animation-name:vz-out-down; }
+  /* Barra para arrastrar: dice «esto es una hoja»; el cierre sigue siendo ×, Esc o tocar afuera. */
+  .vz-panel__bar { padding-top:20px; }
+  .vz-panel__grip { display:block; position:absolute; top:8px; left:50%; width:40px; height:4px; margin-left:-20px; border-radius:9999px; background:#D5D0E3; }
+  .vz-panel__in { padding:0 16px 24px; } .vz-panel__bar { margin:0 -16px; padding:12px 16px; }
+}
+@media (prefers-reduced-motion:reduce) { .vz-panel[open], .vz-panel[open]::backdrop { animation:none; } .vz-add { transition:none; } }
+
+/* 19/10 · Colores Concorde (lila = favorable, naranja oscuro = desfavorable, teal solo Negociable) */
+.vz-card--todo .vz-row__ico { background:none; }
+/* Variación desde que se guardó: etiqueta blanca con borde degradado, como las de km */
+.vz-card__value em { border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#F4AC59,#8460E5) border-box; }
+.vz-card__value em.is-up { color:#5A35C2; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#AE8EFF,#8460E5) border-box; }
+/* Datos: superficie de AmountOption en vez de los rellenos durazno y gris */
+.vz-card__facts div, .vz-card__facts div.is-loss { border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(335deg,#8460E5 0%,#FFF8F1 100%) border-box; box-shadow:0 0 16px 4px rgba(0,0,0,.05); }
+.vz-card__facts dd { color:#3B1782; }
+.vz-card__facts .is-loss dd { color:#B25614; }
+/* Señal: los 5 puntos de AVT con el degradado de Signal (como en el resultado) */
+.vz-sig dd { grid-template-columns:auto 1fr; align-items:center; column-gap:8px; }
+.vz-sig dd small { grid-column:1 / -1; }
+.vz-dots { display:inline-flex; gap:3px; }
+.vz-dots i { width:8px; height:8px; border-radius:50%; background:#ECEAF2; box-shadow:inset 0 1px 2px rgba(34,0,92,.12); }
+.vz-dots i.is-on { background:linear-gradient(135deg,#F4AC59 0%,#ED8936 50%,#B25614 100%); box-shadow:0 1px 3px rgba(178,86,20,.35); }
+.vz-nw, .vz-sig dd { white-space:nowrap; } .vz-sig dd small { white-space:normal; }
+.vz-sig dd { grid-template-columns:1fr; row-gap:4px; white-space:normal; } .vz-sig .vz-dots { margin:2px 0; }

@@ -1,0 +1,320 @@
+{
+ "corolla": [
+  {
+   "file": "corolla/1.jpg",
+   "title": "File:Toyota Corolla sedan E210 hydrid.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_sedan_E210_hydrid.jpg",
+   "license": "CC BY 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mateusmatsuda\" title=\"User:Mateusmatsuda\">Mateusmatsuda</a>"
+  },
+  {
+   "file": "corolla/2.jpg",
+   "title": "File:Toyota Corolla E210 sedan hybrid rear.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_E210_sedan_hybrid_rear.jpg",
+   "license": "CC BY 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Mateusmatsuda\" title=\"User:Mateusmatsuda\">Mateusmatsuda</a>"
+  },
+  {
+   "file": "corolla/3.jpg",
+   "title": "File:TOYOTA COROLLA SEDAN (E210) China.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:TOYOTA_COROLLA_SEDAN_(E210)_China.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Dinkun_Chen\" title=\"User:Dinkun Chen\">Dinkun Chen</a>"
+  }
+ ],
+ "etios": [
+  {
+   "file": "etios/1.jpg",
+   "title": "File:ToyotaEtios-Tandil.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:ToyotaEtios-Tandil.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Ezarate\" title=\"User:Ezarate\">Ezarate</a>"
+  },
+  {
+   "file": "etios/2.jpg",
+   "title": "File:Toyota Etios 1.5 XS Sedan 2015.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Toyota_Etios_1.5_XS_Sedan_2015.jpg",
+   "license": "CC BY-SA 2.0",
+   "artist": "RL GNZLZ"
+  }
+ ],
+ "hilux": [
+  {
+   "file": "hilux/1.jpg",
+   "title": "File:2021 Toyota Hilux Revo Prerunner Double-Cab 2.4 Mid.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2021_Toyota_Hilux_Revo_Prerunner_Double-Cab_2.4_Mid.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Chanokchon\" title=\"User:Chanokchon\">Chanokchon</a>"
+  },
+  {
+   "file": "hilux/2.jpg",
+   "title": "File:2021 Toyota Hilux Revo Prerunner Double-Cab 2.4 Entry.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2021_Toyota_Hilux_Revo_Prerunner_Double-Cab_2.4_Entry.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Chanokchon\" title=\"User:Chanokchon\">Chanokchon</a>"
+  },
+  {
+   "file": "hilux/3.jpg",
+   "title": "File:2021 Toyota Hilux Revo Z-Edition Double-Cab 2.4 Mid.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2021_Toyota_Hilux_Revo_Z-Edition_Double-Cab_2.4_Mid.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Chanokchon\" title=\"User:Chanokchon\">Chanokchon</a>"
+  }
+ ],
+ "picanto": [
+  {
+   "file": "picanto/1.jpg",
+   "title": "File:2017 Kia Picanto GT-Line S 1.2 Front.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_Kia_Picanto_GT-Line_S_1.2_Front.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>"
+  },
+  {
+   "file": "picanto/2.jpg",
+   "title": "File:2017 Kia Picanto GT-Line S 1.2 Rear.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_Kia_Picanto_GT-Line_S_1.2_Rear.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>"
+  },
+  {
+   "file": "picanto/3.jpg",
+   "title": "File:Kia Picanto (JA; 2017).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Kia_Picanto_(JA;_2017).jpg",
+   "license": "CC BY 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jakub_CA\" title=\"User:Jakub CA\">Jakub CA</a>"
+  },
+  {
+   "file": "picanto/4.jpg",
+   "title": "File:2017 Kia Picanto 1 1.0 Rear.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_Kia_Picanto_1_1.0_Rear.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>"
+  }
+ ],
+ "rio": [
+  {
+   "file": "rio/1.jpg",
+   "title": "File:00 KIA RIO 1.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:00_KIA_RIO_1.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Benespit\" title=\"User:Benespit\">Benespit</a>"
+  },
+  {
+   "file": "rio/2.jpg",
+   "title": "File:Kia Rio Sedan - front.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Kia_Rio_Sedan_-_front.jpg",
+   "license": "CC0",
+   "artist": "crash71100"
+  },
+  {
+   "file": "rio/3.jpg",
+   "title": "File:Kia Rio Sedan rear.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Kia_Rio_Sedan_rear.jpg",
+   "license": "CC0",
+   "artist": "crash71100"
+  },
+  {
+   "file": "rio/4.jpg",
+   "title": "File:Kia Rio Sedan (DC facelift) - rear.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Kia_Rio_Sedan_(DC_facelift)_-_rear.jpg",
+   "license": "CC0",
+   "artist": "crash71100"
+  }
+ ],
+ "accent": [
+  {
+   "file": "accent/1.jpg",
+   "title": "File:2018 Hyundai Accent 1.6L front 7.28.18.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2018_Hyundai_Accent_1.6L_front_7.28.18.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kevauto\" title=\"User:Kevauto\">Kevauto</a>"
+  },
+  {
+   "file": "accent/2.jpg",
+   "title": "File:2018 Hyundai Accent (United States).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2018_Hyundai_Accent_(United_States).jpg",
+   "license": "CC BY 2.0",
+   "artist": "Greg Gjerdingen"
+  },
+  {
+   "file": "accent/3.jpg",
+   "title": "File:2012 Hyundai Accent (RB) Premium sedan (2018-10-01) 02.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2012_Hyundai_Accent_(RB)_Premium_sedan_(2018-10-01)_02.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EurovisionNim\" title=\"User:EurovisionNim\">EurovisionNim</a>"
+  },
+  {
+   "file": "accent/4.jpg",
+   "title": "File:2012 Hyundai Accent (RB) Premium sedan (2018-10-01) 01.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2012_Hyundai_Accent_(RB)_Premium_sedan_(2018-10-01)_01.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EurovisionNim\" title=\"User:EurovisionNim\">EurovisionNim</a>"
+  }
+ ],
+ "nivus": [
+  {
+   "file": "nivus/1.jpg",
+   "title": "File:Volkswagen Taigo 1X7A0350.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Taigo_1X7A0350.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alexander-93\" title=\"User:Alexander-93\">Alexander Migl</a>"
+  },
+  {
+   "file": "nivus/2.jpg",
+   "title": "File:Volkswagen Taigo 1X7A0246.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Taigo_1X7A0246.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alexander-93\" title=\"User:Alexander-93\">Alexander Migl</a>"
+  },
+  {
+   "file": "nivus/3.jpg",
+   "title": "File:Volkswagen Taigo 1X7A0431.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Taigo_1X7A0431.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alexander-93\" title=\"User:Alexander-93\">Alexander Migl</a>"
+  },
+  {
+   "file": "nivus/4.jpg",
+   "title": "File:Volkswagen Taigo 1X7A6745.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_Taigo_1X7A6745.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alexander-93\" title=\"User:Alexander-93\">Alexander Migl</a>"
+  }
+ ],
+ "versa": [
+  {
+   "file": "versa/1.jpg",
+   "title": "File:2017 Nissan Versa Note Red Rental.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_Nissan_Versa_Note_Red_Rental.jpg",
+   "license": "CC BY-SA 2.0",
+   "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/30552029@N00\">formulanone</a>"
+  },
+  {
+   "file": "versa/2.jpg",
+   "title": "File:2017 Nissan Versa Note Red Rental (49499562812).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_Nissan_Versa_Note_Red_Rental_(49499562812).jpg",
+   "license": "CC BY-SA 2.0",
+   "artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/30552029@N00\">formulanone</a>"
+  },
+  {
+   "file": "versa/3.jpg",
+   "title": "File:2017 Nissan Versa Note SV in Monarch Orange, Rear Left, 05-04-2023.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2017_Nissan_Versa_Note_SV_in_Monarch_Orange,_Rear_Left,_05-04-2023.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Elise240SX\" title=\"User:Elise240SX\">Elise240SX</a>"
+  }
+ ],
+ "swift": [
+  {
+   "file": "swift/1.jpg",
+   "title": "File:2016 Suzuki Swift SZ3.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2016_Suzuki_Swift_SZ3.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Calreyn88&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Calreyn88 (page does not exist)\">Calreyn88</a>"
+  },
+  {
+   "file": "swift/2.jpg",
+   "title": "File:Suzuki Swift Dzire 1.2 GL 2016.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_Dzire_1.2_GL_2016.jpg",
+   "license": "CC BY-SA 2.0",
+   "artist": "RL GNZLZ"
+  },
+  {
+   "file": "swift/3.jpg",
+   "title": "File:Suzuki Swift 1.2 GL 2016 (1).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_1.2_GL_2016_(1).jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ethan_Llamas&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ethan Llamas (page does not exist)\">Ethan Llamas</a>"
+  },
+  {
+   "file": "swift/4.jpg",
+   "title": "File:Suzuki Swift 1.2 GL 2016 (2).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Suzuki_Swift_1.2_GL_2016_(2).jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Ethan_Llamas&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Ethan Llamas (page does not exist)\">Ethan Llamas</a>"
+  }
+ ],
+ "sentra": [
+  {
+   "file": "sentra/1.jpg",
+   "title": "File:Nissan Sentra B17 Taiwanese facelift.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Nissan_Sentra_B17_Taiwanese_facelift.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Jengtingchen\" title=\"User:Jengtingchen\">Jengtingchen</a>"
+  },
+  {
+   "file": "sentra/2.jpg",
+   "title": "File:California State Route 127 Nissan Sentra 2019.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:California_State_Route_127_Nissan_Sentra_2019.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Tukka\" title=\"User:Tukka\">Steven Lek</a>"
+  },
+  {
+   "file": "sentra/3.jpg",
+   "title": "File:Nissan Sentra Joshua Tree National Park 2019.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Nissan_Sentra_Joshua_Tree_National_Park_2019.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Tukka\" title=\"User:Tukka\">Steven Lek</a>"
+  }
+ ],
+ "mazda3": [
+  {
+   "file": "mazda3/1.jpg",
+   "title": "File:2014-2018 Mazda3 Sedan (Front).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2014-2018_Mazda3_Sedan_(Front).jpg",
+   "license": "CC0",
+   "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Sebsoare2511&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Sebsoare2511 (page does not exist)\">Sebsoare2511</a>"
+  },
+  {
+   "file": "mazda3/2.jpg",
+   "title": "File:2014-2018 Mazda3 Sedan (Back).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2014-2018_Mazda3_Sedan_(Back).jpg",
+   "license": "CC0",
+   "artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Sebsoare2511&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Sebsoare2511 (page does not exist)\">Sebsoare2511</a>"
+  },
+  {
+   "file": "mazda3/3.jpg",
+   "title": "File:2009 Mazda3 (BL) Neo sedan (2018-09-17) 01.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2009_Mazda3_(BL)_Neo_sedan_(2018-09-17)_01.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EurovisionNim\" title=\"User:EurovisionNim\">EurovisionNim</a>"
+  },
+  {
+   "file": "mazda3/4.jpg",
+   "title": "File:2009 Mazda3 (BL) Neo sedan (2018-09-17) 02.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:2009_Mazda3_(BL)_Neo_sedan_(2018-09-17)_02.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:EurovisionNim\" title=\"User:EurovisionNim\">EurovisionNim</a>"
+  }
+ ],
+ "sail": [
+  {
+   "file": "sail/1.jpg",
+   "title": "File:Chevrolet Sail II sedan 01 China 2012-07-15.JPG",
+   "source": "https://commons.wikimedia.org/wiki/File:Chevrolet_Sail_II_sedan_01_China_2012-07-15.JPG",
+   "license": "CC BY-SA 3.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Navigator84\" title=\"User:Navigator84\">Navigator84</a>"
+  },
+  {
+   "file": "sail/2.jpg",
+   "title": "File:Chevrolet Sail 3 Sanming 02 2022-08-03.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Chevrolet_Sail_3_Sanming_02_2022-08-03.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:JamesYoung8167\" class=\"mw-redirect\" title=\"User:JamesYoung8167\">JamesYoung8167</a>"
+  },
+  {
+   "file": "sail/3.jpg",
+   "title": "File:CHEVROLET SAIL SEDAN THIRD GENERATION China.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:CHEVROLET_SAIL_SEDAN_THIRD_GENERATION_China.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Dinkun_Chen\" title=\"User:Dinkun Chen\">Dinkun Chen</a>"
+  },
+  {
+   "file": "sail/4.jpg",
+   "title": "File:CHEVROLET SAIL SEDAN SECOND GENERATION China (3).jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:CHEVROLET_SAIL_SEDAN_SECOND_GENERATION_China_(3).jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Dinkun_Chen\" title=\"User:Dinkun Chen\">Dinkun Chen</a>"
+  }
+ ]
+}

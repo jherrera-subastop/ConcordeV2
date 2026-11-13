@@ -1,0 +1,180 @@
+/* Resultado «Revela» (Revela.tsx), en el orden de AVT. Tokens de la maqueta VMC: vault #3B1782 / #8460E5 / #AE8EFF,
+   naranja solo en el CTA y en la señal, un gris #6B6878. */
+.rva { display:grid; gap:16px; }
+
+/* Héroe: encabezado · valor · las dos tarjetas de AVT en una franja de vidrio */
+.rva-hero { position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1fr) 300px; align-items:center; gap:24px; padding:24px; border-radius:var(--f-r-card,16px); color:#fff;
+  background:radial-gradient(90% 120% at 100% 0%, #5A35C2 0%, #3B1782 48%, #22005C 100%); box-shadow:0 12px 32px rgba(34,0,92,.25); }
+.rva-left { display:grid; gap:16px; min-width:0; }
+.rva-top { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 12px; }
+.rva .rva-car { margin:0; font-size:1rem; font-weight:700; letter-spacing:0; color:#fff; } /* le gana a .fl-result h1 */
+.rva-meta { margin:0; font-size:.75rem; color:#CFBAFF; }
+.rva-value { display:grid; gap:2px; }
+.rva-h { margin:0; font-size:.75rem; font-weight:600; color:#E8DEFF; }
+.rva-big { margin:0; font-size:3rem; line-height:1.05; font-weight:700; letter-spacing:-0.03em; font-variant-numeric:tabular-nums; }
+.rva-note { margin:4px 0 0; font-size:.75rem; color:#CFBAFF; }
+/* Recompra y Estimación Subastop: panel de vidrio a la derecha */
+.rva-two { list-style:none; margin:0; padding:0; display:grid; border-radius:12px; background:rgba(255,255,255,.08); box-shadow:inset 0 0 0 1px rgba(255,255,255,.14); }
+.rva-two li { display:grid; grid-template-columns:32px 1fr; align-items:center; gap:12px; padding:12px 16px; }
+.rva-two li + li { border-top:1px solid rgba(255,255,255,.12); }
+.rva-two .vd { width:32px; height:32px; }
+.rva-two div { display:grid; gap:0; }
+.rva-two small, .rva-two div > span { font-size:.75rem; color:#CFBAFF; }
+.rva-two b { font-size:1.125rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.rva-two .vd, .rva-hero .vd { --solid:#AE8EFF; --glass:#E8DEFF; }
+
+/* Tarjetas: encabezado con ícono de vidrio */
+.rva-head { display:grid; grid-template-columns:36px 1fr auto; align-items:center; gap:12px; }
+.rva-head h2 { margin:0; font-size:1rem; font-weight:700; color:var(--rv-ink); }
+.rva-head p { margin:2px 0 0; font-size:.875rem; color:var(--rv-muted); }
+
+.rva-miles { margin:0; display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.rva-miles > div { display:grid; gap:2px; padding:12px 16px; border-radius:12px; background:var(--rv-tint); }
+.rva-miles dt { font-size:.75rem; font-weight:700; color:#8460E5; }
+.rva-miles dd { margin:0; display:grid; gap:2px; font-size:.9375rem; font-weight:700; color:var(--rv-ink); font-variant-numeric:tabular-nums; }
+.rva-miles small { font-size:.75rem; font-weight:400; color:var(--rv-muted); }
+@media (max-width:767px) { .rva-miles { grid-template-columns:1fr 1fr; } }
+
+/* Señal de venta */
+.rva-sig { margin:0; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; }
+.rva-sig > div { display:grid; gap:4px; align-content:start; padding:16px; border-radius:12px; background:var(--rv-tint); }
+.rva-sig dt { font-size:.75rem; color:var(--rv-muted); }
+.rva-sig dd { margin:0; display:grid; gap:2px; }
+.rva-sig b { font-size:1rem; font-weight:700; color:var(--rv-ink); }
+.rva-sig span { font-size:.75rem; color:var(--rv-text); }
+.rva-pills { display:flex !important; flex-wrap:wrap; gap:4px; }
+.rva-pills em { font-style:normal; padding:2px 10px; border-radius:9999px; font-size:.75rem; font-weight:600; color:#fff; background:#8460E5; }
+.rva-copy { margin:0; padding-top:16px; border-top:1px solid var(--rv-hair); font-size:.875rem; line-height:1.5; color:var(--rv-text); }
+.rva-copy b { color:var(--rv-ink); }
+
+/* Vehículos similares: mapa del mercado (claro) + tres datos + lista */
+.rva-map { position:relative; height:40px; margin-top:24px; }
+.rva-map::before { content:""; position:absolute; left:0; right:0; top:50%; height:2px; margin-top:-1px; border-radius:2px; background:#ECEAF2; }
+.rva-band { position:absolute; top:50%; height:16px; margin-top:-8px; border-radius:9999px; background:#E8DEFF; transform-origin:left; }
+.rva-comp { position:absolute; top:50%; width:10px; height:10px; border-radius:50%; background:#A39FB3; box-shadow:0 0 0 2px #fff; transform:translate(-50%,-50%); }
+.rva-dot { position:absolute; top:50%; z-index:1; width:20px; height:20px; border-radius:50%; background:#8460E5; box-shadow:0 0 0 4px #fff, 0 4px 10px rgba(34,0,92,.25); transform:translate(-50%,-50%); }
+.rva-dot em { position:absolute; bottom:calc(100% + 10px); left:50%; transform:translateX(-50%); padding:3px 10px; border-radius:9999px; font-style:normal; font-size:.75rem; font-weight:700; white-space:nowrap; color:#fff; background:#3B1782; }
+.rva-dot em::after { content:""; position:absolute; top:100%; left:50%; margin-left:-4px; border:4px solid transparent; border-top-color:#3B1782; }
+.rva-legend { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:.75rem; color:var(--rv-muted); }
+.rva-legend li { display:flex; align-items:center; gap:6px; }
+.rva-legend i { width:8px; height:8px; border-radius:50%; background:#A39FB3; }
+.rva-legend i.is-me { width:10px; height:10px; background:#8460E5; }
+.rva-legend i.is-band { width:16px; border-radius:9999px; background:#E8DEFF; }
+.rva-stats { margin:0; display:grid; grid-template-columns:repeat(3,1fr); border-radius:12px; box-shadow:inset 0 0 0 1px var(--rv-hair); }
+.rva-stats > div { display:grid; gap:2px; padding:12px 16px; }
+.rva-stats > div + div { box-shadow:inset 1px 0 0 var(--rv-hair); }
+.rva-stats dt { font-size:.75rem; color:var(--rv-muted); }
+.rva-stats dd { margin:0; font-size:.9375rem; font-weight:700; color:var(--rv-ink); font-variant-numeric:tabular-nums; }
+.rva-list { list-style:none; margin:0; padding:0; display:grid; }
+.rva-list li { display:grid; grid-template-columns:120px 1fr auto; align-items:center; gap:16px; padding:12px 0; border-bottom:1px solid var(--rv-hair); font-size:.875rem; }
+.rva-list li:last-child { border-bottom:0; }
+.rva-list b { font-weight:700; color:var(--rv-ink); font-variant-numeric:tabular-nums; }
+.rva-list span { color:var(--rv-muted); }
+.rva-list em { font-style:normal; font-size:.75rem; font-weight:600; color:var(--rv-ink); padding:2px 8px; border-radius:9999px; background:var(--rv-tint); }
+
+/* Detalles de tu valuación */
+.rva-factors { list-style:none; margin:0; padding:0; display:grid; }
+.rva-factors li { display:grid; grid-template-columns:32px 1fr auto; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--rv-hair); }
+.rva-factors li > div { display:grid; gap:2px; min-width:0; }
+.rva-factors b { font-size:.875rem; font-weight:600; color:var(--rv-ink); }
+.rva-factors small { font-size:.75rem; color:var(--rv-muted); }
+.rva-factors strong { padding:4px 10px; border-radius:9999px; font-size:.875rem; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.rva-factors strong.is-base { color:var(--rv-ink); background:#ECEAF2; }
+.rva-factors strong.is-up { color:#3B1782; background:#F5F0FF; }
+.rva-factors strong.is-down { color:#8A3F0B; background:#FFF8F1; }
+.rva-factors li.is-total { border-bottom:0; border-top:2px solid var(--rv-ink); margin-top:-1px; }
+.rva-factors li.is-total strong { color:#fff; background:#3B1782; }
+.rva-legal { margin:0; font-size:.75rem; color:var(--rv-muted); }
+
+.rva--still, .rva--still * { animation:none !important; } /* resultado guardado: sin reveal */
+/* Reveal único (~1,4 s): la cifra sube → las dos tarjetas → las secciones en cascada; en el mapa, la banda y los puntos. */
+@media (prefers-reduced-motion: no-preference) {
+  .rva-big { animation:rva-in .5s cubic-bezier(.05,.7,.1,1) both; }
+  .rva-two li { animation:rva-in .45s calc(.3s + var(--j, 0) * 100ms) cubic-bezier(.2,0,0,1) both; } .rva-two li + li { --j:1; }
+  .rva-step { animation:rva-in .45s calc(.7s + var(--i) * 90ms) cubic-bezier(.2,0,0,1) both; }
+  .rva-band { animation:rva-draw .5s 1.2s cubic-bezier(.05,.7,.1,1) both; }
+  .rva-comp { animation:rva-pop .3s calc(1.3s + var(--i) * 50ms) cubic-bezier(.2,0,0,1) both; }
+  .rva-dot { animation:rva-pop .4s 1.7s cubic-bezier(.2,0,0,1) both; }
+}
+@keyframes rva-draw { from { transform:scaleX(0); } }
+@keyframes rva-pop { from { opacity:0; transform:translate(-50%,-50%) scale(0); } }
+@keyframes rva-in { from { opacity:0; transform:translateY(12px); } }
+
+@media (max-width:767px) {
+  .rva-hero { grid-template-columns:minmax(0,1fr); gap:16px; padding:20px; }
+  .rva-big { font-size:2.5rem; }
+  .rva-two { grid-template-columns:1fr 1fr; } .rva-two li { grid-template-columns:1fr; gap:6px; padding:12px; align-items:start; align-content:start; } .rva-two li + li { border-top:0; border-left:1px solid rgba(255,255,255,.12); }
+  .rva-head { grid-template-columns:36px 1fr; } .rva-level { grid-column:1 / -1; justify-self:start; }
+  .rva-sig { grid-template-columns:1fr; }
+  .rva-stats { grid-template-columns:1fr 1fr; } .rva-stats > div:nth-child(3) { grid-column:1 / -1; box-shadow:inset 0 1px 0 var(--rv-hair); }
+  .rva-list li { grid-template-columns:1fr auto; gap:2px 12px; } .rva-list span { grid-row:2; } .rva-list em { grid-row:1 / 3; grid-column:2; }
+}
+/* Hitos 1M–12M con el lenguaje del DS: tarjeta blanca, borde degradado (#8460E5 → #FFF8F1) y sombra; el hito como etiqueta violeta. */
+.rva-miles > div { background-color:#fff; border:1px solid transparent; border-radius:16px;
+  background-image:linear-gradient(#fff,#fff), linear-gradient(330deg, #8460E5 0%, #FFF8F1 100%); background-origin:border-box; background-clip:padding-box, border-box; box-shadow:0 4px 12px rgba(34,0,92,.06); }
+.rva-miles dt { justify-self:start; padding:2px 8px; border-radius:9999px; font-size:.6875rem; color:#fff; background:linear-gradient(150deg, #8460E5 0%, #3B1782 100%); }
+.rva-miles dd { font-size:1rem; }
+
+/* 19/10 · Señal y tarjetas con piezas de Concorde */
+/* Datos de la señal: superficie de AmountOption (blanco, borde degradado lila→crema, sombra suave) en vez de lila plano */
+.rva-sig > div { border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(335deg,#8460E5 0%,#FFF8F1 100%) border-box; box-shadow:0 0 16px 4px rgba(0,0,0,.05); }
+/* Mejores meses: ConditionPill en chico (relleno lila, brillo y borde degradado); degradado oscurecido para texto blanco ≥ 4.5:1 */
+.rva-pills em { display:inline-flex; align-items:center; height:24px; padding:0 10px; border:1px solid transparent;
+  background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,0) 55%) padding-box, linear-gradient(135deg,#7B58E0,#4A26B0) padding-box, linear-gradient(135deg,#CFBAFF,#fff 40%,#AE8EFF) border-box;
+  box-shadow:0 2px 4px rgba(59,23,130,.18); }
+
+/* 19/10 · Señal (AVT: 5 puntos + etiqueta). Pastilla con la superficie de AmountOption; puntos con el degradado naranja de
+   Signal / EN VIVO (#F4AC59 → #ED8936 → #B25614), apagados en el lila del riel. Sin la caja oscura ni el «N de 5» */
+.rva-level { display:inline-flex; align-items:center; gap:10px; min-width:0; padding:8px 16px 8px 12px; border-radius:9999px; color:var(--rv-ink);
+  border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(335deg,#8460E5 0%,#FFF8F1 100%) border-box; box-shadow:0 0 16px 4px rgba(0,0,0,.05); }
+.rva-level > i { display:flex; gap:4px; }
+.rva-level > i span { width:10px; height:10px; border-radius:50%; background:#ECEAF2; box-shadow:inset 0 1px 2px rgba(34,0,92,.12); }
+.rva-level > i span.is-on { background:linear-gradient(135deg,#F4AC59 0%,#ED8936 50%,#B25614 100%); box-shadow:0 1px 3px rgba(178,86,20,.35); }
+.rva-level > b { font-size:.9375rem; font-weight:700; color:var(--rv-ink); white-space:nowrap; }
+/* Mejores meses en 3 tonos como AVT (pico · alto · otro) */
+.rva-pills em.is-high { background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,0) 55%) padding-box, linear-gradient(135deg,#9B7BEA,#6E4BD8) padding-box, linear-gradient(135deg,#CFBAFF,#fff 40%,#AE8EFF) border-box; }
+.rva-pills em:not(.is-peak):not(.is-high) { color:#3B1782; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#CFBAFF,#AE8EFF) border-box; box-shadow:none; }
+/* Momento óptimo: próximo pico y meses a evitar (AVT) */
+.rva-ins { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px; }
+.rva-ins li { display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border-radius:12px; font-size:.8125rem; color:var(--rv-text); box-shadow:inset 0 0 0 1px var(--rv-hair); }
+.rva-ins li::before { content:""; width:8px; height:8px; border-radius:50%; }
+.rva-ins li.is-up::before { background:linear-gradient(#AE8EFF,#5A35C2); } .rva-ins li.is-up b { color:#5A35C2; }
+.rva-ins li.is-down::before { background:linear-gradient(#F4AC59,#B25614); } .rva-ins li.is-down b { color:#B25614; }
+/* Similares: ventana de años, marca de ejemplo y extremos de la banda (AVT) */
+.rva-win { margin:0; display:flex; align-items:center; gap:8px; font-size:.75rem; color:var(--rv-muted); }
+.rva-demo { padding:1px 8px; border-radius:9999px; font-size:.6875rem; font-weight:600; color:#5A35C2; box-shadow:inset 0 0 0 1px #CFBAFF; }
+.rva-map { margin-top:8px; }
+.rva-ends { margin:-8px 0 0; display:flex; justify-content:space-between; font-size:.75rem; color:var(--rv-muted); font-variant-numeric:tabular-nums; }
+.rva-ends b { color:var(--rv-ink); font-weight:700; }
+.rva-list li { grid-template-columns:110px 1fr auto; }
+.rva-list em.is-up { color:#5A35C2; } .rva-list em.is-down { color:#B25614; } /* lila = favorable, naranja oscuro = desfavorable (sin teal: solo negociable) */
+/* Detalles de tu valuación: lista plana de AVT */
+.rva-flist { list-style:none; margin:0; padding:0; display:grid; }
+.rva-flist li { display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid var(--rv-hair); font-size:.875rem; }
+.rva-flist li span { color:var(--rv-muted); }
+.rva-flist li b { font-weight:600; color:var(--rv-text); text-align:right; font-variant-numeric:tabular-nums; }
+.rva-flist li b.is-up { color:#5A35C2; } .rva-flist li b.is-down { color:#B25614; }
+.rva-flist li.is-total { border-bottom:0; border-top:2px solid var(--rv-ink); margin-top:-1px; padding-top:12px; }
+.rva-flist li.is-total span, .rva-flist li.is-total b { font-weight:700; color:var(--rv-ink); font-size:.9375rem; }
+.rva-legal span { color:#A39FB3; }
+/* Similares: neutro sin borde; favorable (< −5 %) y desfavorable (> +5 %) con borde de su tono, como las etiquetas de km */
+.rva-list em.is-up { background:#fff; box-shadow:inset 0 0 0 1px #AE8EFF; }
+.rva-list em.is-down { background:#fff; box-shadow:inset 0 0 0 1px #F4AC59; }
+/* 19/10 · Momento óptimo: avisos con la superficie de AmountOption y los puntos con los degradados de las barras */
+.rva-ins li { border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(335deg,#8460E5 0%,#FFF8F1 100%) border-box; box-shadow:0 0 16px 4px rgba(0,0,0,.05); }
+.rva-ins li.is-down::before { background:linear-gradient(#ED8936,#F4AC59); }
+/* 19/10 · Vehículos similares con piezas de Concorde */
+.rva-band { background:linear-gradient(90deg,#E8DEFF 0%,#CFBAFF 50%,#E8DEFF 100%); box-shadow:inset 0 0 0 1px rgba(132,96,229,.25); }
+.rva-dot { background:linear-gradient(135deg,#AE8EFF 0%,#5A35C2 100%); box-shadow:0 0 0 3px #fff, 0 0 0 4.5px #CFBAFF, 0 6px 14px rgba(90,53,194,.35); }
+.rva-stats { border:1px solid transparent; box-shadow:0 0 16px 4px rgba(0,0,0,.05); background:linear-gradient(#fff,#fff) padding-box, linear-gradient(335deg,#8460E5 0%,#FFF8F1 100%) border-box; }
+.rva-stats > div + div { box-shadow:inset 1px 0 0 #ECEAF2; }
+/* Diferencia vs AVT: neutra en gris (±5 %), favorable lila y desfavorable naranja con borde de su tono */
+.rva-list em { color:#6B6878; background:#fff; box-shadow:inset 0 0 0 1px #E1E3E2; }
+@media (max-width:640px) {
+  .rva-list li { grid-template-columns:1fr auto; grid-template-areas:"p d" "c c"; gap:2px 12px; }
+  .rva-list li > b { grid-area:p; } .rva-list li > em { grid-area:d; justify-self:end; } .rva-list li > span { grid-area:c; font-size:.8125rem; }
+  .rva-stats { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .rva-stats > div { padding:10px 12px; } .rva-stats > div + div { box-shadow:inset 1px 0 0 #ECEAF2; }
+  .rva-stats dd { font-size:.875rem; }
+}
+@media (max-width:640px) { .rva-stats > div:nth-child(3) { grid-column:auto; box-shadow:inset 1px 0 0 #ECEAF2; } }

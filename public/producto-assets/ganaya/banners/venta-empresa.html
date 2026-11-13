@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Venta para empresas</title>
+<!-- Campaña «Venta para empresas» (rev. 3 de POPs, copy.json): los 20 JPG rehechos en HTML con los tokens de subastop-system.css (DS v3 de subastop.com).
+     Uso: venta-empresa.html?v=04-flotas&f=side400 · v = 01-general | 02-maquinaria | 03-tecnologia | 04-flotas | 05-inventario
+     f = side264 | side400 | strip776 | strip1532. Sin íconos ni marca subastop dentro del banner (README de POPs). -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400&family=IBM+Plex+Mono:wght@600&display=swap');
+/* ponytail: solo los tokens y recetas que usa el banner (.reg, .card .k, .cta.am, h1 de .ihero); no se enlaza el CSS entero porque toca body/html. */
+:root{--ink:#08152F;--blue:#1A56DB;--amber:#F59E0B;--paper:#F4F2EC;--muted:#5B6473;--line:rgba(8,21,47,.14);
+  --disp:'Outfit',sans-serif;--sans:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.bn{display:flex;flex-direction:column;height:100%;padding:24px 16px 16px;border-top:6px solid var(--blue)}
+.k{font-family:var(--mono);font-weight:600;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.reg{font-family:var(--mono);font-weight:600;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--disp);font-weight:800;line-height:.98;letter-spacing:-.04em}
+.lede{color:var(--muted);line-height:1.4}
+.rule{display:none;width:28px;height:3px;background:var(--blue)}
+.cta{display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--mono);font-weight:600;font-size:.6rem;letter-spacing:.04em;
+  text-transform:uppercase;background:var(--amber);color:#412402;border-radius:12px;padding:1rem;transition:transform .15s}
+.bn:hover .cta{transform:translateY(-2px)}
+
+[data-f^=side] .tags{display:flex;flex-direction:column}
+[data-f^=side] .cta{white-space:nowrap;letter-spacing:.02em}
+/* 200 × 400: el botón va justo después del texto; el alto lo toma el iframe del riel (fitBanner en Garaje.tsx). */
+[data-f=side400] .reg{margin:16px 0 10px}
+[data-f=side400] h1{font-size:1.85rem}
+[data-f=side400] .rule{display:block;margin:18px 0 16px}
+[data-f=side400] .lede{font-size:.82rem}
+[data-f=side400] .cta{margin-top:20px}
+
+/* 200 × 264: espacio fijo de la barra lateral, el botón abajo. */
+[data-f=side264] .bn{padding-top:18px}
+[data-f=side264] .reg{margin:12px 0 8px}
+[data-f=side264] h1{font-size:1.3rem}
+[data-f=side264] .lede{font-size:.76rem;margin-top:8px}
+[data-f=side264] .cta{margin-top:auto;padding:.8rem}
+
+/* Franjas: etiquetas, titular + bajada, botón a la derecha. */
+[data-f^=strip] .bn{display:grid;align-items:center}
+[data-f^=strip] .cta{height:72px;padding:0 24px;font-size:.78rem}
+[data-f=strip776] .bn{grid-template-columns:1fr 244px;grid-template-rows:auto 1fr;column-gap:28px;padding:30px 28px 24px}
+[data-f=strip776] .tags{grid-column:1/-1;display:flex;justify-content:space-between;margin-bottom:18px}
+[data-f=strip776] h1{font-size:2rem}
+[data-f=strip776] .lede{font-size:1.1rem;margin-top:6px}
+[data-f=strip1532] .bn{grid-template-columns:200px 1fr 326px;column-gap:40px;padding:0 40px;border-top-width:8px}
+[data-f=strip1532] .tags{display:flex;flex-direction:column;gap:14px;align-self:stretch;justify-content:center;border-right:1px solid var(--line);margin:54px 0}
+[data-f=strip1532] .k{font-size:.95rem;line-height:1.35}
+[data-f=strip1532] .reg{font-size:.72rem}
+[data-f=strip1532] h1{font-size:2.9rem}
+[data-f=strip1532] .lede{font-size:1.3rem;margin-top:10px}
+[data-f=strip1532] .cta{height:96px;font-size:1rem}
+</style></head>
+<body>
+<a class="bn" target="_blank" rel="noopener">
+  <div class="tags"><span class="k">Venta para empresas</span><span class="reg"></span></div>
+  <div><h1></h1><span class="rule"></span><p class="lede"></p></div>
+  <span class="cta"></span>
+</a>
+<script>
+// Copy de copy.json (rev. 3). side400 y strip1532 llevan la bajada larga; side264 y strip776, la corta.
+const V = {
+  "01-general":    ["Activos sin uso", "¿Tu empresa necesita liquidez?", "Vende los activos que ya no utiliza.", "Vende activos sin uso.", "Quiero saber cómo vender"],
+  "02-maquinaria": ["Maquinaria y equipos", "¿Maquinaria parada? Ponla en venta.", "Equipos e instalaciones sin uso también pueden venderse.", "Vende maquinaria y equipos.", "Quiero vender mis equipos"],
+  "03-tecnologia": ["Tecnología", "¿Renovaste tecnología? Vende la anterior.", "Computadoras, servidores y equipos que tu empresa ya no usa.", "Vende los equipos que ya no usas.", "Quiero vender tecnología"],
+  "04-flotas":     ["Vehículos y flotas", "¿Vehículos parados? Ponlos a la venta.", "Un vehículo o toda una flota: cuéntanos qué quieres vender.", "Un vehículo o toda una flota.", "Quiero vender mi flota"],
+  "05-inventario": ["Materiales y repuestos", "¿Repuestos que no se mueven? Véndelos.", "Materiales y stock que tu empresa ya no necesita.", "Vende materiales y repuestos.", "Quiero vender mi stock"],
+};
+const F = ["side264", "side400", "strip776", "strip1532"];
+const q = new URLSearchParams(location.search);
+const v = V[q.get("v")] ? q.get("v") : "04-flotas", f = F.includes(q.get("f")) ? q.get("f") : "side400";
+const [eyebrow, headline, support, short, cta] = V[v];
+document.body.dataset.f = f;
+document.querySelector(".reg").textContent = eyebrow;
+document.querySelector("h1").textContent = headline;
+document.querySelector(".lede").textContent = f === "side400" || f === "strip1532" ? support : short;
+document.querySelector(".cta").textContent = cta;
+document.querySelector(".bn").href = `https://www.subastop.com/cita?utm_source=vmc&utm_medium=banner&utm_campaign=venta_empresa&utm_content=${v}_${f}#contact-form`;
+document.title = headline;
+</script>
+</body></html>

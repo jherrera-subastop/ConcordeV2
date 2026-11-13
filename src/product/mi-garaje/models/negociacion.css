@@ -1,0 +1,767 @@
+/* PROPUESTA · negociación en la vista rápida (Negociacion.tsx).
+   Solo tokens Voyager con fallback (DESIGN.md: «no inventes»), radios de la escala (8 · 16 · 20 · pill) y espacios en múltiplos de 8.
+   Fuera de la paleta, a la espera de Julio (ver /ds): --np-action (magenta «te toca») y --np-danger (rechazar). */
+.np {
+  --neg: var(--vmc-color-cyan-700, #00A8AB);
+  --neg-ink: var(--vmc-color-cyan-900, #006466);
+  --neg-soft: color-mix(in srgb, var(--neg) 9%, #fff);
+  --neg-line: color-mix(in srgb, var(--neg) 35%, #fff);
+  --soft: var(--vmc-color-vault-100, #F5F0FF);
+  /* --ink, --muted y --line vienen de .g-page: el neutral-700 de Voyager (#99A1AF) da 2.6:1 como texto y no llega a WCAG AA. */
+  --np-action: #A800D4; /* propuesta Mi Garaje: «acción requerida» (pendiente Julio) */
+  --np-danger: #B42318; /* propuesta Button·danger: el #EF4444 de Input error no llega a 4.5:1 como texto */
+  display: grid; gap: 32px; /* entre secciones 32; dentro de un grupo 4–16 (NN/g proximidad) */
+}
+/* Escala de Mi Garaje: Display 40/800 · Title 18/800 · Body fuerte 15/600 · Body 14/400 · Caption 12/600. Un solo 800 por bloque. */
+.g-qv .np h3, .np h3 { margin: 0; font-size: 1.125rem; font-weight: 800; line-height: 1.3; color: var(--ink); }
+
+/* ── Oferta: qué se ofrece y cuándo vence · monto · contexto ── */
+.np__offer { display: grid; gap: 8px; padding: 16px 16px 16px; border-radius: 16px; background: var(--neg-soft); box-shadow: inset 0 0 0 1px var(--neg-line); }
+.np__top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.np__lbl { margin: 0; font-size: .75rem; font-weight: 600; color: var(--muted); }
+.np__due { display: inline-flex; align-items: center; gap: 4px; font-size: .75rem; line-height:16px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.np__due b { font-family: var(--vmc-font-mono); font-weight: 600; }
+.np__due.is-me, .np__due.is-me b { color: var(--np-action); }
+.np__amt { margin: 0; font-size: 2.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.np__ctx { margin: 8px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.np__ctx div { padding: 8px 12px; border-radius: 8px; background: #fff; }
+.np__ctx dt { font-size: .75rem; font-weight: 600; color: var(--muted); }
+/* Monto y % en dos líneas siempre: igual en todas las tarjetas y anchos (en una línea se partían distinto en cada una). */
+.np__ctx dd { margin: 4px 0 0; display: grid; white-space: nowrap; font-size: .9375rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.np__ctx small { font-size: .75rem; font-weight: 600; color: var(--neg-ink); }
+
+/* ── Historial: BidMessage de Concorde; la ronda es una nota, no un segundo título ── */
+.np__hhead { display: grid; gap: 4px; margin-bottom: 16px; }
+.np__meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: .75rem; font-weight: 600; color: var(--muted); }
+.np__meta i { display: flex; gap: 4px; }
+.np__meta b { width: 16px; height: 4px; border-radius: 4px; background: var(--neg-line); }
+.np__meta b.is-on { background: var(--neg); }
+.np__thread { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.np__thread li { justify-self: start; display: grid; gap: 4px; justify-items: start; }
+.np__thread li.is-me { justify-self: end; justify-items: end; }
+.np__thread li > span { font-size: .75rem; font-weight: 600; color: var(--muted); }
+.np__thread .pbidmsg b { font-size: .9375rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.np__delta { margin-left: 8px; font-size: .75rem; font-weight: 600; opacity: .8; }
+.np__gap { margin: 16px 0 0; text-align: center; font-size: .875rem; color: var(--muted); }
+.np__gap b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* ── Propuestas activas de la misma publicación: lista para comparar y cambiar de comprador ── */
+.np__phead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
+.np__sort { display: flex; gap: 4px; padding: 4px; border-radius: 9999px; background: var(--soft); }
+.np__peers ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.np__peers li button { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 8px 16px; border-radius: 16px; box-shadow: inset 0 0 0 1px var(--line); }
+.np__peers li button:hover { background: var(--soft); }
+.np__peers li button[aria-current="true"] { background: var(--neg-soft); box-shadow: inset 0 0 0 2px var(--neg); }
+.np__peers li button > span { display: grid; gap: 4px; }
+.np__peers li button > span b { font-size: .9375rem; font-weight: 600; color: var(--ink); }
+.np__peers small { font-size: .75rem; font-weight: 600; color: var(--muted); }
+.np__peers li button > b { font-size: .9375rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.np__peers li button:focus-visible { outline: 2px solid var(--vmc-color-vault-500, #8460E5); outline-offset: 2px; }
+
+/* ── Pie: acciones y estados ── */
+.np__foot { position: sticky; bottom: -22px; margin: 0 -24px -22px; padding: 16px 24px 24px; background: #fff; border-top: 1px solid var(--line); }
+.np__form, .np__confirm, .np__short, .np__acts { display: grid; gap: 8px; }
+.np__form--restart { gap: 12px; }
+.np__form--restart .np__compose { box-shadow: inset 0 0 0 2px #00A8AB, 0 0 0 3px rgba(0,168,171,.15); }
+.np__confirm p, .np__ask { margin: 0; font-size: .875rem; font-weight: 400; line-height: 1.45; color: var(--ink); }
+.np__confirm { gap: 8px; } .np__confirm .np__btns { margin-top: 8px; }
+.np__warn { padding: 8px 12px; border-radius: 8px; background: var(--soft); font-weight: 600 !important; }
+/* AmountOptionGroup a todo el ancho: alineado con los botones (AmountOption mide 254 fijos → propuesta «fluid» en /ds). */
+.np__amounts .pamount { width: 100%; }
+.np__amounts .pamount__amount { font-variant-numeric: tabular-nums; }
+.np__err { margin: 0; font-size: .875rem; font-weight: 600; color: var(--np-danger); }
+.np__fee { margin: 0; font-size: .75rem; font-weight: 600; color: var(--vmc-color-orange-800, #B25614); }
+.np__terms, .np__exp { margin: 0; font-size: .75rem; color: var(--muted); text-align: center; }
+.np__terms a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.np__short b { font-size: .875rem; color: var(--np-danger); }
+.np__link { all: unset; cursor: pointer; justify-self: center; font-size: .875rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.np__acts .np__link--reject { width:100%; min-height:28px; margin-top:-6px; display:inline-flex; align-items:center; justify-content:center; color:var(--ink); font-size:1rem; font-weight:600; }
+.np__link:focus-visible { outline: 2px solid var(--vmc-color-vault-500, #8460E5); outline-offset: 2px; }
+.np__form > button:not(.np__link), .np__short > button, .np__acts > button:not(.np__reject) { width: 100% !important; min-width: 0 !important; white-space: nowrap; }
+/* Estados finales distintos entre sí: acuerdo en cyan (negociable), espera en vault con reloj, cierre en neutro. */
+.np__done { display: grid; gap: 4px; padding: 16px; border-radius: 16px; }
+.np__done b { display: inline-flex; align-items: center; gap: 8px; font-size: .9375rem; color: var(--ink); }
+.np__done span { font-size: .875rem; color: var(--muted); }
+.np__done:not(.is-wait):not(.is-off) { background: var(--neg-soft); box-shadow: inset 0 0 0 1px var(--neg-line); }
+.np__done:not(.is-wait):not(.is-off) b { color: var(--neg-ink); }
+.np__done.is-wait { padding:12px 0 0; border-radius:0; background:transparent; border-top:0; box-shadow:none; }
+.np__done.is-wait > div { display:grid; gap:3px; min-width:0; }
+.np__done.is-wait b { display:inline-flex; align-items:center; gap:6px; font-size:.8125rem; font-weight:600; line-height:16px; color:#3B1782; }
+.np__done.is-wait span { font-size:.75rem; line-height:16px; color:#6B6878; }
+.np__done.is-off { background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+
+/* Botones: principal a la derecha; rechazar aparte, en rojo y con confirmación. */
+.np__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.np__btns > * { width: 100% !important; min-width: 0 !important; white-space: nowrap; }
+.np__reject { all: unset; box-sizing: border-box; cursor: pointer; justify-self: center; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 16px; border-radius: 9999px; font-size: .875rem; font-weight: 600; color: var(--np-danger); }
+.np__reject:hover { background: color-mix(in srgb, var(--np-danger) 6%, #fff); }
+.np__danger { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; border-radius: 9999px; font-size: .9375rem; font-weight: 600; color: #fff; background: var(--np-danger); }
+.np__danger:hover { background: color-mix(in srgb, var(--np-danger) 85%, #000); }
+.np__reject:focus-visible, .np__danger:focus-visible { outline: 2px solid var(--np-danger); outline-offset: 2px; }
+/* Button outline en cyan dentro de lo negociable (propuesta «Button outline · negotiable» en /ds). */
+.np .poutline { color: var(--neg-ink) !important; border-color: var(--neg) !important; }
+.np .poutline::before { background: linear-gradient(144deg, var(--neg) 0%, var(--neg) 40%, var(--vmc-color-vault-500, #8460E5) 100%) !important; }
+.np__confirm .poutline:hover { color:var(--neg-ink) !important; background-image:linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 55%), linear-gradient(90deg, #fff 0%, #F3FBFB 100%) !important; box-shadow:rgba(0,134,136,.18) 0 6px 18px -4px !important; }
+.np__confirm .poutline:hover::before { background:linear-gradient(144deg, #00DAE0 0%, #00A8AB 45%, #8460E5 100%) !important; }
+.np__confirm .poutline:hover::after { background:linear-gradient(144deg, #00A8AB, #8460E5) !important; opacity:.24 !important; }
+.np__confirm .poutline:active { color:#fff !important; background-image:linear-gradient(144deg, #008688 0%, #006466 45%, #5A35C2 100%) !important; }
+.np__confirm .poutline:active::before { background:linear-gradient(144deg, #008688 0%, #006466 45%, #5A35C2 100%) !important; }
+
+/* ── Vista rápida al negociar: foto chica + nombre, con Negociable junto a la placa ── */
+.g-status--neg { color: var(--vmc-color-cyan-900, #006466); background: color-mix(in srgb, var(--vmc-color-cyan-700, #00A8AB) 12%, #fff); }
+.g-qv__head.is-compact { display: grid; grid-template-columns: 72px 1fr 44px; align-items: center; gap: 16px; padding: 24px 24px 0; }
+.g-qv__head.is-compact > img { width: 72px; height: 56px; border-radius: 8px; object-fit: cover; }
+.g-qv__head.is-compact h2 { margin: 0; font-size: 1.125rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.02em; color: var(--vmc-color-vault-700, #3B1782); }
+.g-qv__head.is-compact p { margin: 4px 0 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .875rem; color: var(--muted); }
+.g-qv__head.is-compact .g-status { font-size: .75rem; font-weight: 600; }
+.g-qv__head.is-compact + .g-qv__body { padding-top: 24px; }
+.g-qv__head.is-compact .g-qv__close svg { width:16px; height:16px; }
+.g-qv__head.is-compact .g-qv__close { width: 44px; height: 44px; position: static; color: var(--vmc-color-vault-700, #3B1782); background: var(--vmc-color-vault-100, #F5F0FF); backdrop-filter: none; }
+.g-qv__head.is-compact .g-qv__close:hover { background: var(--vmc-color-vault-200, #E8DEFF); }
+.g-qv__head.is-compact .g-qv__close:focus-visible { outline-color: var(--vmc-color-vault-500, #8460E5); }
+
+/* Fuera de la negociación: el plazo de lo que te necesita en magenta, lo demás neutro (como en Tu actividad). */
+.g-qv__status { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.g-qv__status.is-act small { color: #A800D4; font-weight: 600; }
+.g-qv__status:not(.is-act) small { color: var(--muted); font-weight: 600; }
+
+@media (max-width: 767px) {
+  .g-qv__head.is-compact { padding: 16px 16px 0; }
+  .np__foot { bottom: -18px; margin: 0 -16px -18px; padding: 16px 16px 24px; } /* el body móvil tiene 18px 16px de padding (garaje.css) */
+}
+
+/* ── Nivel 1 · lista de propuestas (comparar) y nivel 2 · «‹ Propuestas (N)» (16/10) ── */
+.np__ctx--ref { margin: 0; padding: 16px; border-radius: 16px; background: var(--soft); }
+.np__peers li button { display: grid; grid-template-columns: 1fr auto 16px; align-items: center; gap: 16px; min-height: 72px; padding: 12px 16px; color: var(--muted); }
+.np__pwho { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 8px; justify-items: start; }
+.np__pwho small { grid-column: 1 / -1; }
+.np__pwho { min-width: 0; } /* el texto de la izquierda se parte en vez de meterse bajo el monto */
+.np__pwho > b, .np__pwho em { white-space: nowrap; }
+.np__pwho > b { font-size: .9375rem; font-weight: 600; color: var(--ink); }
+.np__pwho em { font-style: normal; padding: 2px 8px; border-radius: 9999px; font-size: .75rem; font-weight: 600; color: var(--neg-ink); background: var(--neg-soft); }
+.np__pwho i { font-style: normal; } .np__pwho i.is-due { color: var(--np-action); } /* vence pronto: magenta en su fila, sin reordenar */
+.np__pamt { display: grid; gap: 4px; justify-items: end; }
+.np__pamt b { font-size: .9375rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.np__pamt small { font-size: .75rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.np__peers .np__exp { margin-top: 16px; }
+.np__back { all: unset; cursor: pointer; justify-self: start; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; margin: -12px 0 -16px -8px; padding: 0 8px; border-radius: 9999px; font-size: .875rem; font-weight: 600; color: var(--ink); }
+.np__back { background:transparent; }
+.np__back:hover { background:#F4F3F7; }
+.np__back:focus-visible { outline: 2px solid var(--vmc-color-vault-500, #8460E5); outline-offset: 2px; }
+.np__nav { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; }
+.np__nav .np__back { margin:-12px 0 -16px -8px; }
+.np__nav .np__due { margin:-12px 0 -16px; }
+.np__state { font-size:.875rem; font-weight:600; color:var(--ink); } /* comprador: misma fila que «‹ Propuestas (n)» del vendedor */
+
+/* ══ DS negociable · revisión 16/10 (propuesta para Julio) ══
+   Parte de los tokens de Concorde: cyan-700 #00A8AB (marca negociable) · cyan-900 #006466 (texto sobre cyan) · vault-700 #3B1782 (títulos y montos)
+   · vault-500 #8460E5 (referencia de mercado) · magenta #A800D4 (solo «te necesita»). Un gris: #6B6878 (el mismo de la maqueta VMC).
+   Escala de la maqueta VMC: 32/700 monto principal (única excepción) · 16/700 título · 16/700 monto en fila · 14/600 nombre · 14/400 texto · 12 detalle.
+   Regla: en cada fila el monto manda; el comprador anónimo es una etiqueta, no un título. */
+.np { --ink:#3B1782; --txt:#191C1C; --muted:#6B6878; }
+.g-qv .np h3, .np h3 { font-size:1rem; font-weight:700; }
+.g--vmc.g-page .g-qv .g-status--neg { color:var(--vmc-color-cyan-900, #006466); font-weight:600; }
+
+/* Teal negociable SOLO con los valores de Concorde (OfferType, AuctionStatus, DetailCard, Button negotiable):
+   #30E8EC claro · #00A8AB marca · #008688 texto · degradado #00DAE0 → #008688. Sin tintes inventados: los fondos son blanco o vault-100. */
+.np { --neg:#00A8AB; --neg-ink:#008688; --neg-line:#30E8EC; --neg-soft:#fff; --neg-grad:linear-gradient(90deg, #00DAE0 0%, #008688 100%); }
+.g--vmc.g-page .g-qv .g-status--neg, .g-qv .g-status--neg { color:#fff; font-weight:600; background:linear-gradient(90deg, #00A8AB 0%, #008688 100%); }
+/* Oferta actual: tarjeta blanca con la franja superior teal de OfferType (no un fondo menta) */
+.np__offer { background:var(--neg-grad) top / 100% 4px no-repeat, #fff; box-shadow:inset 0 0 0 1px var(--neg); padding-top:20px; }
+.np__meta b { width:8px; height:8px; border-radius:50%; background:#E1E3E2; }
+.np__meta b.is-on { background:linear-gradient(135deg, #00A8AB, #8460E5); box-shadow:0 1px 3px rgba(0,168,171,.22); }
+.np__pwho em { color:var(--neg-ink); background:#fff; box-shadow:inset 0 0 0 1px var(--neg); }
+/* Referencias: dos columnas de texto separadas por una línea; en la lista es el único contenedor (sin tarjeta dentro de tarjeta) */
+.np__refs { margin:0; display:grid; grid-template-columns:1fr 1fr; }
+.np__refs div + div { padding-left:16px; border-left:1px solid var(--line); }
+.np__refs dt { font-size:.75rem; font-weight:400; color:var(--muted); }
+.np__refs dd { margin:4px 0 0; display:grid; gap:2px; font-size:1rem; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+.np__refs small { font-size:.75rem; font-weight:600; color:var(--neg-ink); }
+.np > .np__refs { padding:16px; border-radius:16px; box-shadow:inset 0 0 0 1px var(--line); }
+.np__offer .np__refs { margin-top:8px; padding-top:16px; border-top:1px solid var(--line); }
+
+/* Lista: encabezado con conteo, orden como control segmentado blanco (no compite con «Más cerca») */
+.np__phead h3 { display:inline-flex; align-items:center; gap:8px; }
+.np__phead h3 span { min-width:24px; padding:2px 8px; border-radius:9999px; font-size:.75rem; font-weight:600; text-align:center; color:var(--ink); background:var(--soft); }
+.np__sort { background:var(--soft); }
+.np__pwho > b { font-size:.875rem; font-weight:600; color:var(--txt); }
+.np__pamt b { font-size:1rem; font-weight:700; color:var(--ink); }
+.np__pwho small, .np__pamt small { font-weight:400; color:var(--muted); }
+.np__pwho i.is-due { font-weight:600; color:var(--np-action); }
+.np__peers li.is-best button { box-shadow:inset 0 0 0 1px var(--neg); }
+.np__peers li button svg { color:var(--ink); }
+
+/* Detalle: monto 32/700, rótulos 12/400, burbujas 14/700 */
+.np__amt { font-size:2rem; font-weight:700; letter-spacing:-0.01em; }
+.np__lbl { font-weight:400; }
+.np__vs { margin:0; font-size:.875rem; color:var(--txt); } .np__vs b { font-weight:700; color:var(--ink); }
+.np__thread .pbidmsg b { font-size:.875rem; font-weight:700; }
+.np__gap { font-size:.75rem; } .np__gap b { font-weight:700; }
+.np__done b { font-size:.875rem; font-weight:700; }
+
+/* ── Ficha del vehículo en la vista rápida de la negociación (16/10) · solo desktop ──
+   Foto más grande, versión, y 4 datos de la publicación con íconos de vidrio esmerilado (Vidrio.tsx). */
+/* Mobile (pedido 16/10): la misma ficha 2 × 2, con íconos de 32 y relleno más justo. Desktop: foto 112 e íconos de 40. */
+.g-qv__head.is-compact { row-gap:16px; }
+.g-qv__head.is-compact .g-qv__ver { margin:2px 0 0; font-size:.875rem; color:var(--vmc-color-vault-700, #3B1782); }
+.g-qv__spec { grid-column:1 / -1; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.g-qv__spec div { min-width:0; display:grid; grid-template-columns:32px 1fr; grid-template-rows:auto auto; column-gap:8px; align-items:center; padding:8px 12px 8px 8px; border-radius:12px; background:var(--vmc-color-vault-100, #F5F0FF); }
+.g-qv__spec .vd { grid-row:1 / 3; width:32px; height:32px; }
+.g-qv__spec dt { align-self:end; font-size:.75rem; font-weight:400; color:#6B6878; }
+.g-qv__spec dd { align-self:start; margin:2px 0 0; font-size:.875rem; font-weight:600; color:var(--vmc-color-vault-700, #3B1782); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@media (min-width:1024px) {
+  .g-qv__head.is-compact { grid-template-columns:112px 1fr 44px; align-items:start; }
+  .g-qv__head.is-compact > img { width:112px; height:84px; border-radius:12px; }
+  .g-qv__head.is-compact > div { align-self:center; }
+  .g-qv__spec div { grid-template-columns:40px 1fr; column-gap:12px; padding:12px; }
+  .g-qv__spec .vd { width:40px; height:40px; }
+}
+
+/* ── Desplazamiento lista ↔ detalle (16/10): el detalle entra desde la derecha y la lista vuelve desde la izquierda,
+   como una navegación de iOS/Android. 280 ms, ease-out exponencial, solo transform y opacidad; nada con «reducir movimiento». */
+@keyframes np-from-right { from { opacity:0; transform:translateX(32px); } }
+@keyframes np-from-left { from { opacity:0; transform:translateX(-32px); } }
+.np--from-right { animation:np-from-right .28s cubic-bezier(.16,1,.3,1); }
+.np--from-left { animation:np-from-left .28s cubic-bezier(.16,1,.3,1); }
+@media (prefers-reduced-motion:reduce) { .np--from-right, .np--from-left { animation:none; } }
+
+/* ══ DS negociable · revisión 16/10 (tarde): todo con piezas de Concorde ══
+   Borde negociable = el de CardViewer · negotiable (white → #30E8EC → #5A35C2 → white). Etiqueta NEGOCIABLE = la de OfferType.
+   Orden = TabSelector. Oferta = estructura de DetailCard negotiable (franja teal + cuerpo blanco). Pie = composer de SubasChat. */
+.np, .g-qv__head.is-compact { --neg-stroke:linear-gradient(120deg, #fff 0%, #30E8EC 30%, #5A35C2 75%, #fff 100%); }
+
+/* Cabecera del auto: retrato con borde negociable, ficha en una línea, etiqueta NEGOCIABLE y cerrar con borde DS */
+.g-qv__head.is-compact { grid-template-columns:auto 1fr 44px !important; align-items:center !important; }
+.g-qv__pic { display:block; padding:2px; border-radius:14px; background:var(--neg-stroke); box-shadow:0 4px 12px rgba(0,134,136,.18); }
+.g-qv__pic img { display:block; width:88px; height:66px; border-radius:12px; object-fit:cover; }
+.g-qv__head.is-compact .g-qv__ver { display:block !important; margin:2px 0 0; font-size:.75rem !important; color:var(--vmc-color-vault-700, #3B1782); }
+.g-qv__neg { display:inline-flex; align-items:center; height:20px; padding:0 8px; border-radius:6px; font-size:.625rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff;
+  background:linear-gradient(90deg, #30E8EC 0%, #00CACE 50%, #008688 100%); text-shadow:0 1px 2px rgba(0,0,0,.18); }
+.g-qv__head.is-compact .g-qv__close { width:36px; height:36px; border:1px solid #E0D4FF; color:#3B1782;
+  background:#fff; box-shadow:0 2px 8px rgba(34,0,92,.06); transition:background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.g-qv__head.is-compact .g-qv__close:hover { border-color:#8460E5; background:#F8F5FF; box-shadow:0 4px 12px rgba(90,53,194,.14); transform:translateY(-1px); }
+.g-qv__spec { display:none !important; }
+
+/* Lista: conteo en violeta sólido (antes claro sobre claro), TabSelector compacto y borde negociable en la fila destacada */
+.np__phead h3 .np__count { display:inline-grid; place-items:center; min-width:22px; height:22px; padding:0 6px; border-radius:9999px; font-size:.75rem; font-weight:700; color:#fff; background:#3B1782; }
+.np__sort { padding:0; background:none; }
+.np__sort .ptabs { height:40px; padding:0 4px; }
+.np__sort .ptabs__tab { height:30px; min-width:0; padding:0 14px; }
+
+/* Oferta = DetailCard negotiable: franja teal (#00DAE0 → #008688) con quién ofrece y el plazo; cuerpo blanco con el monto */
+.np__offer { padding:0; gap:0; overflow:hidden; background:#fff; box-shadow:0 0 0 1px #E1E3E2, 0 8px 24px rgba(0,134,136,.10); }
+.np__offer > .np__top { padding:12px 16px; align-items:center; background:linear-gradient(90deg, #00DAE0 0%, #008688 100%); }
+.np__offer .np__lbl { font-size:.875rem; font-weight:700; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.15); }
+.np__offer .np__due, .np__offer .np__due b, .np__offer .np__due.is-me, .np__offer .np__due.is-me b { color:#fff; }
+.np__offer .np__due { padding:2px 8px; border-radius:9999px; background:rgba(255,255,255,.18); }
+.np__offer > .np__amt { padding:16px 16px 0; }
+.np__offer > .np__refs, .np__offer > .np__vs { margin:16px; padding-top:16px; }
+
+/* Historial tipo chat (SubasChat): día, avatar y hora */
+.np__thread { gap:12px; }
+.np__thread li { display:flex; align-items:flex-end; gap:8px; }
+.np__thread li > div { display:grid; gap:4px; justify-items:start; }
+.np__thread li.is-me > div { justify-items:end; }
+.np__day { justify-self:stretch !important; display:flex !important; align-items:center; gap:12px; font-size:.75rem; font-weight:600; color:var(--muted); }
+.np__day::before, .np__day::after { content:""; flex:1; height:1px; background:#E1E3E2; }
+.np__avatar { flex:none; display:grid; place-items:center; width:28px; height:28px; border-radius:50%; font-size:.6875rem; font-weight:700; color:#fff; background:linear-gradient(135deg, #00DAE0, #008688); }
+.np__at { font-size:.6875rem; color:var(--muted); } .np__at i { font-style:normal; color:#8460E5; }
+/* El rechazo también es una respuesta humana: entra al hilo como burbuja del vendedor,
+   no como tarjeta de sistema. */
+.np__reply .pbidmsg { min-height:0; max-width:286px; padding:10px 12px; }
+.np__reply .pbidmsg__text { display:grid; gap:4px; white-space:normal; }
+.np__reply .pbidmsg__text b { font-size:.875rem; font-weight:700; line-height:1.3; }
+.np__reply .pbidmsg__text span { font-size:.875rem; font-weight:400; line-height:1.3; color:#55526B; }
+.np__reply .np__due { margin-top:2px; }
+/* Al rechazar, se registra como una acción propia: la misma burbuja vault enviada
+   que una propuesta, alineada a la derecha. T&C IV.6.g: la negociación termina. */
+.np__reply--reject .pbidmsg__text b,
+.np__reply--reject .pbidmsg__text span { color:#fff; }
+
+/* Pie = composer: sugerencias, campo + enviar, y Rechazar · Aceptar */
+.np__acts { gap:12px; }
+.np__last-act { display:grid; gap:8px; }
+.np__last-act .np__keep { width:100%; }
+.np__last-act .np__exp { line-height:1.35; }
+.np__last-act .np__exp b { font-weight:700; color:#55526B; }
+.np__chips { display:flex; justify-content:center; gap:8px; overflow-x:auto; scrollbar-width:none; padding-bottom:2px; }
+.np__chips button { all:unset; cursor:pointer; flex:none; position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:6px; min-height:28px; padding:0 10px; border:1.5px solid transparent; border-radius:9999px; font-size:.6875rem; font-variant-numeric:tabular-nums; color:#fff; background-image:linear-gradient(135deg, #8460E5 0%, #6842C7 42%, #3B1782 100%), linear-gradient(135deg, #fff 0%, #C9B8FF 58%, #fff 100%); background-origin:padding-box,border-box; background-clip:padding-box,border-box; box-shadow:inset 0 1px 0 1px rgba(255,255,255,.30), 0 2px 7px rgba(59,23,130,.24); text-shadow:0 1px 2px rgba(30,8,76,.38); transition:background .2s ease, box-shadow .2s ease, transform .2s ease; }
+.np__chips button::before { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(180deg, rgba(255,255,255,.16), transparent 58%); pointer-events:none; }
+.np__chips button small, .np__chips button b { position:relative; z-index:1; }
+.np__chips button small { font-size:.6875rem; font-weight:500; color:#fff; }
+.np__chips button small::after { content:"·"; margin-left:6px; color:rgba(255,255,255,.58); }
+.np__chips button b { font-size:.6875rem; font-weight:700; color:#fff; }
+.np__chips button:hover { background-image:linear-gradient(220deg, #9A79ED 0%, #724CD0 42%, #4B229B 100%), linear-gradient(135deg, #fff 0%, #C9B8FF 58%, #fff 100%); box-shadow:inset 0 1px 0 1px rgba(255,255,255,.34), 0 5px 12px rgba(59,23,130,.30); transform:translateY(-1px); }
+.np__chips button[aria-pressed="true"] { background-image:linear-gradient(135deg, #5A35C2 0%, #24104F 100%), linear-gradient(135deg, #fff 0%, #C9B8FF 58%, #fff 100%); box-shadow:inset 0 1px 0 1px rgba(255,255,255,.24), 0 2px 8px rgba(59,23,130,.28); }
+.np__chips button:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+.np__compose { display:flex; align-items:center; gap:8px; padding:4px 4px 4px 16px; border-radius:9999px; background:#fff; box-shadow:inset 0 0 0 1px #8E89A0; }
+.np__compose:focus-within { box-shadow:inset 0 0 0 2px #00A8AB, 0 0 0 3px rgba(0,168,171,.15); }
+.np__compose label { flex:1; display:flex; align-items:center; gap:6px; min-width:0; }
+.np__compose label span { font-size:.875rem; font-weight:700; color:#3B1782; }
+.np__compose input { all:unset; flex:1; min-width:0; height:40px; font-size:1rem; font-weight:600; color:#191C1C; font-variant-numeric:tabular-nums; }
+.np__compose input::placeholder { font-weight:400; color:#7D798A; }
+.np__send { all:unset; cursor:pointer; flex:none; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; color:#fff; background:linear-gradient(144deg, #00A8AB 0%, #00A8AB 40%, #8460E5 100%); box-shadow:0 4px 12px rgba(0,168,171,.3); }
+.np__closed-final { display:grid; gap:8px; }
+.np__closed-final .np__compose { background:#F1F0F3; box-shadow:inset 0 0 0 1px #D9D6E1; }
+.np__closed-final .np__compose label span,
+.np__closed-final .np__compose input { color:#9894A3; }
+.np__closed-final .np__compose input { cursor:not-allowed; }
+.np__closed-final .np__compose input::placeholder { color:#9894A3; }
+.np__closed-final .np__send { cursor:not-allowed; color:#fff; background:#C7C3CD; box-shadow:none; }
+.np__send:hover:not(:disabled) { transform:translateY(-1px) scale(1.04); background:linear-gradient(144deg, #00C3C6 0%, #00A8AB 40%, #9A79ED 100%); box-shadow:0 7px 18px rgba(0,168,171,.32), 0 4px 10px rgba(132,96,229,.22); }
+.np__send:active:not(:disabled) { transform:scale(.96); }
+.np__send:disabled { cursor:not-allowed; background:#E1E3E2; color:#fff; box-shadow:none; }
+.np__send:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+/* Decisión: primero aceptar; rechazar queda debajo como una alternativa glass
+   del DS, con el mismo ancho para no convertir la jerarquía en un problema de tamaño. */
+.np__decide { display:grid; grid-template-columns:1fr; gap:8px; }
+.np__decide > * { width:100% !important; min-width:0 !important; }
+.np .poutline.np__reject-glass { color:#6B6878 !important; background-image:linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.18)) !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.75), 0 2px 8px rgba(34,0,92,.08) !important; }
+.np .poutline.np__reject-glass::before { background:linear-gradient(144deg, #E1E3E2, #A8A4B5) !important; }
+.np .poutline.np__reject-glass:hover { color:#191C1C !important; background-image:linear-gradient(180deg, #fff, #F4F3F7) !important; box-shadow:inset 0 1px 0 #fff, 0 6px 18px rgba(34,0,92,.12) !important; }
+.np .poutline.np__accept-glass::before { background:linear-gradient(144deg, #00DAE0 0%, #00A8AB 45%, #8460E5 100%) !important; }
+.np .poutline.np__accept-glass::after { background:linear-gradient(135deg, #00A8AB, #8460E5) !important; }
+.np .poutline.np__accept-glass:hover { color:#008688 !important; background-image:linear-gradient(180deg, rgba(255,255,255,.16), transparent 55%), linear-gradient(90deg, #fff 0%, #F3FBFB 100%) !important; box-shadow:inset 0 1px 0 #fff, 0 6px 18px rgba(0,168,171,.20), 0 4px 10px rgba(132,96,229,.16) !important; }
+.np .poutline.np__accept-glass:hover::after { opacity:.35; filter:blur(18px); }
+
+/* Oferta actual: el detalle ya tiene jerarquía; este resumen no necesita una
+   tarjeta adicional. Tres líneas planas dejan más espacio al historial y a decidir. */
+.np__offer { display:grid; gap:4px; padding:0; overflow:visible; border-radius:0; background:transparent; box-shadow:none; }
+.np__offer > .np__top { padding:0; background:transparent; }
+.np__offer .np__lbl { font-size:.8125rem; font-weight:600; color:#191C1C; text-shadow:none; }
+.np__offer .np__due,
+.np__offer .np__due b,
+.np__offer .np__due.is-me,
+.np__offer .np__due.is-me b { padding:0; color:#A800D4; background:transparent; }
+.np__offer-refs, .np__offer-compare, .np__offer-ask { margin:0; font-size:.75rem; line-height:16px; font-weight:400; color:#6B6878; }
+.np__offer-refs b, .np__offer-compare b, .np__offer-ask b { font-size:.75rem; line-height:16px; font-weight:700; color:#191C1C; font-variant-numeric:tabular-nums; }
+.np__offer-refs span, .np__offer-compare span, .np__offer-ask span { margin:0 6px; color:#A8A4B5; }
+.np__offer-compare span, .np__offer-ask span, .np__offer .np__due, .np__offer .np__due b { font-size:.75rem; line-height:16px; }
+.np__hhead h3 { color:#191C1C; }
+
+/* Al proponer menos que a otro comprador, la consecuencia debe leerse como una
+   advertencia breve: una jerarquía clara, sin la caja lila que parecía error. */
+.np__warn { display:grid; gap:3px; padding:10px 12px; border-radius:10px; background:#F8F7FA; box-shadow:inset 3px 0 0 #ED8936, inset 0 0 0 1px #E8E6EC; font-weight:400 !important; }
+.np__warn b { font-size:.8125rem; font-weight:700; color:#191C1C; }
+.np__warn span { font-size:.75rem; font-weight:400 !important; line-height:1.4; color:#6B6878; }
+
+/* Confirmación: consecuencia en superficie neutral del sistema, no como advertencia naranja. */
+.np__confirm { gap:12px; }
+.np__confirm h3 { color:#191C1C !important; }
+.np__confirm-impact { display:grid; gap:3px; padding:10px 12px; border-radius:8px; background:#F8F7FA; }
+.np__confirm-impact span { font-size:.75rem; line-height:16px; font-weight:400; color:#6B6878; }
+.np__confirm-impact b { font-size:.75rem; line-height:16px; font-weight:600; color:#191C1C; font-variant-numeric:tabular-nums; }
+.np__confirm-copy { margin:0; font-size:.75rem !important; line-height:16px; color:#6B6878 !important; }
+.np__confirm .np__btns { margin-top:0; }
+
+/* ── Cabecera del auto · revisión 16/10 (noche): bloque alineado arriba, etiqueta como eyebrow, datos que no se parten ── */
+.g-qv__head.is-compact { align-items:start !important; column-gap:16px; padding-bottom:4px; }
+.g-qv__head.is-compact .g-qv__close { margin-top:-4px; }
+.g-qv__id { min-width:0; display:grid; justify-items:start; gap:4px; }
+.g-qv__id h2 { margin:2px 0 0 !important; font-size:1.25rem !important; line-height:1.2 !important; }
+.g-qv__head.is-compact .g-qv__ver, .g-qv__head.is-compact .g-qv__meta { margin:0 !important; display:flex !important; flex-wrap:wrap; gap:0; font-size:.8125rem !important; line-height:1.45; }
+.g-qv__head.is-compact .g-qv__ver { color:var(--vmc-color-vault-700, #3B1782); }
+.g-qv__head.is-compact .g-qv__ver b { font-weight:600; }
+.g-qv__head.is-compact .g-qv__meta { color:#6B6878; }
+.g-qv__ver > *, .g-qv__meta > * { white-space:nowrap; }
+.g-qv__ver > * + *::before, .g-qv__meta > * + *::before { content:"·"; margin:0 6px; color:#A8A4B5; }
+.np > .np__refs { padding:14px 16px; border-radius:14px; background:linear-gradient(135deg, #fff 0%, #F8F5FF 100%); box-shadow:inset 0 0 0 1px #E8DEFF, 0 3px 10px rgba(59,23,130,.04); }
+.np > .np__refs dt { color:#7D798A; }
+.np > .np__refs dd { font-size:1.0625rem; color:var(--vmc-color-vault-700, #3B1782); }
+.np > .np__refs div + div { border-left-color:#E8DEFF; }
+@media (max-width:640px) { .g-qv__pic img { width:72px; height:54px; } .g-qv__id h2 { font-size:1.125rem !important; } }
+
+/* ── Lista · revisión 16/10 (noche): el TabSelector recupera su activo (reglas viejas de .np__sort button lo anulaban),
+   monto con más peso que el nombre y el plazo se parte entre «·», nunca dentro de «en 20 h». */
+.np__pwho > b { font-weight:600; }
+.np__pamt b { font-size:1.0625rem; font-weight:700; color:var(--vmc-color-vault-700, #3B1782); }
+.np__pwho small i > span { white-space:nowrap; }
+.np__peers li button { min-height:76px; }
+/* Separador «·» al final de cada dato (no al inicio de la línea siguiente cuando se parte); año sin partirse. */
+.g-qv__ver > * + *::before, .g-qv__meta > * + *::before { content:none; }
+.g-qv__ver > :not(:last-child)::after, .g-qv__meta > :not(:last-child)::after { content:"·"; margin:0 6px; color:#A8A4B5; }
+.g-qv__id h2 span { white-space:nowrap; }
+.np__peers li button > .np__pwho { display:flex; flex-wrap:wrap; align-items:center; gap:4px 8px; }
+.np__pwho small { flex-basis:100%; }
+.np__pwho i.is-due { display:inline-flex; align-items:center; width:max-content; padding:2px 7px; border-radius:999px; color:#A800D4; background:#FDEBFF; }
+/* Propuesta recién recibida: sube por fecha y se lee como no leída con el acento
+   Negociable de Concorde. La superficie permanece blanca: el vault no es un estado. */
+.np__peers li.is-new button { background:#fff; box-shadow:inset 3px 0 0 #00A8AB, 0 4px 12px rgba(0,134,136,.09); }
+.np__peers li.is-new .np__pwho > b,
+.np__peers li.is-new .np__pwho small,
+.np__peers li.is-new .np__pwho i,
+.np__peers li.is-new .np__pamt b,
+.np__peers li.is-new .np__pamt small { font-weight:700; color:#191C1C; }
+.np__peers li.is-new .np__pwho > b,
+.np__peers li.is-new .np__pamt b { color:#3B1782; }
+.np__peers li.is-new button svg { color:#008688; stroke-width:2.5; }
+
+/* ── Consolidación visual · panel de propuestas ─────────────────────────
+   El detalle usa la misma superficie blanca de Concorde: vault para texto,
+   cyan para Negociable y magenta solo para una urgencia real. */
+.g-qv__pic { padding:2px; border-radius:12px; background:#00A8AB; box-shadow:0 2px 8px rgba(0,134,136,.16); }
+.g-qv__pic img { border-radius:10px; }
+.g-qv__head.is-compact .g-qv__close { width:32px; height:32px; border-color:#E1E3E2; box-shadow:none; }
+.g-qv__head.is-compact .g-qv__close:hover { border-color:#00A8AB; background:#F3FBFB; box-shadow:none; transform:none; }
+
+.np { gap:28px; }
+.np > .np__refs { padding:14px 16px; border-radius:12px; background:#fff; box-shadow:inset 0 0 0 1px #E1E3E2; }
+.np > .np__refs dt { color:#6B6878; }
+.np > .np__refs dd { font-size:1rem; color:#3B1782; }
+.np > .np__refs div + div { border-left-color:#E1E3E2; }
+
+.np__phead { margin-bottom:12px; }
+.np__peers ul { gap:8px; }
+.np__peers li button { min-height:68px; padding:10px 14px; border-radius:12px; background:#fff; box-shadow:inset 0 0 0 1px #E1E3E2; transition:background .18s ease, box-shadow .18s ease; }
+.np__peers li button:hover { background:#F3FBFB; box-shadow:inset 0 0 0 1px #9BE4E6; }
+.np__pwho > b { color:#3B1782; }
+.np__pwho small, .np__pamt small { color:#6B6878; }
+.np__pamt b { color:#3B1782; }
+.np__peers li button svg { color:#3B1782; }
+
+.np__peers li.is-new button { background:#fff; box-shadow:inset 3px 0 0 #00A8AB, inset 0 0 0 1px #9BE4E6; }
+.np__peers li.is-new button:hover { background:#F3FBFB; }
+.np__pwho i.is-due { padding:3px 8px; color:#A800D4; background:#FBE8FC; }
+
+/* La comparación hereda el patrón de actividad de Mi Garaje: filas abiertas,
+   sin tarjetas ni divisores visibles. El espaciado y el hover son la jerarquía. */
+.np__peers ul { display:grid; gap:2px; overflow:visible; border-radius:0; background:transparent; box-shadow:none; }
+.np__peers li + li { border-top:0; }
+.np__peers li button,
+.np__peers li button:hover { min-height:64px; padding:10px 14px; border-radius:12px; background:transparent; box-shadow:none; }
+.np__peers li button:hover { background:#F4F3F7; }
+.np__peers li.is-new button,
+.np__peers li.is-new button:hover { box-shadow:none; }
+.np__peers li.is-new button { background:transparent; }
+.np__peers li.is-new button:hover { background:#F4F3F7; }
+.np__peers li.is-new .np__pwho > b,
+.np__peers li.is-new .np__pwho small,
+.np__peers li.is-new .np__pamt b,
+.np__peers li.is-new .np__pamt small { font-weight:700; }
+
+/* La bandeja recupera el monto y la diferencia para comparar cada propuesta;
+   el plazo queda junto a su título y no compite con el importe. */
+.np__peers li button { grid-template-columns:minmax(0, 1fr) auto 16px; gap:12px; }
+.np__peers .np__pwho { display:block; min-width:0; }
+.np__peers .np__deadline { display:inline-flex; align-items:center; gap:4px; width:max-content; margin:4px 0 0; font-size:.75rem; font-weight:400; line-height:1; color:#6B6878; white-space:nowrap; }
+.np__peers .np__deadline.is-due { padding:0; color:#A800D4; background:transparent; }
+.np__peers .np__deadline.is-due::before { content:""; flex:none; width:6px; height:6px; border-radius:50%; background:#CC00FF; }
+
+/* La lista es información, no un segundo acento de marca: neutrales para todas
+   las propuestas y negro en la recién recibida, que se comporta como no leída. */
+.np__peers .np__pwho > b,
+.np__peers .np__pamt b { color:#191C1C; }
+.np__peers .np__pamt { display:grid; gap:2px; justify-items:end; justify-self:end; }
+.np__peers .np__pamt small { font-size:.75rem; font-weight:400; color:#6B6878; }
+.np__peers li button svg { color:#6B6878; }
+.np__peers li.is-new .np__pwho > b,
+.np__peers li.is-new .np__deadline,
+.np__peers li.is-new .np__pamt b { color:#191C1C; font-weight:700; }
+.np__peers li:not(.is-new) .np__pwho > b,
+.np__peers li:not(.is-new) .np__deadline,
+.np__peers li:not(.is-new) .np__pamt b { font-weight:400; }
+
+/* ── Cabecera · ajuste 16/10 (noche 2): foto + etiqueta/nombre/versión arriba; km, caja, combustible, placa y fecha
+   en una franja a todo el ancho con divisor, así el nombre tiene espacio y no se parte. */
+.g-qv__head.is-compact { align-items:center !important; row-gap:16px; }
+.g-qv__head.is-compact .g-qv__close { align-self:start; margin-top:0; }
+.g-qv__pic img { width:96px; height:72px; }
+.g-qv__id h2 { font-size:1.25rem !important; }
+.g-qv__head.is-compact .g-qv__ver { font-size:.875rem !important; }
+.g-qv__head.is-compact .g-qv__meta { grid-column:1 / -1; padding-top:12px; border-top:1px solid #ECECEE; row-gap:4px; }
+@media (max-width:640px) { .g-qv__pic img { width:80px; height:60px; } .g-qv__id h2 { font-size:1.125rem !important; } }
+/* Dos grupos: el auto (km · caja · combustible) y la publicación (placa · fecha); si no entran, baja el grupo entero. */
+.g-qv__head.is-compact .g-qv__meta { justify-content:space-between; column-gap:16px; }
+.g-qv__meta > :not(:last-child)::after { content:none; }
+.g-qv__meta > span { display:inline-flex; }
+.g-qv__meta > span > :not(:last-child)::after { content:"·"; margin:0 6px; color:#A8A4B5; }
+.g-qv__meta > span > * { white-space:nowrap; }
+.g-qv__meta > span:last-child { color:#8A8797; }
+@media (max-width:640px) { .g-qv__id h2 { font-size:1.0625rem !important; } }
+/* Comprador: acuerdo cerrado por el vendedor. Cabecera de ganador, historial y chat conservan piezas/tokens Concorde. */
+.np__nav--accepted { min-height:0; }
+.np__accepted-win { display:grid; gap:3px; justify-items:start; }
+.np__accepted-win > span { position:relative; display:inline-flex; align-items:center; gap:7px; font-size:1rem; line-height:1.3; font-weight:700; color:#191C1C; }
+.np__accepted-win > span em { display:inline-block; font-style:normal; animation:np-winner-title-in .72s .2s cubic-bezier(.16,1,.3,1) both; }
+.np__accepted-win > b { font-size:.875rem; line-height:1.3; font-weight:700; color:#191C1C; font-variant-numeric:tabular-nums; }
+.np__accepted-mark { position:relative; z-index:0; display:grid; place-items:center; width:22px; height:22px; border-radius:50%; color:#fff; background:linear-gradient(135deg, #00A8AB 0%, #00A8AB 40%, #8460E5 100%); box-shadow:0 2px 6px rgba(0,168,171,.28), 0 3px 8px rgba(132,96,229,.18); animation:np-winner-mark .66s .04s cubic-bezier(.16,1,.3,1) both; }
+.np__accepted-mark::before { content:""; position:absolute; z-index:-1; inset:-11px; border-radius:50%; background:repeating-conic-gradient(from -10deg, #30E8EC 0 8deg, transparent 8deg 53deg); -webkit-mask:radial-gradient(transparent 0 57%, #000 59%); mask:radial-gradient(transparent 0 57%, #000 59%); opacity:0; animation:np-winner-rays .76s .18s cubic-bezier(.16,1,.3,1) both; }
+.np__accepted-mark::after { content:""; position:absolute; z-index:-1; inset:-5px; border:1.5px solid #30E8EC; border-radius:50%; opacity:0; animation:np-winner-ring .82s .26s ease-out both; }
+.np__accepted-mark path { stroke-dasharray:18; stroke-dashoffset:18; animation:np-winner-check .34s .34s cubic-bezier(.16,1,.3,1) forwards; }
+.np__history--accepted .np__hhead { gap:5px; margin:0; padding:0 0 12px; border-bottom:1px solid #E1E3E2; }
+.np__history--accepted .np__hhead h3 { font-size:1rem; line-height:1.3; font-weight:700; color:#191C1C; }
+.np__history--accepted .np__thread { padding-top:4px; }
+.np__done--chat { display:grid; justify-items:center; gap:0; padding:0; background:transparent !important; box-shadow:none !important; }
+.np__chat-prompt { display:grid; justify-items:center; gap:6px; max-width:300px; text-align:center; }
+.np__chat-prompt p { margin:0; font-size:.75rem; line-height:1.35; color:var(--muted); }
+/* Button negotiable de Concorde: se mantiene el borde teal → vault y sus estados hover/pressed/focus.
+   La animación recorre únicamente la segunda capa (stroke), no cambia la pieza ni sus tokens. */
+.np__chat.pneg { display:inline-flex; align-items:center; gap:8px; min-width:0; margin-top:12px; padding-inline:24px; text-decoration:none; background-size:100% 100%, 220% 100%; animation:np-chat-stroke 2.8s ease-in-out infinite; }
+.np__chat.pneg svg { position:relative; z-index:2; flex:none; }
+@keyframes np-winner-mark { 0% { opacity:0; transform:scale(.15) rotate(-92deg); } 56% { opacity:1; transform:scale(1.22) rotate(9deg); } 76% { transform:scale(.91) rotate(-3deg); } 100% { transform:scale(1) rotate(0); } }
+@keyframes np-winner-check { to { stroke-dashoffset:0; } }
+@keyframes np-winner-rays { 0% { opacity:0; transform:scale(.4) rotate(-24deg); } 35% { opacity:.85; } 100% { opacity:0; transform:scale(1.35) rotate(18deg); } }
+@keyframes np-winner-ring { 0% { opacity:.9; transform:scale(.45); } 100% { opacity:0; transform:scale(1.8); } }
+@keyframes np-winner-title-in { 0% { opacity:0; transform:translateX(-10px) scale(.92); letter-spacing:.06em; text-shadow:none; } 55% { opacity:1; transform:translateX(1px) scale(1.045); letter-spacing:0; text-shadow:0 0 12px rgba(0,168,171,.42); } 78% { transform:translateX(0) scale(.99); } 100% { opacity:1; transform:none; letter-spacing:0; text-shadow:none; } }
+@keyframes np-chat-stroke { 0%, 100% { background-position:0 0, 0% 0; } 50% { background-position:0 0, 100% 0; } }
+@media (prefers-reduced-motion:reduce) { .np__accepted-win > span, .np__accepted-win > span em, .np__accepted-mark, .np__accepted-mark::after, .np__accepted-mark path, .np__chat.pneg { animation:none; } .np__accepted-mark path { stroke-dashoffset:0; } }
+
+/* Plazo sobre las acciones (23/10): una franja centrada, «⏱ Tienes 19:59:58 para responder». */
+.np__foot-due { display:flex; justify-content:center; margin:-4px 0 12px; }
+.np__foot-due .np__due { font-size:.8125rem; font-weight:500; gap:6px; }
+.np__foot-due .np__due b { font-weight:700; letter-spacing:-.02em; }
+
+/* Confirmar aceptación (23/10): filas de las propuestas que se cierran, la más alta marcada, y botones apilados. */
+.np__confirm-impact ul { list-style:none; margin:4px 0 0; padding:0; display:grid; }
+.np__confirm-impact li { display:flex; align-items:center; gap:8px; padding:6px 0; font-size:.8125rem; color:#191C1C; }
+.np__confirm-impact li + li { border-top:1px solid #ECEAF1; }
+.np__confirm-impact li > span { flex:1; }
+.np__confirm-impact li b { font-size:.8125rem; font-weight:700; font-variant-numeric:tabular-nums; }
+.np__confirm-impact li em { padding:1px 8px; border-radius:9999px; background:#FFF1E6; color:#B25614; font-size:.6875rem; font-weight:700; font-style:normal; }
+.np__confirm-copy b { font-weight:700; color:#191C1C; }
+.np__btns--stack { grid-template-columns:1fr; }
+/* Seguir negociando (23/10): outline a todo el ancho, borde cian → violeta como el «Volver» de la propuesta. */
+.np__keep { height:48px; border:1.5px solid transparent; border-radius:9999px; color:#3B1782; font:inherit; font-size:1rem; font-weight:600; cursor:pointer;
+  background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,#00A8AB 0%,#30E8EC 34%,#8460E5 100%) border-box; transition:background .2s, transform .15s; }
+.np__keep:hover { background:linear-gradient(#F5F0FF,#F5F0FF) padding-box, linear-gradient(135deg,#00A8AB 0%,#30E8EC 34%,#8460E5 100%) border-box; }
+.np__keep:active { transform:scale(.98); } .np__keep:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+
+/* Venta aceptada (23/10): cierre del hilo como evento del sistema y SubasChat desactivado al pie.
+   El historial ocupa el alto del panel para poder subir hasta arriba. */
+/* Secuencia (23/10): el panel sube hasta centrar la tarjeta; el historial queda arriba, fuera de la vista, y se ve al volver a subir.
+   El aire antes y después de la tarjeta es el justo para eso (mitad del alto visible menos media tarjeta). */
+.np__history--sold .np__thread > .np__fx { margin:max(24px, calc(var(--np-view, 0px) / 2 - 100px)) 0 max(24px, calc(var(--np-view, 0px) / 2 - 100px)); }
+/* Centrada (23/10): check, texto y monto en columna; entra cuando el historial ya salió por arriba. */
+.np__sold { justify-self:stretch; display:grid; justify-items:center; gap:10px; margin-top:24px; padding:28px 20px; border-radius:20px; text-align:center;
+  background:linear-gradient(180deg,#F1FBFB 0%,#fff 100%); box-shadow:inset 0 0 0 1px #BFEDEE; animation:np-sold .7s .9s cubic-bezier(.16,1,.3,1) both; }
+.np__sold-mark { display:grid; place-items:center; width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#00A8AB,#008688); color:#fff;
+  box-shadow:0 8px 20px rgba(0,134,136,.28); animation:np-sold-mark .6s 1.15s cubic-bezier(.34,1.56,.64,1) both; }
+.np__sold-tx { display:grid; gap:4px; }
+.np__sold-tx b { font-size:1rem; font-weight:700; color:#191C1C; }
+.np__sold-tx small { font-size:.75rem; color:#6B6878; }
+.np__sold > strong { order:-1; display:none; }
+.np__sold-tx + strong { display:block; order:0; font-size:1.75rem; font-weight:800; line-height:1.1; color:#3B1782; font-variant-numeric:tabular-nums; }
+@keyframes np-sold { from { opacity:0; transform:translateY(16px) scale(.97); } }
+@keyframes np-sold-mark { from { transform:scale(.4); opacity:0; } }
+@media (prefers-reduced-motion:reduce) { .np__sold-mark { animation:none; } }
+.np__chatoff { padding-top:10px; padding-bottom:12px; }
+.np__chatoff-hint { display:flex; align-items:center; justify-content:center; gap:6px; margin:0 0 6px; font-size:.75rem; color:#5F5B6B; text-align:center; }
+.np__chatoff-hint svg { flex:none; color:#8460E5; }
+.np__chatoff .sc__compose { padding:0; border-top:0; }
+.np__chatoff textarea { flex:1; min-width:0; height:40px; padding:8px 14px; border:1px solid #DCD8E8; border-radius:20px; background:#F7F6FA; font:inherit; font-size:.875rem; resize:none; color:#9A97A6; }
+@media (prefers-reduced-motion:reduce) { .np__sold { animation:none; } }
+.np__sold-mark svg, .np__sold-mark svg path { color:#fff; stroke:#fff; }
+/* Animación de aceptar dentro del chat (23/10): la tarjeta de Propuesta.tsx en el hilo, sin sombra de modal. */
+.np__thread > .np__fx { justify-self:stretch; display:block; width:auto; }
+.np__fx .va__card { box-shadow:none; border:1px solid #E6DEFF; }
+.np__thread > .np__fx ~ .np__sold { display:none; }
+.np__thread > li.np__fx { justify-self:stretch !important; display:block !important; width:auto !important; max-width:none; }
+.np__thread > li.np__fx > .va__card { width:100%; box-sizing:border-box; justify-items:center; text-align:center; }
+
+/* Lista tras aceptar (23/10): la aceptada resaltada en cian; las cerradas en gris, sin abrir. */
+.np__peers li.is-won button { background:#F1FBFB; box-shadow:inset 0 0 0 1px #BFEDEE; border-radius:12px; }
+.np__peers li.is-won .np__deadline { color:#008688; }
+.np__phead--shut { margin-top:20px; }
+.np__shut li > div { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:56px; padding:8px 16px; box-sizing:border-box; opacity:.55; cursor:not-allowed; }
+.np__shut li > div > span { display:grid; gap:4px; }
+.np__shut li > div > svg { flex:none; color:#8A8798; }
+.np__shut .np__pamt b { white-space:nowrap; }
+.np__phead--shut .np__count { background:#E6E4EC !important; color:#6B6878 !important; }
+
+/* SubasChat dentro del panel (23/10): ocupa el alto del panel, sin sombra de tarjeta. */
+/*
+   Regla de navegación del panel: ni la ficha del auto ni las acciones se deben
+   desplazar. El único scroll de una negociación vive en su historial (o, para
+   SubasChat, en la lista de mensajes que ya expone ese componente). Antes el
+   scroll era del panel completo, por eso al bajar desaparecía también el auto.
+*/
+.g-qv__panel:has(> .g-qv__body > .np) { overflow:hidden; }
+.g-qv__body:has(> .np) {
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.g-qv__body > .np:not(.np--chat) {
+  flex:1 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.g-qv__body > .np:not(.np--chat) > .np__nav { flex:none; margin-bottom:16px; }
+.g-qv__body > .np:not(.np--chat) > .np__offer { flex:none; margin-bottom:20px; }
+.g-qv__body > .np:not(.np--chat) > .np__history {
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  /* El historial conserva scroll con rueda/gesto, pero la barra no forma parte
+     de la interfaz del panel. */
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.g-qv__body > .np:not(.np--chat) > .np__history::-webkit-scrollbar,
+.np--chat .sc__list::-webkit-scrollbar { display:none; }
+.np--chat .sc__list { scrollbar-width:none; -ms-overflow-style:none; }
+.g-qv__body > .np:not(.np--chat) > .np__foot {
+  position:static;
+  z-index:auto;
+  flex:none;
+  margin:16px -24px -24px;
+  padding:16px 24px 24px;
+}
+@media (max-width:767px) {
+  .g-qv__body > .np:not(.np--chat) > .np__foot {
+    margin:16px -16px -20px;
+    padding:16px 16px 20px;
+  }
+}
+.np--chat { display:flex; flex-direction:column; min-height:0; }
+/* Sin scroll (23/10): el chat llena el alto que deja el encabezado del auto, a cualquier alto de ventana; solo su lista se desplaza. */
+.g-qv__panel:has(.np--chat) { overflow:hidden; }
+/* 23/10 (Abraham): nada de «chat dentro de una tarjeta»: el chat es el panel, de borde a borde bajo el auto. */
+.g-qv__body:has(.np--chat) { flex:1; min-height:0; padding:0; }
+.np--chat { flex:1; min-height:0; }
+.np--chat .sc { flex:1; width:100%; height:auto; min-height:0; border-radius:0; box-shadow:none; animation:none; }
+.np--chat .sc__head { height:auto; padding:12px 24px; color:#191C1C; background:#fff; border-top:1px solid #EFEDF5; border-bottom:1px solid #EFEDF5; }
+.np--chat .sc__avatar { color:#fff; background:linear-gradient(135deg,#00A8AB,#5A35C2); border:0; }
+.np--chat .sc__who b { color:#3B1782; } .np--chat .sc__who span { color:#6B6878; }
+.np--chat .sc__deal small { color:#6B6878; } .np--chat .sc__deal b { color:#3B1782; }
+.np--chat .sc__list { padding:16px 24px 12px; gap:8px; }
+.np--chat .sc__row > .sc__bubble { max-width:82%; }
+.np--chat .sc__compose { padding:12px 20px 16px; border-top:1px solid #EFEDF5; background:#fff; }
+.f-sw.np__sim { max-width:340px; } .np__sim .f-sw__g button:disabled { opacity:.45; }
+.f-sw.np__sim { right:auto; left:16px; } /* a la izquierda, sobre el velo: no tapa el chat ni sus acciones */
+/* Móvil (23/10): la pestaña del lab va arriba, sobre el velo, para no tapar la caja de escribir; sus opciones se reparten en filas. */
+@media (max-width:600px) {
+  .f-sw.np__sim { top:12px; bottom:auto; left:12px; right:12px; max-width:none; max-height:45vh; overflow:auto; }
+  .f-sw.np__sim.f-sw--closed { right:auto; }
+  .np__sim .f-sw__bar { display:flex !important; } /* con su barra: se puede volver a minimizar */
+  .np__sim .f-sw__g { flex-wrap:wrap !important; }
+  .np__sim .f-sw__g button { flex:none !important; padding:0 12px !important; white-space:nowrap; }
+  .np__sim .f-sw__k, .np__sim .f-sw__hint { display:block !important; flex-basis:100%; }
+}
+
+/* Espera del fee (23/10): nube gris del sistema (como «Hoy»), que sube desde el pie y queda arriba; el historial queda encima, fuera de la vista. */
+.np__history--sold .np__thread > .np__wait { justify-self:center; display:block; margin:max(24px, calc(var(--np-view, 0px) / 2 - 20px)) 0 max(24px, calc(var(--np-view, 0px) / 2 - 20px)); } /* centrada en lo visible */
+.np__wait > span { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:9999px; background:#E7E5F0; color:#55526B; font-size:.75rem; font-weight:600; line-height:1.3; text-align:center; }
+.np__wait svg { flex:none; color:#8460E5; }
+.np__thread > .np__wait { animation:np-wait-up 1.4s 1.2s cubic-bezier(.22,1,.36,1) both; } /* más lenta (23/10) */
+@keyframes np-wait-up { from { opacity:0; transform:translateY(calc(var(--np-view, 60vh) / 2)); } 35% { opacity:1; } }
+@media (prefers-reduced-motion:reduce) { .np__thread > .np__wait { animation:none; } }
+/* Tarjeta como cierre de la animación (23/10): entra sin espera y se va antes de que suba la nube. */
+.np__fx > .np__sold { animation:np-sold .6s cubic-bezier(.16,1,.3,1) both; }
+.np__fx > .np__sold .np__sold-mark { animation:np-sold-mark .6s .15s cubic-bezier(.34,1.56,.64,1) both; }
+.np__fx > .np__sold.is-leaving { animation:np-sold-out .42s ease-in forwards; }
+@keyframes np-sold-out { to { opacity:0; transform:translateY(-12px) scale(.97); } }
+.np__fx > .np__sold { justify-items:center !important; text-align:center; margin:0; }
+
+/* Rechazo: no es una celebración. El cyan de Negociable queda solo como señal
+   de contexto; se eliminan rayos, confeti y rebotes, propios de una victoria. */
+.np__rejectfx { margin:max(24px, calc(var(--np-view, 0px) / 2 - 116px)) 0; animation:np-reject-in .48s cubic-bezier(.16,1,.3,1) both; }
+.np__rejectfx--prepare { min-height:360px; animation:none; }
+.vh .vh__reject { position:relative; isolation:isolate; min-height:360px; align-content:center; overflow:hidden; padding-block:28px; background:radial-gradient(ellipse at 50% 38%,rgba(48,232,236,.11),transparent 35%),radial-gradient(ellipse at 50% 65%,rgba(132,96,229,.08),transparent 48%),linear-gradient(180deg,#fff 0%,#F7FBFB 100%); }
+/* Una sola línea de negociación se junta y se apaga: comunica oportunidad que se va,
+   sin los rayos de una celebración. Solo aplica al instante del rechazo. */
+.np__rejectfx[data-step="rejected"] .vh__reject { animation:none; }
+.np__rejectfx[data-step="rejected"] .vh__reject::before { content:""; position:absolute; z-index:-1; left:50%; top:50%; width:82%; height:2px; border-radius:99px; background:linear-gradient(90deg,transparent,rgba(0,218,224,.08) 10%,rgba(0,168,171,.46) 35%,rgba(0,168,171,.46) 65%,rgba(0,218,224,.08) 90%,transparent); transform:translate(-50%,-50%); animation:vh-reject-close 1.72s cubic-bezier(.45,0,.55,1) both; }
+.np__rejectfx:not([data-step="rejected"]) .vh__reject::before { content:""; position:absolute; z-index:-1; left:50%; top:50%; width:1px; height:184px; background:linear-gradient(180deg,transparent,rgba(0,168,171,.12),transparent); transform:translate(-50%,-50%); }
+.vh__reject--preparing { display:grid; place-items:center; min-height:360px; background:radial-gradient(circle at 50% 50%,rgba(48,232,236,.09),transparent 34%),linear-gradient(180deg,#fff,#F7FBFB); }
+/* Puente visible mientras el historial sube: conserva continuidad de la escena,
+   en vez de mostrar durante 520 ms una tarjeta blanca sin contenido. */
+.vh__closing-bridge { position:relative; display:block; width:110px; height:2px; overflow:hidden; border-radius:99px; background:rgba(0,168,171,.12); }
+.vh__closing-bridge i { position:absolute; top:0; bottom:0; width:54%; border-radius:inherit; }
+.vh__closing-bridge i:first-child { left:0; background:linear-gradient(90deg,#00A8AB,#30E8EC); animation:vh-bridge-left .52s cubic-bezier(.45,0,.55,1) both; }
+.vh__closing-bridge i:last-child { right:0; background:linear-gradient(90deg,#8460E5,#00A8AB); animation:vh-bridge-right .52s cubic-bezier(.45,0,.55,1) both; }
+.vh__reject-stage { position:relative; display:grid; place-items:center; width:112px; height:112px; margin:0 0 14px; }
+.vh__reject-stage::before, .vh__reject-stage::after { content:""; position:absolute; border-radius:50%; }
+.vh__reject-stage::before { z-index:0; inset:5px; border:1.5px solid transparent; background:linear-gradient(rgba(247,251,251,.78),rgba(247,251,251,.78)) padding-box,linear-gradient(135deg,#00A8AB 0%,#30E8EC 36%,#8460E5 100%) border-box; box-shadow:inset 0 1px 0 #fff; animation:vh-reject-ring 1.55s cubic-bezier(.45,0,.55,1) both; }
+.vh__reject-stage::after { z-index:0; inset:18px; border:1px solid rgba(0,104,106,.18); animation:vh-reject-ripple 1.55s .1s cubic-bezier(.45,0,.55,1) both; }
+/* El cierre se entiende como un gesto: dos planos se encuentran, cubren el hueco
+   y desaparecen. No hay rebote ni explosión; es una oportunidad que se clausura. */
+.vh__reject-shutter { position:absolute; z-index:1; inset:17px; overflow:hidden; border-radius:50%; pointer-events:none; }
+.vh__reject-shutter i { position:absolute; top:0; bottom:0; width:52%; opacity:0; }
+.vh__reject-shutter i:first-child { left:0; transform:translateX(-104%); background:linear-gradient(90deg,#008688,#30E8EC); animation:vh-reject-shut-left 1.55s cubic-bezier(.55,0,.35,1) both; }
+.vh__reject-shutter i:last-child { right:0; transform:translateX(104%); background:linear-gradient(90deg,#8460E5,#00A8AB); animation:vh-reject-shut-right 1.55s cubic-bezier(.55,0,.35,1) both; }
+.vh__reject-mark { position:relative; z-index:2; display:grid; place-items:center; width:58px; height:58px; border:1px solid rgba(255,255,255,.45); border-radius:50%; color:#fff; background:linear-gradient(135deg,#008688 0%,#00A8AB 45%,#5A35C2 100%); box-shadow:0 5px 13px rgba(0,104,106,.18); filter:saturate(.72) brightness(.86); animation:vh-reject-pop 1.55s cubic-bezier(.32,0,.2,1) both; }
+.vh__reject-stage > i { display:none; }
+.vh__reject-stage > i:nth-child(2n) { border-radius:50%; background:#00A8AB; }.vh__reject-stage > i:nth-child(3n) { width:5px; height:11px; background:#8460E5; }
+.vh__reject-stage > i:nth-child(1) { --x:-63px; --y:-46px; --r:-80deg; --d:.08s; }.vh__reject-stage > i:nth-child(2) { --x:-75px; --y:5px; --r:110deg; --d:.15s; }.vh__reject-stage > i:nth-child(3) { --x:-50px; --y:58px; --r:160deg; --d:.2s; }.vh__reject-stage > i:nth-child(4) { --x:4px; --y:-75px; --r:70deg; --d:.12s; }.vh__reject-stage > i:nth-child(5) { --x:62px; --y:-48px; --r:130deg; --d:.18s; }.vh__reject-stage > i:nth-child(6) { --x:77px; --y:6px; --r:-95deg; --d:.1s; }.vh__reject-stage > i:nth-child(7) { --x:54px; --y:58px; --r:210deg; --d:.22s; }.vh__reject-stage > i:nth-child(8) { --x:-5px; --y:75px; --r:-145deg; --d:.16s; }
+.vh__reject-kicker { margin:0; font-size:.75rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:#00686A; animation:vh-celebrate-copy .4s .22s ease-out both; }.np__rejectfx--buyer[data-step="consequence"] .vh__reject-kicker { color:#008688; }
+.vh h2.vh__reject-title { margin:4px 0 8px; color:#191C1C; font-size:1.375rem; font-weight:800; line-height:1.2; letter-spacing:-.02em; animation:vh-celebrate-amount .48s .18s ease-out both; }
+.vh__release-stage { position:relative; display:grid; place-items:center; width:180px; height:148px; margin:0 0 4px; }
+.vh__release-stage::before { content:""; position:absolute; inset:16px 4px; border-radius:50%; background:radial-gradient(ellipse at 50% 54%, rgba(0,218,224,.28), transparent 32%), linear-gradient(90deg, rgba(0,218,224,.08), transparent 62%); filter:blur(2px); animation:vh-release-glow 1.4s ease-out both; }
+/* La billetera no usa el pictograma monetario S/: muestra el signo real de SubasCoins >S<. */
+.vh__release-wallet { position:absolute; z-index:2; left:50%; top:37px; width:76px; height:76px; transform:translateX(-50%); animation:vh-release-wallet .72s cubic-bezier(.16,1.32,.3,1) both; }
+.vh__release-wallet svg { display:block; width:100%; height:100%; overflow:visible; filter:drop-shadow(0 10px 16px rgba(59,23,130,.22)); }
+/* Las fichas llegan por detrás y se apagan antes de tocar la cara de la billetera:
+   nunca deben tapar el signo >S< que identifica el saldo. */
+.vh__release-coin { position:absolute; z-index:1; display:grid; place-items:center; width:31px; height:20px; margin:0; border:1px solid rgba(0,168,171,.28); border-radius:999px; background:#fff; color:#008688; box-shadow:0 4px 12px rgba(0,168,171,.18); font:800 .5625rem/1 var(--vmc-font-display, "Plus Jakarta Sans", sans-serif); font-style:normal; animation:vh-release-coin 1.08s var(--d, 0s) cubic-bezier(.18,.72,.22,1) both; }
+.vh__release-coin--one { left:15px; top:48px; --dx:51px; --dy:4px; --d:.06s; }.vh__release-coin--two { left:133px; top:35px; --dx:-42px; --dy:16px; --d:.22s; }.vh__release-coin--three { display:none; }
+.np__rejectfx.is-leaving { pointer-events:none; animation:vh-celebrate-out .62s cubic-bezier(.55,0,.75,.2) both; }
+.np__closed-foot { min-height:76px; border-top:1px solid #EEE9FB; background:#fff; }
+@keyframes np-reject-in { from { opacity:0; transform:translateY(18px) scale(.96); } } @keyframes vh-reject-card-in { from { opacity:0; transform:translateY(10px); } } @keyframes vh-bridge-left { from { transform:translateX(-100%); } to { transform:translateX(-4%); } } @keyframes vh-bridge-right { from { transform:translateX(100%); } to { transform:translateX(4%); } }
+@keyframes vh-reject-close { 0% { opacity:0; transform:translate(-50%,-50%) scaleX(.16); } 26% { opacity:.9; transform:translate(-50%,-50%) scaleX(1); } 100% { opacity:0; transform:translate(-50%,-50%) scaleX(.12); } } @keyframes vh-reject-ring { 0% { opacity:.48; transform:scale(.92); } 38% { opacity:1; transform:scale(1); } 100% { opacity:.22; transform:scale(.78); } } @keyframes vh-reject-ripple { 0% { opacity:.3; transform:scale(.78); } 46% { opacity:.72; transform:scale(1); } 100% { opacity:.12; transform:scale(.82); } } @keyframes vh-reject-shut-left { 0% { opacity:0; transform:translateX(-104%); } 20% { opacity:.64; } 58% { opacity:.64; transform:translateX(-2%); } 100% { opacity:0; transform:translateX(42%); } } @keyframes vh-reject-shut-right { 0% { opacity:0; transform:translateX(104%); } 20% { opacity:.64; } 58% { opacity:.64; transform:translateX(2%); } 100% { opacity:0; transform:translateX(-42%); } } @keyframes vh-reject-pop { 0%, 48% { opacity:0; transform:scale(.56); } 78% { opacity:1; transform:scale(1.04); } 100% { opacity:1; transform:scale(1); } } @keyframes vh-reject-chip { 0% { opacity:0; transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(.75) rotate(var(--r)); } 62% { opacity:1; } 100% { opacity:0; transform:translate(-50%,-50%) scale(.18) rotate(0); } } @keyframes vh-release-glow { from { opacity:0; transform:scale(.7); } } @keyframes vh-release-wallet { 0% { opacity:0; transform:translateX(calc(-50% + 18px)) scale(.65); } 66% { opacity:1; transform:translateX(calc(-50% - 2px)) scale(1.06); } 100% { transform:translateX(-50%); } } @keyframes vh-release-coin { 0% { opacity:0; transform:translate(0,0) scale(.72); } 14% { opacity:1; } 58% { opacity:.9; } 78%, 100% { opacity:0; transform:translate(var(--dx),var(--dy)) scale(.45); } }
+@media (prefers-reduced-motion:reduce) { .np__rejectfx, .vh__reject::before, .vh__closing-bridge i, .vh__reject-stage::before, .vh__reject-stage::after, .vh__reject-shutter i, .vh__reject-mark, .vh__reject-stage > i, .vh__reject-kicker, .vh h2.vh__reject-title, .vh__release-stage::before, .vh__release-wallet, .vh__release-coin { animation:none; } }
+
+/* Burbujas del chat coherentes con las de la negociación (23/10): las de Concorde BidMessage — recibidas blancas con borde
+   lila y halo, enviadas vault (morado oscuro); colas 20/20/20/4 y 20/20/4/20. */
+.np--chat .sc__bubble { border:1.5px solid transparent; border-radius:20px 20px 20px 4px; color:#3B1782;
+  background-image:linear-gradient(#fff,#fff), linear-gradient(135deg,#CFBAFF 0%,#fff 35%,#AE8EFF 65%,#CFBAFF 100%); background-origin:border-box; background-clip:padding-box, border-box;
+  box-shadow:rgba(90,53,194,.28) 0 2px 10px; }
+.np--chat .is-mine > .sc__bubble { border:0; border-radius:20px 20px 4px 20px; color:#fff; background:linear-gradient(90deg,#19004A 0%,#3B1782 50%,#2E0F70 100%); box-shadow:rgba(46,15,112,.3) 0 4px 16px; }
+.np--chat .is-cont > .sc__bubble { border-top-left-radius:4px; } .np--chat .is-mine.is-cont > .sc__bubble { border-top-left-radius:20px; border-top-right-radius:4px; }
+.np--chat .sc__bubble p { color:inherit; } .np--chat .sc__bubble .sc__meta { color:#7B7590; } .np--chat .is-mine > .sc__bubble .sc__meta { color:rgba(255,255,255,.72); }
+.np--chat .sc__row--bid .sc__bubble p b { font-size:1rem; font-weight:700; }
+.sc__sys--done { background:#E6F7F7; color:#00686A; } .sc__sys--done svg { color:#008688; }
+
+/* Negociación arriba del chat (23/10): dentro de la misma lista; el encabezado del comprador la separa y queda pegado arriba al bajar. */
+.np__prev { display:grid; gap:6px; padding:4px 0 20px; }
+.np__prev h3 { margin:14px 0 4px; font-size:1.0625rem; font-weight:700; color:#3B1782; }
+.np__prev .np__offer-refs, .np__prev .np__offer-compare, .np__prev .np__offer-ask { margin:0; font-size:.8125rem; color:#6B6878; }
+.np__prev .np__offer-refs b, .np__prev .np__offer-compare b, .np__prev .np__offer-ask b { color:#191C1C; }
+.np__prev .sc__row { display:flex; flex-direction:column; } .np__prev .sc__row.is-mine { align-items:flex-end; }
+.np__prev .sc__sys--done { margin-top:8px; }
+.np--chat .np__chathead { position:sticky; top:-16px; z-index:2; margin:0 -24px 8px; padding:12px 24px; border-top:1px solid #EFEDF5; border-bottom:1px solid #EFEDF5; }
+
+/* Comprador con la propuesta aceptada (23/10): el pago del fee, arriba del chat desactivado. */
+.np__chatoff .np__payfee { width:100% !important; max-width:none !important; margin:0 0 10px; }
+
+/* Comprador ganó (23/10, v3): jerarquía en tres niveles y un solo acento (cian).
+   1. Título 20/800 en tinta; subtítulo 14/500 gris. 2. Dato: «Tu propuesta» 12 gris + monto 24/800 morado, en una franja suave.
+   3. Siguiente paso: etiqueta 11/700 cian + texto 13 + botón a todo el ancho dentro de la tarjeta. */
+.np__thread > li.np__won { display:block !important; justify-self:stretch !important; width:auto !important; max-width:none !important; }
+.np__won .np__won-card { display:flex; flex-direction:column; align-items:center; gap:0; width:100%; box-sizing:border-box; padding:28px 20px 20px; border-radius:24px; text-align:center;
+  background:#fff; box-shadow:0 0 0 1px #E3F4F4, 0 16px 40px -12px rgba(0,104,106,.22); }
+.np__won .np__won-mark { display:grid; place-items:center; width:44px; height:44px; margin:0 0 14px; border-radius:50%; background:linear-gradient(135deg,#00DAE0,#008688); box-shadow:0 0 0 6px #E6F7F7; }
+.np__won .np__won-title { margin:0; font-size:1.25rem; font-weight:800; line-height:1.25; letter-spacing:-.01em; color:#191C1C; text-wrap:balance; }
+.np__won .np__won-sub { margin:6px 0 0; font-size:.875rem; font-weight:500; color:#6B6878; }
+.np__won .np__won-amt { display:grid; gap:2px; justify-items:center; width:100%; margin:18px 0 0; padding:12px; box-sizing:border-box; border-radius:14px; background:#F6F4FB; }
+.np__won .np__won-amt span { font-size:.75rem; font-weight:500; color:#6B6878; }
+.np__won .np__won-amt b { font-size:1.5rem; font-weight:800; line-height:1.2; color:#3B1782; font-variant-numeric:tabular-nums; }
+.np__won .np__won-next { display:grid; gap:14px; width:100%; margin-top:18px; padding-top:18px; border-top:1px dashed #D6EEEE; }
+.np__won .np__won-step { display:grid; gap:4px; text-align:left; }
+.np__won .np__won-step span { font-size:.6875rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#008688; }
+.np__won .np__won-step p { margin:0; font-size:.8125rem; line-height:1.45; color:#3D3550; }
+.np__won .np__payfee { width:100% !important; max-width:none !important; margin:0; }
+.np .np__won h3.np__won-title { font-size:1.25rem !important; font-weight:800 !important; color:#191C1C !important; margin:0 !important; }
+
+/* ── Cerrar panel · 26/10 (Abraham): mismo botón circular de Concorde (LikeButton md: 32 px, borde degradado lila,
+   levanta al pasar con la sombra #22005C, se encoge al presionar, anillo #8460E5). La flecha avanza y empuja al cerrar. */
+.g-qv__head.is-compact .g-qv__close--arrow { width:32px; height:32px; border:1.44px solid transparent; border-radius:9999px; color:#3B1782; box-shadow:none;
+  background:linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #e8deff 0%, #fff 40%, #cfbaff 75%, #ae8eff 100%) border-box;
+  transition:transform .2s cubic-bezier(.25,.8,.25,1), box-shadow .25s; }
+.g-qv__head.is-compact .g-qv__close--arrow:hover { transform:scale(1.08) translateY(-2px); border-color:transparent;
+  background:linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #e8deff 0%, #fff 40%, #cfbaff 75%, #ae8eff 100%) border-box;
+  box-shadow:rgba(34,0,92,.22) 0 10px 18px, rgba(34,0,92,.12) 0 3px 6px; }
+.g-qv__head.is-compact .g-qv__close--arrow:active { transform:scale(.92); }
+.g-qv__head.is-compact .g-qv__close--arrow:focus-visible { outline:2px solid #8460E5; outline-offset:3px; }
+.g-qv__close--arrow:hover svg { transform:none; }
+.g-qv__arr { transition:translate .2s cubic-bezier(.25,.8,.25,1); }
+.g-qv__close--arrow:hover .g-qv__arr { translate:2px 0; }
+.g-qv.is-closing .g-qv__arr { translate:4px 0; transition-duration:.12s; }
+.g-qv.is-closing { animation:g-qv-out .3s cubic-bezier(.55,0,.75,.2) .06s forwards; }
+@media (max-width:767px) { .g-qv.is-closing { animation-name:g-qv-down; } }
+@media (prefers-reduced-motion:reduce) { .g-qv__arr { transition:none; } .g-qv__close--arrow:hover .g-qv__arr, .g-qv.is-closing .g-qv__arr { translate:none; } }

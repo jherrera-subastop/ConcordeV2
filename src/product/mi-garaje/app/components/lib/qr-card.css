@@ -1,0 +1,31 @@
+/* QrCard. --u es la unidad de medida: con 1px la tarjeta mide 200 px de ancho, y todo escala con ella para imprimir */
+.qc { --u: 1px; --bg: linear-gradient(110deg, #007F86 0%, #2F62B8 50%, #4E22A9 100%); --on: #fff; --bubble: #fff; --ink: #3B1FA8; --plate: #2A1460;
+  position: relative; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: calc(12 * var(--u)); width: calc(200 * var(--u)); padding: calc(16 * var(--u)); overflow: hidden; border-radius: calc(18 * var(--u));
+  background: var(--bg); color: var(--on); font-family: var(--vmc-font-display, 'Plus Jakarta Sans', -apple-system, sans-serif); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.qc *, .qc *::before, .qc *::after { box-sizing: border-box; }
+
+/* Texto de arriba */
+.qc-hook { margin: 0; font-size: calc(23 * var(--u)); font-weight: 800; line-height: 1.1; text-align: center; white-space: nowrap; }
+
+/* Marco con esquinas de visor */
+.qc-frame { position: relative; display: block; width: 100%; padding: calc(12 * var(--u)); }
+.qc-frame > i { position: absolute; width: calc(22 * var(--u)); height: calc(22 * var(--u)); border: calc(3 * var(--u)) solid var(--on); }
+.qc-frame > i:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: calc(6 * var(--u)); }
+.qc-frame > i:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: calc(6 * var(--u)); }
+.qc-frame > i:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: calc(6 * var(--u)); }
+.qc-frame > i:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: calc(6 * var(--u)); }
+
+/* QR y logo al centro */
+.qc-code { position: relative; display: block; }
+.qc-mark { display: block; width: 100%; height: auto; border-radius: calc(8 * var(--u)); }
+.qc-plate { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; padding: calc(5 * var(--u)) calc(7 * var(--u)); border-radius: calc(6 * var(--u)); background: var(--plate); box-shadow: 0 0 0 calc(3 * var(--u)) #fff; transform: translate(-50%, -50%); }
+.qc-logo { display: block; width: calc(44 * var(--u)); height: auto; }
+
+/* Texto de abajo, con cola hacia el QR */
+.qc-label { position: relative; display: block; width: 100%; padding: calc(10 * var(--u)) calc(8 * var(--u)); border-radius: calc(12 * var(--u)); background: var(--bubble); color: var(--ink); font-size: calc(14 * var(--u)); font-weight: 800; line-height: 1.15; text-align: center; text-wrap: balance; }
+.qc-label::before { content: ""; position: absolute; top: calc(-6 * var(--u)); left: 50%; width: calc(14 * var(--u)); height: calc(14 * var(--u)); margin-left: calc(-7 * var(--u)); background: var(--bubble); transform: rotate(45deg); }
+
+/* Blanco y negro, para impresoras sin color. Negro: fondo lleno. Blanco: gasta poca tinta */
+.qc--negro { --bg: #000; --ink: #000; --plate: #000; }
+.qc--blanco { --bg: #fff; --on: #000; --bubble: #000; --ink: #fff; --plate: #000; padding: calc(14 * var(--u)); border: calc(2 * var(--u)) solid #000; }
+.qc--negro .qc-logo, .qc--blanco .qc-logo { filter: brightness(0) invert(1); }

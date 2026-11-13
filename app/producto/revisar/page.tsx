@@ -1,0 +1,5 @@
+"use client";
+import {useState,Suspense} from "react";
+import {useSearchParams} from "next/navigation";
+import catalog from "@/public/producto/registry.json";
+function Review(){const q=useSearchParams();const s=catalog.screens.find(s=>s.id===q.get("pantalla"))??catalog.screens[0];const [width,setWidth]=useState(390);return <main style={{padding:16,background:"#eef0f4",minHeight:"100vh"}}><nav style={{display:"flex",gap:16,alignItems:"center",flexWrap:"wrap",paddingBottom:16}}><a href="/producto">← Pantallas</a><strong>{s.name}</strong>{[390,768,1440].map(w=><button key={w} onClick={()=>setWidth(w)} aria-pressed={width===w}>{w}px</button>)}<a href={s.route}>Abrir sin marco</a></nav><p>El marco permite revisar el responsive de la fuente. No simula ni certifica un dispositivo real.</p><div style={{overflow:"auto"}}><iframe title={s.name} src={s.route} style={{width,height:900,border:"1px solid #ccc",background:"white",display:"block",margin:"auto"}}/></div></main>};export default function Page(){return <Suspense fallback={<p>Cargando revisión…</p>}><Review/></Suspense>}

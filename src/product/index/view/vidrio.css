@@ -1,0 +1,70 @@
+/* Íconos de vidrio esmerilado (Vidrio.tsx): capas, movimiento y estados. Compartido por /iconos y Mi Garaje. */
+/* sólido violeta detrás, vidrio lila translúcido delante (ver Vidrio.tsx). */
+.vd { --solid:#5A35C2; --glass:#B9A6F2; display:block; overflow:visible; }
+.vd * { transform-box:view-box; }
+.vd-bk, .vd-bl { color:var(--solid); fill:var(--solid); }
+.vd-glass { fill:var(--glass); fill-opacity:.72; }
+.vd-edge { fill:none; stroke:#fff; stroke-opacity:.45; stroke-width:1.5; }
+
+/* Movimiento del vidrio (15/10). Pauta: 150–300 ms, una sola pasada, solo transform/opacity, resorte leve y nada con «reducir movimiento».
+ * 1) Parallax: al pasar, el vidrio sube y el sólido baja: las capas se separan. La copia desenfocada (vd-bl) compensa para seguir al sólido.
+ * 2) Gesto propio de cada ícono, una vez. */
+.vd { --spring:linear(0, .25 5%, .55 11%, .8 18%, .96 26%, 1.04 34%, 1.06 40%, 1.05 47%, 1.02 58%, 1 70%, .995 82%, 1); --out:cubic-bezier(.25,.8,.25,1); }
+.vd-bk, .vd-gl, .vd-bl, .vd-asa, .vd-nd, .vd-card, .vd-pt { transition:transform .18s var(--out); }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) :is(.vd-bk, .vd-gl, .vd-bl, .vd-asa, .vd-nd, .vd-card, .vd-pt) { transition:transform .32s var(--spring); }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-bk { transform:translate(1px,1.5px); }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-gl { transform:translate(0,-1.5px); }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-bl { transform:translate(1px,3px); }
+/* Negociaciones: los tres puntos «escriben». */
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-dot { animation:vd-hop .36s var(--out); }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-dot:nth-child(2) { animation-delay:.06s; } .vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-dot:nth-child(3) { animation-delay:.12s; }
+@keyframes vd-hop { 40% { transform:translateY(-2.5px); } }
+/* Participaciones: el martillo golpea. */
+.vd--participaciones .vd-gx { transform-origin:30px 30px; }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd--participaciones .vd-gx { animation:vd-strike .42s var(--out); }
+@keyframes vd-strike { 35% { transform:rotate(-14deg); } 65% { transform:rotate(4deg); } }
+/* Compras: el asa se levanta y el check se dibuja. */
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-asa { transform:translateY(-2px); }
+.vd-ck { stroke-dasharray:1; }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-ck { animation:vd-draw .32s .06s var(--out) backwards; }
+@keyframes vd-draw { from { stroke-dashoffset:1; } to { stroke-dashoffset:0; } }
+/* Publicaciones: la etiqueta se balancea desde el agujero. */
+.vd--publicaciones .vd-gx { transform-origin:17px 18px; }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd--publicaciones .vd-gx { animation:vd-swing .5s var(--out); }
+@keyframes vd-swing { 25% { transform:rotate(9deg); } 55% { transform:rotate(-5deg); } 80% { transform:rotate(2deg); } }
+/* Valorizaciones: la aguja sube y se queda mientras pasas. */
+.vd-nd { transform-origin:24px 33px; }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-nd { transform:rotate(22deg); }
+/* Billetera: la tarjeta sale. */
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-card { transform:translateY(-3px); }
+/* Auto: rebota sobre la suspensión. */
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd--auto .vd-gx { animation:vd-bump .4s var(--out); }
+@keyframes vd-bump { 30% { transform:translateY(-2.5px); } 60% { transform:translateY(.5px); } }
+/* Alertas: la campana suena y el punto late. */
+.vd--alertas .vd-gx { transform-origin:24px 8px; } .vd-pt { transform-origin:35px 11px; }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd--alertas .vd-gx { animation:vd-ring .5s var(--out); }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-pt { transform:scale(1.15); }
+@keyframes vd-ring { 20% { transform:rotate(12deg); } 45% { transform:rotate(-9deg); } 70% { transform:rotate(4deg); } }
+.vd-host:is(:hover,:focus-visible,.is-hover,.is-focus):not(.is-dis,:disabled) .vd-bd { animation:vd-clap .5s .04s var(--out); }
+@keyframes vd-clap { 20% { transform:translateX(-2.5px); } 45% { transform:translateX(2px); } 70% { transform:translateX(-1px); } }
+@media (prefers-reduced-motion:reduce) { .vd * { animation:none !important; transition:none !important; } }
+
+/* ── Estados del ícono (15/10). La clase is-* fuerza el estado en la matriz; en la interfaz real lo dan :hover, :focus-visible,
+   :active, aria-current/aria-pressed y disabled. ── */
+.vd-btn { all:unset; box-sizing:border-box; position:relative; display:grid; place-items:center; width:64px; height:64px; margin:0 auto; border-radius:16px; cursor:pointer; transition:background .15s, box-shadow .15s; }
+.vd-btn:is(:hover,.is-hover,:focus-visible,.is-focus) { background:#F5F0FF; }
+.vd-btn:is(:focus-visible,.is-focus) { outline:2px solid #8460E5; outline-offset:2px; }
+.vd-btn .vd { transition:transform .09s var(--out, ease-out); }
+/* Presionado: gana sobre hover (doble clase); las capas vuelven a juntarse y el ícono se hunde. */
+.vd-host.vd-host:is(:active,.is-press):not(.is-dis,:disabled) { background:#EDE6FF; }
+.vd-host.vd-host:is(:active,.is-press):not(.is-dis,:disabled) .vd { transform:scale(.94); }
+.vd-host.vd-host:is(:active,.is-press):not(.is-dis,:disabled) :is(.vd-bk,.vd-gl,.vd-bl) { transform:none; transition-duration:.09s; }
+.vd-host.vd-host:is(:active,.is-press) .vd-glass { fill-opacity:.85; }
+/* Seleccionado: naranja de marca (ítem activo de VMC) + barra inferior como señal que no depende del color. */
+.vd-host:is([aria-current=page],[aria-pressed=true],.is-sel) .vd { --solid:#ED8936; --glass:#FFC995; }
+.vd-btn:is([aria-current=page],[aria-pressed=true],.is-sel) { background:#FFF3E6; }
+.vd-btn:is([aria-current=page],[aria-pressed=true],.is-sel)::after { content:""; position:absolute; left:20px; right:20px; bottom:5px; height:3px; border-radius:3px; background:#ED8936; }
+/* Deshabilitado: gris, sin movimiento, sin foco (disabled nativo). */
+.vd-host:is(:disabled,.is-dis) { cursor:not-allowed; }
+.vd-host:is(:disabled,.is-dis) .vd { --solid:#A9A6B5; --glass:#E2E0E9; }
+.vd-host:is(:disabled,.is-dis) .vd * { animation:none !important; transition:none !important; }

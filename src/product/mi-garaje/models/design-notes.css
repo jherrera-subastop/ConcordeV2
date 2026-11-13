@@ -1,0 +1,45 @@
+/* Nota de diseño del lab: tono de documento (gris claro, borde punteado) para que no se confunda con la interfaz. */
+.dn { margin-top:24px; display:grid; gap:20px; padding:28px; border-radius:20px; background:#F7F6FB; border:1.5px dashed #CFBAFF; color:#3B1782; }
+.dn__head { display:grid; gap:6px; }
+.dn__tag { width:max-content; max-width:100%; font-size:.6875rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:#5A35C2; background:#EDE6FF; padding:3px 10px; border-radius:999px; }
+.dn h2 { margin:0; font-size:1.5rem; font-weight:800; letter-spacing:-0.02em; }
+.dn__visuals { display:grid; grid-template-columns:1.1fr 1.3fr .8fr; gap:16px; }
+.dn__fig { margin:0; display:grid; gap:10px; align-content:start; padding:16px; border-radius:14px; background:#fff; }
+.dn__fig figcaption { font-size:.75rem; font-weight:800; color:#5A35C2; }
+.dn__map { display:grid; grid-template-columns:2fr 1fr; grid-template-rows:44px 120px; grid-template-areas:"a b" "c d"; gap:6px; }
+.dn__map div { display:flex; align-items:flex-start; gap:6px; padding:6px 8px; border-radius:8px; background:#F5F0FF; font-size:.6875rem; color:#3B1782; }
+.dn__map b { flex:none; display:grid; place-items:center; width:18px; height:18px; border-radius:50%; background:#3B1782; color:#fff; font-size:.625rem; }
+.dn__weight { list-style:none; margin:0; padding:0; display:grid; gap:7px; }
+.dn__weight li { display:grid; grid-template-columns:150px 1fr; align-items:center; gap:10px; font-size:.75rem; }
+.dn__weight i { display:block; height:10px; border-radius:999px; background:linear-gradient(90deg,#ED8936,#8460E5); }
+.dn__legend { list-style:none; margin:0; padding:0; display:grid; gap:10px; font-size:.8125rem; }
+.dn__legend li { display:flex; align-items:center; gap:8px; }
+.dn__legend i { width:18px; height:18px; border-radius:6px; }
+.dn__legend .is-orange { background:#ED8936; } .dn__legend .is-teal { background:#00A8AB; } .dn__legend .is-violet { background:#5A35C2; }
+.dn__notes { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.dn__notes > li { display:grid; grid-template-columns:44px 1fr; gap:12px; padding:16px; border-radius:14px; background:#fff; }
+.dn__n { display:grid; justify-items:center; align-content:start; gap:2px; font-size:1.25rem; font-weight:800; color:#ED8936; }
+.dn__n small { font-size:.5625rem; font-weight:700; color:#5A35C2; white-space:nowrap; }
+.dn h3 { margin:0 0 4px; display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:.9375rem; font-weight:800; }
+.dn h3 em { font-style:normal; font-size:.6875rem; font-weight:700; color:#B25614; background:#FFF1E2; padding:2px 8px; border-radius:999px; }
+.dn p { margin:0 0 6px; font-size:.8125rem; line-height:1.45; color:color-mix(in srgb,#191C1C 82%,#fff); }
+.dn .dn__what { font-weight:600; color:#3B1782; }
+.dn__src { display:flex; flex-wrap:wrap; gap:6px; margin:0; }
+.dn__src a, .dn__src span { font-size:.6875rem; font-weight:700; padding:3px 8px; border-radius:999px; background:#F5F0FF; color:#5A35C2; text-decoration:none; }
+.dn__src a:hover { background:#EDE6FF; text-decoration:underline; }
+.dn__src a:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+@media (max-width:1100px) { .dn__visuals { grid-template-columns:1fr 1fr; } .dn__notes { grid-template-columns:1fr; } }
+@media (max-width:767px) { .dn { padding:18px 16px; } .dn__visuals { grid-template-columns:1fr; } .dn__weight li { grid-template-columns:120px 1fr; } }
+.dn__legend .is-magenta { background:linear-gradient(135deg,#CC00FF,#FF0066); }
+
+/* ── Nota accionable (14/10): mapa, colores y cada punto llevan a esa parte de la pantalla y la resaltan. */
+.dn__lead { margin:0; font-size:.875rem; color:#5A35C2; }
+.dn__map button { all:unset; box-sizing:border-box; cursor:pointer; display:flex; align-items:flex-start; gap:6px; padding:6px 8px; border-radius:8px; background:#F5F0FF; font-size:.6875rem; color:#3B1782; transition:background-color .15s, box-shadow .15s; }
+.dn__map button:hover { background:#EDE6FF; box-shadow:inset 0 0 0 1.5px #8460E5; }
+.dn__legend button { all:unset; cursor:pointer; display:flex; align-items:center; gap:8px; padding:4px 6px; margin:-4px -6px; border-radius:8px; }
+.dn__legend button:hover { background:#F5F0FF; }
+.dn__show { all:unset; cursor:pointer; display:inline-flex; align-items:center; margin:2px 0 8px; padding:6px 12px; border-radius:999px; font-size:.75rem; font-weight:700; color:#fff; background:#3B1782; }
+.dn__show:hover { background:#5A35C2; }
+.dn__map button:focus-visible, .dn__legend button:focus-visible, .dn__show:focus-visible { outline:2px solid #8460E5; outline-offset:2px; }
+.dn h3 mark { font-size:.6875rem; font-weight:800; color:#fff; background:linear-gradient(90deg,#A800D4,#D6005A); padding:2px 8px; border-radius:999px; }
+@media (prefers-reduced-motion:reduce) { .dn__map button { transition:none; } }

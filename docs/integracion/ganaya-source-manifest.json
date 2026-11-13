@@ -1,0 +1,3336 @@
+{
+  "source": "D:/JULIO/VMC/GanaYa-Abraham-2026-11-12/ENTREGA-GANAYA-2026-11-13-LIMPIA",
+  "sourceDate": "2026-11-13",
+  "classification": "prototipo-local-integrado-no-backend",
+  "transformations": [
+    "Alias de imports aislados",
+    "Prefijo de rutas /producto",
+    "Assets locales bajo /producto-assets/ganaya"
+  ],
+  "files": [
+    {
+      "source": "apps/index-lab/app/components/lib/featured-card.css",
+      "target": "src/product/ganaya/app/components/lib/featured-card.css",
+      "sourceSha256": "841604af66f8f0701fdbc4b80c0167c0e6fb5a97fc66ed66d89fe96f5ebfbe9a",
+      "targetSha256": "841604af66f8f0701fdbc4b80c0167c0e6fb5a97fc66ed66d89fe96f5ebfbe9a"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/FeaturedCard.tsx",
+      "target": "src/product/ganaya/app/components/lib/FeaturedCard.tsx",
+      "sourceSha256": "d60783773ec16103a850804ce6e388eec36ac87edff4b86c77ab45eb118ebd46",
+      "targetSha256": "d60783773ec16103a850804ce6e388eec36ac87edff4b86c77ab45eb118ebd46"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/light-bar.css",
+      "target": "src/product/ganaya/app/components/lib/light-bar.css",
+      "sourceSha256": "570889c423d33c067952efe2245d259fea69142aac275be7267cfb69d6d9ecbc",
+      "targetSha256": "570889c423d33c067952efe2245d259fea69142aac275be7267cfb69d6d9ecbc"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/LightBar.tsx",
+      "target": "src/product/ganaya/app/components/lib/LightBar.tsx",
+      "sourceSha256": "0276b194f5020bc4602a5d79f1a1ec4bb01313d977d14e9a2852d68c7081763e",
+      "targetSha256": "0276b194f5020bc4602a5d79f1a1ec4bb01313d977d14e9a2852d68c7081763e"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/lot-gallery.css",
+      "target": "src/product/ganaya/app/components/lib/lot-gallery.css",
+      "sourceSha256": "6547d20acae81b6f1c3bd71738aa5d93a8e9d13e2deb0cc0a4662d59bc7e78c5",
+      "targetSha256": "6547d20acae81b6f1c3bd71738aa5d93a8e9d13e2deb0cc0a4662d59bc7e78c5"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/LotGallery.tsx",
+      "target": "src/product/ganaya/app/components/lib/LotGallery.tsx",
+      "sourceSha256": "2f66ac37e371337551421b51c34c0469dbf973261d89e4763ea2418175f4b0d7",
+      "targetSha256": "2f66ac37e371337551421b51c34c0469dbf973261d89e4763ea2418175f4b0d7"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/offer-type-cards.css",
+      "target": "src/product/ganaya/app/components/lib/offer-type-cards.css",
+      "sourceSha256": "42deed32320ac37ffe9541883f531843a6b1206ae45554eadebf803d42e6a9da",
+      "targetSha256": "42deed32320ac37ffe9541883f531843a6b1206ae45554eadebf803d42e6a9da"
+    },
+    {
+      "source": "apps/index-lab/app/components/lib/OfferTypeCards.tsx",
+      "target": "src/product/ganaya/app/components/lib/OfferTypeCards.tsx",
+      "sourceSha256": "cdecd9cdac6bd75bafa48175bbfaa6f2bf2860ed7f6b8cea0b7577a00396e2d4",
+      "targetSha256": "cdecd9cdac6bd75bafa48175bbfaa6f2bf2860ed7f6b8cea0b7577a00396e2d4"
+    },
+    {
+      "source": "apps/index-lab/app/ganaya/comparacion/page.tsx",
+      "target": "src/product/ganaya/app/ganaya/comparacion/page.tsx",
+      "sourceSha256": "d7645fef6d6eb71aa3d139605262f990204d260be7ee98434fb76e3dc4fdf891",
+      "targetSha256": "542d5bbaaf9ea8de3696678e2ab1f81e7e7cb419e6ef94d20257de81c6e70b20"
+    },
+    {
+      "source": "apps/index-lab/app/ganaya/layout.tsx",
+      "target": "src/product/ganaya/app/ganaya/layout.tsx",
+      "sourceSha256": "a960b4fa6a38f378ec043a13d6948f230052bb8676ee5aa7237dcab471f81dcc",
+      "targetSha256": "fdab665d9dff0761311969b387c684110439f4e0ca6f8a340985d8d188a320f1"
+    },
+    {
+      "source": "apps/index-lab/app/ganaya/[[...screen]]/page.tsx",
+      "target": "src/product/ganaya/app/ganaya/[[...screen]]/page.tsx",
+      "sourceSha256": "6de29803616f1eb64f73327c951d0f4590039298c4d471ab45bed4662a746491",
+      "targetSha256": "dbb27fb167e7fc1ddd22052d34f68f757025206ff56f70741f0daa4a80bfbb89"
+    },
+    {
+      "source": "apps/index-lab/app/globals.css",
+      "target": "src/product/ganaya/app/globals.css",
+      "sourceSha256": "c27b8ed2b89b15ba8bce25e2199fb0c22554e6d59bdd922cb80644e2d6f77bab",
+      "targetSha256": "8360b8998494650c87a41cf946b105f6186f40fb37a8dda96bae0ac6fcb4aec4"
+    },
+    {
+      "source": "apps/index-lab/app/icon.svg",
+      "target": "src/product/ganaya/app/icon.svg",
+      "sourceSha256": "cdaf1a3283092fa1b1989b12650eab0613694d916878332ffb34d1e6ead822b5",
+      "targetSha256": "cdaf1a3283092fa1b1989b12650eab0613694d916878332ffb34d1e6ead822b5"
+    },
+    {
+      "source": "apps/index-lab/app/layout.tsx",
+      "target": "src/product/ganaya/app/layout.tsx",
+      "sourceSha256": "ada0183c4003c39a40266ae4e5148253751924740f0fae62855d3b2bb2083aeb",
+      "targetSha256": "ada0183c4003c39a40266ae4e5148253751924740f0fae62855d3b2bb2083aeb"
+    },
+    {
+      "source": "apps/index-lab/app/mi-garaje/layout.tsx",
+      "target": "src/product/ganaya/app/mi-garaje/layout.tsx",
+      "sourceSha256": "e36075fb2c6930b7a74b49ce7d4a7d2cef7241d4a513cb00f50b52e6426a62c6",
+      "targetSha256": "6571b29b83721456f3d9a1e2f1814d111eaec6302bc9521b928b3277b99ffaec"
+    },
+    {
+      "source": "apps/index-lab/app/mi-garaje/page.tsx",
+      "target": "src/product/ganaya/app/mi-garaje/page.tsx",
+      "sourceSha256": "7d5bc8be815dd890f75adde75ad053414e5ccc66c66855eac0105206d868369e",
+      "targetSha256": "a221e55860eb9ae1d40755b11ad9c39e683a7c7b25d0ade8909b0353e7d88caa"
+    },
+    {
+      "source": "apps/index-lab/app/qa/home-index-rebase/HomeIndexRebase.module.css",
+      "target": "src/product/ganaya/app/qa/home-index-rebase/HomeIndexRebase.module.css",
+      "sourceSha256": "77f10a685d8d4ff59355506b63e9b1127190ea77ed27c0ceec02e06edbd22069",
+      "targetSha256": "77f10a685d8d4ff59355506b63e9b1127190ea77ed27c0ceec02e06edbd22069"
+    },
+    {
+      "source": "apps/index-lab/app/qa/home-index-rebase/layout.tsx",
+      "target": "src/product/ganaya/app/qa/home-index-rebase/layout.tsx",
+      "sourceSha256": "09051218f337d6ecd9eae81bcccf18e41eab866829fd758ab3dac68c7013cd38",
+      "targetSha256": "09051218f337d6ecd9eae81bcccf18e41eab866829fd758ab3dac68c7013cd38"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/banners/desktop/AssetBanner.tsx",
+      "target": "src/product/ganaya/concorde/bloques/banners/desktop/AssetBanner.tsx",
+      "sourceSha256": "0dac758ecf2fb7f2fca0912e352933e28dccdce82f3e3daccea2b1478e450c39",
+      "targetSha256": "a86bbb5e298f2a2620f643e3c34833c125a4352b4e5453fd08f5435a5f4364aa"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/banners/desktop/decor.tsx",
+      "target": "src/product/ganaya/concorde/bloques/banners/desktop/decor.tsx",
+      "sourceSha256": "3c82d80f5bd3c93c38e0b3a4b5acd9b96feb9e97ff815e3bfd54d295b17f0e5f",
+      "targetSha256": "3c82d80f5bd3c93c38e0b3a4b5acd9b96feb9e97ff815e3bfd54d295b17f0e5f"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/banners/desktop/dimensions.ts",
+      "target": "src/product/ganaya/concorde/bloques/banners/desktop/dimensions.ts",
+      "sourceSha256": "36f629bd2464a570e155d98c4c96750662c525fb332ebe51e7da16629081dd6b",
+      "targetSha256": "36f629bd2464a570e155d98c4c96750662c525fb332ebe51e7da16629081dd6b"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/banners/desktop/EmpresaBanner.tsx",
+      "target": "src/product/ganaya/concorde/bloques/banners/desktop/EmpresaBanner.tsx",
+      "sourceSha256": "db1cee84a92510641a1df778d6e1dfa15f2d0a26c36998af4248b458a47fb2a0",
+      "targetSha256": "fee1aa97fc8cd7d729b5517904d6ace1458ea02f0398d2577b1b32d1ef36eaff"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/banners/desktop/EmpresaBannerAlt.tsx",
+      "target": "src/product/ganaya/concorde/bloques/banners/desktop/EmpresaBannerAlt.tsx",
+      "sourceSha256": "c878994c444bd98ea7de025620809971093f296f60052147316b22673df27f8c",
+      "targetSha256": "745536ceffb6338d6fc21d7b35198c8333f065bf5a346e726d1dc52b5732dcbb"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/banners/desktop/PromoBanner.tsx",
+      "target": "src/product/ganaya/concorde/bloques/banners/desktop/PromoBanner.tsx",
+      "sourceSha256": "e1d784017348040ac7e1a7ef80497b2d63a3ff1fcf6d06125b696e25a1d82480",
+      "targetSha256": "43540b53210fc9ff82b41582e2a2f6fd610a3d258ac08192e9a1fadfb0397aca"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/header/desktop/dimensions.ts",
+      "target": "src/product/ganaya/concorde/bloques/header/desktop/dimensions.ts",
+      "sourceSha256": "3f14fd2eb67b7566b887a6937646b4e468a1ebe04df8908e766212eb4f556235",
+      "targetSha256": "3f14fd2eb67b7566b887a6937646b4e468a1ebe04df8908e766212eb4f556235"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/header/desktop/Header.tsx",
+      "target": "src/product/ganaya/concorde/bloques/header/desktop/Header.tsx",
+      "sourceSha256": "a7df2b4ea834b26fb82daed3ede5483435973d71ef16f071fd49b8e2712658e9",
+      "targetSha256": "a7df2b4ea834b26fb82daed3ede5483435973d71ef16f071fd49b8e2712658e9"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/homepage/desktop/AuctioneerSection.tsx",
+      "target": "src/product/ganaya/concorde/bloques/homepage/desktop/AuctioneerSection.tsx",
+      "sourceSha256": "afb5292c03e57357ec6d6fc6e8934dcea100e735d25db4a893b504a926aef4a4",
+      "targetSha256": "4bb9a2329e684ed017125b3ba0b5305435a449d9015a3d8ae6985dc4a1626472"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/homepage/desktop/CategoriesSection.tsx",
+      "target": "src/product/ganaya/concorde/bloques/homepage/desktop/CategoriesSection.tsx",
+      "sourceSha256": "8b7d1613b645bbbbce84791158b140908307174470d9028016a2a6dc29ef07b8",
+      "targetSha256": "8b7d1613b645bbbbce84791158b140908307174470d9028016a2a6dc29ef07b8"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/homepage/desktop/dimensions.ts",
+      "target": "src/product/ganaya/concorde/bloques/homepage/desktop/dimensions.ts",
+      "sourceSha256": "3e067fb0c2ca23b754311dacbcfafa9a75f0db513eda24599b54be5cb34cda5e",
+      "targetSha256": "3e067fb0c2ca23b754311dacbcfafa9a75f0db513eda24599b54be5cb34cda5e"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/homepage/desktop/Homepage.tsx",
+      "target": "src/product/ganaya/concorde/bloques/homepage/desktop/Homepage.tsx",
+      "sourceSha256": "bcff5c332ce390996ab57537444f4fe9c4d0f39def4aa7afdb2b0e796981dcdb",
+      "targetSha256": "bcff5c332ce390996ab57537444f4fe9c4d0f39def4aa7afdb2b0e796981dcdb"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/homepage/mobile/dimensions.ts",
+      "target": "src/product/ganaya/concorde/bloques/homepage/mobile/dimensions.ts",
+      "sourceSha256": "8e3f54866b10bc8ad74aeffe5a889e9ba4fb0f6e99a21d9d10b8c3e20a984c07",
+      "targetSha256": "8e3f54866b10bc8ad74aeffe5a889e9ba4fb0f6e99a21d9d10b8c3e20a984c07"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/homepage/mobile/HomepageMobile.tsx",
+      "target": "src/product/ganaya/concorde/bloques/homepage/mobile/HomepageMobile.tsx",
+      "sourceSha256": "d3d9b47f62779ada219993bd5b330cce5f7ff2d017be1941a3d3a7cdb5fc7aa3",
+      "targetSha256": "95d663a72d60911976f0fc4df042ac13b9272af6d2651f96775ff585d29e18b2"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/dimensions.ts",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/dimensions.ts",
+      "sourceSha256": "3d90752ff2b9f93df9c3eabc3db963a80a53648115aa75ee796c00a08e1b779a",
+      "targetSha256": "3d90752ff2b9f93df9c3eabc3db963a80a53648115aa75ee796c00a08e1b779a"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "sourceSha256": "5a009a70beed88569d23538008cb8fc07cd565036bf9f4fd169f22bbb65be5d4",
+      "targetSha256": "2f373398d3c519595250a7e5dbd98bf8c0483580dc9e4ba9d938368696468584"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "sourceSha256": "e59aea1867834b9da649a2ca3d48c9c892488a125fb37d79cb21c393260f86f7",
+      "targetSha256": "e59aea1867834b9da649a2ca3d48c9c892488a125fb37d79cb21c393260f86f7"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "sourceSha256": "8500c46d20b432b2468c492d2f4b07909ce474ef949e0a98eae083054b830c82",
+      "targetSha256": "488f0f044cbcc74ca2dc4c3ea3c19f88bf5494acc138e4c2d4fd15bbf056b57d"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/SidebarIcon.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/SidebarIcon.tsx",
+      "sourceSha256": "5730ec1606e99d6deda2cfc37f8b0735e1a8c6c614372db4c582d2f7daffb415",
+      "targetSha256": "5730ec1606e99d6deda2cfc37f8b0735e1a8c6c614372db4c582d2f7daffb415"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "sourceSha256": "3f75ae20059d0942991246b937c7099791317f25fbbe0c8315c6744168494e34",
+      "targetSha256": "3f75ae20059d0942991246b937c7099791317f25fbbe0c8315c6744168494e34"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "sourceSha256": "13202a117b17eafaebb205bfa1c30d3f5c41ad41d15ea806e467dcef9cfe089f",
+      "targetSha256": "13202a117b17eafaebb205bfa1c30d3f5c41ad41d15ea806e467dcef9cfe089f"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/mobile/dimensions.ts",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/mobile/dimensions.ts",
+      "sourceSha256": "81bd8d9a9400bad7c2c403d77fab0afba93eac3669e420bc82d494f62fde09ce",
+      "targetSha256": "81bd8d9a9400bad7c2c403d77fab0afba93eac3669e420bc82d494f62fde09ce"
+    },
+    {
+      "source": "apps/index-lab/concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "target": "src/product/ganaya/concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "sourceSha256": "d1869ea557d0b8acbf1a9a617b980680996c767aa55faf1f6b3017a79f11d77d",
+      "targetSha256": "d1869ea557d0b8acbf1a9a617b980680996c767aa55faf1f6b3017a79f11d77d"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/ActivityCard.tsx",
+      "target": "src/product/ganaya/concorde/components/ActivityCard.tsx",
+      "sourceSha256": "e83faa1adaf2ef4519cade8d4f0f31e1b68357c99d020c21a2a5f41d2834105c",
+      "targetSha256": "cd0ca9cf1b285844229def335111997df71248baf28584a3a99731471ec05baf"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/AvatarZone.tsx",
+      "target": "src/product/ganaya/concorde/components/AvatarZone.tsx",
+      "sourceSha256": "47e85930eced5d5f33cb95e40bdb78368b6421bab5d9e9b9e0c66e481d74d492",
+      "targetSha256": "47e85930eced5d5f33cb95e40bdb78368b6421bab5d9e9b9e0c66e481d74d492"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/BadgeStatus.tsx",
+      "target": "src/product/ganaya/concorde/components/BadgeStatus.tsx",
+      "sourceSha256": "72c4339f9dab06b26ab2b17c36085904eb08c20a43780b5c1f97fad12582193d",
+      "targetSha256": "72c4339f9dab06b26ab2b17c36085904eb08c20a43780b5c1f97fad12582193d"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/BusinessIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/BusinessIcon.tsx",
+      "sourceSha256": "b1fdc32606ca86d10cf8d39877ddfe8603f88b652ff175e8510992a8f55b2a7e",
+      "targetSha256": "b1fdc32606ca86d10cf8d39877ddfe8603f88b652ff175e8510992a8f55b2a7e"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/Button.tsx",
+      "target": "src/product/ganaya/concorde/components/Button.tsx",
+      "sourceSha256": "c75430370f46b1aacaa58975a24286ad1ca624339ed18028ea5c44a3d2d924c8",
+      "targetSha256": "c75430370f46b1aacaa58975a24286ad1ca624339ed18028ea5c44a3d2d924c8"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/CardTitle.tsx",
+      "target": "src/product/ganaya/concorde/components/CardTitle.tsx",
+      "sourceSha256": "77b4cb314c1e4d8ca19123f412af77015d22dfb194f15492db8900c12cb20a1e",
+      "targetSha256": "77b4cb314c1e4d8ca19123f412af77015d22dfb194f15492db8900c12cb20a1e"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/CategoryCard.tsx",
+      "target": "src/product/ganaya/concorde/components/CategoryCard.tsx",
+      "sourceSha256": "4dd0b9f04689d62415361cff25817c23a1f58b465559e8d0aad9285738ffb5ab",
+      "targetSha256": "4dd0b9f04689d62415361cff25817c23a1f58b465559e8d0aad9285738ffb5ab"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/CategoryIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/CategoryIcon.tsx",
+      "sourceSha256": "4a299826bc5e66d825ea39717f314867e984f92f93bcb078abdbb1fe3e9db35b",
+      "targetSha256": "4a299826bc5e66d825ea39717f314867e984f92f93bcb078abdbb1fe3e9db35b"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/InfoIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/InfoIcon.tsx",
+      "sourceSha256": "71587420bb6900d95039e882d1e9d083696b5a7fb70ad084c29e0a724226555d",
+      "targetSha256": "71587420bb6900d95039e882d1e9d083696b5a7fb70ad084c29e0a724226555d"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/LikeButton.tsx",
+      "target": "src/product/ganaya/concorde/components/LikeButton.tsx",
+      "sourceSha256": "854a08adc2dfd4c2115409c26bf020b8c1038b4b08b332c297901d78678ce408",
+      "targetSha256": "854a08adc2dfd4c2115409c26bf020b8c1038b4b08b332c297901d78678ce408"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/OfferCard.tsx",
+      "target": "src/product/ganaya/concorde/components/OfferCard.tsx",
+      "sourceSha256": "56abf175e63989e82daf82b1d61834875cc914f82ff5388815022e880dfc1b1c",
+      "targetSha256": "56abf175e63989e82daf82b1d61834875cc914f82ff5388815022e880dfc1b1c"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/OfferIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/OfferIcon.tsx",
+      "sourceSha256": "a937041dd92c6a3b33596b6625e388a3be09a16512cba544d34d1cf9f300f6b0",
+      "targetSha256": "a937041dd92c6a3b33596b6625e388a3be09a16512cba544d34d1cf9f300f6b0"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/OfferShelf.tsx",
+      "target": "src/product/ganaya/concorde/components/OfferShelf.tsx",
+      "sourceSha256": "e536b4660977f164c6f921cbd192f331e83130b18f1057f8ab129544d1a3dedf",
+      "targetSha256": "98980cb2886d69c16e330a101771079c28aab7967804504783ace0982f4d6fae"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/OfferType.tsx",
+      "target": "src/product/ganaya/concorde/components/OfferType.tsx",
+      "sourceSha256": "b58ef91fd83228c9b451d80cdedd0764a344644f46844fa8185a5e0952d78071",
+      "targetSha256": "b58ef91fd83228c9b451d80cdedd0764a344644f46844fa8185a5e0952d78071"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/ProfileButton.tsx",
+      "target": "src/product/ganaya/concorde/components/ProfileButton.tsx",
+      "sourceSha256": "82c263b59820c02c92a8a1168b83322ccc1b7ecc600e0f7949d6353c9f5c6189",
+      "targetSha256": "82c263b59820c02c92a8a1168b83322ccc1b7ecc600e0f7949d6353c9f5c6189"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/ServiceCenterIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/ServiceCenterIcon.tsx",
+      "sourceSha256": "57039d72eefb623d76d57497b4fd00c7cb411f3de72f06db5180df01bfb2aad1",
+      "targetSha256": "57039d72eefb623d76d57497b4fd00c7cb411f3de72f06db5180df01bfb2aad1"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/StarIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/StarIcon.tsx",
+      "sourceSha256": "835e29a68e8fd488a55f88093d613c70c695412b3070ceac8ecdf5822e9dbc33",
+      "targetSha256": "835e29a68e8fd488a55f88093d613c70c695412b3070ceac8ecdf5822e9dbc33"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/TimerIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/TimerIcon.tsx",
+      "sourceSha256": "e1ea0219472cb25191b2a77c94d99e1124c9a21fa59629dbe5b95c4a78bf5e8f",
+      "targetSha256": "e1ea0219472cb25191b2a77c94d99e1124c9a21fa59629dbe5b95c4a78bf5e8f"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/TodayIcon.tsx",
+      "target": "src/product/ganaya/concorde/components/TodayIcon.tsx",
+      "sourceSha256": "bb3127b7c7726c7924d240c6049dd90f73ab8971cf8eb7f6a701e7bbedc015be",
+      "targetSha256": "bb3127b7c7726c7924d240c6049dd90f73ab8971cf8eb7f6a701e7bbedc015be"
+    },
+    {
+      "source": "apps/index-lab/concorde/components/UserProfileCard.tsx",
+      "target": "src/product/ganaya/concorde/components/UserProfileCard.tsx",
+      "sourceSha256": "18e1774dc243dd13e463db3a72cce868faf49151e52e8e02dc37004de07a37a3",
+      "targetSha256": "93985d3c6cf8295f3012fe8ac80e0307d74a80244f826686943ee03edd67d5eb"
+    },
+    {
+      "source": "apps/index-lab/ganaya/Comparison.module.css",
+      "target": "src/product/ganaya/ganaya/Comparison.module.css",
+      "sourceSha256": "47b250804fcfdec456982028088d64f75eb4056ae306b09ddd1410c525845325",
+      "targetSha256": "47b250804fcfdec456982028088d64f75eb4056ae306b09ddd1410c525845325"
+    },
+    {
+      "source": "apps/index-lab/ganaya/Comparison.tsx",
+      "target": "src/product/ganaya/ganaya/Comparison.tsx",
+      "sourceSha256": "6b93b4fc26dad313bf9df9e3c59ea2bea1c5eeacbed8d4ab41de2b5179ee850a",
+      "targetSha256": "5d6ffafa32590b8a30ba7b8d6c6570d5968746cd6128255d4e22c550847efe02"
+    },
+    {
+      "source": "apps/index-lab/ganaya/ganaya-propuesta-tokens.css",
+      "target": "src/product/ganaya/ganaya/ganaya-propuesta-tokens.css",
+      "sourceSha256": "090bff30ed70a8bdd7a85351d240c853d89decbaeb78ad20332938bdaf98af3d",
+      "targetSha256": "090bff30ed70a8bdd7a85351d240c853d89decbaeb78ad20332938bdaf98af3d"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYa.module.css",
+      "target": "src/product/ganaya/ganaya/GanaYa.module.css",
+      "sourceSha256": "f78a471f69a2e0eceb8b76d82895f89afd8c0a7cbe90928d7aa9765ca042efc7",
+      "targetSha256": "f78a471f69a2e0eceb8b76d82895f89afd8c0a7cbe90928d7aa9765ca042efc7"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaApp.tsx",
+      "target": "src/product/ganaya/ganaya/GanaYaApp.tsx",
+      "sourceSha256": "3d97aa4c5ee3f1eb7f8f4b01add8d9b557d57031d08782fbe3094e58768cc0b5",
+      "targetSha256": "dd18526954bbbfde6f67635c8b3ca0032ca2491c4aa7df96ff254eca45594dff"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaBanner.module.css",
+      "target": "src/product/ganaya/ganaya/GanaYaBanner.module.css",
+      "sourceSha256": "10948e1d426f275fb96902086a3d840b8c1c3521b6e3fa7cc20c4403815af048",
+      "targetSha256": "10948e1d426f275fb96902086a3d840b8c1c3521b6e3fa7cc20c4403815af048"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaBanner.tsx",
+      "target": "src/product/ganaya/ganaya/GanaYaBanner.tsx",
+      "sourceSha256": "cb5306e104ac50f107caa4bff1c01d6f967c07d1c4023b2f3e54f1b12b3259a6",
+      "targetSha256": "69d7a80b754583bdcbe85d3c963eed384b387108c7cbe72c86a66d79b9d6d1ee"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaButton.module.css",
+      "target": "src/product/ganaya/ganaya/GanaYaButton.module.css",
+      "sourceSha256": "39056de67414e883b73f9623678c90d780e91ba809a43691928b8f64687914f2",
+      "targetSha256": "39056de67414e883b73f9623678c90d780e91ba809a43691928b8f64687914f2"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaButton.tsx",
+      "target": "src/product/ganaya/ganaya/GanaYaButton.tsx",
+      "sourceSha256": "757b5cea83987a6e670332f10ab1e33cdbd22814a62368b8e5ed8689b7cd695f",
+      "targetSha256": "757b5cea83987a6e670332f10ab1e33cdbd22814a62368b8e5ed8689b7cd695f"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaIcon.tsx",
+      "target": "src/product/ganaya/ganaya/GanaYaIcon.tsx",
+      "sourceSha256": "ccc44bfbac76e464f5fa4fd0cc5899c85cb3d93b821b7df9e0807709ec3a713a",
+      "targetSha256": "ccc44bfbac76e464f5fa4fd0cc5899c85cb3d93b821b7df9e0807709ec3a713a"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaPurchase.module.css",
+      "target": "src/product/ganaya/ganaya/GanaYaPurchase.module.css",
+      "sourceSha256": "f0658bbea06cda3cc731067b9cc47b31ee3130a7bde280aebb19d5c84fd17b3e",
+      "targetSha256": "f0658bbea06cda3cc731067b9cc47b31ee3130a7bde280aebb19d5c84fd17b3e"
+    },
+    {
+      "source": "apps/index-lab/ganaya/GanaYaPurchase.tsx",
+      "target": "src/product/ganaya/ganaya/GanaYaPurchase.tsx",
+      "sourceSha256": "ba63bcc0ddf094fee1875c849f623cfe0b2c974fa23faffa09e00f44c07c6e2a",
+      "targetSha256": "5a94984d3eb36409335d4501b58c3a021fcfab6799c51727f8ee108d1f361ed3"
+    },
+    {
+      "source": "apps/index-lab/ganaya/navigation.tsx",
+      "target": "src/product/ganaya/ganaya/navigation.tsx",
+      "sourceSha256": "c6492540585691437df43c526ee58a77667390d90a3e1f8fdd046985920e9920",
+      "targetSha256": "ffb01f050a71f704c8e2d775074c4e4070d22fae8e1297df56d554fafe38e852"
+    },
+    {
+      "source": "apps/index-lab/ganaya/PropuestaAbraham.module.css",
+      "target": "src/product/ganaya/ganaya/PropuestaAbraham.module.css",
+      "sourceSha256": "801e3e35584a0ec1163a4e5576fec85508ade80cba0a6cbc386ff4f8f2b5d0d9",
+      "targetSha256": "801e3e35584a0ec1163a4e5576fec85508ade80cba0a6cbc386ff4f8f2b5d0d9"
+    },
+    {
+      "source": "apps/index-lab/ganaya/PropuestaAbraham.tsx",
+      "target": "src/product/ganaya/ganaya/PropuestaAbraham.tsx",
+      "sourceSha256": "8e1bb70f7e79e3c234f9236285391cec9498efd9a0cbbd4cf34eb2a65e6f4249",
+      "targetSha256": "d036a1a7ef3eec47238c09d229cd188fe20be4888712918374dd296d7dc161c4"
+    },
+    {
+      "source": "apps/index-lab/ganaya/ui.ts",
+      "target": "src/product/ganaya/ganaya/ui.ts",
+      "sourceSha256": "b52f886aa2ba75d094bf2a12a880f96b6d57694b7f441216b9a6d2c7c2ac5b84",
+      "targetSha256": "1cc8fc253bed33eca8130436c07b3fdc15ec65c12154dc6ea67efef779d1e9d0"
+    },
+    {
+      "source": "apps/index-lab/ganaya/wallet.ts",
+      "target": "src/product/ganaya/ganaya/wallet.ts",
+      "sourceSha256": "1d7d753295b46a8ba1e6b04e1507f95d291afad55267ac2040f18c20f49706d2",
+      "targetSha256": "1d7d753295b46a8ba1e6b04e1507f95d291afad55267ac2040f18c20f49706d2"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/header/desktop/dimensions.ts",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/header/desktop/dimensions.ts",
+      "sourceSha256": "4053be28790ff40fe4e446d97743e2d86cd657b986cfa1bbe3bc77ca796e0d3b",
+      "targetSha256": "4053be28790ff40fe4e446d97743e2d86cd657b986cfa1bbe3bc77ca796e0d3b"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/header/desktop/Header.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/header/desktop/Header.tsx",
+      "sourceSha256": "b4017c219773dd733bb3e9868f13174b6bc20b1c5c50c3b735bdd2d02241bf22",
+      "targetSha256": "b4017c219773dd733bb3e9868f13174b6bc20b1c5c50c3b735bdd2d02241bf22"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/dimensions.ts",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/dimensions.ts",
+      "sourceSha256": "6a4d869737ce456cb0f83af3573357952aed33dd79d60808b74acd44c55656f5",
+      "targetSha256": "6a4d869737ce456cb0f83af3573357952aed33dd79d60808b74acd44c55656f5"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "sourceSha256": "375ca19f4f80d283d1e588cae95c55885951e59cb46ec658aecf862d0ee66920",
+      "targetSha256": "323e4149aea577bc48e566c1fb8e657cdd403e3bb765f1b58b14d368a6ebef0b"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "sourceSha256": "b53c675ed1942c2ec88e84d8c5e65af82d1b6d611af14b31b37e52aa6b8fd64f",
+      "targetSha256": "b53c675ed1942c2ec88e84d8c5e65af82d1b6d611af14b31b37e52aa6b8fd64f"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "sourceSha256": "581803cbdd9f9ce41223b3373a9f93276b5e75fb160731ae0511e4da3e554917",
+      "targetSha256": "c101665047773be6c0cf8dde24df44b9dc40d999b13d83bfc2592ac631110b3b"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/SidebarIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/SidebarIcon.tsx",
+      "sourceSha256": "be884b4d4b94d45134cfd8c4084a80e5836dc5accf5769ff0ab4a016d2f5bb57",
+      "targetSha256": "be884b4d4b94d45134cfd8c4084a80e5836dc5accf5769ff0ab4a016d2f5bb57"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "sourceSha256": "c5d3ea6db6e37502c205dc2db2c9aeb06b39203f018ebc8c9e45faf8e4ab3081",
+      "targetSha256": "c5d3ea6db6e37502c205dc2db2c9aeb06b39203f018ebc8c9e45faf8e4ab3081"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "sourceSha256": "c9f13c5ffa6fd644215988c8a2c4e97bb0d61e5eb728ddba24d5774302121a1c",
+      "targetSha256": "c9f13c5ffa6fd644215988c8a2c4e97bb0d61e5eb728ddba24d5774302121a1c"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/mobile/dimensions.ts",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/mobile/dimensions.ts",
+      "sourceSha256": "8e8eab43cb20259957b17fbf2cc4d19d2b0439ca42eb883a6c4d369e31fc7e7b",
+      "targetSha256": "8e8eab43cb20259957b17fbf2cc4d19d2b0439ca42eb883a6c4d369e31fc7e7b"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "sourceSha256": "5feef797a5bb43464bc490db3cbbe4992a86c9e939d042eaeac4febbb0f82815",
+      "targetSha256": "5feef797a5bb43464bc490db3cbbe4992a86c9e939d042eaeac4febbb0f82815"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/Accordion.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/Accordion.tsx",
+      "sourceSha256": "c627f0acc0a86e851f5bc47660375cd9df6603de0fac93fddd7a4b36fe7ba2e9",
+      "targetSha256": "90cbf2df283ccea62f128ec6e2848013d6cbac84f26672f869bf81f59b29589c"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/AuctionStatus.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/AuctionStatus.tsx",
+      "sourceSha256": "16b212b742a17c8bbe0a8b1106cf86909633c3c379b7327c1c4c7867bc6a30e8",
+      "targetSha256": "16b212b742a17c8bbe0a8b1106cf86909633c3c379b7327c1c4c7867bc6a30e8"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/BadgeStatus.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/BadgeStatus.tsx",
+      "sourceSha256": "72c4339f9dab06b26ab2b17c36085904eb08c20a43780b5c1f97fad12582193d",
+      "targetSha256": "72c4339f9dab06b26ab2b17c36085904eb08c20a43780b5c1f97fad12582193d"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/BusinessIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/BusinessIcon.tsx",
+      "sourceSha256": "823a4d739ead1e25b0863303fc421bfc34ae32ba54ab2cf20c29f1b5257826e6",
+      "targetSha256": "823a4d739ead1e25b0863303fc421bfc34ae32ba54ab2cf20c29f1b5257826e6"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/Button.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/Button.tsx",
+      "sourceSha256": "c75430370f46b1aacaa58975a24286ad1ca624339ed18028ea5c44a3d2d924c8",
+      "targetSha256": "c75430370f46b1aacaa58975a24286ad1ca624339ed18028ea5c44a3d2d924c8"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/CardTitle.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/CardTitle.tsx",
+      "sourceSha256": "2e9b3403cd7ad98a6205930391cef20f623cf3c01ce46302a7e6d9dd38ecb745",
+      "targetSha256": "2e9b3403cd7ad98a6205930391cef20f623cf3c01ce46302a7e6d9dd38ecb745"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/CardViewer.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/CardViewer.tsx",
+      "sourceSha256": "5d0fa5267ac8cb27e9a5513428297721f81b90f7030b786a1d9b655f6b5cd525",
+      "targetSha256": "5d0fa5267ac8cb27e9a5513428297721f81b90f7030b786a1d9b655f6b5cd525"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/CategoryIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/CategoryIcon.tsx",
+      "sourceSha256": "d61e7133302bb6dbebb22806a574a4e9f81038c60feab81dedff43a8b921972e",
+      "targetSha256": "d61e7133302bb6dbebb22806a574a4e9f81038c60feab81dedff43a8b921972e"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/CheckIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/CheckIcon.tsx",
+      "sourceSha256": "4204e3cc19508645880384ab8c5531c72d222d5372ae51c826abdf6fa27bf8d7",
+      "targetSha256": "4204e3cc19508645880384ab8c5531c72d222d5372ae51c826abdf6fa27bf8d7"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/ConditionPill.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/ConditionPill.tsx",
+      "sourceSha256": "56b6b33320c407a7a1ab93b8d72db82e63a2c4fa94e01230840d9caad3e15f8f",
+      "targetSha256": "56b6b33320c407a7a1ab93b8d72db82e63a2c4fa94e01230840d9caad3e15f8f"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/DetailCard.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/DetailCard.tsx",
+      "sourceSha256": "b935fe874b7286e6b6026232e88daac87ff32586139999116339d766425c90ca",
+      "targetSha256": "f2871d500d5137daad9a5eee19296b29e53cc5d083dcc21f572ff460054d0bff"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/InfoIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/InfoIcon.tsx",
+      "sourceSha256": "82ee0fb40b0c4461ffead0ef396bff807cfcc78d1e0cb653307c7791f33cfdc8",
+      "targetSha256": "82ee0fb40b0c4461ffead0ef396bff807cfcc78d1e0cb653307c7791f33cfdc8"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/Input.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/Input.tsx",
+      "sourceSha256": "0fb7af157356fcadec5a2e4e72f8f0539143cc454f44456514600c3a7a7b18a3",
+      "targetSha256": "0fb7af157356fcadec5a2e4e72f8f0539143cc454f44456514600c3a7a7b18a3"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/LikeButton.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/LikeButton.tsx",
+      "sourceSha256": "854a08adc2dfd4c2115409c26bf020b8c1038b4b08b332c297901d78678ce408",
+      "targetSha256": "854a08adc2dfd4c2115409c26bf020b8c1038b4b08b332c297901d78678ce408"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/OfferCard.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/OfferCard.tsx",
+      "sourceSha256": "e74c2ee67a5b610994cc8e2693eb087a091c75936eb163032eca5c73e1e8b364",
+      "targetSha256": "e74c2ee67a5b610994cc8e2693eb087a091c75936eb163032eca5c73e1e8b364"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/OfferIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/OfferIcon.tsx",
+      "sourceSha256": "d2e303f24b00affe184d060293bd5fa14b4336240e6d76bfcae54b76cdad71c9",
+      "targetSha256": "d2e303f24b00affe184d060293bd5fa14b4336240e6d76bfcae54b76cdad71c9"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/PriceIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/PriceIcon.tsx",
+      "sourceSha256": "6f553568cdc70897cb7c2039d67b016fafaf20b8b43b87fde1493f703e87559f",
+      "targetSha256": "6f553568cdc70897cb7c2039d67b016fafaf20b8b43b87fde1493f703e87559f"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/ServiceCenterIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/ServiceCenterIcon.tsx",
+      "sourceSha256": "3c4ff91d5c07e22afc73d347419a438d5913922d2ef49ee0161e42b11a210da5",
+      "targetSha256": "3c4ff91d5c07e22afc73d347419a438d5913922d2ef49ee0161e42b11a210da5"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/Table.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/Table.tsx",
+      "sourceSha256": "40499bf0ae26b460fc1d90a4c5d87a9470b99382d648d7a4f2eb24d3523fcebb",
+      "targetSha256": "40499bf0ae26b460fc1d90a4c5d87a9470b99382d648d7a4f2eb24d3523fcebb"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/TabSelector.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/TabSelector.tsx",
+      "sourceSha256": "f624d1d22221c44d3223cd3c3b81187967b803d282a90eb7a998c0522ad80f2e",
+      "targetSha256": "f624d1d22221c44d3223cd3c3b81187967b803d282a90eb7a998c0522ad80f2e"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/TermsSelector.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/TermsSelector.tsx",
+      "sourceSha256": "4ba6372a54e2203d98483d7ef413d56988d960653818f739cdc8b455bcac5cb9",
+      "targetSha256": "4ba6372a54e2203d98483d7ef413d56988d960653818f739cdc8b455bcac5cb9"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/components/TodayIcon.tsx",
+      "target": "src/product/ganaya/ganaya-concorde/components/TodayIcon.tsx",
+      "sourceSha256": "0b9f8ff2918258b4f9de5a6b34dd6f7e083403faefa8a56e6d79436439038507",
+      "targetSha256": "0b9f8ff2918258b4f9de5a6b34dd6f7e083403faefa8a56e6d79436439038507"
+    },
+    {
+      "source": "apps/index-lab/ganaya-concorde/styles/tokens.css",
+      "target": "src/product/ganaya/ganaya-concorde/styles/tokens.css",
+      "sourceSha256": "502dfae947baf94ec82b3f907daf928e1fd1f9198e8874118a1b36664a20e855",
+      "targetSha256": "502dfae947baf94ec82b3f907daf928e1fd1f9198e8874118a1b36664a20e855"
+    },
+    {
+      "source": "apps/index-lab/ganaya-reference/DetailCard.tsx",
+      "target": "src/product/ganaya/ganaya-reference/DetailCard.tsx",
+      "sourceSha256": "67f15224746cc0aed9600c8b69252ab0401e07c268b8c9c887eecb799168aade",
+      "targetSha256": "9ceeecc022901b0cf370830675794ad30323c8f20093cd6fb5595a2f80b934de"
+    },
+    {
+      "source": "apps/index-lab/ganaya-reference/Detalle.tsx",
+      "target": "src/product/ganaya/ganaya-reference/Detalle.tsx",
+      "sourceSha256": "dd40975b536e38b19108625a5c8187ed2526c6773d06967d6ae6df587f4c452c",
+      "targetSha256": "85655be238cfce68fe49e0012fcb3d34aa9980b039e318510d804e4485d43a04"
+    },
+    {
+      "source": "apps/index-lab/ganaya-reference/dimensions.ts",
+      "target": "src/product/ganaya/ganaya-reference/dimensions.ts",
+      "sourceSha256": "ea59443deb864b3a104de630c5d85f9b22a8b019a7b591e6fd65362c2e2be96b",
+      "targetSha256": "ea59443deb864b3a104de630c5d85f9b22a8b019a7b591e6fd65362c2e2be96b"
+    },
+    {
+      "source": "apps/index-lab/ganaya-reference/pills.ts",
+      "target": "src/product/ganaya/ganaya-reference/pills.ts",
+      "sourceSha256": "561366311650a880e05438ae529c785fae10de42aff33e6640fe4bf9c9af7bcd",
+      "targetSha256": "561366311650a880e05438ae529c785fae10de42aff33e6640fe4bf9c9af7bcd"
+    },
+    {
+      "source": "apps/index-lab/ganaya-reference/propuesta.css",
+      "target": "src/product/ganaya/ganaya-reference/propuesta.css",
+      "sourceSha256": "a14d65f1b609ee26b5b2bfa3e42684f726a0202a4e65d671893a45333af84c3b",
+      "targetSha256": "a14d65f1b609ee26b5b2bfa3e42684f726a0202a4e65d671893a45333af84c3b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/components/lib/drop-modal.css",
+      "target": "src/product/ganaya/mi-garaje/app/components/lib/drop-modal.css",
+      "sourceSha256": "668195ba4e94bd9b9f826392d54ad710d714d96e6c0bf51890ff38ef00b2eb30",
+      "targetSha256": "668195ba4e94bd9b9f826392d54ad710d714d96e6c0bf51890ff38ef00b2eb30"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/components/lib/DropModal.tsx",
+      "target": "src/product/ganaya/mi-garaje/app/components/lib/DropModal.tsx",
+      "sourceSha256": "d0f31c60ae30dad730b3f2853836a190dfbd2b04ec5cc6a4e315b63728c04c63",
+      "targetSha256": "d0f31c60ae30dad730b3f2853836a190dfbd2b04ec5cc6a4e315b63728c04c63"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/components/lib/publication-badge.css",
+      "target": "src/product/ganaya/mi-garaje/app/components/lib/publication-badge.css",
+      "sourceSha256": "d2ca20464ba80cc4c34b636713465f462fcd1b48773300debde7841e8a9b847e",
+      "targetSha256": "d2ca20464ba80cc4c34b636713465f462fcd1b48773300debde7841e8a9b847e"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/components/lib/PublicationBadge.tsx",
+      "target": "src/product/ganaya/mi-garaje/app/components/lib/PublicationBadge.tsx",
+      "sourceSha256": "29a75cf320e6e4fd6262d170dacc68bd827ea88597655ffa1ef2b6ad8962c8bd",
+      "targetSha256": "29a75cf320e6e4fd6262d170dacc68bd827ea88597655ffa1ef2b6ad8962c8bd"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/components/PublicationFlow.tsx",
+      "target": "src/product/ganaya/mi-garaje/app/components/PublicationFlow.tsx",
+      "sourceSha256": "245809879ba69c425573f687b5c8d64d58ff1963de23a49fbd562c47d9b1b442",
+      "targetSha256": "7c3606d84b7eab795e34c9ce8ddae8ad165c62189431a24decbd89aca75f220b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/iconos/vidrio.css",
+      "target": "src/product/ganaya/mi-garaje/app/iconos/vidrio.css",
+      "sourceSha256": "8458a39edd61655860cfc71789e0a8696856b3721a64007b3b0a8a8980fe8495",
+      "targetSha256": "8458a39edd61655860cfc71789e0a8696856b3721a64007b3b0a8a8980fe8495"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/app/iconos/Vidrio.tsx",
+      "target": "src/product/ganaya/mi-garaje/app/iconos/Vidrio.tsx",
+      "sourceSha256": "a64460709f12a828ff71cdb9f7f37327c2d99d4e38f796fc586de73c981924f5",
+      "targetSha256": "a64460709f12a828ff71cdb9f7f37327c2d99d4e38f796fc586de73c981924f5"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/blocks/detalle/desktop/Detalle.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/blocks/detalle/desktop/Detalle.tsx",
+      "sourceSha256": "08aa5f184f5c36aa58fb13ebd0af1ca1a01affad5d184bb8f96cda89483e9e01",
+      "targetSha256": "e61f4b85a7d86dbbfc319f997aabc846e5a3ab042ea42f8d1fe644545cb9b6c8"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/blocks/detalle/desktop/dimensions.ts",
+      "target": "src/product/ganaya/mi-garaje/concorde/blocks/detalle/desktop/dimensions.ts",
+      "sourceSha256": "ea59443deb864b3a104de630c5d85f9b22a8b019a7b591e6fd65362c2e2be96b",
+      "targetSha256": "ea59443deb864b3a104de630c5d85f9b22a8b019a7b591e6fd65362c2e2be96b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/blocks/detalle/pills.ts",
+      "target": "src/product/ganaya/mi-garaje/concorde/blocks/detalle/pills.ts",
+      "sourceSha256": "561366311650a880e05438ae529c785fae10de42aff33e6640fe4bf9c9af7bcd",
+      "targetSha256": "561366311650a880e05438ae529c785fae10de42aff33e6640fe4bf9c9af7bcd"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/header/desktop/dimensions.ts",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/header/desktop/dimensions.ts",
+      "sourceSha256": "4053be28790ff40fe4e446d97743e2d86cd657b986cfa1bbe3bc77ca796e0d3b",
+      "targetSha256": "4053be28790ff40fe4e446d97743e2d86cd657b986cfa1bbe3bc77ca796e0d3b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/header/desktop/Header.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/header/desktop/Header.tsx",
+      "sourceSha256": "b4017c219773dd733bb3e9868f13174b6bc20b1c5c50c3b735bdd2d02241bf22",
+      "targetSha256": "b4017c219773dd733bb3e9868f13174b6bc20b1c5c50c3b735bdd2d02241bf22"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/desktop/dimensions.ts",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/desktop/dimensions.ts",
+      "sourceSha256": "6a4d869737ce456cb0f83af3573357952aed33dd79d60808b74acd44c55656f5",
+      "targetSha256": "6a4d869737ce456cb0f83af3573357952aed33dd79d60808b74acd44c55656f5"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "sourceSha256": "392de090d0a9879992e207461abd37296649ed3de63df20db7a411c9d95cd75d",
+      "targetSha256": "635a12c7473b0f25c20b40dd2dc8340e28c37570ac7aa4e8c30d31ff25c412c1"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "sourceSha256": "b53c675ed1942c2ec88e84d8c5e65af82d1b6d611af14b31b37e52aa6b8fd64f",
+      "targetSha256": "b53c675ed1942c2ec88e84d8c5e65af82d1b6d611af14b31b37e52aa6b8fd64f"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "sourceSha256": "581803cbdd9f9ce41223b3373a9f93276b5e75fb160731ae0511e4da3e554917",
+      "targetSha256": "c101665047773be6c0cf8dde24df44b9dc40d999b13d83bfc2592ac631110b3b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "sourceSha256": "c5d3ea6db6e37502c205dc2db2c9aeb06b39203f018ebc8c9e45faf8e4ab3081",
+      "targetSha256": "c5d3ea6db6e37502c205dc2db2c9aeb06b39203f018ebc8c9e45faf8e4ab3081"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "sourceSha256": "c9f13c5ffa6fd644215988c8a2c4e97bb0d61e5eb728ddba24d5774302121a1c",
+      "targetSha256": "c9f13c5ffa6fd644215988c8a2c4e97bb0d61e5eb728ddba24d5774302121a1c"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/mobile/dimensions.ts",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/mobile/dimensions.ts",
+      "sourceSha256": "8e8eab43cb20259957b17fbf2cc4d19d2b0439ca42eb883a6c4d369e31fc7e7b",
+      "targetSha256": "8e8eab43cb20259957b17fbf2cc4d19d2b0439ca42eb883a6c4d369e31fc7e7b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "sourceSha256": "5feef797a5bb43464bc490db3cbbe4992a86c9e939d042eaeac4febbb0f82815",
+      "targetSha256": "5feef797a5bb43464bc490db3cbbe4992a86c9e939d042eaeac4febbb0f82815"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/Accordion.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/Accordion.tsx",
+      "sourceSha256": "00da1e59de1f97f28e1ca82c03da9073b586f70659b5ea7c554da64c1476a99a",
+      "targetSha256": "00da1e59de1f97f28e1ca82c03da9073b586f70659b5ea7c554da64c1476a99a"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/AuctionStatus.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/AuctionStatus.tsx",
+      "sourceSha256": "bc4f7e63c62896314824102c29238badbb0588c84d4ec8ffc7231f67be20c47f",
+      "targetSha256": "bc4f7e63c62896314824102c29238badbb0588c84d4ec8ffc7231f67be20c47f"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/AvatarZone.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/AvatarZone.tsx",
+      "sourceSha256": "120ad24adc35ab976d02a98a6e6cc2707bf1b01b797b1f94c1c2a7a5767c295d",
+      "targetSha256": "120ad24adc35ab976d02a98a6e6cc2707bf1b01b797b1f94c1c2a7a5767c295d"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/BadgeStatus.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/BadgeStatus.tsx",
+      "sourceSha256": "a9d4f1b49a901c9182d36a2fe387353722ffa8a0727aa87c4cc6360d6b708eff",
+      "targetSha256": "a9d4f1b49a901c9182d36a2fe387353722ffa8a0727aa87c4cc6360d6b708eff"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/BidMessage.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/BidMessage.tsx",
+      "sourceSha256": "3f1a005e8914f572be1e87dff3560925248522a3b16f836039cd445299cbd4a9",
+      "targetSha256": "3f1a005e8914f572be1e87dff3560925248522a3b16f836039cd445299cbd4a9"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/BusinessIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/BusinessIcon.tsx",
+      "sourceSha256": "fe7699a5c5a0cbc505fec3028dad879f20cd9b84a794f0cae55fae52caaca599",
+      "targetSha256": "fe7699a5c5a0cbc505fec3028dad879f20cd9b84a794f0cae55fae52caaca599"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/Button.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/Button.tsx",
+      "sourceSha256": "2636ea739918fd01f54922278a4bf96853d44b55f8102e9f0a69a9020d6954ea",
+      "targetSha256": "2636ea739918fd01f54922278a4bf96853d44b55f8102e9f0a69a9020d6954ea"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/CardTitle.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/CardTitle.tsx",
+      "sourceSha256": "e51cc5c50a6f801fbb73d2886abab5d4106767cad368c2c2213f6614883a99ff",
+      "targetSha256": "e51cc5c50a6f801fbb73d2886abab5d4106767cad368c2c2213f6614883a99ff"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/CardViewer.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/CardViewer.tsx",
+      "sourceSha256": "d405a9791522a3bc7ed1830bbdbf1bfdd59961b5e9b726290b66d49b6e3739bc",
+      "targetSha256": "d405a9791522a3bc7ed1830bbdbf1bfdd59961b5e9b726290b66d49b6e3739bc"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/CategoryIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/CategoryIcon.tsx",
+      "sourceSha256": "3c7f26fc7d3b459575b0e1fea3b2b7b625a37de092833774ab7ef5affca2d968",
+      "targetSha256": "3c7f26fc7d3b459575b0e1fea3b2b7b625a37de092833774ab7ef5affca2d968"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/CheckIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/CheckIcon.tsx",
+      "sourceSha256": "0d87a716837ccf96617830edc29326c41df0ec07d85cbc9036f86dbbc2aa62e7",
+      "targetSha256": "0d87a716837ccf96617830edc29326c41df0ec07d85cbc9036f86dbbc2aa62e7"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/ConditionPill.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/ConditionPill.tsx",
+      "sourceSha256": "f1813e6634bd5cec0e7a6391866e9240538ca4181c75fa35847fcb96adf21303",
+      "targetSha256": "f1813e6634bd5cec0e7a6391866e9240538ca4181c75fa35847fcb96adf21303"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/DetailCard.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/DetailCard.tsx",
+      "sourceSha256": "d44a5403db48849a64cf9e272831305be4aaafc1ca371dcb6b13af6b15df0730",
+      "targetSha256": "b18a76ac4149e3035ac7862d6071ba6c041fa4515da73a0041968022d557c30d"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/InfoIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/InfoIcon.tsx",
+      "sourceSha256": "82ee0fb40b0c4461ffead0ef396bff807cfcc78d1e0cb653307c7791f33cfdc8",
+      "targetSha256": "82ee0fb40b0c4461ffead0ef396bff807cfcc78d1e0cb653307c7791f33cfdc8"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/Input.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/Input.tsx",
+      "sourceSha256": "0fb7af157356fcadec5a2e4e72f8f0539143cc454f44456514600c3a7a7b18a3",
+      "targetSha256": "0fb7af157356fcadec5a2e4e72f8f0539143cc454f44456514600c3a7a7b18a3"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/LikeButton.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/LikeButton.tsx",
+      "sourceSha256": "a2f2c2c576561269c3e921fea2ace125bb704c123a93437a48fe5c3c6dbe343d",
+      "targetSha256": "a2f2c2c576561269c3e921fea2ace125bb704c123a93437a48fe5c3c6dbe343d"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/OfferCard.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/OfferCard.tsx",
+      "sourceSha256": "4b90a8865a00ea47dac4c733a2eae5d43098dd417303a32a42d4d4ade7e1ed99",
+      "targetSha256": "4b90a8865a00ea47dac4c733a2eae5d43098dd417303a32a42d4d4ade7e1ed99"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/OfferIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/OfferIcon.tsx",
+      "sourceSha256": "35beec1aa17e9ddc372f11321226b36cee76e5ba14a42305584415546b37a6d4",
+      "targetSha256": "35beec1aa17e9ddc372f11321226b36cee76e5ba14a42305584415546b37a6d4"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/OfferShelf.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/OfferShelf.tsx",
+      "sourceSha256": "1fa56b3ccdd9dfd5404cc56d18502d4c52f3b14d32f34ac37bb83ef2f8de30a0",
+      "targetSha256": "ee4bb2d33a7f79bf7ce8e85a06b4635c8119b27b672ef94c6ecc8ff9fe05448f"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/PriceIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/PriceIcon.tsx",
+      "sourceSha256": "a45da464c80edf63ddc24077525271b6a6c88f7d01c8577a172fb99dc855bca4",
+      "targetSha256": "a45da464c80edf63ddc24077525271b6a6c88f7d01c8577a172fb99dc855bca4"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/ProfileButton.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/ProfileButton.tsx",
+      "sourceSha256": "be3128b13796a8d6c162818ccc40c80a96b44f43afa751c2dc688af986e55c9e",
+      "targetSha256": "be3128b13796a8d6c162818ccc40c80a96b44f43afa751c2dc688af986e55c9e"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/ProgressBar.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/ProgressBar.tsx",
+      "sourceSha256": "e501e4d092c03b3c6f702c00f1bb5a805951650733234fc01c1066c592da918b",
+      "targetSha256": "e501e4d092c03b3c6f702c00f1bb5a805951650733234fc01c1066c592da918b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/SendBidIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/SendBidIcon.tsx",
+      "sourceSha256": "12cb8714d7bce3adfb54ce3b96950d42c943444a4faf08f037f3632a19890173",
+      "targetSha256": "12cb8714d7bce3adfb54ce3b96950d42c943444a4faf08f037f3632a19890173"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/ServiceCenterIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/ServiceCenterIcon.tsx",
+      "sourceSha256": "7472336a9450cc65524530ce3c399ec74c537500ee20dae998ba962b911e83dd",
+      "targetSha256": "7472336a9450cc65524530ce3c399ec74c537500ee20dae998ba962b911e83dd"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/Signal.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/Signal.tsx",
+      "sourceSha256": "114aaab7b2acf00cc7a41a3ac0a4e6f1ab4aa2734c0e174d781c26838694e849",
+      "targetSha256": "114aaab7b2acf00cc7a41a3ac0a4e6f1ab4aa2734c0e174d781c26838694e849"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/StarIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/StarIcon.tsx",
+      "sourceSha256": "1fdd7bc496b18cf58c0a359a0403b423e60ef261508cccdcff952146bed7eb39",
+      "targetSha256": "1fdd7bc496b18cf58c0a359a0403b423e60ef261508cccdcff952146bed7eb39"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/StatPill.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/StatPill.tsx",
+      "sourceSha256": "b2a3b088cf7f10b0e2fcedd26e8343c09f94bf5bcdcd0517e04adcbe0e8a8eaf",
+      "targetSha256": "b2a3b088cf7f10b0e2fcedd26e8343c09f94bf5bcdcd0517e04adcbe0e8a8eaf"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/Table.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/Table.tsx",
+      "sourceSha256": "7a824ac1b63fa7dcbc487402eb8d3b05f8151105d94ff9519e16672cdbfb5b01",
+      "targetSha256": "7a824ac1b63fa7dcbc487402eb8d3b05f8151105d94ff9519e16672cdbfb5b01"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/TabSelector.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/TabSelector.tsx",
+      "sourceSha256": "07150eade44725c664207982f0cddcf0ad3ae5ce5bffd276c6ed5fbe0915524c",
+      "targetSha256": "07150eade44725c664207982f0cddcf0ad3ae5ce5bffd276c6ed5fbe0915524c"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/TermsSelector.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/TermsSelector.tsx",
+      "sourceSha256": "dad2a0e49a78138cc1bbd6c6a8595dad19d5bf60089e1dabbb300eabed71ba28",
+      "targetSha256": "dad2a0e49a78138cc1bbd6c6a8595dad19d5bf60089e1dabbb300eabed71ba28"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/TimerIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/TimerIcon.tsx",
+      "sourceSha256": "3d33a05cfb186e819699481b8163bcd30d1f7f58007abe5190a89b99e980b69f",
+      "targetSha256": "3d33a05cfb186e819699481b8163bcd30d1f7f58007abe5190a89b99e980b69f"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/TodayIcon.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/TodayIcon.tsx",
+      "sourceSha256": "a9f00fb65b3afdd8177a49c433b86c4020a8dfab9deec8f201c92d426c0b695e",
+      "targetSha256": "a9f00fb65b3afdd8177a49c433b86c4020a8dfab9deec8f201c92d426c0b695e"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/UserProfileCard.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/UserProfileCard.tsx",
+      "sourceSha256": "661821b19e3fa0db2552f7736c749202332cb5de3e892b560514df8da799fa20",
+      "targetSha256": "661821b19e3fa0db2552f7736c749202332cb5de3e892b560514df8da799fa20"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/concorde/components/WalletBalanceCard.tsx",
+      "target": "src/product/ganaya/mi-garaje/concorde/components/WalletBalanceCard.tsx",
+      "sourceSha256": "f0a2c7a8439d6ccddaa31af5b1b6fb021870c002fef657d8a04dfce106004feb",
+      "targetSha256": "f0a2c7a8439d6ccddaa31af5b1b6fb021870c002fef657d8a04dfce106004feb"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/globals.css",
+      "target": "src/product/ganaya/mi-garaje/globals.css",
+      "sourceSha256": "7abd96e935fd89be90cd3203d1b44a0bdff3e823c8f61c8e5ac2570a96e8ca0e",
+      "targetSha256": "7abd96e935fd89be90cd3203d1b44a0bdff3e823c8f61c8e5ac2570a96e8ca0e"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/acuerdo.css",
+      "target": "src/product/ganaya/mi-garaje/models/acuerdo.css",
+      "sourceSha256": "44a754d54bb919ed7546c206b5f891cf3e20ea7682ea33b37bdddbbd08ccc898",
+      "targetSha256": "44a754d54bb919ed7546c206b5f891cf3e20ea7682ea33b37bdddbbd08ccc898"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Acuerdo.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Acuerdo.tsx",
+      "sourceSha256": "c099dce000f49f4326b6fadaf1876bd7f8ac62cfc5d0880fe4f36e23085fcbd6",
+      "targetSha256": "c099dce000f49f4326b6fadaf1876bd7f8ac62cfc5d0880fe4f36e23085fcbd6"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/avt/engine.js",
+      "target": "src/product/ganaya/mi-garaje/models/avt/engine.js",
+      "sourceSha256": "d096d253796b2d8735d85eabf805dffe961449458c7e5835bf367ce23a18be30",
+      "targetSha256": "d096d253796b2d8735d85eabf805dffe961449458c7e5835bf367ce23a18be30"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/avt/sellingSignal.js",
+      "target": "src/product/ganaya/mi-garaje/models/avt/sellingSignal.js",
+      "sourceSha256": "bd8d6a0fe942998dcf73e1ed5ef4c66949f0c6d8c17b1e6f0cd4f22f37ebc9e6",
+      "targetSha256": "bd8d6a0fe942998dcf73e1ed5ef4c66949f0c6d8c17b1e6f0cd4f22f37ebc9e6"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/bannersVmc.ts",
+      "target": "src/product/ganaya/mi-garaje/models/bannersVmc.ts",
+      "sourceSha256": "12a1e69732cf1f1f786f0cc6ca2697d3dfbafeefe5b674894af4a2dea64f5610",
+      "targetSha256": "fc7c73ab08fad1af5c4b6617f17659f3e7a7a5c577e53f9cedabfecb0b652106"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/billetera.css",
+      "target": "src/product/ganaya/mi-garaje/models/billetera.css",
+      "sourceSha256": "631b4912687d2d4c0ad80b901c0a4d4029d30882ce661928517ce6c8f448b26e",
+      "targetSha256": "631b4912687d2d4c0ad80b901c0a4d4029d30882ce661928517ce6c8f448b26e"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/chat.ts",
+      "target": "src/product/ganaya/mi-garaje/models/chat.ts",
+      "sourceSha256": "61084f3695df5cad252c292aa5b138a5d91e96aed8ddea6acaf2677935bd061e",
+      "targetSha256": "61084f3695df5cad252c292aa5b138a5d91e96aed8ddea6acaf2677935bd061e"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/concorde-plus.css",
+      "target": "src/product/ganaya/mi-garaje/models/concorde-plus.css",
+      "sourceSha256": "3c1b6c7128a42149e30acface3d5b5a3365042fd6527419301d2cb1b5ce11457",
+      "targetSha256": "3c1b6c7128a42149e30acface3d5b5a3365042fd6527419301d2cb1b5ce11457"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/flujo.css",
+      "target": "src/product/ganaya/mi-garaje/models/flujo.css",
+      "sourceSha256": "773bd0068d3879913b1d716c7c5bd4c61be24c3d344c4ce740ece94a97d6bd7f",
+      "targetSha256": "773bd0068d3879913b1d716c7c5bd4c61be24c3d344c4ce740ece94a97d6bd7f"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Flujo.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Flujo.tsx",
+      "sourceSha256": "be4a247bed7c177ef60810d03ddd0156b89caec9d0cfd4e89015ead80076f6bc",
+      "targetSha256": "784f51cfb2f93def4cec823728b3311efb9b58a76f77d50e469d0d64cbe1e0dc"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/foco.css",
+      "target": "src/product/ganaya/mi-garaje/models/foco.css",
+      "sourceSha256": "84dbb53b65b9ec0935ce8258cdf7142e1502eb7c052328e5da9da56ff63b046c",
+      "targetSha256": "84dbb53b65b9ec0935ce8258cdf7142e1502eb7c052328e5da9da56ff63b046c"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Foco.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Foco.tsx",
+      "sourceSha256": "c2bd01a10382478c64c23bcbf1abf5301e717ad3aa3deec36fac3a103df9f179",
+      "targetSha256": "290177728ac1d55366529e9daa726909dd2a1bd6f22baab46a2f29bab2faeedd"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/ganaya-panel.css",
+      "target": "src/product/ganaya/mi-garaje/models/ganaya-panel.css",
+      "sourceSha256": "b9ecc55242bbb7f2a9e2c8b820e005071eb18e1684b5f1b8d92faa13017ef462",
+      "targetSha256": "b9ecc55242bbb7f2a9e2c8b820e005071eb18e1684b5f1b8d92faa13017ef462"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/GanaYaFlowSwitcher.module.css",
+      "target": "src/product/ganaya/mi-garaje/models/GanaYaFlowSwitcher.module.css",
+      "sourceSha256": "d877cda34d041bf98a28a26230f26d9f7e617f42ef04791be7b5e3681b47cded",
+      "targetSha256": "d877cda34d041bf98a28a26230f26d9f7e617f42ef04791be7b5e3681b47cded"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/GanaYaFlowSwitcher.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/GanaYaFlowSwitcher.tsx",
+      "sourceSha256": "78d6f2ec2f9641364ef6118f960d905a52f54353581cc5a7698e963570a2c09d",
+      "targetSha256": "46bac5c34107e41a9afcc6f61cde2bdf495deb0d7e762d81eea3d31a06e4103c"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/GanaYaPanel.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/GanaYaPanel.tsx",
+      "sourceSha256": "7dd369fbc933b3bb78c970f38ecbc7107f5eeb06ae5ce996797bca898682ea93",
+      "targetSha256": "7dd369fbc933b3bb78c970f38ecbc7107f5eeb06ae5ce996797bca898682ea93"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/garaje.css",
+      "target": "src/product/ganaya/mi-garaje/models/garaje.css",
+      "sourceSha256": "c3bc65342dc0362074d9d57c671c4cb4da7eb04b98932e832bbbd6fd5ba82229",
+      "targetSha256": "c3bc65342dc0362074d9d57c671c4cb4da7eb04b98932e832bbbd6fd5ba82229"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Garaje.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Garaje.tsx",
+      "sourceSha256": "b845f4b244b85b6dc368efdc40a104dad847b6482bc5698b03cff9121fc76fa1",
+      "targetSha256": "96c7959eae8089363a9aec3e88e1e44aa8134ba7b32a0c97b78e4433faf1f25b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/kit.css",
+      "target": "src/product/ganaya/mi-garaje/models/kit.css",
+      "sourceSha256": "836ab01f6ad6546a456d1d1178a314eb60831b85fb00ce7e1ac92ea0f1dfbace",
+      "targetSha256": "836ab01f6ad6546a456d1d1178a314eb60831b85fb00ce7e1ac92ea0f1dfbace"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/kit.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/kit.tsx",
+      "sourceSha256": "7a956e04e4df752bd5530a63068cacfeca51261cc2ffe743de7a84aa25e3f018",
+      "targetSha256": "1557f7d147bb2fdd42c2e71c58d1004e8550ad8e75196e83f9cd9c6a0472fdde"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/LabPanel.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/LabPanel.tsx",
+      "sourceSha256": "f2a98bbb4d1a5e71fcecd76d0953278374eb5fc4918feb12394691ff445f6773",
+      "targetSha256": "f2a98bbb4d1a5e71fcecd76d0953278374eb5fc4918feb12394691ff445f6773"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/mis-publicaciones.css",
+      "target": "src/product/ganaya/mi-garaje/models/mis-publicaciones.css",
+      "sourceSha256": "8f9fb2b03b7cbe450c43959a2958e6230a862da6eb0b4e2d0283f44c309e13fd",
+      "targetSha256": "8f9fb2b03b7cbe450c43959a2958e6230a862da6eb0b4e2d0283f44c309e13fd"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/MisPublicaciones.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/MisPublicaciones.tsx",
+      "sourceSha256": "df81537beefb27f8bf0b56ff4658da697d0c9069f09a07b4b625364d979ce37b",
+      "targetSha256": "df81537beefb27f8bf0b56ff4658da697d0c9069f09a07b4b625364d979ce37b"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/negociacion.css",
+      "target": "src/product/ganaya/mi-garaje/models/negociacion.css",
+      "sourceSha256": "909dec0c2a8633e039d4a52a8b4386ac4bf57dbf4134d1cf0a653f03ec9d76cb",
+      "targetSha256": "909dec0c2a8633e039d4a52a8b4386ac4bf57dbf4134d1cf0a653f03ec9d76cb"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Negociacion.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Negociacion.tsx",
+      "sourceSha256": "3da58441c5ca4d6a280274c17c1261b14f602339af2ce330f8db70cd04f442fa",
+      "targetSha256": "548ee30d6da58e00c0b412b90ce6f7044bacc9dfac3f8d442bb1110fd99a9298"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/notifs.css",
+      "target": "src/product/ganaya/mi-garaje/models/notifs.css",
+      "sourceSha256": "a968b36f97832dc1cc1485a4cf0c2b793532e4f7e7379e969622d5dbc7d9b653",
+      "targetSha256": "a968b36f97832dc1cc1485a4cf0c2b793532e4f7e7379e969622d5dbc7d9b653"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Notifs.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Notifs.tsx",
+      "sourceSha256": "7fa758ffa6c65c1271fb4651111ab3b19fb7d9d6bd362d467c779f4c3834d0e0",
+      "targetSha256": "8ba5e822519128c9600e0d3f3b4d3c020e56ddf8a6440ef3d17b78786765b353"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/paginado.css",
+      "target": "src/product/ganaya/mi-garaje/models/paginado.css",
+      "sourceSha256": "26bbcb52b03da78a0874eee074a4518e9eae53e9a5609337822fd0130ddb5a81",
+      "targetSha256": "26bbcb52b03da78a0874eee074a4518e9eae53e9a5609337822fd0130ddb5a81"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Paginado.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Paginado.tsx",
+      "sourceSha256": "ef1760e789746938cfc0b76c3054147a6936cc50b5edf062991ab21f34ede592",
+      "targetSha256": "ef1760e789746938cfc0b76c3054147a6936cc50b5edf062991ab21f34ede592"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/plus-parts.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/plus-parts.tsx",
+      "sourceSha256": "abb17c57803223f8039857c1ec6e69ae2b488a9cc861dde29a2ffb6ba88c34e9",
+      "targetSha256": "abb17c57803223f8039857c1ec6e69ae2b488a9cc861dde29a2ffb6ba88c34e9"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/propuesta.css",
+      "target": "src/product/ganaya/mi-garaje/models/propuesta.css",
+      "sourceSha256": "c322c24aee88a2315be2f5ffc48220b9a2c65f2e814c8ed315eae52125ae71ee",
+      "targetSha256": "c322c24aee88a2315be2f5ffc48220b9a2c65f2e814c8ed315eae52125ae71ee"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Propuesta.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Propuesta.tsx",
+      "sourceSha256": "53d5d7d43d50e4b81c25ddbfef1b2f3a6750185e6924c9c4f60f9407c827df9e",
+      "targetSha256": "77a2c346b5858ed79114c2d6df9d8e3503d54dbc00b2712f9a2aec4170837583"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/resultado.css",
+      "target": "src/product/ganaya/mi-garaje/models/resultado.css",
+      "sourceSha256": "63f8b1a213883faa0144fce000579ba097bd07b2b97f479c467593a1db833475",
+      "targetSha256": "63f8b1a213883faa0144fce000579ba097bd07b2b97f479c467593a1db833475"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Resultado.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Resultado.tsx",
+      "sourceSha256": "d0a8c64d549a374e7ad5f9ba16e45666d25636d5a0e8acef5b065c287c94fdd6",
+      "targetSha256": "d59f76877f81abd018f312dc0923e5bc4a18f6ffd0e2bf0bd8b041ec8277c2f9"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/revela.css",
+      "target": "src/product/ganaya/mi-garaje/models/revela.css",
+      "sourceSha256": "aeeba8831eab577c671cfbd236b9b5bf549abfe48f5c8f74abddd262c5701259",
+      "targetSha256": "aeeba8831eab577c671cfbd236b9b5bf549abfe48f5c8f74abddd262c5701259"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/Revela.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/Revela.tsx",
+      "sourceSha256": "b758fd070813c7882c100c6f112bd6870b69ce27ef3881de4a0e1ad447bf367b",
+      "targetSha256": "85e8a81664a1c8732762af8476c6858bba0d9fa21d8a3cd6cc7f148efb082c48"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/subaschat.css",
+      "target": "src/product/ganaya/mi-garaje/models/subaschat.css",
+      "sourceSha256": "32e47ff0559aeedc8762febdb90990c47c8921a6edfd5ff54f4767688a2cadf6",
+      "targetSha256": "32e47ff0559aeedc8762febdb90990c47c8921a6edfd5ff54f4767688a2cadf6"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/SubasChat.tsx",
+      "target": "src/product/ganaya/mi-garaje/models/SubasChat.tsx",
+      "sourceSha256": "d05a5d64fb9dc24aa6d8b0dbbb006bb88f9d2bb8022d22ff58c3fe9c74e20f53",
+      "targetSha256": "a8a021fdc4656256b6905e6f7100f58ce9e1b6230e611b86dc12566d382bb86c"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/valorizaciones-data.ts",
+      "target": "src/product/ganaya/mi-garaje/models/valorizaciones-data.ts",
+      "sourceSha256": "c3ba3273e0f00d32265389ad332211b252aaea6bb045b75881a81febc4ab8562",
+      "targetSha256": "c3ba3273e0f00d32265389ad332211b252aaea6bb045b75881a81febc4ab8562"
+    },
+    {
+      "source": "apps/index-lab/mi-garaje/models/valorizaciones.css",
+      "target": "src/product/ganaya/mi-garaje/models/valorizaciones.css",
+      "sourceSha256": "6bbb4c026feefe70bb27b03f2d73ad488ab2bc8adf49a8ca7c2f8aa65db17632",
+      "targetSha256": "6bbb4c026feefe70bb27b03f2d73ad488ab2bc8adf49a8ca7c2f8aa65db17632"
+    },
+    {
+      "source": "packages/concorde-adapter/src/index.ts",
+      "target": "src/product/ganaya/adapter/index.ts",
+      "sourceSha256": "cf8705da5274e999d4a9776dfeece0f00f05c53759fcee00530288f818f1379b",
+      "targetSha256": "7a95de0741b3b07b7fe0a3254abf4f5cb4b62bd9e029b83340880082cdf270a1"
+    },
+    {
+      "source": "packages/concorde-adapter/src/source.ts",
+      "target": "src/product/ganaya/adapter/source.ts",
+      "sourceSha256": "10f3db1947d9d86b3597b93d13fa578ccb8aef57049be98f175f3826d8c94507",
+      "targetSha256": "10f3db1947d9d86b3597b93d13fa578ccb8aef57049be98f175f3826d8c94507"
+    },
+    {
+      "source": "packages/concorde-adapter/src/tokens.css",
+      "target": "src/product/ganaya/adapter/tokens.css",
+      "sourceSha256": "a5886f4c99c6702896372329d2f5a6a3f9b48cc0facd7c457d99f165bb1c925d",
+      "targetSha256": "a5886f4c99c6702896372329d2f5a6a3f9b48cc0facd7c457d99f165bb1c925d"
+    },
+    {
+      "source": "apps/index-lab/public/assets/brand/logo-voyager.svg",
+      "target": "public/producto-assets/ganaya/assets/brand/logo-voyager.svg",
+      "sourceSha256": "c89a61db562999ded10ec980cdaeb576ee39f655ba9339144abfb2ef1c0b29d0",
+      "targetSha256": "c89a61db562999ded10ec980cdaeb576ee39f655ba9339144abfb2ef1c0b29d0"
+    },
+    {
+      "source": "apps/index-lab/public/banners/blend.js",
+      "target": "public/producto-assets/ganaya/banners/blend.js",
+      "sourceSha256": "0a1d211aa874ccc6fade3f270f11fbac76aad575bc53ecbe31fafbb7af3ad2b9",
+      "targetSha256": "0a1d211aa874ccc6fade3f270f11fbac76aad575bc53ecbe31fafbb7af3ad2b9"
+    },
+    {
+      "source": "apps/index-lab/public/banners/CREDITOS.json",
+      "target": "public/producto-assets/ganaya/banners/CREDITOS.json",
+      "sourceSha256": "82a3512319c914becf6574976390bf742830e1dcae5e4d182d5ff5dff301300c",
+      "targetSha256": "82a3512319c914becf6574976390bf742830e1dcae5e4d182d5ff5dff301300c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/flota-caja.png",
+      "target": "public/producto-assets/ganaya/banners/flota-caja.png",
+      "sourceSha256": "550b7df627c6e845d38476bd03764c80f47e30fb19b9423f54fb3388fb62a19c",
+      "targetSha256": "550b7df627c6e845d38476bd03764c80f47e30fb19b9423f54fb3388fb62a19c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/flota-pickup.png",
+      "target": "public/producto-assets/ganaya/banners/flota-pickup.png",
+      "sourceSha256": "726e751e6f65eabab01e562f5db57ce7dd095491341cf1fa2c26490126559e0c",
+      "targetSha256": "726e751e6f65eabab01e562f5db57ce7dd095491341cf1fa2c26490126559e0c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/flota-sedan.png",
+      "target": "public/producto-assets/ganaya/banners/flota-sedan.png",
+      "sourceSha256": "ffe1ff92c8b8a5cf528b9adb5a59a478af32f49188509d293e5150bee22331a6",
+      "targetSha256": "ffe1ff92c8b8a5cf528b9adb5a59a478af32f49188509d293e5150bee22331a6"
+    },
+    {
+      "source": "apps/index-lab/public/banners/flota-suv.png",
+      "target": "public/producto-assets/ganaya/banners/flota-suv.png",
+      "sourceSha256": "ecd1aa86885d7d169b12cd6d4d95491ded957999e6bd9403d090967900d5c950",
+      "targetSha256": "ecd1aa86885d7d169b12cd6d4d95491ded957999e6bd9403d090967900d5c950"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/dark-hero776.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/dark-hero776.jpg",
+      "sourceSha256": "feae312047bb7344a33f509b52e5671fdea471db6d4584bb1d99dc317b0ea950",
+      "targetSha256": "feae312047bb7344a33f509b52e5671fdea471db6d4584bb1d99dc317b0ea950"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/dark-side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/dark-side264.jpg",
+      "sourceSha256": "b3eeb3bfe45b4fe6ab302bf3dee42acfbc2e9f257a37ca92f37a94b14debc988",
+      "targetSha256": "b3eeb3bfe45b4fe6ab302bf3dee42acfbc2e9f257a37ca92f37a94b14debc988"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/dark-side400.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/dark-side400.jpg",
+      "sourceSha256": "e70a3b331a2e5f67c5679936d6388d8450aa51e779ee364486d7e641573283be",
+      "targetSha256": "e70a3b331a2e5f67c5679936d6388d8450aa51e779ee364486d7e641573283be"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/dark-strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/dark-strip1532.jpg",
+      "sourceSha256": "fad5581a066ef83453c829c99a65eec24c428e073d7410f82c07647d2f29028c",
+      "targetSha256": "fad5581a066ef83453c829c99a65eec24c428e073d7410f82c07647d2f29028c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/dark-strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/dark-strip776.jpg",
+      "sourceSha256": "a495a5540afe55b1b97466a44da04e3b370afa9afa21e2002166011d53e8ab62",
+      "targetSha256": "a495a5540afe55b1b97466a44da04e3b370afa9afa21e2002166011d53e8ab62"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/light-hero776.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/light-hero776.jpg",
+      "sourceSha256": "a1d7bf3ca8333972b27c869978ad5a3e7ca608defaa9d1f864f0fbedcaf4da4f",
+      "targetSha256": "a1d7bf3ca8333972b27c869978ad5a3e7ca608defaa9d1f864f0fbedcaf4da4f"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/light-side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/light-side264.jpg",
+      "sourceSha256": "fca478f77db471e80c4a8519bd23cf9555be1f7fb7bc9b0bdfe48dc37467174e",
+      "targetSha256": "fca478f77db471e80c4a8519bd23cf9555be1f7fb7bc9b0bdfe48dc37467174e"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/light-strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/light-strip1532.jpg",
+      "sourceSha256": "85d293b8248ed73b4f42794315defc82961bac79550b15fe4dbf1329ddfa7c31",
+      "targetSha256": "85d293b8248ed73b4f42794315defc82961bac79550b15fe4dbf1329ddfa7c31"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/light-strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/light-strip776.jpg",
+      "sourceSha256": "a05670d1ca89fa67759ee0b93a530abe845ce8082e2683776d79ed0b1e16c969",
+      "targetSha256": "a05670d1ca89fa67759ee0b93a530abe845ce8082e2683776d79ed0b1e16c969"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/max-avatar.png",
+      "target": "public/producto-assets/ganaya/banners/max/max-avatar.png",
+      "sourceSha256": "6c77e8bcc5d9ab51a507ddcf116f7f2f588e56b77b8e68f7d760e09af0ace4a9",
+      "targetSha256": "6c77e8bcc5d9ab51a507ddcf116f7f2f588e56b77b8e68f7d760e09af0ace4a9"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/max-mini-claro-escucha@2x.png",
+      "target": "public/producto-assets/ganaya/banners/max/max-mini-claro-escucha@2x.png",
+      "sourceSha256": "0a0462e30cf1b23c065cb136dcc60ae71797507e746cdc5b65b61405130d6a25",
+      "targetSha256": "0a0462e30cf1b23c065cb136dcc60ae71797507e746cdc5b65b61405130d6a25"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/mini-escucha-claro.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/mini-escucha-claro.jpg",
+      "sourceSha256": "5e09aec18aa0313364952f9f06764ba60cc7b036fb0c0df8a8f6e5076e8e80a1",
+      "targetSha256": "5e09aec18aa0313364952f9f06764ba60cc7b036fb0c0df8a8f6e5076e8e80a1"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/mini-escucha.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/mini-escucha.jpg",
+      "sourceSha256": "02fb0e7c7fce90cea7419d75861d49b0a739734fce681c72f268c32e94569cd1",
+      "targetSha256": "02fb0e7c7fce90cea7419d75861d49b0a739734fce681c72f268c32e94569cd1"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/mini-saluda-claro.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/mini-saluda-claro.jpg",
+      "sourceSha256": "29dd82f3ead1cedfa473b20c402302cd60e2d631fba2666a9c132cff4db2a92e",
+      "targetSha256": "29dd82f3ead1cedfa473b20c402302cd60e2d631fba2666a9c132cff4db2a92e"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/mini-saluda.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/mini-saluda.jpg",
+      "sourceSha256": "b2fc169ea2e80c9b71066f446bc38228dfbf8e3ffb6462bbccef541a66f0b7cc",
+      "targetSha256": "b2fc169ea2e80c9b71066f446bc38228dfbf8e3ffb6462bbccef541a66f0b7cc"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max/personaje-referencia.jpg",
+      "target": "public/producto-assets/ganaya/banners/max/personaje-referencia.jpg",
+      "sourceSha256": "331ebe4f0b80e0e508c53934db8d1ea7153d43d01c6cf065054f86ddafedd66a",
+      "targetSha256": "331ebe4f0b80e0e508c53934db8d1ea7153d43d01c6cf065054f86ddafedd66a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/01-general_side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/01-general_side264.jpg",
+      "sourceSha256": "54650988b92658a6c3b923889b3c20ac70fe92b9256bcbb31629c6a231780937",
+      "targetSha256": "54650988b92658a6c3b923889b3c20ac70fe92b9256bcbb31629c6a231780937"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/01-general_side400.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/01-general_side400.jpg",
+      "sourceSha256": "4c1c9b96f424560558ea1e8beddb8eaa1fe1d2080ad3d525ed2641fb2e09dc21",
+      "targetSha256": "4c1c9b96f424560558ea1e8beddb8eaa1fe1d2080ad3d525ed2641fb2e09dc21"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/01-general_strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/01-general_strip1532.jpg",
+      "sourceSha256": "1f80fd91f345b273ef66906e58bdb6a563678083e0d3121853178a8f2dd43349",
+      "targetSha256": "1f80fd91f345b273ef66906e58bdb6a563678083e0d3121853178a8f2dd43349"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/01-general_strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/01-general_strip776.jpg",
+      "sourceSha256": "de6c007a7a1de3ba5f55b26e776f404df783a65b3b8fd3bae85deb01cd987cc3",
+      "targetSha256": "de6c007a7a1de3ba5f55b26e776f404df783a65b3b8fd3bae85deb01cd987cc3"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/02-maquinaria_side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/02-maquinaria_side264.jpg",
+      "sourceSha256": "73aa6287a4849f1c46bf805d635bf7816528e757df27fadf228ae944c1fc76c5",
+      "targetSha256": "73aa6287a4849f1c46bf805d635bf7816528e757df27fadf228ae944c1fc76c5"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/02-maquinaria_side400.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/02-maquinaria_side400.jpg",
+      "sourceSha256": "ee4ba6b0acf200d0bd662cd2440e9bbc69f63a320abddf93e7ec7b3b19f26d09",
+      "targetSha256": "ee4ba6b0acf200d0bd662cd2440e9bbc69f63a320abddf93e7ec7b3b19f26d09"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/02-maquinaria_strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/02-maquinaria_strip1532.jpg",
+      "sourceSha256": "72ff2ff82866017112b0ba821582335d56a8cb2ad30bd88701da9383b8736869",
+      "targetSha256": "72ff2ff82866017112b0ba821582335d56a8cb2ad30bd88701da9383b8736869"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/02-maquinaria_strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/02-maquinaria_strip776.jpg",
+      "sourceSha256": "510ce7bfbfc55cc27408da94cbf6d0f5ba8c168244c569f92fd0c467391c1395",
+      "targetSha256": "510ce7bfbfc55cc27408da94cbf6d0f5ba8c168244c569f92fd0c467391c1395"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/03-tecnologia_side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/03-tecnologia_side264.jpg",
+      "sourceSha256": "6cb1c2093b820c8c9e173ec6100a63745801f40128b289f896e549ef8e7b2b26",
+      "targetSha256": "6cb1c2093b820c8c9e173ec6100a63745801f40128b289f896e549ef8e7b2b26"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/03-tecnologia_side400.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/03-tecnologia_side400.jpg",
+      "sourceSha256": "64548e2385b851684222798e53ad8dbfae4949615de9df7a124e3f314850c098",
+      "targetSha256": "64548e2385b851684222798e53ad8dbfae4949615de9df7a124e3f314850c098"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/03-tecnologia_strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/03-tecnologia_strip1532.jpg",
+      "sourceSha256": "3b88cfa69a9c91919efe3c896dd2edb0f427632e5135d580b21a989823ddb2c6",
+      "targetSha256": "3b88cfa69a9c91919efe3c896dd2edb0f427632e5135d580b21a989823ddb2c6"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/03-tecnologia_strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/03-tecnologia_strip776.jpg",
+      "sourceSha256": "2f1b63a972a38d5828e06202b121b15176f588dadb476186d4adf8b90c650c6b",
+      "targetSha256": "2f1b63a972a38d5828e06202b121b15176f588dadb476186d4adf8b90c650c6b"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/04-flotas_side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/04-flotas_side264.jpg",
+      "sourceSha256": "12dc3190a69462d52385d76f0f8ffa797c6e4f8165afe267bfb59a073613bca2",
+      "targetSha256": "12dc3190a69462d52385d76f0f8ffa797c6e4f8165afe267bfb59a073613bca2"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/04-flotas_side400.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/04-flotas_side400.jpg",
+      "sourceSha256": "372b60eca087ade78cd942c7b3097abe0131698a13a9f13e2827b3fc1d50208c",
+      "targetSha256": "372b60eca087ade78cd942c7b3097abe0131698a13a9f13e2827b3fc1d50208c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/04-flotas_strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/04-flotas_strip1532.jpg",
+      "sourceSha256": "f5a28de8ece8d903ca5735e3253ec6659218958bf102f744f080eeb9c79a6986",
+      "targetSha256": "f5a28de8ece8d903ca5735e3253ec6659218958bf102f744f080eeb9c79a6986"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/04-flotas_strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/04-flotas_strip776.jpg",
+      "sourceSha256": "4762766598cfb48e7f7b17198952900fe18eb17cc22bd5ad13cc7ec7236923ac",
+      "targetSha256": "4762766598cfb48e7f7b17198952900fe18eb17cc22bd5ad13cc7ec7236923ac"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/05-inventario_side264.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/05-inventario_side264.jpg",
+      "sourceSha256": "48b52a3b4984069dd8495a29a0096216ee1dbc3e08be0c9b5f7cabed533607d3",
+      "targetSha256": "48b52a3b4984069dd8495a29a0096216ee1dbc3e08be0c9b5f7cabed533607d3"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/05-inventario_side400.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/05-inventario_side400.jpg",
+      "sourceSha256": "4f2b87a777282e4b031ea4e08238847a967ccb9b4b838c04d3d672ef98eb40b1",
+      "targetSha256": "4f2b87a777282e4b031ea4e08238847a967ccb9b4b838c04d3d672ef98eb40b1"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/05-inventario_strip1532.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/05-inventario_strip1532.jpg",
+      "sourceSha256": "23b4624b6387e5b1504c113cdfae5f0950131dc0789bf85449e53d0ecc059b4f",
+      "targetSha256": "23b4624b6387e5b1504c113cdfae5f0950131dc0789bf85449e53d0ecc059b4f"
+    },
+    {
+      "source": "apps/index-lab/public/banners/originales/05-inventario_strip776.jpg",
+      "target": "public/producto-assets/ganaya/banners/originales/05-inventario_strip776.jpg",
+      "sourceSha256": "5da791ea10e1d75a692d62682d6faf9916b65c0b83ecde01d10d1f818f78b7d5",
+      "targetSha256": "5da791ea10e1d75a692d62682d6faf9916b65c0b83ecde01d10d1f818f78b7d5"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/01-auto-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/01-auto-h.jpg",
+      "sourceSha256": "f1e110973fccbec7e9e6b96e99e06040d60d964d9d3f240146a0dc7417c88785",
+      "targetSha256": "f1e110973fccbec7e9e6b96e99e06040d60d964d9d3f240146a0dc7417c88785"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/01-auto-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/01-auto-s.jpg",
+      "sourceSha256": "6cd2eeff68d8b22c361f6ea7d58c4007aad5324d934b6b02b0aea780fbc994f0",
+      "targetSha256": "6cd2eeff68d8b22c361f6ea7d58c4007aad5324d934b6b02b0aea780fbc994f0"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/01-auto-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/01-auto-v.jpg",
+      "sourceSha256": "230de4e15ba0529ad23710817b4d2ae2320c64271e2254678df2f85a2f9c032d",
+      "targetSha256": "230de4e15ba0529ad23710817b4d2ae2320c64271e2254678df2f85a2f9c032d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/01-auto-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/01-auto-w.jpg",
+      "sourceSha256": "773272e9351bb2f89fc9da77d7c920db1540cd1b7cedc79380d6584b751481d0",
+      "targetSha256": "773272e9351bb2f89fc9da77d7c920db1540cd1b7cedc79380d6584b751481d0"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/02-pago-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/02-pago-h.jpg",
+      "sourceSha256": "a5c5acaf7c9cc86f21e9aa2dcc3baffa16dba65000c246c5ff730bf46a3ad15a",
+      "targetSha256": "a5c5acaf7c9cc86f21e9aa2dcc3baffa16dba65000c246c5ff730bf46a3ad15a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/02-pago-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/02-pago-s.jpg",
+      "sourceSha256": "6a7d2ade9bf9ed5911f413cf8e43998136eadabb43f92cb8e946d3341f068ea2",
+      "targetSha256": "6a7d2ade9bf9ed5911f413cf8e43998136eadabb43f92cb8e946d3341f068ea2"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/02-pago-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/02-pago-v.jpg",
+      "sourceSha256": "7d9c2d50911b60d5a36191d269a3c78e1c60d29649a1577e093e8babaaf875af",
+      "targetSha256": "7d9c2d50911b60d5a36191d269a3c78e1c60d29649a1577e093e8babaaf875af"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/02-pago-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/02-pago-w.jpg",
+      "sourceSha256": "dacfa601846a19f33e59e4fa5ae105b1a09ad157f8bbc810fb3ac6b22feadbb2",
+      "targetSha256": "dacfa601846a19f33e59e4fa5ae105b1a09ad157f8bbc810fb3ac6b22feadbb2"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/03-moto-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/03-moto-h.jpg",
+      "sourceSha256": "539c8a2b5b07463ec510fd2cf76a9fc1133a1a5af496b0fce6c2d143f0e84d54",
+      "targetSha256": "539c8a2b5b07463ec510fd2cf76a9fc1133a1a5af496b0fce6c2d143f0e84d54"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/03-moto-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/03-moto-s.jpg",
+      "sourceSha256": "eef68d25ad1492e108e758268cd1582a3b03ba92ad340ffeccdad3d2c03d313d",
+      "targetSha256": "eef68d25ad1492e108e758268cd1582a3b03ba92ad340ffeccdad3d2c03d313d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/03-moto-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/03-moto-v.jpg",
+      "sourceSha256": "14cee10520657c7e2bdbc1b6462dafe8b2e9d3299655a0fb47302a4281a3e8a7",
+      "targetSha256": "14cee10520657c7e2bdbc1b6462dafe8b2e9d3299655a0fb47302a4281a3e8a7"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/03-moto-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/03-moto-w.jpg",
+      "sourceSha256": "4a53a87abde5d710f61c5a212956cc3fac44aa6cefa245a962f14384f6aaa3ed",
+      "targetSha256": "4a53a87abde5d710f61c5a212956cc3fac44aa6cefa245a962f14384f6aaa3ed"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/04-pasos-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/04-pasos-h.jpg",
+      "sourceSha256": "071e72dad58f117ce29736d03d3aad09ec58d0a361fcfa3602f30ac3e54af42f",
+      "targetSha256": "071e72dad58f117ce29736d03d3aad09ec58d0a361fcfa3602f30ac3e54af42f"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/04-pasos-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/04-pasos-s.jpg",
+      "sourceSha256": "d8d2510de6fe3e586bf581044247485787faf3b33ff6a08a8b52eaa7de6457d0",
+      "targetSha256": "d8d2510de6fe3e586bf581044247485787faf3b33ff6a08a8b52eaa7de6457d0"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/04-pasos-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/04-pasos-v.jpg",
+      "sourceSha256": "56e8307d2e43041b6ff7690e418d8431ecc2ea55be50f82d3ae90bdb75e9d8e6",
+      "targetSha256": "56e8307d2e43041b6ff7690e418d8431ecc2ea55be50f82d3ae90bdb75e9d8e6"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/04-pasos-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/04-pasos-w.jpg",
+      "sourceSha256": "bfac31f38de7f9594eb9832c6cfad8b6c37c9292b721037b48135d6fc26b7783",
+      "targetSha256": "bfac31f38de7f9594eb9832c6cfad8b6c37c9292b721037b48135d6fc26b7783"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/05-propuestas-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/05-propuestas-h.jpg",
+      "sourceSha256": "b5119f6a18b281d934dbd5559318a4bbd276efc8ae80e659dc484443f313dba3",
+      "targetSha256": "b5119f6a18b281d934dbd5559318a4bbd276efc8ae80e659dc484443f313dba3"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/05-propuestas-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/05-propuestas-s.jpg",
+      "sourceSha256": "53d63187e3f33cdd2be806819d13f3b837ff22e836517272e22d736444e4bf28",
+      "targetSha256": "53d63187e3f33cdd2be806819d13f3b837ff22e836517272e22d736444e4bf28"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/05-propuestas-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/05-propuestas-v.jpg",
+      "sourceSha256": "612400cf0097feafbcdbd6a875ca6a47e1bf2086e8d30891fee4a58cadbf7b66",
+      "targetSha256": "612400cf0097feafbcdbd6a875ca6a47e1bf2086e8d30891fee4a58cadbf7b66"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/05-propuestas-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/05-propuestas-w.jpg",
+      "sourceSha256": "a551df790112977c1df338f76713273088092df3f5b51da08d7865b34ddeafb6",
+      "targetSha256": "a551df790112977c1df338f76713273088092df3f5b51da08d7865b34ddeafb6"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/06-cero-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/06-cero-h.jpg",
+      "sourceSha256": "6c51c472dd352967dd551f90d063e66c58c00b0b1ff7fbc1501a041b30b563fb",
+      "targetSha256": "6c51c472dd352967dd551f90d063e66c58c00b0b1ff7fbc1501a041b30b563fb"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/06-cero-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/06-cero-s.jpg",
+      "sourceSha256": "c8e592a4f6c2ab1abee3cceaa746b1ece7924f80f0a18f73380104883d540d39",
+      "targetSha256": "c8e592a4f6c2ab1abee3cceaa746b1ece7924f80f0a18f73380104883d540d39"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/06-cero-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/06-cero-v.jpg",
+      "sourceSha256": "1a73cb47e2e8a985be9011bb60c4ebd64f668b44df9388b885936bc6edce75d5",
+      "targetSha256": "1a73cb47e2e8a985be9011bb60c4ebd64f668b44df9388b885936bc6edce75d5"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/06-cero-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/06-cero-w.jpg",
+      "sourceSha256": "ffeaa6d92e32626a8ffe7a3aa471a1d1c173ab60fd584863c944bad78f209aef",
+      "targetSha256": "ffeaa6d92e32626a8ffe7a3aa471a1d1c173ab60fd584863c944bad78f209aef"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/07-moto-calle-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/07-moto-calle-h.jpg",
+      "sourceSha256": "d6efaa8cc050722d88d1f43bc8b52c42a218f6de14ea88f38614bef2fdadf691",
+      "targetSha256": "d6efaa8cc050722d88d1f43bc8b52c42a218f6de14ea88f38614bef2fdadf691"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/07-moto-calle-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/07-moto-calle-s.jpg",
+      "sourceSha256": "2cba2b976e99924e2cfb11e6deaeafa71faa380e3cf544664312c0dadc7bdb15",
+      "targetSha256": "2cba2b976e99924e2cfb11e6deaeafa71faa380e3cf544664312c0dadc7bdb15"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/07-moto-calle-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/07-moto-calle-v.jpg",
+      "sourceSha256": "5a1e2e9a6375179f4b709c1656afafb5cba5605684524c6aafd8c6a7ef95e246",
+      "targetSha256": "5a1e2e9a6375179f4b709c1656afafb5cba5605684524c6aafd8c6a7ef95e246"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/07-moto-calle-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/07-moto-calle-w.jpg",
+      "sourceSha256": "c61a75f03be320dd1fef0532a716b1da83ecb1da35d3c6fae202d1018e7f6f40",
+      "targetSha256": "c61a75f03be320dd1fef0532a716b1da83ecb1da35d3c6fae202d1018e7f6f40"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/08-valor-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/08-valor-h.jpg",
+      "sourceSha256": "93b95398403f46d67bcbe6764fb3081ff49dff84b49506bce931eb44e0f3006f",
+      "targetSha256": "93b95398403f46d67bcbe6764fb3081ff49dff84b49506bce931eb44e0f3006f"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/08-valor-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/08-valor-s.jpg",
+      "sourceSha256": "28adafb97d5769b723ab5ce00c6c1f399cbf40c7e32c09c3c773fdf75a69f13d",
+      "targetSha256": "28adafb97d5769b723ab5ce00c6c1f399cbf40c7e32c09c3c773fdf75a69f13d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/08-valor-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/08-valor-v.jpg",
+      "sourceSha256": "7598c7eac40a11a43038b60ed85b79429c5e8d10c2cb979ae1b76e2f0cde0753",
+      "targetSha256": "7598c7eac40a11a43038b60ed85b79429c5e8d10c2cb979ae1b76e2f0cde0753"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/08-valor-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/08-valor-w.jpg",
+      "sourceSha256": "00ac38fc28b929a0cf3c942aad7883482e8e22405463892f5c394fc954e31e91",
+      "targetSha256": "00ac38fc28b929a0cf3c942aad7883482e8e22405463892f5c394fc954e31e91"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/09-valor-pasos-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/09-valor-pasos-h.jpg",
+      "sourceSha256": "0f87f143732c409e557fb47ffc967c64af7a7e80f7c165c2971c39a266f2398f",
+      "targetSha256": "0f87f143732c409e557fb47ffc967c64af7a7e80f7c165c2971c39a266f2398f"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/09-valor-pasos-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/09-valor-pasos-s.jpg",
+      "sourceSha256": "e9cdfb4ea6c17b2133e634f43c389075ff524f889382cc3adf201626bc84cae8",
+      "targetSha256": "e9cdfb4ea6c17b2133e634f43c389075ff524f889382cc3adf201626bc84cae8"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/09-valor-pasos-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/09-valor-pasos-v.jpg",
+      "sourceSha256": "ccea51a3decfbb6906e34bdf8eaf2d6c1688d0f146fa436fa1d587481d7f396e",
+      "targetSha256": "ccea51a3decfbb6906e34bdf8eaf2d6c1688d0f146fa436fa1d587481d7f396e"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/09-valor-pasos-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/09-valor-pasos-w.jpg",
+      "sourceSha256": "be66feaef480584cae9473eb258066dc1f62ab955246c327595af0598d42d8a2",
+      "targetSha256": "be66feaef480584cae9473eb258066dc1f62ab955246c327595af0598d42d8a2"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/10-valor-publica-h.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/10-valor-publica-h.jpg",
+      "sourceSha256": "99d13f15dd86d96baabc13dd8928d33580de48cd2232d9914e9ff9439425f15e",
+      "targetSha256": "99d13f15dd86d96baabc13dd8928d33580de48cd2232d9914e9ff9439425f15e"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/10-valor-publica-s.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/10-valor-publica-s.jpg",
+      "sourceSha256": "89fa96e453fedffaebc21ecf81dad0d7285a9c37081651b41789897c9628211b",
+      "targetSha256": "89fa96e453fedffaebc21ecf81dad0d7285a9c37081651b41789897c9628211b"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/10-valor-publica-v.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/10-valor-publica-v.jpg",
+      "sourceSha256": "9c49048f6029f665d8fd3ede39252dc9dd4e87a4256bbbf44adf3ceb47fa7670",
+      "targetSha256": "9c49048f6029f665d8fd3ede39252dc9dd4e87a4256bbbf44adf3ceb47fa7670"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/10-valor-publica-w.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/10-valor-publica-w.jpg",
+      "sourceSha256": "a6edadd6d2488a8ca73ceb046fa14c707c51af011a103ec4e45e9d997257a489",
+      "targetSha256": "a6edadd6d2488a8ca73ceb046fa14c707c51af011a103ec4e45e9d997257a489"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/fee-publica-original.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/fee-publica-original.jpg",
+      "sourceSha256": "12c74bf504a7e2f21af94d60e2d48d2dddea85ef4c19df8255ef89627d9041fb",
+      "targetSha256": "12c74bf504a7e2f21af94d60e2d48d2dddea85ef4c19df8255ef89627d9041fb"
+    },
+    {
+      "source": "apps/index-lab/public/banners/personaje/fee-publica.jpg",
+      "target": "public/producto-assets/ganaya/banners/personaje/fee-publica.jpg",
+      "sourceSha256": "01c41e66af825552aac80ab9ccd087d84bd62dbc0952887e674571ab61215976",
+      "targetSha256": "01c41e66af825552aac80ab9ccd087d84bd62dbc0952887e674571ab61215976"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/cb190r.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/cb190r.jpg",
+      "sourceSha256": "090c0131e65f8ba508447043ec9bfc11b6403f9267fd45c55f67dd4fdd96685c",
+      "targetSha256": "090c0131e65f8ba508447043ec9bfc11b6403f9267fd45c55f67dd4fdd96685c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/corolla.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/corolla.jpg",
+      "sourceSha256": "b1c086abe78af96c70de35bb596c507a2e4aa43f20cd583e1b24b2e00f30807a",
+      "targetSha256": "b1c086abe78af96c70de35bb596c507a2e4aa43f20cd583e1b24b2e00f30807a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/hilux.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/hilux.jpg",
+      "sourceSha256": "b7b6dd26ce2b90f6cd731278ab60aa1ea61b8d579ea5c5820e75b07ec5c8d34e",
+      "targetSha256": "b7b6dd26ce2b90f6cd731278ab60aa1ea61b8d579ea5c5820e75b07ec5c8d34e"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/mini-publica@2x.png",
+      "target": "public/producto-assets/ganaya/banners/publica/mini-publica@2x.png",
+      "sourceSha256": "aec6a3ac82e7ab7df73a5223b4cd0c26810c51a492f1d5de96f1cf92c99c5821",
+      "targetSha256": "aec6a3ac82e7ab7df73a5223b4cd0c26810c51a492f1d5de96f1cf92c99c5821"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/pulsar.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/pulsar.jpg",
+      "sourceSha256": "eb82315478066bb290d18e4683d9b4ab22fc8f424b40e43c81750a3dac57e8a8",
+      "targetSha256": "eb82315478066bb290d18e4683d9b4ab22fc8f424b40e43c81750a3dac57e8a8"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/rio.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/rio.jpg",
+      "sourceSha256": "5ab7475302b34e6c23cfeec46cbf858d4e684297559b85e7138e1aceecad7009",
+      "targetSha256": "5ab7475302b34e6c23cfeec46cbf858d4e684297559b85e7138e1aceecad7009"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/swift.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/swift.jpg",
+      "sourceSha256": "4e87b74b466a0fd1ae7b23095f6f7fd565a6ba54474115914512b176aa70f5b2",
+      "targetSha256": "4e87b74b466a0fd1ae7b23095f6f7fd565a6ba54474115914512b176aa70f5b2"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica/tucson.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica/tucson.jpg",
+      "sourceSha256": "f3819f1e395c91eaa15dee7855464e7d49e45e6fb6f135f1ec908e3a15281e17",
+      "targetSha256": "f3819f1e395c91eaa15dee7855464e7d49e45e6fb6f135f1ec908e3a15281e17"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-v1/auto-nivus.png",
+      "target": "public/producto-assets/ganaya/banners/publica-v1/auto-nivus.png",
+      "sourceSha256": "481845e5e4d0d11c0eebbaf18e83c572d692a93aa5b0705d2c12b1f614bab8f9",
+      "targetSha256": "481845e5e4d0d11c0eebbaf18e83c572d692a93aa5b0705d2c12b1f614bab8f9"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-v1/auto-sedan.png",
+      "target": "public/producto-assets/ganaya/banners/publica-v1/auto-sedan.png",
+      "sourceSha256": "b951e269012495b2e300e28a8c443897cc30ca6a2901e59a58f138900b95f95e",
+      "targetSha256": "b951e269012495b2e300e28a8c443897cc30ca6a2901e59a58f138900b95f95e"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-v1/foto-corolla.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica-v1/foto-corolla.jpg",
+      "sourceSha256": "f8ebb0bb6fa6f506b4e3d9c241158635bc74306aef6cd5d3d66300cdadba7935",
+      "targetSha256": "f8ebb0bb6fa6f506b4e3d9c241158635bc74306aef6cd5d3d66300cdadba7935"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-v1/foto-moto.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica-v1/foto-moto.jpg",
+      "sourceSha256": "657e7303176326e1d5f61baa24d87e1f7427a18cc0d5e6593a24ae0b2bb2f231",
+      "targetSha256": "657e7303176326e1d5f61baa24d87e1f7427a18cc0d5e6593a24ae0b2bb2f231"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-v1/foto-sedan.jpg",
+      "target": "public/producto-assets/ganaya/banners/publica-v1/foto-sedan.jpg",
+      "sourceSha256": "c2af432ee29d5657120e83656551f9c4b7849ca4f49ca2a94b4ab0058d2b35f8",
+      "targetSha256": "c2af432ee29d5657120e83656551f9c4b7849ca4f49ca2a94b4ab0058d2b35f8"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-v1/vendedor.png",
+      "target": "public/producto-assets/ganaya/banners/publica-v1/vendedor.png",
+      "sourceSha256": "01c3ab88c14212badb48c7725577d79f912b0dd6795c14aa583e81f48cafec0a",
+      "targetSha256": "01c3ab88c14212badb48c7725577d79f912b0dd6795c14aa583e81f48cafec0a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/campana-flota.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/campana-flota.jpg",
+      "sourceSha256": "722e11aa656a3bcadb5b7e5fdef08fbc51bddd3d2ec5d596ef2c24e7cd09438a",
+      "targetSha256": "722e11aa656a3bcadb5b7e5fdef08fbc51bddd3d2ec5d596ef2c24e7cd09438a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/campana-moto.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/campana-moto.jpg",
+      "sourceSha256": "344ce2e1bcc288763539e63bcc4f8223c3e44524fc996f8ef4c5e2bc0c12ee9b",
+      "targetSha256": "344ce2e1bcc288763539e63bcc4f8223c3e44524fc996f8ef4c5e2bc0c12ee9b"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/campana-valor.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/campana-valor.jpg",
+      "sourceSha256": "73ce4f663ff2e9b7867a1ca18f56326b9d2eb0671546b166372f85218e5d3c1d",
+      "targetSha256": "73ce4f663ff2e9b7867a1ca18f56326b9d2eb0671546b166372f85218e5d3c1d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/CREDITOS.json",
+      "target": "public/producto-assets/ganaya/banners/vmc/CREDITOS.json",
+      "sourceSha256": "63b60a48be61098e79c0dc0670e82b7bee8263826d29540b354846632a4e43e7",
+      "targetSha256": "63b60a48be61098e79c0dc0670e82b7bee8263826d29540b354846632a4e43e7"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-negociable-a.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-negociable-a.jpg",
+      "sourceSha256": "2ad3bdb7a74ec16d0e33c8e40bcc1d0ab7a6282d3a7c93a791da6c7698a19807",
+      "targetSha256": "2ad3bdb7a74ec16d0e33c8e40bcc1d0ab7a6282d3a7c93a791da6c7698a19807"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-negociable-b.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-negociable-b.jpg",
+      "sourceSha256": "15c085bf5f166a1f592d97d5d8d8c15cb8a0339c9799446f1d32036c6bf3c6b9",
+      "targetSha256": "15c085bf5f166a1f592d97d5d8d8c15cb8a0339c9799446f1d32036c6bf3c6b9"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-negociable-c.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-negociable-c.jpg",
+      "sourceSha256": "d408ccf76e26c62c8430371a77e73a94599db4b12c390931220fcfb35d6eb20d",
+      "targetSha256": "d408ccf76e26c62c8430371a77e73a94599db4b12c390931220fcfb35d6eb20d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-negociable.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-negociable.jpg",
+      "sourceSha256": "241018cb576158efdbeadb527560d473349480f378f10bad31bbd20828fbdcc4",
+      "targetSha256": "241018cb576158efdbeadb527560d473349480f378f10bad31bbd20828fbdcc4"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-publica-a.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-publica-a.jpg",
+      "sourceSha256": "984c85f52bb53c12bede8aa8fb36dc87b348e5132edcc7d6c5d0227eccbb6ab5",
+      "targetSha256": "984c85f52bb53c12bede8aa8fb36dc87b348e5132edcc7d6c5d0227eccbb6ab5"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-publica-c.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-publica-c.jpg",
+      "sourceSha256": "2ad388b45a40abd67f6d051b02a41d510393d12254616b8fbed9d1f474b159c9",
+      "targetSha256": "2ad388b45a40abd67f6d051b02a41d510393d12254616b8fbed9d1f474b159c9"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-publica-d.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-publica-d.jpg",
+      "sourceSha256": "128dc73a6ae186150ed1a8036bcac5ccae3670729625c1f4942f3cd65d82a43f",
+      "targetSha256": "128dc73a6ae186150ed1a8036bcac5ccae3670729625c1f4942f3cd65d82a43f"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-publica.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-publica.jpg",
+      "sourceSha256": "fc92434a7e3645bf1e95b2492ac324195894d35affe9b3917fec0a6530894b3d",
+      "targetSha256": "fc92434a7e3645bf1e95b2492ac324195894d35affe9b3917fec0a6530894b3d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-whatsapp-a.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-whatsapp-a.jpg",
+      "sourceSha256": "b85bd02624b6a15df2912ebf3805f435fe00fb7346bb7157fbffb714d03fe69a",
+      "targetSha256": "b85bd02624b6a15df2912ebf3805f435fe00fb7346bb7157fbffb714d03fe69a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-whatsapp-c.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-whatsapp-c.jpg",
+      "sourceSha256": "ff8d442750e15a188c5511beafc567f317913ec2fb5e9f2eee914855e1fa0ac6",
+      "targetSha256": "ff8d442750e15a188c5511beafc567f317913ec2fb5e9f2eee914855e1fa0ac6"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-whatsapp-e.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-whatsapp-e.jpg",
+      "sourceSha256": "a1e9bfe9ee4a06a058f38eb7607523be8144a9dcf8e7b6e72a5bea0b3f2d7738",
+      "targetSha256": "a1e9bfe9ee4a06a058f38eb7607523be8144a9dcf8e7b6e72a5bea0b3f2d7738"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/hero-whatsapp.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/hero-whatsapp.jpg",
+      "sourceSha256": "358e09060550eb5b539252455bd86a7440bdafc94232e07359af4d2481f6a1ff",
+      "targetSha256": "358e09060550eb5b539252455bd86a7440bdafc94232e07359af4d2481f6a1ff"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/publica-moto.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/publica-moto.jpg",
+      "sourceSha256": "dc4a24f02e88ccd2ddf5357c4ce986bb7f469754b1500150c06ea010104900a6",
+      "targetSha256": "dc4a24f02e88ccd2ddf5357c4ce986bb7f469754b1500150c06ea010104900a6"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/subastop-flota.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/subastop-flota.jpg",
+      "sourceSha256": "eae6399bf433db70b5a32c7815ba64a9901a31ea07b50df204eb3503c2683100",
+      "targetSha256": "eae6399bf433db70b5a32c7815ba64a9901a31ea07b50df204eb3503c2683100"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/tipo-oferta-en-vivo.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/tipo-oferta-en-vivo.jpg",
+      "sourceSha256": "fdbc95ec178be738be3ac9bca832caaab35a1789167eafaa9fafdf9eafb3f5e1",
+      "targetSha256": "fdbc95ec178be738be3ac9bca832caaab35a1789167eafaa9fafdf9eafb3f5e1"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/tipo-oferta-recibe-ofertas.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/tipo-oferta-recibe-ofertas.jpg",
+      "sourceSha256": "0fc0c325ed8002f46bdbdd5f210d59d784794085840a5523a965589c996c9e3a",
+      "targetSha256": "0fc0c325ed8002f46bdbdd5f210d59d784794085840a5523a965589c996c9e3a"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/valoriza-auto.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/valoriza-auto.jpg",
+      "sourceSha256": "3facf3959540a2e79441a43a135d7049b598386360f44d4c1d77b5db7dfa4ea5",
+      "targetSha256": "3facf3959540a2e79441a43a135d7049b598386360f44d4c1d77b5db7dfa4ea5"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/vende-auto.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/vende-auto.jpg",
+      "sourceSha256": "f714c4bef3366c9f11ab7742c8ae0b9cbe243d6598a972c0c96b8d209e2022cb",
+      "targetSha256": "f714c4bef3366c9f11ab7742c8ae0b9cbe243d6598a972c0c96b8d209e2022cb"
+    },
+    {
+      "source": "apps/index-lab/public/banners/vmc/vende-flota.jpg",
+      "target": "public/producto-assets/ganaya/banners/vmc/vende-flota.jpg",
+      "sourceSha256": "4c53701355ca7d3087dbf8c61240de00eb7b797a65dc777be2dd1942ea6b6978",
+      "targetSha256": "4c53701355ca7d3087dbf8c61240de00eb7b797a65dc777be2dd1942ea6b6978"
+    },
+    {
+      "source": "apps/index-lab/public/demo/bronco.jpg",
+      "target": "public/producto-assets/ganaya/demo/bronco.jpg",
+      "sourceSha256": "b606e4da1b10724f865e09efa175485e5a44eabd6315ea56ae99f6c9669dec0a",
+      "targetSha256": "b606e4da1b10724f865e09efa175485e5a44eabd6315ea56ae99f6c9669dec0a"
+    },
+    {
+      "source": "apps/index-lab/public/demo/empresas/autoplan.png",
+      "target": "public/producto-assets/ganaya/demo/empresas/autoplan.png",
+      "sourceSha256": "e8effa94a4a4399671a8da136e18b0729a4b83bb64c7a9631cb14e835964b33f",
+      "targetSha256": "e8effa94a4a4399671a8da136e18b0729a4b83bb64c7a9631cb14e835964b33f"
+    },
+    {
+      "source": "apps/index-lab/public/demo/empresas/mapfre.png",
+      "target": "public/producto-assets/ganaya/demo/empresas/mapfre.png",
+      "sourceSha256": "485d5036d7c2cbe8a47bbdbaa8696a36714878b15ad7ba3613c9e637d04d2444",
+      "targetSha256": "485d5036d7c2cbe8a47bbdbaa8696a36714878b15ad7ba3613c9e637d04d2444"
+    },
+    {
+      "source": "apps/index-lab/public/demo/empresas/pacifico.png",
+      "target": "public/producto-assets/ganaya/demo/empresas/pacifico.png",
+      "sourceSha256": "d9ce363d10acd5ec651147b4aaa0bbd1782f6b7d7ed3bf631077cbe4f66038ae",
+      "targetSha256": "d9ce363d10acd5ec651147b4aaa0bbd1782f6b7d7ed3bf631077cbe4f66038ae"
+    },
+    {
+      "source": "apps/index-lab/public/demo/empresas/trupal.svg",
+      "target": "public/producto-assets/ganaya/demo/empresas/trupal.svg",
+      "sourceSha256": "85eaeb421f02f8217e8931925638301b2332eb11ead4e87b2e0eb9d83d604e3f",
+      "targetSha256": "85eaeb421f02f8217e8931925638301b2332eb11ead4e87b2e0eb9d83d604e3f"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-excavator-cutout.png",
+      "target": "public/producto-assets/ganaya/demo/inventory-excavator-cutout.png",
+      "sourceSha256": "0d3798da06ea383fd465b4560aa79bff437db090d627b7c4fc40295d75a196b7",
+      "targetSha256": "0d3798da06ea383fd465b4560aa79bff437db090d627b7c4fc40295d75a196b7"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-excavator-v1.png",
+      "target": "public/producto-assets/ganaya/demo/inventory-excavator-v1.png",
+      "sourceSha256": "f2f1121da2808ca7cf8ecb7f951b0b0f863ac056016b5c4dbc76fcc71e5e88c0",
+      "targetSha256": "f2f1121da2808ca7cf8ecb7f951b0b0f863ac056016b5c4dbc76fcc71e5e88c0"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-forklift-v1.png",
+      "target": "public/producto-assets/ganaya/demo/inventory-forklift-v1.png",
+      "sourceSha256": "e9df263421386063c150dbb1616aa852a64d941cac5b21219318a8a408eede65",
+      "targetSha256": "e9df263421386063c150dbb1616aa852a64d941cac5b21219318a8a408eede65"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-furniture-v1.jpg",
+      "target": "public/producto-assets/ganaya/demo/inventory-furniture-v1.jpg",
+      "sourceSha256": "77adb61d6d2e63223640d22ef38c78ea6cb38759f4d62d630a92d6f192061377",
+      "targetSha256": "77adb61d6d2e63223640d22ef38c78ea6cb38759f4d62d630a92d6f192061377"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-mosaic-v1.png",
+      "target": "public/producto-assets/ganaya/demo/inventory-mosaic-v1.png",
+      "sourceSha256": "a3eae1fd3824e39f2e719d0b02bc496fcb703134cc7b4d13ea941f29728f594b",
+      "targetSha256": "a3eae1fd3824e39f2e719d0b02bc496fcb703134cc7b4d13ea941f29728f594b"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-steel-v1.png",
+      "target": "public/producto-assets/ganaya/demo/inventory-steel-v1.png",
+      "sourceSha256": "16783de17a2795c0607c49ea0b1d9a59b6ce69d523a1948d9d7334f10917e452",
+      "targetSha256": "16783de17a2795c0607c49ea0b1d9a59b6ce69d523a1948d9d7334f10917e452"
+    },
+    {
+      "source": "apps/index-lab/public/demo/inventory-suv-v1.png",
+      "target": "public/producto-assets/ganaya/demo/inventory-suv-v1.png",
+      "sourceSha256": "6a18b2fe050362c7516126bde7cd8dc5b06988a2f85ccd032a6a979dafd01aa8",
+      "targetSha256": "6a18b2fe050362c7516126bde7cd8dc5b06988a2f85ccd032a6a979dafd01aa8"
+    },
+    {
+      "source": "apps/index-lab/public/demo/sell/seller-phone-man.png",
+      "target": "public/producto-assets/ganaya/demo/sell/seller-phone-man.png",
+      "sourceSha256": "6d800380008c05bb1be81fc9da588d5455c9472e1f590a2d57e2b758c6043c83",
+      "targetSha256": "6d800380008c05bb1be81fc9da588d5455c9472e1f590a2d57e2b758c6043c83"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-agya.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-agya.png",
+      "sourceSha256": "5e531615b5474707d04a08487458a511e0dc9528a7613741cc7da8da23f25b28",
+      "targetSha256": "5e531615b5474707d04a08487458a511e0dc9528a7613741cc7da8da23f25b28"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-grand-i10.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-grand-i10.png",
+      "sourceSha256": "245bd0d2623c5b4a2b554510f12cf931402bb70053b364170127eba2c01b2025",
+      "targetSha256": "245bd0d2623c5b4a2b554510f12cf931402bb70053b364170127eba2c01b2025"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-pickup.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-pickup.png",
+      "sourceSha256": "059897e8b666ceabe3246eb4196f537cbdef50af10c77ec5494b2825ebc31db7",
+      "targetSha256": "059897e8b666ceabe3246eb4196f537cbdef50af10c77ec5494b2825ebc31db7"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-refine.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-refine.png",
+      "sourceSha256": "3de7bb57acdd8f57cdfad02be81178be3a9817afc2a4b074a5f7fb9a542f127e",
+      "targetSha256": "3de7bb57acdd8f57cdfad02be81178be3a9817afc2a4b074a5f7fb9a542f127e"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-sedan.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-sedan.png",
+      "sourceSha256": "7d143b8ae82f3f191291d53013a8c5e67fe17665ec529a29695ef7551710407b",
+      "targetSha256": "7d143b8ae82f3f191291d53013a8c5e67fe17665ec529a29695ef7551710407b"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-suv.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-suv.png",
+      "sourceSha256": "337f59e7dc5dbabff7ffb49e3c9e5c056141f394a70f4e63f488203dddfd629b",
+      "targetSha256": "337f59e7dc5dbabff7ffb49e3c9e5c056141f394a70f4e63f488203dddfd629b"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/autoplan-yaris.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/autoplan-yaris.png",
+      "sourceSha256": "82789c0000aec4f4e604d8a921f9e90ca2bbc736d8ea963b5d318670133a7357",
+      "targetSha256": "82789c0000aec4f4e604d8a921f9e90ca2bbc736d8ea963b5d318670133a7357"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/mapfre-pickup.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/mapfre-pickup.png",
+      "sourceSha256": "9c69be906611eb745ba5fc972dddf6992990ba21672f7f1c19941027979a91e8",
+      "targetSha256": "9c69be906611eb745ba5fc972dddf6992990ba21672f7f1c19941027979a91e8"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/mapfre-rio.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/mapfre-rio.png",
+      "sourceSha256": "c493d400a24b199b6dc27fb42f67e3bf96e83a5cf7597cbda0707aa1d6120111",
+      "targetSha256": "c493d400a24b199b6dc27fb42f67e3bf96e83a5cf7597cbda0707aa1d6120111"
+    },
+    {
+      "source": "apps/index-lab/public/demo/vehicles/mapfre-tucson.png",
+      "target": "public/producto-assets/ganaya/demo/vehicles/mapfre-tucson.png",
+      "sourceSha256": "2106ef85df2bf7fccd75fd0576d8dacb387ce8bc80e4945ee1cdee2b3fd69b04",
+      "targetSha256": "2106ef85df2bf7fccd75fd0576d8dacb387ce8bc80e4945ee1cdee2b3fd69b04"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-catalogo.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-catalogo.png",
+      "sourceSha256": "c37d92518f381775cb263285a1a83e71dfaa1dfe55d2c8c6f02a1f40140b0d35",
+      "targetSha256": "c37d92518f381775cb263285a1a83e71dfaa1dfe55d2c8c6f02a1f40140b0d35"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-comercial-mobile.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-comercial-mobile.jpg",
+      "sourceSha256": "9dee0cd52089b43bd987f29579f764821b2199e4757ab353fcd1853aa92f68e0",
+      "targetSha256": "9dee0cd52089b43bd987f29579f764821b2199e4757ab353fcd1853aa92f68e0"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-comercial.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-comercial.jpg",
+      "sourceSha256": "081343bf2438e157c1ece37d69c470654a1c6adbeec0eff3121e5f3b9811a8a1",
+      "targetSha256": "081343bf2438e157c1ece37d69c470654a1c6adbeec0eff3121e5f3b9811a8a1"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-drawer.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-drawer.png",
+      "sourceSha256": "1c1b859d9e8cec8bba162a61782e3c090a03f64ba4ba11d0155197a136f807c4",
+      "targetSha256": "1c1b859d9e8cec8bba162a61782e3c090a03f64ba4ba11d0155197a136f807c4"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-ficha.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-ficha.png",
+      "sourceSha256": "60ce801c62744e735a0768f7e18204e346faf8f45f69087a80c8980f43e702f5",
+      "targetSha256": "60ce801c62744e735a0768f7e18204e346faf8f45f69087a80c8980f43e702f5"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-index.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-index.png",
+      "sourceSha256": "e6af1098f15461975af48b0cec610b756ff5c0d68f945e7f106910a9e84dc9c2",
+      "targetSha256": "e6af1098f15461975af48b0cec610b756ff5c0d68f945e7f106910a9e84dc9c2"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-mobile.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-mobile.png",
+      "sourceSha256": "75339836a2456aa1eddcc22f45615b7689e6871e4c0be0460aab26a004c812aa",
+      "targetSha256": "75339836a2456aa1eddcc22f45615b7689e6871e4c0be0460aab26a004c812aa"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v3-catalogo.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v3-catalogo.jpg",
+      "sourceSha256": "d035a109d21bb228bb8f359a88c31dcf88ccc05843a56f5c49b5d99bba04c9f7",
+      "targetSha256": "d035a109d21bb228bb8f359a88c31dcf88ccc05843a56f5c49b5d99bba04c9f7"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v3-drawer.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v3-drawer.jpg",
+      "sourceSha256": "42844dcb96f9b62736f96a6f5edde1d5e0cc2d4002e6bcf14993dfb104ce65da",
+      "targetSha256": "42844dcb96f9b62736f96a6f5edde1d5e0cc2d4002e6bcf14993dfb104ce65da"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v3-ficha.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v3-ficha.jpg",
+      "sourceSha256": "8763c50a909cd64d557c0c60d40116f46bfd2d01866839212fe856abe9834a17",
+      "targetSha256": "8763c50a909cd64d557c0c60d40116f46bfd2d01866839212fe856abe9834a17"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v3-mobile.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v3-mobile.jpg",
+      "sourceSha256": "b61b78bad81342f4b4db4e466c198305a566377e645003f265d9e92fb1f79683",
+      "targetSha256": "b61b78bad81342f4b4db4e466c198305a566377e645003f265d9e92fb1f79683"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v4-catalogo.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v4-catalogo.jpg",
+      "sourceSha256": "8ff86c7648822fab09912e69f5108ccefd28849fff3a44fcdd0c2c31491dd865",
+      "targetSha256": "8ff86c7648822fab09912e69f5108ccefd28849fff3a44fcdd0c2c31491dd865"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v4-ficha.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v4-ficha.jpg",
+      "sourceSha256": "5ff2142448f66f5e1652cccb5d631184fed377a71c6eb5513fd2e2b613aff5c7",
+      "targetSha256": "5ff2142448f66f5e1652cccb5d631184fed377a71c6eb5513fd2e2b613aff5c7"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/actual-v4-mobile.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/actual-v4-mobile.jpg",
+      "sourceSha256": "36722b5a2568d1fc51019fb3c7c2c9d9f4e363001555072ea9ecd8b3125f5912",
+      "targetSha256": "36722b5a2568d1fc51019fb3c7c2c9d9f4e363001555072ea9ecd8b3125f5912"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/capture-manifest.json",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/capture-manifest.json",
+      "sourceSha256": "dbed214803b4f46b8958f3e70e572989ac0a569d398860b452d297e25064446e",
+      "targetSha256": "dbed214803b4f46b8958f3e70e572989ac0a569d398860b452d297e25064446e"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-catalogo.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-catalogo.png",
+      "sourceSha256": "b39b83169d519ccc27a7607420b1ce5919690573c2a92931c398a3cca2b0836a",
+      "targetSha256": "b39b83169d519ccc27a7607420b1ce5919690573c2a92931c398a3cca2b0836a"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-comision.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-comision.png",
+      "sourceSha256": "3801fa2f9180b2cead07628bd67de4cdeda41199065925599711db88cba21cf5",
+      "targetSha256": "3801fa2f9180b2cead07628bd67de4cdeda41199065925599711db88cba21cf5"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-confirmacion.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-confirmacion.png",
+      "sourceSha256": "aac8030bfb010c67efd8c5053d20b7902c509a85bb6c475f5b8a0451944ca61d",
+      "targetSha256": "aac8030bfb010c67efd8c5053d20b7902c509a85bb6c475f5b8a0451944ca61d"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-drawer.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-drawer.png",
+      "sourceSha256": "52eb784781a4653e98c058b49365ae2aec60425efba8e82cff144fcdb816b023",
+      "targetSha256": "52eb784781a4653e98c058b49365ae2aec60425efba8e82cff144fcdb816b023"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-ficha.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-ficha.png",
+      "sourceSha256": "94f5a1b53ea2a1922d22b3d6c120daec422bfeec4c28a8f23ce355b05ab030c2",
+      "targetSha256": "94f5a1b53ea2a1922d22b3d6c120daec422bfeec4c28a8f23ce355b05ab030c2"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-habilitado.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-habilitado.png",
+      "sourceSha256": "514ff3480eaefdc05fc6d4c7f815c1ccf91697cec5e7e8d7280367d9ef463b5e",
+      "targetSha256": "514ff3480eaefdc05fc6d4c7f815c1ccf91697cec5e7e8d7280367d9ef463b5e"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-index.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-index.png",
+      "sourceSha256": "ce48106ddd27814503562286832788660a51c2a5109151a4bb22373179bdd8d6",
+      "targetSha256": "ce48106ddd27814503562286832788660a51c2a5109151a4bb22373179bdd8d6"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/legacy-mobile.png",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/legacy-mobile.png",
+      "sourceSha256": "19b319a3044926cf9fad32105ce1fdbbf2310184d2340afaadb4f18527f18316",
+      "targetSha256": "19b319a3044926cf9fad32105ce1fdbbf2310184d2340afaadb4f18527f18316"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/negociable-desktop.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/negociable-desktop.jpg",
+      "sourceSha256": "6748e68da2d49916a53152729bddfd5a68bf5b04b7e0ec7ae25b8f4fbc405dc3",
+      "targetSha256": "6748e68da2d49916a53152729bddfd5a68bf5b04b7e0ec7ae25b8f4fbc405dc3"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-comparison/negociable-mobile.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-comparison/negociable-mobile.jpg",
+      "sourceSha256": "f84c6538349c672fe1019307aed55f1ec7aac6722f7dd0aec4d2c3cf71963627",
+      "targetSha256": "f84c6538349c672fe1019307aed55f1ec7aac6722f7dd0aec4d2c3cf71963627"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/corolla/1.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/corolla/1.jpg",
+      "sourceSha256": "9888918c1acc77da83dc210e018c0a00ea25c0840749bf5d2adecda55e57e1c2",
+      "targetSha256": "9888918c1acc77da83dc210e018c0a00ea25c0840749bf5d2adecda55e57e1c2"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/corolla/2.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/corolla/2.jpg",
+      "sourceSha256": "680babbc819e60d3afeed66f04361971d0dea366fcd822a9af3aa940afd14f0d",
+      "targetSha256": "680babbc819e60d3afeed66f04361971d0dea366fcd822a9af3aa940afd14f0d"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/corolla/3.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/corolla/3.jpg",
+      "sourceSha256": "1ddbfb0fef8cfab0af691bc494ef84e2030cfa8ecfadd8096e9ff7d11ad9eeb8",
+      "targetSha256": "1ddbfb0fef8cfab0af691bc494ef84e2030cfa8ecfadd8096e9ff7d11ad9eeb8"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/CREDITOS.json",
+      "target": "public/producto-assets/ganaya/ganaya-photos/CREDITOS.json",
+      "sourceSha256": "f346c2a6deb3abf51938482e9388700b02b86affff3236fb8b84e1e60b7a895e",
+      "targetSha256": "f346c2a6deb3abf51938482e9388700b02b86affff3236fb8b84e1e60b7a895e"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/mazda3/1.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/mazda3/1.jpg",
+      "sourceSha256": "1c12ba8588e26b192509d2b79ccbf34a11532d0158dd7fc03ba234d5b2417687",
+      "targetSha256": "1c12ba8588e26b192509d2b79ccbf34a11532d0158dd7fc03ba234d5b2417687"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/mazda3/2.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/mazda3/2.jpg",
+      "sourceSha256": "4f15934a29b5bace3e9acf6d02ccc6ef2f2d79b0a5b9741a84ceeab9b6e1009c",
+      "targetSha256": "4f15934a29b5bace3e9acf6d02ccc6ef2f2d79b0a5b9741a84ceeab9b6e1009c"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/mazda3/3.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/mazda3/3.jpg",
+      "sourceSha256": "864f139feb1fb455027dae24572002652bab6639ab169f39f74e4e4f7f9f4925",
+      "targetSha256": "864f139feb1fb455027dae24572002652bab6639ab169f39f74e4e4f7f9f4925"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/mazda3/4.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/mazda3/4.jpg",
+      "sourceSha256": "199524201efec538bf559b83500af493526cb8143591acca9ec190b5c8a60714",
+      "targetSha256": "199524201efec538bf559b83500af493526cb8143591acca9ec190b5c8a60714"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/sentra/1.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/sentra/1.jpg",
+      "sourceSha256": "a4590b12fcb5d86a171b67089d2b9bb876d80c30fabce4646b36cc1dc690899f",
+      "targetSha256": "a4590b12fcb5d86a171b67089d2b9bb876d80c30fabce4646b36cc1dc690899f"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/sentra/2.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/sentra/2.jpg",
+      "sourceSha256": "3c0a3f18db50af91d86545b523e33e01c188c4a66af53b1595c9bb005b4d38cf",
+      "targetSha256": "3c0a3f18db50af91d86545b523e33e01c188c4a66af53b1595c9bb005b4d38cf"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/sentra/3.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/sentra/3.jpg",
+      "sourceSha256": "5520273ffacbde4c49d252d0d0e0296ad64581d90929e74bc767315100a9e8b3",
+      "targetSha256": "5520273ffacbde4c49d252d0d0e0296ad64581d90929e74bc767315100a9e8b3"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/swift/1.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/swift/1.jpg",
+      "sourceSha256": "c32ccfbd6a0d66cf9817adbc513ca0a99ff455fe12b93660a179b6c10a383809",
+      "targetSha256": "c32ccfbd6a0d66cf9817adbc513ca0a99ff455fe12b93660a179b6c10a383809"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/swift/2.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/swift/2.jpg",
+      "sourceSha256": "8582110e65d55cf9368a85c41c6a33b3f507103bc69f1b6a995ff8dec8615865",
+      "targetSha256": "8582110e65d55cf9368a85c41c6a33b3f507103bc69f1b6a995ff8dec8615865"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/swift/3.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/swift/3.jpg",
+      "sourceSha256": "263479b8a5ccd493958cd545df9bbd174da99c64f9891a93df083bb3fc28a95e",
+      "targetSha256": "263479b8a5ccd493958cd545df9bbd174da99c64f9891a93df083bb3fc28a95e"
+    },
+    {
+      "source": "apps/index-lab/public/ganaya-photos/swift/4.jpg",
+      "target": "public/producto-assets/ganaya/ganaya-photos/swift/4.jpg",
+      "sourceSha256": "a3618ef7b3de6a72b6b8b8165fe4c0145fb1d38c5f4c7ae5c05926aea91295b0",
+      "targetSha256": "a3618ef7b3de6a72b6b8b8165fe4c0145fb1d38c5f4c7ae5c05926aea91295b0"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/accent/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/accent/1.jpg",
+      "sourceSha256": "5ec13a2d8506609a95e47e7ef5bc329e295a51da74738825396674ed1eb203d8",
+      "targetSha256": "5ec13a2d8506609a95e47e7ef5bc329e295a51da74738825396674ed1eb203d8"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/accent/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/accent/2.jpg",
+      "sourceSha256": "2422d895a1c96ab09f39444ccc7b29845c4d7856ab485840773f0f1685e77d62",
+      "targetSha256": "2422d895a1c96ab09f39444ccc7b29845c4d7856ab485840773f0f1685e77d62"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/accent/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/accent/3.jpg",
+      "sourceSha256": "421a6bafc361ec8196e097247e37b4c9743902f93e951e4ebcfe7c9d512e1c9e",
+      "targetSha256": "421a6bafc361ec8196e097247e37b4c9743902f93e951e4ebcfe7c9d512e1c9e"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/accent/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/accent/4.jpg",
+      "sourceSha256": "451cf6e4c708797da58ef5bbcf5124f3cfafd10bc53c2bb047c3a90f696694c5",
+      "targetSha256": "451cf6e4c708797da58ef5bbcf5124f3cfafd10bc53c2bb047c3a90f696694c5"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/corolla/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/corolla/1.jpg",
+      "sourceSha256": "9888918c1acc77da83dc210e018c0a00ea25c0840749bf5d2adecda55e57e1c2",
+      "targetSha256": "9888918c1acc77da83dc210e018c0a00ea25c0840749bf5d2adecda55e57e1c2"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/corolla/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/corolla/2.jpg",
+      "sourceSha256": "680babbc819e60d3afeed66f04361971d0dea366fcd822a9af3aa940afd14f0d",
+      "targetSha256": "680babbc819e60d3afeed66f04361971d0dea366fcd822a9af3aa940afd14f0d"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/corolla/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/corolla/3.jpg",
+      "sourceSha256": "1ddbfb0fef8cfab0af691bc494ef84e2030cfa8ecfadd8096e9ff7d11ad9eeb8",
+      "targetSha256": "1ddbfb0fef8cfab0af691bc494ef84e2030cfa8ecfadd8096e9ff7d11ad9eeb8"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/CREDITOS.json",
+      "target": "public/producto-assets/ganaya/garage-photos/CREDITOS.json",
+      "sourceSha256": "f346c2a6deb3abf51938482e9388700b02b86affff3236fb8b84e1e60b7a895e",
+      "targetSha256": "f346c2a6deb3abf51938482e9388700b02b86affff3236fb8b84e1e60b7a895e"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/etios/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/etios/1.jpg",
+      "sourceSha256": "a3949ffd5883c3de7fa377f340eb1d0ec9b345dd1994452805e75466bd1f6ade",
+      "targetSha256": "a3949ffd5883c3de7fa377f340eb1d0ec9b345dd1994452805e75466bd1f6ade"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/etios/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/etios/2.jpg",
+      "sourceSha256": "d7cadef9212eaaa269b387a80d7785d1f4ebdeeeafeb0677df4888e76b9868ee",
+      "targetSha256": "d7cadef9212eaaa269b387a80d7785d1f4ebdeeeafeb0677df4888e76b9868ee"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/hilux/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/hilux/1.jpg",
+      "sourceSha256": "2b2e23ecff0b34e123a44b746bc11135fe0cca2b1a1b2e5f14cdbaa8ed60188e",
+      "targetSha256": "2b2e23ecff0b34e123a44b746bc11135fe0cca2b1a1b2e5f14cdbaa8ed60188e"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/hilux/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/hilux/2.jpg",
+      "sourceSha256": "d74c6b492f2d117712acad78192490225b6857285c7145716dc80f77f09994b2",
+      "targetSha256": "d74c6b492f2d117712acad78192490225b6857285c7145716dc80f77f09994b2"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/hilux/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/hilux/3.jpg",
+      "sourceSha256": "a726747c614983650769188cac8ab75197c3d76cb3ec41ae3f6450f4b4566f57",
+      "targetSha256": "a726747c614983650769188cac8ab75197c3d76cb3ec41ae3f6450f4b4566f57"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/mazda3/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/mazda3/1.jpg",
+      "sourceSha256": "1c12ba8588e26b192509d2b79ccbf34a11532d0158dd7fc03ba234d5b2417687",
+      "targetSha256": "1c12ba8588e26b192509d2b79ccbf34a11532d0158dd7fc03ba234d5b2417687"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/mazda3/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/mazda3/2.jpg",
+      "sourceSha256": "4f15934a29b5bace3e9acf6d02ccc6ef2f2d79b0a5b9741a84ceeab9b6e1009c",
+      "targetSha256": "4f15934a29b5bace3e9acf6d02ccc6ef2f2d79b0a5b9741a84ceeab9b6e1009c"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/mazda3/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/mazda3/3.jpg",
+      "sourceSha256": "864f139feb1fb455027dae24572002652bab6639ab169f39f74e4e4f7f9f4925",
+      "targetSha256": "864f139feb1fb455027dae24572002652bab6639ab169f39f74e4e4f7f9f4925"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/mazda3/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/mazda3/4.jpg",
+      "sourceSha256": "199524201efec538bf559b83500af493526cb8143591acca9ec190b5c8a60714",
+      "targetSha256": "199524201efec538bf559b83500af493526cb8143591acca9ec190b5c8a60714"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/nivus/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/nivus/1.jpg",
+      "sourceSha256": "1d68641efe51536251564e8b722a3b6e6e45bacb5b01eb86f23521aaa0fb394a",
+      "targetSha256": "1d68641efe51536251564e8b722a3b6e6e45bacb5b01eb86f23521aaa0fb394a"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/nivus/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/nivus/2.jpg",
+      "sourceSha256": "cb1107e2a86de188df900f9c8dc9f4b1d9a16911efdf0fb383c970329dff125b",
+      "targetSha256": "cb1107e2a86de188df900f9c8dc9f4b1d9a16911efdf0fb383c970329dff125b"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/nivus/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/nivus/3.jpg",
+      "sourceSha256": "efe3a4f7203702fa75f6df3b83ae39c10708b5c3869806d1116fcf02c5903617",
+      "targetSha256": "efe3a4f7203702fa75f6df3b83ae39c10708b5c3869806d1116fcf02c5903617"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/nivus/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/nivus/4.jpg",
+      "sourceSha256": "83e983ae7b14911e3336a53641edacb4becc29ff2ae1e279e83bb087cf405fbf",
+      "targetSha256": "83e983ae7b14911e3336a53641edacb4becc29ff2ae1e279e83bb087cf405fbf"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/picanto/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/picanto/1.jpg",
+      "sourceSha256": "9d1f3dafb95bd01a1149d80f72054cc2f09d9637ee93d8601c13f421c22d593d",
+      "targetSha256": "9d1f3dafb95bd01a1149d80f72054cc2f09d9637ee93d8601c13f421c22d593d"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/picanto/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/picanto/2.jpg",
+      "sourceSha256": "e6a7c68d45ac90b993c59067ce7da694fb41f0f9d80070d35cf2dddc63b53e1c",
+      "targetSha256": "e6a7c68d45ac90b993c59067ce7da694fb41f0f9d80070d35cf2dddc63b53e1c"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/picanto/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/picanto/3.jpg",
+      "sourceSha256": "e04bb0926f5fab58a6da8bbf60361276a3a036a613ffee3a289e8c76618e3e97",
+      "targetSha256": "e04bb0926f5fab58a6da8bbf60361276a3a036a613ffee3a289e8c76618e3e97"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/picanto/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/picanto/4.jpg",
+      "sourceSha256": "c5dc2cda67b9433842cbde4ad59d4f6c99f1fa06f8f87f4b42a5ca799cb07653",
+      "targetSha256": "c5dc2cda67b9433842cbde4ad59d4f6c99f1fa06f8f87f4b42a5ca799cb07653"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/rio/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/rio/1.jpg",
+      "sourceSha256": "6796bf723d1ac4ac3466b77c1ec0a6b2b66461c5278de2003598237491e084a6",
+      "targetSha256": "6796bf723d1ac4ac3466b77c1ec0a6b2b66461c5278de2003598237491e084a6"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/rio/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/rio/2.jpg",
+      "sourceSha256": "311e9551bd5769778762611b30249f58e77ee43b3c4bfd5e82c38f78072c7b06",
+      "targetSha256": "311e9551bd5769778762611b30249f58e77ee43b3c4bfd5e82c38f78072c7b06"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/rio/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/rio/3.jpg",
+      "sourceSha256": "d48180dbe526d1d4deea88d79174377d2023c26b5db2e7f1df386d9724e1d4eb",
+      "targetSha256": "d48180dbe526d1d4deea88d79174377d2023c26b5db2e7f1df386d9724e1d4eb"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/rio/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/rio/4.jpg",
+      "sourceSha256": "61851245ad396128bbccf27858a48ba740a7dc7a6eb707c2343a0b97e2492917",
+      "targetSha256": "61851245ad396128bbccf27858a48ba740a7dc7a6eb707c2343a0b97e2492917"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sail/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sail/1.jpg",
+      "sourceSha256": "5b337f08928d0cd54554feae26e9749abd57a486eecb554976d73be72e6c408f",
+      "targetSha256": "5b337f08928d0cd54554feae26e9749abd57a486eecb554976d73be72e6c408f"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sail/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sail/2.jpg",
+      "sourceSha256": "adc26d1329d7887642b659d3f7bd303854494fad459e12a172b93a1501ad9017",
+      "targetSha256": "adc26d1329d7887642b659d3f7bd303854494fad459e12a172b93a1501ad9017"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sail/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sail/3.jpg",
+      "sourceSha256": "61adb67a1e2024210f65740b3787eeb84f35859f409cddf48e03aabf55f65af7",
+      "targetSha256": "61adb67a1e2024210f65740b3787eeb84f35859f409cddf48e03aabf55f65af7"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sail/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sail/4.jpg",
+      "sourceSha256": "f0c8f572a410a45ed2b230083308d3d22db177a22f1addd4eea2069788af32c0",
+      "targetSha256": "f0c8f572a410a45ed2b230083308d3d22db177a22f1addd4eea2069788af32c0"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sentra/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sentra/1.jpg",
+      "sourceSha256": "a4590b12fcb5d86a171b67089d2b9bb876d80c30fabce4646b36cc1dc690899f",
+      "targetSha256": "a4590b12fcb5d86a171b67089d2b9bb876d80c30fabce4646b36cc1dc690899f"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sentra/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sentra/2.jpg",
+      "sourceSha256": "3c0a3f18db50af91d86545b523e33e01c188c4a66af53b1595c9bb005b4d38cf",
+      "targetSha256": "3c0a3f18db50af91d86545b523e33e01c188c4a66af53b1595c9bb005b4d38cf"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/sentra/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/sentra/3.jpg",
+      "sourceSha256": "5520273ffacbde4c49d252d0d0e0296ad64581d90929e74bc767315100a9e8b3",
+      "targetSha256": "5520273ffacbde4c49d252d0d0e0296ad64581d90929e74bc767315100a9e8b3"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/swift/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/swift/1.jpg",
+      "sourceSha256": "c32ccfbd6a0d66cf9817adbc513ca0a99ff455fe12b93660a179b6c10a383809",
+      "targetSha256": "c32ccfbd6a0d66cf9817adbc513ca0a99ff455fe12b93660a179b6c10a383809"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/swift/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/swift/2.jpg",
+      "sourceSha256": "8582110e65d55cf9368a85c41c6a33b3f507103bc69f1b6a995ff8dec8615865",
+      "targetSha256": "8582110e65d55cf9368a85c41c6a33b3f507103bc69f1b6a995ff8dec8615865"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/swift/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/swift/3.jpg",
+      "sourceSha256": "263479b8a5ccd493958cd545df9bbd174da99c64f9891a93df083bb3fc28a95e",
+      "targetSha256": "263479b8a5ccd493958cd545df9bbd174da99c64f9891a93df083bb3fc28a95e"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/swift/4.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/swift/4.jpg",
+      "sourceSha256": "a3618ef7b3de6a72b6b8b8165fe4c0145fb1d38c5f4c7ae5c05926aea91295b0",
+      "targetSha256": "a3618ef7b3de6a72b6b8b8165fe4c0145fb1d38c5f4c7ae5c05926aea91295b0"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/versa/1.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/versa/1.jpg",
+      "sourceSha256": "0aef989f20be3d661b753ab9232dacd56a1d79058f602d3d8fc19a6eb17b56a5",
+      "targetSha256": "0aef989f20be3d661b753ab9232dacd56a1d79058f602d3d8fc19a6eb17b56a5"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/versa/2.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/versa/2.jpg",
+      "sourceSha256": "0f7dc4449e97e8b2b5d88600879917344017a6929d33601b7323c5f4aa8b22ff",
+      "targetSha256": "0f7dc4449e97e8b2b5d88600879917344017a6929d33601b7323c5f4aa8b22ff"
+    },
+    {
+      "source": "apps/index-lab/public/garage-photos/versa/3.jpg",
+      "target": "public/producto-assets/ganaya/garage-photos/versa/3.jpg",
+      "sourceSha256": "bd078cb92ad06b6db70ac7930fc45944c8129a0f702e4c151849a55c5f56e637",
+      "targetSha256": "bd078cb92ad06b6db70ac7930fc45944c8129a0f702e4c151849a55c5f56e637"
+    },
+    {
+      "source": "apps/index-lab/public/garage-reference/logo-vmc.svg",
+      "target": "public/producto-assets/ganaya/garage-reference/logo-vmc.svg",
+      "sourceSha256": "80f6f4144b4a97115bc2fa2c236d8774bbc87340aea83b316604aed20fa1aa22",
+      "targetSha256": "80f6f4144b4a97115bc2fa2c236d8774bbc87340aea83b316604aed20fa1aa22"
+    },
+    {
+      "source": "apps/index-lab/public/negociable/cerrar.svg",
+      "target": "public/producto-assets/ganaya/negociable/cerrar.svg",
+      "sourceSha256": "ccb0f83e08c0c5e255ca383acc010cc01fb18d2d40692f1d8d382b9eb54a98bd",
+      "targetSha256": "ccb0f83e08c0c5e255ca383acc010cc01fb18d2d40692f1d8d382b9eb54a98bd"
+    },
+    {
+      "source": "apps/index-lab/public/negociable/monedas.svg",
+      "target": "public/producto-assets/ganaya/negociable/monedas.svg",
+      "sourceSha256": "85129bb9101f8159c7ea3f2abe2128a7f78d4bafb651c52a0d7ffad3c135de8e",
+      "targetSha256": "85129bb9101f8159c7ea3f2abe2128a7f78d4bafb651c52a0d7ffad3c135de8e"
+    },
+    {
+      "source": "apps/index-lab/public/ref/captura-zona-actual-perfil-wallet-actividad-mobile.png",
+      "target": "public/producto-assets/ganaya/ref/captura-zona-actual-perfil-wallet-actividad-mobile.png",
+      "sourceSha256": "e3718a70c1782f3f0265a6847d58a99ed084e1cb86958fee37fa925439bd394e",
+      "targetSha256": "e3718a70c1782f3f0265a6847d58a99ed084e1cb86958fee37fa925439bd394e"
+    },
+    {
+      "source": "apps/index-lab/public/ref/captura-zona-historica-desktop.png",
+      "target": "public/producto-assets/ganaya/ref/captura-zona-historica-desktop.png",
+      "sourceSha256": "506607f1cd5decdec8ca13a46dae53ca0a960da29df97a438d67b63c00b6d5ec",
+      "targetSha256": "506607f1cd5decdec8ca13a46dae53ca0a960da29df97a438d67b63c00b6d5ec"
+    },
+    {
+      "source": "apps/index-lab/public/ref/mock-mi-garage-participaciones-mobile.png",
+      "target": "public/producto-assets/ganaya/ref/mock-mi-garage-participaciones-mobile.png",
+      "sourceSha256": "8ad275c085f1d5eac4073d5203cf33de15b5c7d5132e6169939a9c9842ed17a1",
+      "targetSha256": "8ad275c085f1d5eac4073d5203cf33de15b5c7d5132e6169939a9c9842ed17a1"
+    },
+    {
+      "source": "apps/index-lab/public/ref/mock-mi-garage-wallet-mobile.png",
+      "target": "public/producto-assets/ganaya/ref/mock-mi-garage-wallet-mobile.png",
+      "sourceSha256": "58d472835e567b4f0a62fee687b5b52fcea942b848554094cfb20d773bbe2743",
+      "targetSha256": "58d472835e567b4f0a62fee687b5b52fcea942b848554094cfb20d773bbe2743"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-alarma.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-alarma.mp3",
+      "sourceSha256": "33a874b6ada18048fb1cbc66c172ea1f752fe31b139c54aa48e8452a8e2bae72",
+      "targetSha256": "33a874b6ada18048fb1cbc66c172ea1f752fe31b139c54aa48e8452a8e2bae72"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-arranque-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-arranque-2.mp3",
+      "sourceSha256": "43af67981608758650f3fcdbc1ed95a815ebd81122a31f3976589d1a471ec8af",
+      "targetSha256": "43af67981608758650f3fcdbc1ed95a815ebd81122a31f3976589d1a471ec8af"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-arranque-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-arranque-3.mp3",
+      "sourceSha256": "5121a751a8ee7511678b585c712ec6ce99dd7b709bc764c50567b9d04286602f",
+      "targetSha256": "5121a751a8ee7511678b585c712ec6ce99dd7b709bc764c50567b9d04286602f"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-arranque.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-arranque.mp3",
+      "sourceSha256": "35485d465f0852b7411f6a7321509203e84f21635b6989f2e953723a04f270fb",
+      "targetSha256": "35485d465f0852b7411f6a7321509203e84f21635b6989f2e953723a04f270fb"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-3.mp3",
+      "sourceSha256": "bb054a32c95154f1b832bcf0fd285b6520fb874eb2aaa3476cd1bf0ee353c476",
+      "targetSha256": "bb054a32c95154f1b832bcf0fd285b6520fb874eb2aaa3476cd1bf0ee353c476"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-4.mp3",
+      "sourceSha256": "141efcb9633d29453b6316b3c5e193adba934637b15a945c80ab46afad7792eb",
+      "targetSha256": "141efcb9633d29453b6316b3c5e193adba934637b15a945c80ab46afad7792eb"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-5.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-5.mp3",
+      "sourceSha256": "c7071d8af784793a10d5652632fb4a7c714fb5905b70c5f10fd41864c16842f9",
+      "targetSha256": "c7071d8af784793a10d5652632fb4a7c714fb5905b70c5f10fd41864c16842f9"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-6.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-6.mp3",
+      "sourceSha256": "6fb3c7f8643d29a710b5f845f42dc7a3c0c3584567f5e99ac00fbd96d0d440b9",
+      "targetSha256": "6fb3c7f8643d29a710b5f845f42dc7a3c0c3584567f5e99ac00fbd96d0d440b9"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-camion.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-camion.mp3",
+      "sourceSha256": "50c95eb0af15b8d0629df1db2a068010e07de86bda440f33cc23c39a0546882e",
+      "targetSha256": "50c95eb0af15b8d0629df1db2a068010e07de86bda440f33cc23c39a0546882e"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-corta.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-corta.mp3",
+      "sourceSha256": "b80776125327f3c54e2426e772f3093be612aaebc2fd58ba8bcddc75f1030903",
+      "targetSha256": "b80776125327f3c54e2426e772f3093be612aaebc2fd58ba8bcddc75f1030903"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-bocina-doble.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-bocina-doble.mp3",
+      "sourceSha256": "6a963f6e2966be748ac5d653e278887946740715f52765cdaf7777472ef3d37e",
+      "targetSha256": "6a963f6e2966be748ac5d653e278887946740715f52765cdaf7777472ef3d37e"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-derrape-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-derrape-2.mp3",
+      "sourceSha256": "3b23a2d138d7ffd5a6abba15bb835d3f139af0a1d99f49c2c2dc269c58687ec5",
+      "targetSha256": "3b23a2d138d7ffd5a6abba15bb835d3f139af0a1d99f49c2c2dc269c58687ec5"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-derrape-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-derrape-3.mp3",
+      "sourceSha256": "995944cabff22b2db6f5552636f8545e2fd3344123fe7cd1d780469fdb2ae663",
+      "targetSha256": "995944cabff22b2db6f5552636f8545e2fd3344123fe7cd1d780469fdb2ae663"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-derrape-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-derrape-4.mp3",
+      "sourceSha256": "cd5f22d568f5c49f482bbbeb30ca405ed0d80f56c0c15933fd326ad44bab4478",
+      "targetSha256": "cd5f22d568f5c49f482bbbeb30ca405ed0d80f56c0c15933fd326ad44bab4478"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-derrape-5.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-derrape-5.mp3",
+      "sourceSha256": "d50da7fbb932d38496a39016257263bb863690670c1b0c565173c85abf73f6bb",
+      "targetSha256": "d50da7fbb932d38496a39016257263bb863690670c1b0c565173c85abf73f6bb"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-derrape.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-derrape.mp3",
+      "sourceSha256": "9c83ba6e632daf7ee428e5fb941e99a22054fa2135047b0ecb13c574971abfc0",
+      "targetSha256": "9c83ba6e632daf7ee428e5fb941e99a22054fa2135047b0ecb13c574971abfc0"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-llave.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-llave.mp3",
+      "sourceSha256": "5dca263dfe2c62533a80eca78fc28c962895c1ff0250d5df75487a8f042af441",
+      "targetSha256": "5dca263dfe2c62533a80eca78fc28c962895c1ff0250d5df75487a8f042af441"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-motor.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-motor.mp3",
+      "sourceSha256": "4bd3d63c879f5beffb9af822c7c3752c0746ce19df242d465aa4b00b2982e9a1",
+      "targetSha256": "4bd3d63c879f5beffb9af822c7c3752c0746ce19df242d465aa4b00b2982e9a1"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-pasada-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-pasada-2.mp3",
+      "sourceSha256": "f19657940edf957eecfc16be3217e19a373f9715727525ba462a376d378ca062",
+      "targetSha256": "f19657940edf957eecfc16be3217e19a373f9715727525ba462a376d378ca062"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-pasada-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-pasada-3.mp3",
+      "sourceSha256": "e55567f419d51dcb83452d4699b16feb19de003720798bcfd85a0ea983b69438",
+      "targetSha256": "e55567f419d51dcb83452d4699b16feb19de003720798bcfd85a0ea983b69438"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-pasada-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-pasada-4.mp3",
+      "sourceSha256": "5bcdfaa1f63586b287726c798f4b5216da75b8e8c9f5524692c564908aa0a9d9",
+      "targetSha256": "5bcdfaa1f63586b287726c798f4b5216da75b8e8c9f5524692c564908aa0a9d9"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-pasada.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-pasada.mp3",
+      "sourceSha256": "a4e9bb428ccefdb09275a26c892cc9a472968f9863170fb7614a246939730ec0",
+      "targetSha256": "a4e9bb428ccefdb09275a26c892cc9a472968f9863170fb7614a246939730ec0"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-puerta-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-puerta-2.mp3",
+      "sourceSha256": "c9e581ed530c2983ce5f1785e4cf109fa1b10f8b9417ff21188283242836c91b",
+      "targetSha256": "c9e581ed530c2983ce5f1785e4cf109fa1b10f8b9417ff21188283242836c91b"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-puerta.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-puerta.mp3",
+      "sourceSha256": "0bfdc3ccb90f7d7f9183ca120717dcbd516b70e51d38bf6f0e946196b4bae896",
+      "targetSha256": "0bfdc3ccb90f7d7f9183ca120717dcbd516b70e51d38bf6f0e946196b4bae896"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-radio.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-radio.mp3",
+      "sourceSha256": "ec413dce396e34dfedf526524ac69b236cebd324073f29628c863f816f69f52f",
+      "targetSha256": "ec413dce396e34dfedf526524ac69b236cebd324073f29628c863f816f69f52f"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-seguro-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-seguro-3.mp3",
+      "sourceSha256": "953060356b5e560196b1bfbe7fc45ac72de120d0f70a83986b1aec23536bb269",
+      "targetSha256": "953060356b5e560196b1bfbe7fc45ac72de120d0f70a83986b1aec23536bb269"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/carrera-seguro.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/carrera-seguro.mp3",
+      "sourceSha256": "75dc8fb83aa2fb0b273bafa773c2884a519d68ccb055c7f7cb81eabfa9bd00ce",
+      "targetSha256": "75dc8fb83aa2fb0b273bafa773c2884a519d68ccb055c7f7cb81eabfa9bd00ce"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/casino-caja-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/casino-caja-2.mp3",
+      "sourceSha256": "2355492b346c9dff8fecae6bbeacace58b2cf459b7c44ea2cdf42d42aa29101f",
+      "targetSha256": "2355492b346c9dff8fecae6bbeacace58b2cf459b7c44ea2cdf42d42aa29101f"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/casino-caja.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/casino-caja.mp3",
+      "sourceSha256": "7459185c471d0b8ce87f8616f6f48f6e372be9c89f1ae86c6982618ab74e96d3",
+      "targetSha256": "7459185c471d0b8ce87f8616f6f48f6e372be9c89f1ae86c6982618ab74e96d3"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/casino-fichas.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/casino-fichas.mp3",
+      "sourceSha256": "77c8c13cd96f104e429372b446ec3b8076d32ea3f330564ed94df081ffb5524f",
+      "targetSha256": "77c8c13cd96f104e429372b446ec3b8076d32ea3f330564ed94df081ffb5524f"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/casino-moneda.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/casino-moneda.mp3",
+      "sourceSha256": "f2ad676a944e83eb9f2361402c0e2c81ba47b49563003ccf5e91628f671436d7",
+      "targetSha256": "f2ad676a944e83eb9f2361402c0e2c81ba47b49563003ccf5e91628f671436d7"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/casino-tragamonedas.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/casino-tragamonedas.mp3",
+      "sourceSha256": "733212793c69ef42a00cf0afa58b4682cd1ab7db75c0836e8b95ac05eded6147",
+      "targetSha256": "733212793c69ef42a00cf0afa58b4682cd1ab7db75c0836e8b95ac05eded6147"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-boost.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-boost.mp3",
+      "sourceSha256": "d3aaa6f36e88d2cbc46523dfed9dbe857d4bc3d4fa268983d0a0169cd96eb4eb",
+      "targetSha256": "d3aaa6f36e88d2cbc46523dfed9dbe857d4bc3d4fa268983d0a0169cd96eb4eb"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-checkpoint.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-checkpoint.mp3",
+      "sourceSha256": "f10fbc8770ae6ff67ea8bb03774094639131d0ad40f6ae9b6ab4fcab67612b30",
+      "targetSha256": "f10fbc8770ae6ff67ea8bb03774094639131d0ad40f6ae9b6ab4fcab67612b30"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-largada.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-largada.mp3",
+      "sourceSha256": "acfcc0bc1298f8eb45eeda96872dc9dbdb12682d23ae4a7d2e9a007494b5f131",
+      "targetSha256": "acfcc0bc1298f8eb45eeda96872dc9dbdb12682d23ae4a7d2e9a007494b5f131"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-logo.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-logo.mp3",
+      "sourceSha256": "380b3413bc550619365a8e33c242d957c6c0b659be01470987e7c96c580e64d6",
+      "targetSha256": "380b3413bc550619365a8e33c242d957c6c0b659be01470987e7c96c580e64d6"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-mision.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-mision.mp3",
+      "sourceSha256": "d123987a1d3319c9163a6b675c351dd4b8d1f12e3113f5cdb4a1ae0b1318d6b6",
+      "targetSha256": "d123987a1d3319c9163a6b675c351dd4b8d1f12e3113f5cdb4a1ae0b1318d6b6"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-moneda-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-moneda-2.mp3",
+      "sourceSha256": "69e295a4d22e0b6da17041eb8b631712679cd0fd4e6895bf581c328acdaddc7b",
+      "targetSha256": "69e295a4d22e0b6da17041eb8b631712679cd0fd4e6895bf581c328acdaddc7b"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-moneda-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-moneda-3.mp3",
+      "sourceSha256": "d86d0a17332e05e29fa369784f09b41761d2337248a9c6b73a43f4e1eccaf05d",
+      "targetSha256": "d86d0a17332e05e29fa369784f09b41761d2337248a9c6b73a43f4e1eccaf05d"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-moneda-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-moneda-4.mp3",
+      "sourceSha256": "f3a19a3d7c817f3e032484614b24b38bc83e2b58b08f3da099b077a6dc72bb1b",
+      "targetSha256": "f3a19a3d7c817f3e032484614b24b38bc83e2b58b08f3da099b077a6dc72bb1b"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-moneda.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-moneda.mp3",
+      "sourceSha256": "02e7f2d325f1ec00528fb2f43e1e664f7b8bba7931cfe6f7c85581b5bee6f3fc",
+      "targetSha256": "02e7f2d325f1ec00528fb2f43e1e664f7b8bba7931cfe6f7c85581b5bee6f3fc"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-powerup-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-powerup-2.mp3",
+      "sourceSha256": "4a859f859bfff443531553a73935ce06c0a82bd304efe876129333074746a825",
+      "targetSha256": "4a859f859bfff443531553a73935ce06c0a82bd304efe876129333074746a825"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-powerup-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-powerup-3.mp3",
+      "sourceSha256": "f9d722f748c5a20371fa701c72b3430728111fb100c085a1f5c1b08735ef4b8a",
+      "targetSha256": "f9d722f748c5a20371fa701c72b3430728111fb100c085a1f5c1b08735ef4b8a"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-powerup.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-powerup.mp3",
+      "sourceSha256": "d8c8a8b444f720daa7464139a6c76fcea44750d4a8dd54ce75e900547d027d26",
+      "targetSha256": "d8c8a8b444f720daa7464139a6c76fcea44750d4a8dd54ce75e900547d027d26"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-semaforo-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-semaforo-2.mp3",
+      "sourceSha256": "fb75183d7e9af9f93a440fd338b14af8c7b84b9793e5b2cd2199546cd89b9777",
+      "targetSha256": "fb75183d7e9af9f93a440fd338b14af8c7b84b9793e5b2cd2199546cd89b9777"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-semaforo-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-semaforo-3.mp3",
+      "sourceSha256": "5c41649aca5deaa4f5a74f73da492f5b23df162b7d44ac3c7c1ddb7d4eef8d3a",
+      "targetSha256": "5c41649aca5deaa4f5a74f73da492f5b23df162b7d44ac3c7c1ddb7d4eef8d3a"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-semaforo-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-semaforo-4.mp3",
+      "sourceSha256": "597b5ad9b0eab4a2fd27a2389bf67f1e596dc5561e0f9e60a9e44d138b5207de",
+      "targetSha256": "597b5ad9b0eab4a2fd27a2389bf67f1e596dc5561e0f9e60a9e44d138b5207de"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-semaforo.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-semaforo.mp3",
+      "sourceSha256": "0c8710189c258787dc8795973bde5da37ebf1ab02683c81b827d2c1932048254",
+      "targetSha256": "0c8710189c258787dc8795973bde5da37ebf1ab02683c81b827d2c1932048254"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-vuelta-rapida.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-vuelta-rapida.mp3",
+      "sourceSha256": "1a85facdd3bbe388bba4a28554df0da81b5c460a41e200726d169295faefb70e",
+      "targetSha256": "1a85facdd3bbe388bba4a28554df0da81b5c460a41e200726d169295faefb70e"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/juego-vuelta.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/juego-vuelta.mp3",
+      "sourceSha256": "e7b0cecb93d641d62ddf64800fb9e7deda9530d854741f99f68208104b3290ae",
+      "targetSha256": "e7b0cecb93d641d62ddf64800fb9e7deda9530d854741f99f68208104b3290ae"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-burbuja-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-burbuja-2.mp3",
+      "sourceSha256": "9b90fa81c97ae33b7c82d50ec9178aadb3f258e342da1458d63c3f9227e391db",
+      "targetSha256": "9b90fa81c97ae33b7c82d50ec9178aadb3f258e342da1458d63c3f9227e391db"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-burbuja-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-burbuja-3.mp3",
+      "sourceSha256": "fb5a9944bda68f97106e9fad040c8d3d8517c97ee13fb5c974c150879911123f",
+      "targetSha256": "fb5a9944bda68f97106e9fad040c8d3d8517c97ee13fb5c974c150879911123f"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-burbuja.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-burbuja.mp3",
+      "sourceSha256": "d87b208f391d35df3c51e36d988f1c24a8017c7a24afeed44849a3aeeacdf91b",
+      "targetSha256": "d87b208f391d35df3c51e36d988f1c24a8017c7a24afeed44849a3aeeacdf91b"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-2.mp3",
+      "sourceSha256": "1051bfabff7dc558750a62ab16f2f4d817153a727e4bb30f80ffab872acd1977",
+      "targetSha256": "1051bfabff7dc558750a62ab16f2f4d817153a727e4bb30f80ffab872acd1977"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-3.mp3",
+      "sourceSha256": "10ce408b898a41b2c86b06a854c4aacded901c44941689d936e39c3025788d3d",
+      "targetSha256": "10ce408b898a41b2c86b06a854c4aacded901c44941689d936e39c3025788d3d"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-4.mp3",
+      "sourceSha256": "76dd712261cf9f4953c8ef42c9a6d54cf0c68423dbf80f7869eb1c3146db9b60",
+      "targetSha256": "76dd712261cf9f4953c8ef42c9a6d54cf0c68423dbf80f7869eb1c3146db9b60"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-5.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-5.mp3",
+      "sourceSha256": "79e0d273e59f230deae403ed564bbd9e874b343213bd03da1f9b08a2a1602519",
+      "targetSha256": "79e0d273e59f230deae403ed564bbd9e874b343213bd03da1f9b08a2a1602519"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-6.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-6.mp3",
+      "sourceSha256": "2de6301b67c32ce5130e55ab404123c56d5fd6f2d5e194c3b19b987f1fe5e3f4",
+      "targetSha256": "2de6301b67c32ce5130e55ab404123c56d5fd6f2d5e194c3b19b987f1fe5e3f4"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-7.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-7.mp3",
+      "sourceSha256": "ebda858c043d328be5033fa302fa0bf1161d645e810c4f06dc121be9249b8577",
+      "targetSha256": "ebda858c043d328be5033fa302fa0bf1161d645e810c4f06dc121be9249b8577"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita-8.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita-8.mp3",
+      "sourceSha256": "9d133a60da240f7efa3b865206ea613913947f240a1b4dda81d13e2541247f42",
+      "targetSha256": "9d133a60da240f7efa3b865206ea613913947f240a1b4dda81d13e2541247f42"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-campanita.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-campanita.mp3",
+      "sourceSha256": "179ba20aaa7f5ab8ff75969e3a51db5dc7b8f6d9d3b40defd32d3b55e6a97ecc",
+      "targetSha256": "179ba20aaa7f5ab8ff75969e3a51db5dc7b8f6d9d3b40defd32d3b55e6a97ecc"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-chime-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-chime-2.mp3",
+      "sourceSha256": "c00bba2d00d9d269193059cc14fea21f1ab17013f87ed91441550887df58c093",
+      "targetSha256": "c00bba2d00d9d269193059cc14fea21f1ab17013f87ed91441550887df58c093"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-chime-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-chime-3.mp3",
+      "sourceSha256": "b3d9f6c7eb1be7fdbf96c606bdca8e0b3fb56b70efeee22cfe325d21fed6fed1",
+      "targetSha256": "b3d9f6c7eb1be7fdbf96c606bdca8e0b3fb56b70efeee22cfe325d21fed6fed1"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-chime.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-chime.mp3",
+      "sourceSha256": "31e06d1c9339980fa31c4cdec89811846576b69499218964efbc77c8f9eab83e",
+      "targetSha256": "31e06d1c9339980fa31c4cdec89811846576b69499218964efbc77c8f9eab83e"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-clasico.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-clasico.mp3",
+      "sourceSha256": "3d445957c9a10723f080ac493694f29d430f189addcf5afd6b7fed92a31400d4",
+      "targetSha256": "3d445957c9a10723f080ac493694f29d430f189addcf5afd6b7fed92a31400d4"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-ding-dong.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-ding-dong.mp3",
+      "sourceSha256": "b0a389d26bebb71208c6250ff14cfa7484d4a931b0c9cd7f65df19974690b493",
+      "targetSha256": "b0a389d26bebb71208c6250ff14cfa7484d4a931b0c9cd7f65df19974690b493"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-dos-notas-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-dos-notas-2.mp3",
+      "sourceSha256": "97c2510d8aaa707ab63c36e24eb9b94cdddfd04a2ad3abdd1ab5139f6848b483",
+      "targetSha256": "97c2510d8aaa707ab63c36e24eb9b94cdddfd04a2ad3abdd1ab5139f6848b483"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-dos-notas.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-dos-notas.mp3",
+      "sourceSha256": "98714ee156cda9063fd42600ba54e84af64022dbf1781df4118cfa87b26503f6",
+      "targetSha256": "98714ee156cda9063fd42600ba54e84af64022dbf1781df4118cfa87b26503f6"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/mensaje-gota.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/mensaje-gota.mp3",
+      "sourceSha256": "7bca7f3d2613a3d81c906d1df2a4c6acfb312845b484f35f7cf921f79c11efc8",
+      "targetSha256": "7bca7f3d2613a3d81c906d1df2a4c6acfb312845b484f35f7cf921f79c11efc8"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-acelera.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-acelera.mp3",
+      "sourceSha256": "6c15d9615ab062f9150c611009b186c169367a1ba487f2d794618093b5687a6d",
+      "targetSha256": "6c15d9615ab062f9150c611009b186c169367a1ba487f2d794618093b5687a6d"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-cambio-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-cambio-2.mp3",
+      "sourceSha256": "21dc8cc93f5c5b8687ffb34e6447b9dff0f051a2135790ce939f80c79281d0d5",
+      "targetSha256": "21dc8cc93f5c5b8687ffb34e6447b9dff0f051a2135790ce939f80c79281d0d5"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-cambio.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-cambio.mp3",
+      "sourceSha256": "8c5ad932edf7fccee63bf128b7dcddcb8876bfeac3d3027f1827272d6a3b7c95",
+      "targetSha256": "8c5ad932edf7fccee63bf128b7dcddcb8876bfeac3d3027f1827272d6a3b7c95"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-moto-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-moto-2.mp3",
+      "sourceSha256": "de080601ac82bd7aef9ca3284061785fe37b985349d685f23b901dc2eac5703c",
+      "targetSha256": "de080601ac82bd7aef9ca3284061785fe37b985349d685f23b901dc2eac5703c"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-moto-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-moto-3.mp3",
+      "sourceSha256": "67c8bfa8a964db2bf96b43abd737906f2111868b76928659bbd1aa7725e4bf4a",
+      "targetSha256": "67c8bfa8a964db2bf96b43abd737906f2111868b76928659bbd1aa7725e4bf4a"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-moto.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-moto.mp3",
+      "sourceSha256": "855d243044cbf84893e845c64c9e26cd1777eb35c7e294cbc7a1740809946bbc",
+      "targetSha256": "855d243044cbf84893e845c64c9e26cd1777eb35c7e294cbc7a1740809946bbc"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-nitro.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-nitro.mp3",
+      "sourceSha256": "aa4c34adb612ad9ecb130818d573f68959b5754625a0324cbd07d32d77378cd8",
+      "targetSha256": "aa4c34adb612ad9ecb130818d573f68959b5754625a0324cbd07d32d77378cd8"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-petardeo-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-petardeo-2.mp3",
+      "sourceSha256": "4f3f259914ac783600aa77cb7f4bd5cec9e60eb7ade47fe92e3e10849e103ffe",
+      "targetSha256": "4f3f259914ac783600aa77cb7f4bd5cec9e60eb7ade47fe92e3e10849e103ffe"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-petardeo.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-petardeo.mp3",
+      "sourceSha256": "89370e491c50635d8e4c57139bed4f702115893b2d32ee003566e06cd384c87a",
+      "targetSha256": "89370e491c50635d8e4c57139bed4f702115893b2d32ee003566e06cd384c87a"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-rugido-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-rugido-2.mp3",
+      "sourceSha256": "6bd3faf422ce5c186769c0b3ea6c79924950ff955590a65f051f77e2140aca7c",
+      "targetSha256": "6bd3faf422ce5c186769c0b3ea6c79924950ff955590a65f051f77e2140aca7c"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-rugido-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-rugido-3.mp3",
+      "sourceSha256": "3f431d92f1f4ae660ea123b1b2cc14d5f247363bd76d21afcb5683fc76b6fb05",
+      "targetSha256": "3f431d92f1f4ae660ea123b1b2cc14d5f247363bd76d21afcb5683fc76b6fb05"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-rugido-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-rugido-4.mp3",
+      "sourceSha256": "8a5ef6ed4b523423f29fcbd4f9b1940676715a938237ce010ede01eac9cf2156",
+      "targetSha256": "8a5ef6ed4b523423f29fcbd4f9b1940676715a938237ce010ede01eac9cf2156"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-rugido-5.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-rugido-5.mp3",
+      "sourceSha256": "b879082bae36543553e3633afc5be3921ad80e2384c32fc520938d160d0125b1",
+      "targetSha256": "b879082bae36543553e3633afc5be3921ad80e2384c32fc520938d160d0125b1"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-rugido-6.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-rugido-6.mp3",
+      "sourceSha256": "a58d8bc15f93334ee11558aeccd4b6093388b02b749dd85d76477e3f5e2686d7",
+      "targetSha256": "a58d8bc15f93334ee11558aeccd4b6093388b02b749dd85d76477e3f5e2686d7"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/motor-turbo.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/motor-turbo.mp3",
+      "sourceSha256": "fd2b0fa22e36def8ba8f0ba15f654aa5888f3ca7f9ddf24cfeb9135a11b1dc15",
+      "targetSha256": "fd2b0fa22e36def8ba8f0ba15f654aa5888f3ca7f9ddf24cfeb9135a11b1dc15"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-martillo-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-martillo-2.mp3",
+      "sourceSha256": "42c1ba5741ce5791ef21e9aae6f3a1231549bbc70b7126ea3479361d447a882f",
+      "targetSha256": "42c1ba5741ce5791ef21e9aae6f3a1231549bbc70b7126ea3479361d447a882f"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-martillo-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-martillo-3.mp3",
+      "sourceSha256": "cb0573e17bd9d47703b958d862060db94d9d38c4c1d07f6540750489994df83b",
+      "targetSha256": "cb0573e17bd9d47703b958d862060db94d9d38c4c1d07f6540750489994df83b"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-martillo.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-martillo.mp3",
+      "sourceSha256": "5e762a7a1146a2ffac700bf7521fd66fb7a4430b7bd6ccfbe0640ec163a62f97",
+      "targetSha256": "5e762a7a1146a2ffac700bf7521fd66fb7a4430b7bd6ccfbe0640ec163a62f97"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre-2.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre-2.mp3",
+      "sourceSha256": "10c5f8c7bae45c4ac79871bb845993a5ef0f3bc4382bd835aa692496cecbfa78",
+      "targetSha256": "10c5f8c7bae45c4ac79871bb845993a5ef0f3bc4382bd835aa692496cecbfa78"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre-3.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre-3.mp3",
+      "sourceSha256": "af26b6bdc47207f6c602ac56248efef89fc87cc96c258e10a518e3c41950e3b1",
+      "targetSha256": "af26b6bdc47207f6c602ac56248efef89fc87cc96c258e10a518e3c41950e3b1"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre-4.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre-4.mp3",
+      "sourceSha256": "58b2eba094beabce6669fb58609c331feafe236f442e39633d9b7f034c52cda5",
+      "targetSha256": "58b2eba094beabce6669fb58609c331feafe236f442e39633d9b7f034c52cda5"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre-5.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre-5.mp3",
+      "sourceSha256": "821e54c15a9d056d5629a85b385f034f253ef7abefc21234f7d6c035c123cfb0",
+      "targetSha256": "821e54c15a9d056d5629a85b385f034f253ef7abefc21234f7d6c035c123cfb0"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre-6.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre-6.mp3",
+      "sourceSha256": "7f05dbd6f7843687013ea002e20219bf048f835b06c2b7d86e5be002d14557d4",
+      "targetSha256": "7f05dbd6f7843687013ea002e20219bf048f835b06c2b7d86e5be002d14557d4"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre-7.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre-7.mp3",
+      "sourceSha256": "685fddaaf5fe005bfa8389e4faff556b8fa7ac1b50cc94acb6a8cc7757d9f355",
+      "targetSha256": "685fddaaf5fe005bfa8389e4faff556b8fa7ac1b50cc94acb6a8cc7757d9f355"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-timbre.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-timbre.mp3",
+      "sourceSha256": "270283ab3f098d25358fea866ffbd4cf9cfbd210a209c98a56e8fe41ab146f2e",
+      "targetSha256": "270283ab3f098d25358fea866ffbd4cf9cfbd210a209c98a56e8fe41ab146f2e"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/subasta-vendido.mp3",
+      "target": "public/producto-assets/ganaya/sonidos/subasta-vendido.mp3",
+      "sourceSha256": "7ceb70ccc9f98fffc9fcf0ca61cc3913c6684f758ac08d1daad4f3f4df890c6c",
+      "targetSha256": "7ceb70ccc9f98fffc9fcf0ca61cc3913c6684f758ac08d1daad4f3f4df890c6c"
+    },
+    {
+      "source": "apps/index-lab/public/banners/index-campana.html",
+      "target": "public/producto-assets/ganaya/banners/index-campana.html",
+      "sourceSha256": "d2b60338b157b6092201f465862ff5618c38bf3ea8a17c9b5038e7d574deeefc",
+      "targetSha256": "cf719f2ca08812028ffa78eb096a0a44641c4dd5f9d1fa02f489254722443726"
+    },
+    {
+      "source": "apps/index-lab/public/banners/max-vmc.html",
+      "target": "public/producto-assets/ganaya/banners/max-vmc.html",
+      "sourceSha256": "c1648f5484ae9e4ece820afcb8d2eb9bf19e623a2a594fb3635d3c8f48a01db8",
+      "targetSha256": "c1648f5484ae9e4ece820afcb8d2eb9bf19e623a2a594fb3635d3c8f48a01db8"
+    },
+    {
+      "source": "apps/index-lab/public/banners/mini-preview.html",
+      "target": "public/producto-assets/ganaya/banners/mini-preview.html",
+      "sourceSha256": "5e6728b9b9219778c44135b14191530dddf06a8f74f0eef1ef6a4138bbb70cd2",
+      "targetSha256": "5e6728b9b9219778c44135b14191530dddf06a8f74f0eef1ef6a4138bbb70cd2"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-vmc-v1.html",
+      "target": "public/producto-assets/ganaya/banners/publica-vmc-v1.html",
+      "sourceSha256": "09262b7689eb48e8626794c2442184fd0df686308ed7729fc96da2901a840937",
+      "targetSha256": "20e65954f5373c0f131d7b2583ae3cb383a5b94f0008db429113c4d143537e4b"
+    },
+    {
+      "source": "apps/index-lab/public/banners/publica-vmc.html",
+      "target": "public/producto-assets/ganaya/banners/publica-vmc.html",
+      "sourceSha256": "c42e7abf784556ad6091457f334331c7d9a34ca6ce3cb228764d70f64879766d",
+      "targetSha256": "c42e7abf784556ad6091457f334331c7d9a34ca6ce3cb228764d70f64879766d"
+    },
+    {
+      "source": "apps/index-lab/public/banners/venta-empresa.html",
+      "target": "public/producto-assets/ganaya/banners/venta-empresa.html",
+      "sourceSha256": "4f12859f3252ac04f193092cf9759209330da4b4102de09232445812e84fa937",
+      "targetSha256": "4f12859f3252ac04f193092cf9759209330da4b4102de09232445812e84fa937"
+    },
+    {
+      "source": "apps/index-lab/public/garage-reference/toyota-corolla.jpeg",
+      "target": "public/producto-assets/ganaya/garage-reference/toyota-corolla.jpeg",
+      "sourceSha256": "575c24635585fdbf85e90a84d2cc37a8d6d04340e6c99c8bdc768a5b879e0a53",
+      "targetSha256": "575c24635585fdbf85e90a84d2cc37a8d6d04340e6c99c8bdc768a5b879e0a53"
+    },
+    {
+      "source": "apps/index-lab/public/garage-reference/toyota-etios.jpeg",
+      "target": "public/producto-assets/ganaya/garage-reference/toyota-etios.jpeg",
+      "sourceSha256": "41e7317b8e7c72731bf317cff3b1b8ce2443b69c0eba622d6df2df62821107a3",
+      "targetSha256": "41e7317b8e7c72731bf317cff3b1b8ce2443b69c0eba622d6df2df62821107a3"
+    },
+    {
+      "source": "apps/index-lab/public/sonidos/LICENCIAS.md",
+      "target": "public/producto-assets/ganaya/sonidos/LICENCIAS.md",
+      "sourceSha256": "b947b8ff01c4c6f38b3d129d13addaad3b767fa1b8763ccd76ec3ffd47f46440",
+      "targetSha256": "b947b8ff01c4c6f38b3d129d13addaad3b767fa1b8763ccd76ec3ffd47f46440"
+    }
+  ]
+}

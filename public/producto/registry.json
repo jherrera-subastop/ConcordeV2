@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-13",
+  "status": "integracion-local-en-revision",
+  "designSystem": "Voyager",
+  "implementationLibrary": "Concorde",
+  "rules": [
+    "Elegir pantalla base por función y flujo, no sólo similitud visual.",
+    "Consultar fuentes y estado antes de reutilizar. Prototipo no significa producción.",
+    "Conservar logo, shell, acciones, responsive y estados del original.",
+    "No sustituir variantes vigentes por estilos inventados.",
+    "Los ejemplos de precio, fee y AVT no son reglas nuevas de negocio."
+  ],
+  "screens": [
+    {
+      "id": "index",
+      "name": "Index / Homepage",
+      "route": "/producto/index",
+      "source": "AaronCoorahua/vmc-index-lab",
+      "revision": "359888ba",
+      "entry": "src/product/index",
+      "status": "prototipo-integrado",
+      "useFor": "Catálogos y listados; conserva shell y estructura antes de adaptar banner y badges."
+    },
+    {
+      "id": "detalle-basic",
+      "name": "Detalle Negociable Basic",
+      "route": "/producto/mi-garaje/m/vmc-propuesta",
+      "source": "ahuacchillo/VMC-Laptop (checkout local)",
+      "revision": "c3053a9",
+      "entry": "src/product/mi-garaje/models/Propuesta.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Ficha detalle y propuestas; no reemplazar por ficha genérica."
+    },
+    {
+      "id": "mi-garaje",
+      "name": "Mi Garaje",
+      "route": "/producto/mi-garaje/m/vmc",
+      "source": "ahuacchillo/VMC-Laptop (checkout local)",
+      "revision": "c3053a9",
+      "entry": "src/product/mi-garaje/models/Garaje.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Área de cuenta, negociaciones, publicaciones y participaciones."
+    },
+    {
+      "id": "publicacion",
+      "name": "Publicación vehicular",
+      "route": "/producto/mi-garaje/m/vmc-publica",
+      "source": "ahuacchillo/VMC-Laptop (checkout local)",
+      "revision": "c3053a9",
+      "entry": "src/product/mi-garaje/models/Flujo.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Base estructural de formularios; no imponer atributos vehiculares a otras categorías."
+    },
+    {
+      "id": "valorizacion",
+      "name": "Valorización / AVT",
+      "route": "/producto/mi-garaje/m/vmc-valuar",
+      "source": "ahuacchillo/VMC-Laptop (checkout local)",
+      "revision": "c3053a9",
+      "entry": "src/product/mi-garaje/models/Flujo.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Flujo y visual de AVT. Datos de prototipo, no cálculo conectado."
+    },
+    {
+      "id": "publicaciones",
+      "name": "Mis publicaciones",
+      "route": "/producto/mi-garaje/publicaciones",
+      "source": "ahuacchillo/VMC-Laptop (checkout local)",
+      "revision": "c3053a9",
+      "entry": "src/product/mi-garaje/app/publicaciones/Publicaciones.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Estados y detalle de publicaciones."
+    },
+    {
+      "id": "ganaya",
+      "name": "Ganá Ya: catálogo y comprador",
+      "route": "/producto/ganaya/negociable?rol=comprador",
+      "source": "ENTREGA-GANAYA-2026-11-13-LIMPIA",
+      "revision": "Inventario SHA256 en docs/integracion/ganaya-source-manifest.json",
+      "entry": "src/product/ganaya/ganaya/GanaYaApp.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Ganá Ya en Negociable; incluye CTA, confirmación y selector de roles."
+    },
+    {
+      "id": "ganaya-vendedor",
+      "name": "Ganá Ya: vendedor",
+      "route": "/producto/ganaya-garaje?ganaya=swift&rol=vendedor",
+      "source": "ENTREGA-GANAYA-2026-11-13-LIMPIA",
+      "revision": "Inventario SHA256 en docs/integracion/ganaya-source-manifest.json",
+      "entry": "src/product/ganaya/mi-garaje/models/Garaje.tsx",
+      "status": "prototipo-integrado",
+      "useFor": "Llegada a Mi Garaje del vendedor y SubasChat."
+    }
+  ],
+  "components": [
+    {
+      "name": "GanaYaButton",
+      "entry": "src/product/ganaya/ganaya/GanaYaButton.tsx",
+      "styles": "src/product/ganaya/ganaya/GanaYaButton.module.css",
+      "status": "propuesta-de-producto",
+      "note": "Se conservan variantes originales. No declara una variante visual aprobada nueva."
+    },
+    {
+      "name": "GanaYaIcon",
+      "entry": "src/product/ganaya/ganaya/GanaYaIcon.tsx",
+      "status": "propuesta-de-producto"
+    },
+    {
+      "name": "GanaYaBanner",
+      "entry": "src/product/ganaya/ganaya/GanaYaBanner.tsx",
+      "status": "propuesta-de-producto"
+    },
+    {
+      "name": "PublicationBadge",
+      "entry": "src/product/mi-garaje/app/components/lib/PublicationBadge.tsx",
+      "status": "referencia-de-producto",
+      "note": "Usar estados del modelo, no inventar correspondencias."
+    }
+  ]
+}

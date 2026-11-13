@@ -1,0 +1,48 @@
+/* LotGallery (usa también featured-card.css y light-bar.css) */
+.vlg { container-type: inline-size; font-family: var(--vmc-font-display, 'Plus Jakarta Sans', -apple-system, sans-serif); }
+.vlg *, .vlg *::before, .vlg *::after { box-sizing: border-box; }
+.vlg__grid { display: grid; grid-template-columns: var(--vlg-feat, 292px) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.vlg__feat { display: flex; min-width: 0; min-height: var(--vlg-h, 386px); }
+.vlg__feat > * { flex: 1; }
+/* Las filas llenan por columnas: primero la columna junto a la destacada, de arriba abajo, y luego la siguiente.
+   Las columnas y filas son fijas: con pocos lotes el espacio sobrante queda vacío y nada se ensancha. */
+.vlg__list { display: grid; grid-auto-flow: column; grid-template-columns: repeat(var(--vlg-cols, 2), minmax(0, 1fr)); grid-template-rows: repeat(3, 1fr);
+  grid-auto-columns: minmax(0, 1fr); column-gap: 20px; }
+.vlg__list > .vlg-row:nth-child(3n + 1) { padding-top: 0; }
+.vlg__list > .vlg-row:nth-child(3n), .vlg__list > .vlg-row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+/* Fila de lote */
+.vlg-row { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; align-items: start; padding: 10px 0; border-bottom: 1px solid #EFEDF5;
+  color: #14112B; cursor: pointer; }
+.vlg-row__basic { position: absolute; left: 6px; bottom: 6px; z-index: 2; }
+.vlg-row__thumb { position: relative; display: block; width: 84px; height: 84px; overflow: hidden; border-radius: 12px; background: #F3EFFD; }
+.vlg-row__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.vlg-row:hover .vlg-row__thumb img { transform: scale(1.05); }
+.vlg-row__like { position: absolute; top: 14px; left: calc(84px - 30px); z-index: 2; display: grid; place-items: center; }
+.vlg-row__main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; min-width: 0; }
+.vlg-row__pill { justify-self: start; display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.vlg-row__title { margin: 3px 0 0; overflow: hidden; font-size: 13px; line-height: 1.2; font-weight: 800; color: #14112B; text-overflow: ellipsis; white-space: nowrap; }
+.vlg-row__price { display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; font-size: 14px; line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; color: #4C1EBC; }
+.vlg-row__price svg { width: 16px; height: 17px; }
+.vlg-row__offer { margin-top: 2px; font-size: 13px; line-height: 1.15; font-weight: 800; color: #00777A; }
+.vlg-row__rest--cond { display: flex; align-items: center; gap: 6px; margin-top: 1px; }
+.vlg-row__rest--cond > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.vlg-row__rest, .vlg-row__foot { overflow: hidden; font-size: 11px; font-weight: 600; color: #8A879C; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Menos de 860 px: carta arriba y filas debajo, en una columna */
+@container (max-width: 859px) {
+  .vlg__grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .vlg__feat { min-height: 416px; }
+  .vlg__list { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); grid-template-rows: none; column-gap: 0; }
+  .vlg__list > .vlg-row:nth-child(3n + 1) { padding-top: 10px; }
+  .vlg__list > .vlg-row:first-child { padding-top: 0; }
+  .vlg__list > .vlg-row:nth-child(3n) { border-bottom: 1px solid #EFEDF5; padding-bottom: 10px; }
+  .vlg__list > .vlg-row:last-child { border-bottom: 0; padding-bottom: 0; }
+}
+/* Menos de 480 px: fotos de 76 px y los textos bajan de línea */
+@container (max-width: 480px) {
+  .vlg-row { grid-template-columns: 76px minmax(0, 1fr); gap: 10px; }
+  .vlg-row__thumb { width: 76px; height: 76px; }
+  .vlg-row__like { top: 6px; left: calc(76px - 32px); }
+  .vlg-row__title, .vlg-row__rest { overflow: visible; text-overflow: clip; white-space: normal; }
+}

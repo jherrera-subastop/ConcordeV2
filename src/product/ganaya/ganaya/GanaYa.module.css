@@ -1,0 +1,64 @@
+/* Ficha from Mi Garaje c880184; commercial catalog revision requested 11 November. */
+.page { min-width:0; font-family:var(--vmc-font-display); }
+.catalog { min-height:620px; padding:16px 16px 40px; background:color-mix(in srgb,var(--vmc-color-background-disabled) 26%,var(--vmc-color-base-white)); display:grid; align-content:start; gap:24px; font-family:var(--vmc-font-display); color:var(--vmc-color-vault-700); }
+.catalogTitle,.dateLine { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+.catalogTitle h1 { margin:0; font-size:var(--vmc-font-size-title); line-height:var(--vmc-line-height-title); font-weight:var(--vmc-font-weight-bold); }
+.catalogTitle span,.dateLine { font-size:var(--vmc-font-size-body); line-height:var(--vmc-line-height-body); }
+.dateLine h2 { margin:0; font:inherit; font-weight:var(--vmc-font-weight-bold); }
+.catalogGrid { display:grid; grid-template-columns:repeat(auto-fill,170px); gap:24px; }
+.detailHost { width:100%; min-width:0; display:grid; grid-template-columns:minmax(0,1fr); justify-items:center; }
+.detail:global([data-block="detalle"]) { width:100% !important; max-width:799px; min-width:0; height:auto !important; padding:16px; overflow:visible !important; }
+.detail > div { position:static !important; display:grid !important; grid-template-columns:minmax(0,443px) minmax(0,311px); gap:16px; }
+.detail > div > div { min-width:0; width:100% !important; }
+.detail > div > div > * { max-width:100%; }
+.detail :global(.pacc) { border-radius:var(--vmc-radius-md); overflow:hidden; }
+.detail :global(.pdetail),.detail :global(.pcardv),.detail :global(.pastatus) { width:100%; }
+.information { font-family:var(--vmc-font-display); font-size:var(--vmc-font-size-label); line-height:var(--vmc-line-height-body); }
+.information p { margin:0 0 16px; }
+.specs { margin:0; display:grid; gap:16px; }
+.specs > div { display:flex; justify-content:space-between; gap:16px; }
+.specs dt { font-weight:var(--vmc-font-weight-bold); }
+.specs dd { margin:0; text-align:right; }
+.related { display:grid; gap:16px; margin-top:24px; }
+@media(max-width:767px) {
+ .catalog { padding:20px 16px 32px; }
+ .catalogGrid { grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); max-width:360px; }
+ .detail:global([data-block="detalle"]) { padding:0 0 24px; }
+ .detail > div { display:flex !important; flex-direction:column; gap:16px; }
+ .detail > div > div { display:contents !important; }
+ .detail > div > div > * { width:calc(100% - 32px) !important; max-width:none; box-sizing:border-box; margin-inline:16px; }
+ .detail :global([data-slot="detail-media"]) { order:1; width:100% !important; margin:0; }
+ .detail :global(.pdetail) { order:2; }
+ .detail :global([data-slot="detail-conditions"]) { order:3; justify-content:space-evenly !important; }
+ .detail :global(.pacc) { order:4; }
+ .detail :global([data-slot="detail-related"]) { order:5; }
+ .detail :global(.pcardv__thumb) { flex:1 1 0; min-width:0; }
+}
+
+.dateGroup { min-width:0; display:grid; gap:16px; padding:16px; border-radius:var(--vmc-radius-md); background:var(--vmc-color-base-white); box-shadow:var(--vmc-shadow-card); }
+.dateLine { font-size:var(--vmc-font-size-label); gap:8px; }
+.dateLine h2 { text-transform:uppercase; }
+.dateLine > span { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+.offerTile { display:grid; align-content:start; gap:10px; min-width:0; }
+.ganaYaBadge { display:inline-flex; align-items:center; gap:5px; min-height:18px; padding:2px 8px 2px 6px; border:1px solid color-mix(in srgb,var(--vmc-color-orange-400) 65%,var(--vmc-color-base-white)); border-radius:var(--vmc-radius-full); background:var(--vmc-color-base-white); box-shadow:0 2px 6px color-mix(in srgb,var(--vmc-color-vault-900) 18%,transparent); color:var(--vmc-color-vault-900); font-size:9px; line-height:normal; font-weight:700; letter-spacing:.07em; pointer-events:none; text-transform:uppercase; }
+.ganaYaBadge svg { flex:none; }
+
+/* Composición local de la ficha negociable: se conserva DetailCard congelado y
+   se agrupan sus dos acciones sin alterar la referencia de Mi Garaje. */
+.negotiableDetail :global(.pdetail__body--gy) { gap:16px; }
+/* La variante sin banner original reserva espacio para su CTA “¿Vendes tu auto?”.
+   Ganá Ya lo omite, así que conserva la altura compacta de la ficha. */
+.negotiableDetail :global(.pdetail__body--gy.pdetail__body--sin-banner) { height:256px; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__gy) { order:2; width:100%; height:48px; padding:0 20px 0 10px; justify-content:center; border:2px solid transparent; color:var(--vmc-color-base-white); text-shadow:color-mix(in srgb,var(--vmc-color-ink) 25%,transparent) 0 1px 3px; background-image:linear-gradient(135deg,var(--vmc-color-teal-500) 0%,var(--vmc-color-teal-500) 40%,var(--vmc-color-vault-500) 100%),linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--vmc-color-teal-400) 25%,var(--vmc-color-vault-600) 75%,var(--vmc-color-base-white) 100%) !important; background-origin:padding-box,border-box; background-clip:padding-box,border-box; box-shadow:color-mix(in srgb,var(--vmc-color-base-white) 28%,transparent) 0 1px 0 2px inset,color-mix(in srgb,var(--vmc-color-teal-500) 30%,transparent) 0 2px 6px; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__gy .price),.negotiableDetail :global(.pdetail__body--gy .pdetail__gy .separator) { color:inherit; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__gy[data-ganaya-button]:hover:not(:disabled)) { transform:translateY(-2px) scale(1.02) !important; background-image:linear-gradient(220deg,var(--vmc-color-teal-400) 0%,var(--vmc-color-teal-400) 40%,var(--vmc-color-vault-400) 100%),linear-gradient(135deg,var(--vmc-color-base-white) 0%,var(--vmc-color-teal-400) 25%,var(--vmc-color-vault-600) 75%,var(--vmc-color-base-white) 100%) !important; box-shadow:color-mix(in srgb,var(--vmc-color-base-white) 22%,transparent) 0 1px 0 2px inset,color-mix(in srgb,var(--vmc-color-vault-500) 35%,transparent) 0 8px 24px,color-mix(in srgb,var(--vmc-color-teal-500) 40%,transparent) 0 4px 10px !important; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__gy[data-ganaya-button]:hover:not(:disabled)::before) { background:linear-gradient(color-mix(in srgb,var(--vmc-color-base-white) 17%,transparent) 0%,transparent 55%) !important; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__gy[data-ganaya-button]:hover:not(:disabled)::after) { background:linear-gradient(135deg,var(--vmc-color-teal-500),var(--vmc-color-vault-500)) !important; opacity:.45 !important; filter:blur(18px) !important; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__cta) { order:3; width:100%; margin:0 !important; border:2px solid transparent !important; background:linear-gradient(var(--vmc-color-base-white),var(--vmc-color-base-white)) padding-box,linear-gradient(135deg,var(--vmc-color-teal-500) 0%,var(--vmc-color-teal-500) 40%,var(--vmc-color-vault-500) 100%) border-box !important; color:var(--vmc-color-vault-700) !important; text-shadow:none; box-shadow:0 2px 6px color-mix(in srgb,var(--vmc-color-vault-700) 16%,transparent) !important; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__cta::before),.negotiableDetail :global(.pdetail__body--gy .pdetail__cta::after) { display:none; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__cta:hover) { background:linear-gradient(color-mix(in srgb,var(--vmc-color-teal-500) 8%,var(--vmc-color-base-white)),color-mix(in srgb,var(--vmc-color-vault-500) 8%,var(--vmc-color-base-white))) padding-box,linear-gradient(135deg,var(--vmc-color-teal-400) 0%,var(--vmc-color-teal-400) 40%,var(--vmc-color-vault-400) 100%) border-box !important; color:var(--vmc-color-vault-800) !important; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__title) { order:1; margin:0 !important; }
+.negotiableDetail :global(.pdetail__body--gy .pdetail__commission) { order:4; }
+.negotiableDetail :global(.pdetail__body--sin-banner .pdetail__gy-caption),.negotiableDetail :global(.pdetail__body--sin-banner .pdetail__gy-or) { display:none; }
+@media(max-width:767px){.catalog{padding:16px 14px 32px;gap:16px}.catalogGrid{max-width:none;grid-template-columns:170px}.offerTile{max-width:170px}.dateLine{align-items:flex-start}}
+

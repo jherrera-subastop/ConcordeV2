@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Publica en VMC · anteriores</title>
+<!-- Campaña «Publica en VMC» (21/10): que particulares publiquen su auto o moto. Formatos de Fernando (venta-empresa.html)
+     y lenguaje de los banners del index (vmc-index-lab): Plus Jakarta Sans, morado con brasa, lila claro, CTA primary de Concorde.
+     Seis composiciones distintas (cambia qué manda en la jerarquía, no solo el fondo):
+       01-foto     la foto a sangre manda; titular grande encima, sombra para leer.
+       02-persona  una persona con su celular; dato en píldora («Un solo pago» del index).
+       03-cero     tipográfica: el «0%» gigante es el héroe; el vehículo es secundario.
+       04-pasos    el proceso: 3 pasos numerados y la foto en un panel redondeado (fondo blanco).
+       05-tarjeta  producto: una tarjeta Negociable de ejemplo con una propuesta entrante.
+       06-moto     bloque de color: disco naranja enorme y la moto rompiéndolo.
+     Uso: publica-vmc.html?v=01-foto&f=side400 · f = side264 | side400 | strip776 | strip1532 -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+:root{--ink:#1B1442;--muted:#6B6878;--violet:#5C38D6;--vault-500:#8460E5;--vault-700:#3B1782;--cream:#FFE2C2;--line:#E6DEFF;
+  --font:'Plus Jakarta Sans',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--font);-webkit-font-smoothing:antialiased;overflow:hidden;background:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--vault-500);outline-offset:-2px}
+
+.bn{position:relative;display:flex;flex-direction:column;height:100%;overflow:hidden;isolation:isolate;border-radius:16px;color:#fff}
+.bn > *{position:relative;z-index:2}
+.bn > .m{position:absolute;z-index:1;pointer-events:none} /* medios y decoración: detrás del texto */
+.bn > .m.bg{z-index:0}
+.tx{display:grid;gap:8px;justify-items:start}
+
+.pill{display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 9px 0 7px;border-radius:999px;font-size:11px;font-weight:700;white-space:nowrap;
+  border:1px solid rgb(255 255 255 / 28%);background:rgb(255 255 255 / 12%);color:#fff}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:#FBC47D;box-shadow:0 0 0 3px rgb(251 196 125 / 25%)}
+.light .pill{border-color:#fff;background:rgba(255,255,255,.7);color:var(--violet);font-weight:600;box-shadow:rgba(59,23,130,.1) 0 2px 8px}
+.light .pill::before{background:var(--vault-500);box-shadow:0 0 0 3px #DCD2FB}
+h1{font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--cream)}
+.light h1{color:var(--ink)}
+.light h1 em{color:var(--violet)}
+.lede{font-weight:400;color:rgb(255 255 255 / 84%);text-wrap:pretty}
+.light .lede{color:var(--muted)}
+.cta{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;border-radius:9999px;font-weight:700;white-space:nowrap;color:#fff;
+  background:linear-gradient(135deg,#ED8936 0%,#ED8936 25%,#8460E5 100%);box-shadow:rgba(16,4,48,.25) 0 6px 14px -4px;transition:transform .15s}
+.cta--white{background:#fff;color:var(--vault-700)}
+.bn:hover .cta{transform:translateY(-1px)}
+@media (prefers-reduced-motion:reduce){.cta{transition:none}}
+
+/* ── Tamaños base por formato (cada variante ajusta lo suyo) ── */
+[data-f=side264] .bn{padding:14px}            [data-f=side264] h1{font-size:17px;line-height:20px} [data-f=side264] .lede{display:none} [data-f=side264] .cta{height:34px;padding:0 16px;font-size:13px}
+[data-f=side400] .bn{padding:18px 16px;gap:10px} [data-f=side400] h1{font-size:22px;line-height:25px} [data-f=side400] .lede{font-size:12px;line-height:16px} [data-f=side400] .cta{height:40px;padding:0 20px;font-size:14px}
+[data-f=strip776] .bn{padding:24px 28px;gap:10px} [data-f=strip776] .tx{max-width:380px} [data-f=strip776] h1{font-size:26px;line-height:30px} [data-f=strip776] .lede{font-size:13px;line-height:18px} [data-f=strip776] .cta{height:40px;padding:0 24px;font-size:14px;margin-top:auto}
+[data-f^=side] .bn{gap:8px}
+
+/* ═══ 01 · FOTO: la foto a sangre; titular grande en blanco sobre una sombra morada. ═══ */
+.v-foto{background:#22005C}
+.v-foto .ph{inset:0;width:100%;height:100%;object-fit:cover}
+.v-foto .shade{inset:0}
+/* Verticales: la foto entera a lo ancho (3:2) entre el texto y el CTA, fundida con el morado arriba y abajo. */
+[data-f^=side] .v-foto .ph{inset:auto 0 auto 0;width:100%;height:auto;aspect-ratio:3/2;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 88%,transparent 100%)}
+[data-f=side264] .v-foto .ph{bottom:44px} [data-f=side400] .v-foto .ph{bottom:58px}
+[data-f^=side] .v-foto .shade{display:none}
+[data-f^=side] .v-foto .cta{margin-top:auto;align-self:stretch}
+[data-f=side264] .v-foto h1{font-size:19px;line-height:22px}
+[data-f=side400] .v-foto h1{font-size:23px;line-height:26px}
+/* Franjas: la foto entera al alto, a la derecha, fundida hacia el texto. */
+[data-f=strip776] .v-foto .ph{left:auto;right:0;width:auto;height:100%;aspect-ratio:3/2;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 28%);mask-image:linear-gradient(90deg,transparent 0%,#000 28%)}
+[data-f=strip776] .v-foto .shade{display:none}
+[data-f=strip776] .v-foto h1{font-size:30px;line-height:33px}
+
+/* ═══ 02 · PERSONA: morado con brasa y anillos («Un solo pago»); la persona grande a la derecha/abajo. ═══ */
+.v-persona{background:radial-gradient(70% 160% at -6% 120%,rgb(239 133 46 / 80%) 0%,rgb(239 133 46 / 30%) 30%,transparent 60%),linear-gradient(120deg,#32136F 0%,#4E22A9 55%,#7B4BE3 100%)}
+.v-persona .ring{border:42px solid rgb(255 255 255 / 8%);border-radius:50%}
+.v-persona .man{object-fit:contain;object-position:right bottom}
+[data-f^=side] .v-persona .r1{width:200px;height:180px;right:-90px;top:-80px}
+[data-f=side264] .v-persona .man{right:-30px;left:20px;bottom:0;height:124px}
+[data-f=side400] .v-persona .man{right:-40px;left:0;bottom:0;height:196px}
+[data-f=strip776] .v-persona .r1{width:300px;height:260px;left:40%;top:-150px}
+[data-f=strip776] .v-persona .man{right:20px;bottom:0;width:320px;height:100%}
+
+/* ═══ 03 · CERO: tipográfica. El número es el héroe; titular y CTA lo explican. ═══ */
+.v-cero{background:radial-gradient(120% 160% at 0% 0%,#F6F2FF 0%,#ECE4FF 60%,#F3EEFF 100%);border:1px solid var(--line)}
+.v-cero .big{display:grid;justify-items:start;line-height:.9}
+.v-cero .big b{font-weight:800;letter-spacing:-.05em;background:linear-gradient(90deg,#ED8936 0%,#C4618F 50%,#8460E5 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.v-cero .big span{font-size:12px;font-weight:600;color:var(--vault-700);margin-top:4px}
+.v-cero .cut{object-fit:contain;object-position:right bottom;filter:drop-shadow(0 10px 12px rgba(27,20,66,.18))}
+[data-f=side264] .v-cero .big b{font-size:76px} [data-f=side264] .v-cero h1{font-size:14px;line-height:18px}
+[data-f=side264] .v-cero .cut{display:none}
+[data-f=side264] .v-cero .cta{margin-top:auto;align-self:stretch}
+[data-f=side400] .v-cero .big b{font-size:104px} [data-f=side400] .v-cero h1{font-size:18px;line-height:22px}
+[data-f=side400] .v-cero .cut{right:-40px;left:30px;bottom:-4px;height:96px}
+[data-f=side400] .v-cero .cta{align-self:stretch}
+[data-f=strip776] .v-cero{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr;column-gap:32px;align-items:start}
+[data-f=strip776] .v-cero .big{grid-row:1 / span 2;align-self:center} [data-f=strip776] .v-cero .big b{font-size:150px}
+[data-f=strip776] .v-cero .tx{max-width:300px} [data-f=strip776] .v-cero h1{font-size:22px;line-height:26px}
+[data-f=strip776] .v-cero .cta{grid-column:2;align-self:end;justify-self:start}
+[data-f=strip776] .v-cero .cut{display:none} /* tipográfica pura: el auto competía con el CTA */
+
+/* ═══ 04 · PASOS: fondo blanco, el proceso manda; la foto va en un panel redondeado. ═══ */
+.v-pasos{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.v-pasos .panel{border-radius:12px;overflow:hidden;background:#ECE4FF}
+.v-pasos .panel img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;display:block}
+.v-pasos .steps{list-style:none;counter-reset:s;display:grid;gap:6px}
+.v-pasos .steps li{counter-increment:s;display:flex;align-items:center;gap:8px;font-weight:600;color:#4A4560;white-space:nowrap}
+.v-pasos .steps li::before{content:counter(s);display:grid;place-items:center;flex-shrink:0;border-radius:50%;background:#F3EEFF;color:var(--violet);font-weight:800;box-shadow:inset 0 0 0 1px #DCD2FB}
+[data-f=side264] .v-pasos{padding-top:116px}
+[data-f=side264] .v-pasos .panel{left:8px;right:8px;top:8px;height:100px}
+[data-f=side264] .v-pasos .pill{display:none}
+[data-f=side264] .v-pasos h1{font-size:15px;line-height:18px}
+[data-f=side264] .v-pasos .steps li{font-size:11px;gap:6px} [data-f=side264] .v-pasos .steps li::before{width:16px;height:16px;font-size:10px}
+[data-f=side264] .v-pasos .steps{gap:4px}
+[data-f=side264] .v-pasos .cta{margin-top:auto;align-self:stretch}
+[data-f=side400] .v-pasos{padding-top:142px}
+[data-f=side400] .v-pasos .panel{left:10px;right:10px;top:10px;height:auto;aspect-ratio:3/2}
+[data-f=side400] .v-pasos h1{font-size:20px;line-height:24px}
+[data-f=side400] .v-pasos .steps li{font-size:12px} [data-f=side400] .v-pasos .steps li::before{width:20px;height:20px;font-size:11px}
+[data-f=side400] .v-pasos .cta{margin-top:auto;align-self:stretch}
+[data-f=strip776] .v-pasos .panel{right:10px;top:10px;bottom:10px;width:auto;aspect-ratio:3/2}
+[data-f=strip776] .v-pasos .steps{grid-auto-flow:column;justify-content:start;gap:16px}
+[data-f=strip776] .v-pasos .steps li{font-size:12px} [data-f=strip776] .v-pasos .steps li::before{width:22px;height:22px;font-size:11px}
+
+/* ═══ 05 · TARJETA: el producto. Una tarjeta Negociable de ejemplo con una propuesta entrante. ═══ */
+.v-tarjeta{background:radial-gradient(60% 120% at 100% 0%,rgb(0 210 211 / 45%),transparent 60%),linear-gradient(120deg,#00727A 0%,#00838C 35%,#3D2299 100%)}
+.v-tarjeta .pill::before{background:#7CF2F2;box-shadow:0 0 0 3px rgb(124 242 242 / 25%)}
+.v-tarjeta h1 em{color:#B2F6F6}
+.v-tarjeta .mock{background:#fff;border-radius:12px;box-shadow:rgba(16,4,48,.35) 0 16px 32px -12px;color:var(--ink);overflow:hidden;transform:rotate(-4deg)}
+.v-tarjeta .mock img{display:block;width:100%;height:auto !important;aspect-ratio:3/2;object-fit:cover}
+.v-tarjeta .mock div{display:grid;gap:3px;padding:8px 10px 10px}
+.v-tarjeta .mock i{justify-self:start;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.04em;color:#fff;padding:2px 7px;border-radius:999px;background:linear-gradient(90deg,#00D2D3,#00AEB1)}
+.v-tarjeta .mock b{font-size:13px;font-weight:800}
+.v-tarjeta .mock small{font-size:11px;font-weight:600;color:#00727A}
+.v-tarjeta .chip{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#fff;color:var(--ink);font-size:11px;font-weight:700;white-space:nowrap;box-shadow:rgba(16,4,48,.3) 0 8px 18px -6px;transform:rotate(-4deg)}
+.v-tarjeta .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#CC00FF,#FF0066)}
+[data-f=side264] .v-tarjeta .mock{left:24px;right:-10px;top:142px}
+[data-f=side264] .v-tarjeta .chip{left:6px;top:128px;font-size:10px}
+[data-f=side400] .v-tarjeta .mock{left:22px;right:-14px;top:226px}
+[data-f=side400] .v-tarjeta .chip{left:8px;top:212px}
+[data-f=strip776] .v-tarjeta .mock{right:60px;top:26px;width:240px}
+[data-f=strip776] .v-tarjeta .chip{right:220px;top:120px}
+
+/* ═══ 06 · MOTO: bloque de color. Disco naranja enorme y la moto lo rompe; titular corto y muy grande. ═══ */
+.v-moto{background:#2A1670}
+.v-moto .disc{border-radius:50%;background:radial-gradient(circle at 35% 30%,#F49B57 0%,#E8732A 45%,#B14E18 100%)}
+.v-moto .cut{object-fit:contain;object-position:center bottom;filter:drop-shadow(0 14px 16px rgba(10,0,40,.5))}
+.v-moto h1{font-size:28px}
+.v-moto h1 em{color:#F49B57;display:block}
+[data-f=side264] .v-moto .disc{width:210px;height:210px;right:-60px;bottom:-90px}
+[data-f=side264] .v-moto .cut{left:20px;right:-24px;bottom:2px;height:112px}
+[data-f=side264] .v-moto h1{font-size:20px;line-height:22px}
+[data-f=side400] .v-moto .disc{width:290px;height:290px;right:-90px;bottom:-110px}
+[data-f=side400] .v-moto .cut{left:6px;right:-30px;bottom:6px;height:172px}
+[data-f=side400] .v-moto h1{font-size:28px;line-height:30px}
+[data-f=strip776] .v-moto .disc{width:330px;height:330px;right:20px;top:-50px}
+[data-f=strip776] .v-moto .cut{right:10px;bottom:4px;width:330px;height:220px}
+[data-f=strip776] .v-moto h1{font-size:34px;line-height:36px}
+
+/* ═══ 1532 × 200 · franja ancha (22/10): titular grande | imagen grande al centro | panel de vidrio con bajada y CTA.
+   El vidrio es el de las variantes D/E del index (backdrop-filter); donde se puede, pasa por encima de la imagen. ═══ */
+[data-f=strip1532] .bn{flex-direction:row;align-items:center;padding:0 40px}
+[data-f=strip1532] .tx{width:540px;flex-shrink:0;gap:10px}
+[data-f=strip1532] h1{font-size:40px;line-height:44px}
+[data-f=strip1532] .gl{position:absolute;z-index:3;right:40px;top:50%;transform:translateY(-50%);width:340px;display:grid;gap:12px;padding:18px 20px;border-radius:16px;
+  border:1px solid rgb(255 255 255 / 30%);background:rgb(255 255 255 / 12%);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);
+  box-shadow:rgba(16,4,48,.3) 0 12px 28px -10px,inset 0 1px 0 rgb(255 255 255 / 35%)}
+[data-f=strip1532] .light .gl{border-color:rgba(255,255,255,.8);background:rgba(255,255,255,.55);box-shadow:rgba(59,23,130,.14) 0 12px 28px -10px,inset 0 1px 0 rgba(255,255,255,.9)}
+[data-f=strip1532] .gl .lede{font-size:14px;line-height:20px}
+[data-f=strip1532] .gl .cta{align-self:stretch;height:44px;font-size:15px}
+.ben{list-style:none;display:grid;gap:6px}
+.ben li{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff}
+.ben li::before{content:"";flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgb(255 255 255 / 18%) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFE2C2' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat}
+
+/* 01 · foto en panel central, ancho; el vidrio la pisa por la derecha. */
+[data-f=strip1532] .v-foto .ph{left:740px;right:auto;top:-26px;width:auto;height:252px;aspect-ratio:3/2;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 82%,transparent 100%)} /* entera; el vidrio pisa el fundido derecho */
+[data-f=strip1532] .v-foto .shade{display:none}
+/* 02 · la persona grande al centro, con el anillo detrás; beneficios en el vidrio. */
+[data-f=strip1532] .v-persona .r1{width:380px;height:320px;left:44%;top:-190px}
+[data-f=strip1532] .v-persona .man{left:720px;width:420px;bottom:0;height:100%;object-position:center bottom}
+/* 03 · el «0%» abre la franja; titular al lado; el auto al centro. */
+[data-f=strip1532] .v-cero .big{flex-shrink:0;margin-right:32px} [data-f=strip1532] .v-cero .big b{font-size:150px}
+[data-f=strip1532] .v-cero .tx{width:380px} [data-f=strip1532] .v-cero h1{font-size:30px;line-height:34px}
+[data-f=strip1532] .v-cero .cut{left:780px;right:400px;bottom:-6px;height:170px;width:auto;object-position:center bottom}
+/* 04 · foto grande en panel; el vidrio claro con los pasos la pisa por la derecha. */
+[data-f=strip1532] .v-pasos .panel{left:auto;right:400px;top:10px;bottom:10px;width:auto;aspect-ratio:3/2}
+[data-f=strip1532] .v-pasos .gl .steps{gap:8px}
+[data-f=strip1532] .v-pasos .steps li{font-size:14px} [data-f=strip1532] .v-pasos .steps li::before{width:24px;height:24px;font-size:12px}
+/* 05 · la tarjeta de ejemplo, grande y horizontal, al centro. */
+[data-f=strip1532] .v-tarjeta .mock{left:660px;top:26px;width:440px;height:148px;display:grid;grid-template-columns:222px 1fr;align-items:center}
+[data-f=strip1532] .v-tarjeta .mock img{height:148px !important;aspect-ratio:auto}
+[data-f=strip1532] .v-tarjeta .mock div{gap:6px;padding:12px 16px} [data-f=strip1532] .v-tarjeta .mock b{font-size:17px} [data-f=strip1532] .v-tarjeta .mock small{font-size:13px}
+[data-f=strip1532] .v-tarjeta .chip{left:600px;top:22px;font-size:12px}
+/* 06 · disco y moto grandes; el vidrio pisa el borde del disco. */
+[data-f=strip1532] .v-moto .disc{width:380px;height:380px;left:800px;top:-90px}
+[data-f=strip1532] .v-moto .cut{left:740px;width:440px;bottom:2px;height:196px}
+[data-f=strip1532] .v-moto h1 em{display:block}
+
+/* ═══ Seminuevos y acabado (21–22/10, rehecho sobre esta versión) ═══
+   Fondos en malla (varias luces sobre una base profunda), grano fino de película y luz de estudio en los recortes. */
+.bn::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.14;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.light::before{opacity:.22;mix-blend-mode:multiply}
+.v-persona{background:
+  radial-gradient(48% 90% at 0% 110%,rgb(244 155 87 / 95%) 0%,rgb(237 137 54 / 45%) 35%,rgb(237 137 54 / 0%) 72%),
+  radial-gradient(42% 75% at 72% 18%,rgb(174 142 255 / 70%) 0%,rgb(174 142 255 / 0%) 70%),
+  radial-gradient(30% 60% at 42% 70%,rgb(204 0 255 / 18%) 0%,transparent 70%),
+  linear-gradient(125deg,#22085E 0%,#3B1782 48%,#5A35C2 100%)}
+.v-cero{background:
+  radial-gradient(42% 80% at 92% 8%,#FFE2C2 0%,rgb(255 226 194 / 0%) 72%),
+  radial-gradient(55% 95% at 0% 100%,#DCD2FB 0%,rgb(220 210 251 / 0%) 70%),
+  radial-gradient(35% 60% at 55% 45%,#FFFFFF 0%,rgb(255 255 255 / 0%) 75%),
+  linear-gradient(160deg,#F7F3FF 0%,#EFE8FF 100%)}
+.v-pasos{background:
+  radial-gradient(50% 90% at 100% 0%,#F3EEFF 0%,rgb(243 238 255 / 0%) 70%),
+  radial-gradient(40% 80% at 0% 100%,#FFF3E6 0%,rgb(255 243 230 / 0%) 70%),#fff}
+.v-tarjeta{background:
+  radial-gradient(45% 85% at 92% 0%,rgb(0 218 224 / 70%) 0%,rgb(0 218 224 / 0%) 70%),
+  radial-gradient(50% 90% at 100% 100%,rgb(132 96 229 / 75%) 0%,rgb(132 96 229 / 0%) 72%),
+  radial-gradient(40% 80% at 0% 0%,rgb(0 134 136 / 80%) 0%,rgb(0 134 136 / 0%) 70%),
+  linear-gradient(120deg,#00545C 0%,#006B73 40%,#2E1A7A 100%)}
+.v-moto{background:
+  radial-gradient(40% 80% at 100% 0%,rgb(132 96 229 / 45%) 0%,rgb(132 96 229 / 0%) 70%),
+  radial-gradient(35% 70% at 0% 100%,rgb(237 137 54 / 25%) 0%,rgb(237 137 54 / 0%) 70%),
+  linear-gradient(135deg,#1A0748 0%,#2A1670 60%,#33187E 100%)}
+.v-moto .disc{background:radial-gradient(circle at 32% 26%,#FFD3A1 0%,#F4AC59 18%,#E8732A 48%,#C85A1E 74%,#8F3A10 100%);
+  box-shadow:inset -18px -24px 40px rgb(80 20 0 / 35%),inset 10px 14px 30px rgb(255 226 194 / 35%)}
+/* 03 · sedán rojo moderno recortado, con luz de estudio detrás y reflejo leve. */
+.v-cero .spot{border-radius:50%;background:radial-gradient(closest-side,rgb(255 255 255 / 95%),rgb(255 255 255 / 0%))}
+[data-f=side400] .v-cero .spot{left:10px;right:-30px;bottom:6px;height:110px}
+[data-f=strip1532] .v-cero .spot{left:760px;width:420px;top:0;bottom:-20px}
+[data-f=side264] .v-cero .spot,[data-f=strip776] .v-cero .spot{display:none}
+.v-cero .cut{-webkit-box-reflect:below -4px linear-gradient(transparent 72%,rgb(255 255 255 / 22%))}
+/* 04 · Corolla seminuevo estacionado (foto de Mi Garaje). */
+.v-pasos .panel img{object-position:70% 55%}
+/* 06 · Honda CB190R en foto real, en un marco blanco inclinado sobre el disco naranja. */
+.v-moto .pic{aspect-ratio:3/2;border-radius:14px;overflow:hidden;border:3px solid #fff;transform:rotate(-3deg);box-shadow:rgba(10,0,40,.5) 0 18px 30px -12px}
+.v-moto .pic img{display:block;width:100%;height:100%;object-fit:cover;object-position:45% 60%}
+[data-f=side264] .v-moto .pic{left:18px;right:18px;bottom:14px}
+[data-f=side264] .v-moto .disc{width:200px;height:200px;right:-70px;bottom:-80px}
+[data-f=side400] .v-moto .pic{left:16px;right:16px;bottom:18px}
+[data-f=side400] .v-moto .disc{width:260px;height:260px;right:-90px;bottom:-90px}
+[data-f=strip776] .v-moto .pic{right:36px;top:22px;bottom:22px}
+[data-f=strip776] .v-moto .disc{width:300px;height:300px;right:-20px;top:-40px}
+[data-f=strip1532] .v-moto .pic{left:860px;top:16px;bottom:16px}
+[data-f=strip1532] .v-moto .disc{width:320px;height:320px;left:900px;top:-60px}
+/* 01 · ESCENARIO: VW Nivus de Mi Garaje recortado sobre set de marca (luz cenital, haz, piso con perspectiva, charco de luz). */
+.v-foto{background:#170544}
+.v-foto .stage{inset:0;background:
+  radial-gradient(70% 60% at 72% -10%,rgb(174 142 255 / 55%) 0%,rgb(174 142 255 / 0%) 70%),
+  radial-gradient(40% 60% at 0% 0%,rgb(237 137 54 / 28%) 0%,rgb(237 137 54 / 0%) 70%),
+  linear-gradient(180deg,#22085E 0%,#2E0F70 55%,#1A0748 100%)}
+.v-foto .floor{left:0;right:0;bottom:0;height:var(--floor,34%);background:linear-gradient(180deg,rgb(132 96 229 / 38%) 0%,rgb(46 15 112 / 0%) 70%),#120438;
+  box-shadow:0 -1px 0 rgb(214 200 255 / 35%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent var(--floor-x,0%),#000 calc(var(--floor-x,0%) + 18%));mask-image:linear-gradient(90deg,transparent 0%,transparent var(--floor-x,0%),#000 calc(var(--floor-x,0%) + 18%))}
+[data-f^=strip] .v-foto .floor{--floor-x:38%}
+.v-foto .beam{top:-30%;bottom:-30%;width:var(--beam,180px);right:var(--beam-x,22%);transform:rotate(24deg);filter:blur(18px);
+  background:linear-gradient(90deg,rgb(255 255 255 / 0%) 0%,rgb(214 200 255 / 22%) 50%,rgb(255 255 255 / 0%) 100%)}
+.v-foto .pool{bottom:calc(var(--floor,34%) * .2);height:calc(var(--floor,34%) * .9);border-radius:50%;
+  background:radial-gradient(closest-side,rgb(214 200 255 / 45%) 0%,rgb(132 96 229 / 18%) 55%,rgb(132 96 229 / 0%) 100%)}
+.v-foto .car{height:auto;filter:drop-shadow(0 3px 2px rgb(5 0 20 / 75%)) drop-shadow(0 14px 18px rgb(5 0 20 / 55%));
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 9%);mask-image:linear-gradient(90deg,transparent 0%,#000 9%)}
+.v-foto h1 em{color:var(--cream)}
+[data-f=side264] .v-foto{--floor:32%} [data-f=side264] .v-foto .car{width:186px;left:-10px;bottom:54px} [data-f=side264] .v-foto .pool{left:0;width:200px}
+[data-f=side264] .v-foto .beam{--beam:90px;--beam-x:10%}
+[data-f=side400] .v-foto{--floor:30%} [data-f=side400] .v-foto .car{width:210px;left:-14px;bottom:68px} [data-f=side400] .v-foto .pool{left:0;width:200px}
+[data-f=side400] .v-foto .beam{--beam:100px;--beam-x:6%}
+[data-f=strip776] .v-foto{--floor:30%} [data-f=strip776] .v-foto .car{width:380px;right:18px;bottom:16px} [data-f=strip776] .v-foto .pool{right:0;width:420px}
+[data-f=strip1532] .v-foto{--floor:30%} [data-f=strip1532] .v-foto .car{width:396px;left:700px;bottom:12px} [data-f=strip1532] .v-foto .pool{left:660px;width:480px}
+[data-f=strip1532] .v-foto .beam{--beam-x:28%}
+[data-f^=side] .v-foto .cta{margin-top:auto}
+</style></head>
+<body>
+<a class="bn" target="_blank" rel="noopener"></a>
+<script>
+const P = "publica-v1/";
+const V = {
+  "01-foto": { light: false, pill: "Publica en VMC", pre: "¿Vendes tu auto?", em: "Publícalo hoy.", long: "Recibe propuestas de compradores y elige la que más te convenga.", short: "Recibe propuestas y tú eliges.", cta: "Publica tu auto",
+    media: `<span class="m bg stage"></span><span class="m bg floor"></span><span class="m bg beam"></span><span class="m bg pool"></span><img class="m car" src="${P}auto-nivus.png" alt="">` },
+  // Copy y dato de la tarjeta «Un solo pago» del index (vmc-index-lab, Vende tu vehículo).
+  "02-persona": { light: false, pill: "25 SubasCoins · 0% comisión", pre: "Un solo pago,", em: "hasta que lo vendas.", long: "Sin pagos mensuales ni renovaciones: el 100% de la venta es tuyo.", short: "El 100% de la venta es tuyo.", cta: "Publica ahora",
+    wide: `<ul class="ben"><li>Sin pagos mensuales</li><li>Sin renovaciones</li><li>El 100% de la venta es tuyo</li></ul>`,
+    media: `<span class="m bg ring r1"></span><img class="m man" src="${P}vendedor.png" alt="">` },
+  "03-cero": { light: true, pill: "Publica en VMC", pre: "Publica tu auto o moto", em: "y véndelo sin comisión.", long: "Pagas 25 SubasCoins al publicar y el 100% de la venta es tuyo.", short: "El 100% de la venta es tuyo.", cta: "Publica ahora",
+    before: `<div class="big"><b>0%</b><span>de comisión cuando vendes</span></div>`, media: `<span class="m bg spot"></span><img class="m cut" src="${P}auto-sedan.png" alt="">` },
+  "04-pasos": { light: true, pill: "Publica en VMC", pre: "Vende tu auto", em: "en 3 pasos.", long: "", short: "", cta: "Empezar ahora",
+    after: `<ol class="steps"><li>Valorízalo</li><li>Publícalo</li><li>Elige una propuesta</li></ol>`, media: `<span class="m panel"><img src="${P}foto-corolla.jpg" alt=""></span>` },
+  "05-tarjeta": { light: false, pill: "Negociable", pre: "Así se verá tu auto", em: "en VMC.", long: "Publícalo como Negociable y recibe propuestas de compradores.", short: "Recibe propuestas de compradores.", cta: "Publica tu auto", white: true,
+    media: `<span class="m mock"><img src="${P}foto-sedan.jpg" alt=""><div><i>NEGOCIABLE</i><b>Tu auto aquí</b><small>3 propuestas recibidas</small></div></span><span class="m chip">Nueva propuesta · US$ 9,800</span>` },
+  "06-moto": { light: false, pill: "Publica en VMC", pre: "¿Vendes tu moto?", em: "Publícala en VMC.", long: "Te hacen propuestas y tú decides.", short: "", cta: "Publica tu moto",
+    media: `<span class="m bg disc"></span><span class="m pic"><img src="${P}foto-moto.jpg" alt=""></span>` },
+};
+const F = ["side264", "side400", "strip776", "strip1532"];
+const q = new URLSearchParams(location.search);
+const v = V[q.get("v")] ? q.get("v") : "01-foto", f = F.includes(q.get("f")) ? q.get("f") : "side400";
+const x = V[v];
+document.body.dataset.f = f;
+const lede = f === "side400" || f === "strip1532" ? x.long : x.short;
+const bn = document.querySelector(".bn");
+bn.className = `bn v-${v.slice(3)}${x.light ? " light" : ""}`;
+const head = `<span class="pill">${x.pill}</span><h1>${x.pre} <em>${x.em}</em></h1>`;
+const body = (f === "strip1532" && x.wide) || (lede ? `<p class="lede">${lede}</p>` : "");
+const cta = `<span class="cta${x.white ? " cta--white" : ""}">${x.cta}</span>`;
+bn.innerHTML = f === "strip1532"
+  ? `${x.media}${x.before ?? ""}<div class="tx">${head}</div><div class="gl">${body}${x.after ?? ""}${cta}</div>`
+  : `${x.media}${x.before ?? ""}<div class="tx">${head}${body}${x.after ?? ""}</div>${cta}`;
+// ponytail: en el lab el CTA abre Publicar de la maqueta VMC; en producción va la URL real de Publicar (por confirmar).
+bn.href = `/producto/mi-garaje/m/vmc-publica?utm_source=vmc&utm_medium=banner&utm_campaign=publica_vmc&utm_content=${v}_${f}`;
+bn.setAttribute("aria-label", `${x.pre} ${x.em} ${x.cta}`);
+document.title = `${x.pre} ${x.em}`;
+</script>
+</body></html>

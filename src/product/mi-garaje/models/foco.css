@@ -1,0 +1,208 @@
+/* Foco al llegar (ver Foco.tsx). Movimiento de Material 3: entra con emphasized-decelerate, sale con emphasized-accelerate,
+   200–320 ms por pieza y un solo efecto a la vez. Color (Aaron, 22/10): bordes, aros y foco en el degradado morado vault del DS
+   (#AE8EFF → #8460E5 → #3B1782), sin cian. El botón es el secundario de Concorde («Proponer» del modal). */
+:root { --fc-in:cubic-bezier(.05,.7,.1,1); --fc-out:cubic-bezier(.3,0,.8,.15); --fc-std:cubic-bezier(.2,0,0,1); --fc-ink:#3B1782; --fc-v:#8460E5;
+  --fc-grad:linear-gradient(135deg, #AE8EFF 0%, #8460E5 45%, #3B1782 100%); --fc-tint:#F5F0FF; --fc-glow:rgba(132,96,229,.35); }
+
+/* Con velo la página no se mueve (el hueco queda fijo); el canal de la barra se reserva para que nada salte en Windows. */
+html[data-foco-lock] { overflow:hidden; scrollbar-gutter:stable; }
+/* El brillo de llegada lo pone cada variante; el is-flash de la fila nueva queda para cuando responde el vendedor. */
+html[data-foco-arrival] [data-foco-row] > .fr.is-flash { animation:none; }
+
+/* Borde degradado reutilizable: un pseudo con padding = grosor y máscara que deja solo el marco. */
+.fc-ring::before, .fc-lift::before, [data-foco-row]::after { content:""; position:absolute; inset:0; border-radius:inherit; background:var(--fc-grad); pointer-events:none;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
+.fc-ring::before, [data-foco-row]::after { padding:2px; }
+.fc-lift::before { padding:1.5px; }
+
+/* ── Velo con hueco ─────────────────────────────────────────── */
+.fc-layer { position:fixed; inset:0 auto 0 0; width:100vw; z-index:96; pointer-events:none; } /* 100vw: cubre también el canal de la barra reservado */
+.fc-veil { position:absolute; inset:0; pointer-events:auto; background:rgba(16,0,48,.42); -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px); animation:fc-fade .24s ease-out both; }
+.fc-layer--nitido .fc-veil { background:rgba(16,0,48,.58); -webkit-backdrop-filter:none; backdrop-filter:none; }
+.fc-layer--elevar .fc-veil { background:rgba(16,0,48,.5); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.fc-layer.is-out .fc-veil { animation:fc-fade-out .2s ease-in both; }
+.fc-layer--cajon.is-out .fc-veil { animation-delay:.2s; } /* primero entra el cartel, después se va el velo */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) { .fc-veil { background:rgba(16,0,48,.66); } }
+/* En producción, con prefers-reduced-transparency: reduce, quitar el blur y subir el tinte a .62. En el lab no se aplica:
+   Windows con «Efectos de transparencia» apagados lo activa en Chrome y el blur no se podría comparar. */
+@keyframes fc-fade { from { opacity:0; } }
+@keyframes fc-fade-out { to { opacity:0; } }
+
+/* Aro: marco degradado + halo violeta; se cierra sobre el hueco (1.06 → 1). En Precisión late tres veces. */
+.fc-ring { position:absolute; box-sizing:border-box; pointer-events:none; box-shadow:0 0 0 6px rgba(132,96,229,.2), 0 0 28px var(--fc-glow);
+  animation:fc-ring-in .32s cubic-bezier(.22,1,.36,1) .05s both; }
+.fc-layer--precision .fc-ring { animation:fc-ring-in .32s cubic-bezier(.22,1,.36,1) .05s both, fc-beat 1.2s ease-out .45s 3; }
+.fc-layer--vuelo .fc-ring { animation-delay:.3s; }
+.fc-layer.is-out .fc-ring { animation:fc-fade-out .16s ease-in both; }
+@keyframes fc-ring-in { from { opacity:0; transform:scale(1.06); } }
+@keyframes fc-beat { from { box-shadow:0 0 0 0 rgba(132,96,229,.55); } to { box-shadow:0 0 0 16px rgba(132,96,229,0); } }
+
+/* ── Aviso con flecha (Nítido, Esmerilado, Precisión, Vuelo, Popover) ───────────────── */
+.fc-card { position:absolute; z-index:1; box-sizing:border-box; display:grid; grid-template-columns:36px minmax(0,1fr); gap:0 12px; padding:16px; border-radius:16px; background:#fff; color:var(--fc-ink);
+  box-shadow:0 16px 40px rgba(16,0,48,.3), 0 0 0 1px #E8DEFF; pointer-events:auto; transform-origin:var(--ax) 0; animation:fc-card-in .24s var(--fc-std) .14s both; }
+.fc-card[data-pos="above"] { transform-origin:var(--ax) 100%; animation-name:fc-card-up; }
+.fc-card::before { content:""; position:absolute; left:calc(var(--ax) - 7px); top:-7px; width:14px; height:14px; border-radius:3px 0 0 0; background:#fff; box-shadow:-1px -1px 0 #E8DEFF; transform:rotate(45deg); }
+.fc-card[data-pos="above"]::before { top:auto; bottom:-7px; border-radius:0 0 3px 0; box-shadow:1px 1px 0 #E8DEFF; }
+.fc-card.is-out { animation:fc-card-out .16s var(--fc-out) both; }
+.fc-card__icon { grid-row:1 / span 2; display:grid; place-items:start center; padding-top:2px; }
+.fc-card__icon .vd { overflow:visible; }
+.fc-card__text { display:grid; gap:4px; min-width:0; }
+.fc-card__text b { font-size:.9375rem; font-weight:700; line-height:1.3; }
+.fc-card__text span { font-size:.8125rem; line-height:1.45; color:#5F5B6B; }
+.fc-card > .fc-ok { grid-column:2; justify-self:end; margin-top:12px; }
+/* El aviso recibe el foco al abrirse (Ok): sin contorno propio, su borde ya lo marca. */
+.fc-card:focus, .fc-strip:focus, .fc-drawer__card:focus, .fc-push__card:focus, .fc-expand:focus { outline:none; }
+@keyframes fc-card-in { from { opacity:0; transform:translateY(-6px) scale(.98); } }
+@keyframes fc-card-up { from { opacity:0; transform:translateY(6px) scale(.98); } }
+@keyframes fc-card-out { to { opacity:0; transform:scale(.97); } }
+
+/* «Entendido» es el secundario de Concorde tal cual (el «Proponer» del modal): aquí solo se ubica, no se le cambia nada.
+   Los contenedores que se abren con 0fr → 1fr recortan solo mientras se mueven (fc-clip), para no cortar su brillo al hover. */
+@keyframes fc-clip { from, to { overflow:hidden; } }
+
+/* ── Elevar: la fila crece 3 % y el aviso sale pegado como una sola tarjeta ─────────── */
+html[data-foco="elevar"][data-foco-fase] [data-foco-row] > .fr.fr { position:relative; z-index:1; border-radius:14px; background:#fff; transition:transform .25s var(--fc-out); }
+html[data-foco="elevar"][data-foco-fase="on"] [data-foco-row] > .fr.fr { transform:scale(1.03); transition:transform .3s var(--fc-in); }
+html[data-foco="elevar"] #sec-negociaciones .fs__wrap, html[data-foco="elevar"] #sec-negociaciones .fs__body, html[data-foco="elevar"] .fa { overflow:visible; } /* que no recorten la fila crecida */
+.fc-lift { position:absolute; box-sizing:border-box; border-radius:16px; color:var(--fc-ink); box-shadow:0 24px 56px rgba(16,0,48,.5), 0 0 24px var(--fc-glow); animation:fc-fade .3s var(--fc-std) both; }
+.fc-layer.is-out .fc-lift { animation:fc-fade-out .22s var(--fc-out) .08s both; }
+.fc-strip { position:relative; display:grid; grid-template-rows:1fr; border-radius:0 0 16px 16px; background:#fff; pointer-events:auto; animation:fc-open .34s var(--fc-in) .16s both; }
+.fc-layer.is-out .fc-strip { animation:fc-close .22s var(--fc-out) both; }
+.fc-strip__in { min-height:0; animation:fc-clip .34s .16s backwards; } .fc-layer.is-out .fc-strip__in { overflow:hidden; }
+.fc-strip__body { display:grid; grid-template-columns:32px minmax(0,1fr) auto; align-items:center; gap:12px; margin:0 14px; padding:14px 0 16px; border-top:1px solid #E8DEFF; }
+.fc-strip__body .fc-card__icon { grid-row:auto; padding:0; }
+.fc-lift::before { z-index:1; } /* el marco va sobre el aviso */
+
+/* ── Cajón: el cartel sale desde debajo de la fila (recortado en su borde) y vuelve a entrar ─────────── */
+.fc-drawer { position:absolute; box-sizing:border-box; overflow:hidden; padding:0 16px 32px; pointer-events:none; } /* 14 px adentro de la fila; el padding deja ver la sombra y arriba recorta */
+/* Degradado de la cabecera del DetailCard (157° #5A35C2 → #2E0F70 → #100030), con su brillo superior. */
+.fc-drawer__card { position:relative; display:grid; gap:12px; padding:16px; border-radius:0 0 16px 16px; background:linear-gradient(157deg, #5A35C2 0%, #2e0f70 50%, #100030 100%); color:#fff;
+  box-shadow:0 14px 30px rgba(16,0,48,.45); pointer-events:auto; animation:fc-drop .4s var(--fc-in) .15s both; }
+.fc-drawer__card .fc-card__text span { color:rgba(255,255,255,.9); }
+.fc-drawer__card > .fc-ok { justify-self:end; } /* debajo del texto: el título entra en una línea */
+.fc-layer.is-out .fc-drawer__card { animation:fc-lift-up .24s var(--fc-out) both; }
+@keyframes fc-drop { from { transform:translateY(calc(-100% - 8px)); } }
+@keyframes fc-lift-up { to { transform:translateY(calc(-100% - 8px)); } }
+
+/* ── Vuelo: la tarjeta de «Propuesta enviada» aparece al centro y se encoge hasta su fila (WAAPI en Foco.tsx) ─────────── */
+.fc-ghost { position:absolute; left:50%; top:50%; translate:-50% -50%; box-sizing:border-box; width:min(320px, calc(100vw - 32px)); overflow:hidden;
+  border-radius:16px; background:#fff; color:var(--fc-ink); box-shadow:0 20px 48px rgba(16,0,48,.35); animation:fc-ghost-in .26s var(--fc-std) both; }
+.fc-ghost__in { display:grid; justify-items:center; gap:4px; padding:28px 24px 24px; text-align:center; }
+.fc-ghost__in .fc-card__icon { padding:0; margin-bottom:8px; }
+.fc-ghost__h { margin-top:4px; font-size:1.25rem; font-weight:700; } .fc-ghost small { font-size:.75rem; color:#5F5B6B; }
+.fc-ghost__state { display:inline-flex; align-items:center; gap:8px; padding:4px 10px; border-radius:9999px; box-shadow:inset 0 0 0 1px #E8DEFF; font-style:normal; font-size:.75rem; font-weight:600; }
+.fc-ghost__state b { width:8px; height:8px; border-radius:50%; background:var(--fc-v); animation:vh-blink 1.4s ease-in-out infinite; }
+/* Franja de datos como la del modal (degradado del DetailCard). */
+.fc-ghost__facts { display:grid; grid-template-columns:1fr 1fr; width:100%; margin:16px 0 0; border-radius:12px; overflow:hidden; background:linear-gradient(157deg, #5A35C2 0%, #2e0f70 50%, #100030 100%); }
+.fc-ghost__facts div { display:grid; padding:12px 8px; } .fc-ghost__facts div + div { box-shadow:inset 1px 0 0 rgba(255,255,255,.4); }
+.fc-ghost__facts dt { font-size:.8125rem; color:#fff; } .fc-ghost__facts dd { margin:0; font-size:1rem; font-weight:700; color:#fff; }
+@keyframes fc-ghost-in { from { opacity:0; scale:.96; } }
+
+/* ── Sin velo ───────────────────────────────────────────────── */
+/* El marco degradado de la fila ([data-foco-row]::after) se enciende según la variante. */
+[data-foco-row] { position:relative; border-radius:12px; }
+[data-foco-row]::after { opacity:0; transition:opacity .25s; }
+@keyframes fc-row-beat { from { box-shadow:0 0 0 0 rgba(132,96,229,.45); } to { box-shadow:0 0 0 12px rgba(132,96,229,0); } }
+@keyframes fc-ring-flash { 0%, 35% { opacity:1; } 100% { opacity:0; } }
+@keyframes fc-tint-flash { 0%, 35% { background:var(--fc-tint); } 100% { background:transparent; } }
+
+/* Aparece: el cartel morado entra con un fundido de arriba hacia abajo (clip + opacidad), espera 6 s y se va igual, hacia arriba. */
+.fc-appear { display:grid; grid-template-rows:1fr; animation:fc-open .22s var(--fc-std) both; }
+.fc-appear.is-out { animation:fc-close .26s var(--fc-out) .3s both; }
+.fc-appear__in { min-height:0; animation:fc-clip .22s backwards; } .fc-appear.is-out .fc-appear__in { overflow:hidden; }
+.fc-appear__bar { display:flex; align-items:center; gap:12px; margin:4px 0 10px 72px; padding:10px 10px 10px 14px; border-radius:12px;
+  background:linear-gradient(135deg, #6E4BD8 0%, #3B1782 100%); color:#fff; box-shadow:0 6px 16px rgba(59,23,130,.25); animation:fc-reveal .45s var(--fc-in) .1s both; }
+.fc-appear.is-out .fc-appear__bar { animation:fc-unreveal .3s var(--fc-out) both; }
+.fc-appear__bar p { flex:1; min-width:0; display:grid; gap:2px; margin:0; } .fc-appear__bar b { font-size:.8125rem; font-weight:700; } .fc-appear__bar span { font-size:.75rem; color:rgba(255,255,255,.88); }
+.fc-appear__bar button { flex:none; min-height:32px; padding:0 12px; border:0; border-radius:9999px; background:rgba(255,255,255,.16); box-shadow:inset 0 0 0 1px rgba(255,255,255,.4); color:#fff; font:inherit; font-size:.75rem; font-weight:700; cursor:pointer; }
+.fc-appear__bar button:hover { background:rgba(255,255,255,.26); } .fc-appear__bar button:focus-visible { outline:2px solid #fff; outline-offset:2px; }
+@keyframes fc-reveal { from { opacity:0; transform:translateY(-6px); clip-path:inset(0 0 100% 0 round 12px); } to { opacity:1; transform:none; clip-path:inset(0 0 0 0 round 12px); } }
+@keyframes fc-unreveal { to { opacity:0; transform:translateY(-6px); clip-path:inset(0 0 100% 0 round 12px); } }
+
+/* Popover: la fila se tiñe y su marco late una vez mientras el aviso está abierto. */
+html[data-foco="popover"][data-foco-fase] [data-foco-row] > .fr.fr { border-radius:12px; background:var(--fc-tint); transition:background .2s; }
+html[data-foco="popover"][data-foco-fase="on"] [data-foco-row]::after { opacity:1; }
+html[data-foco="popover"][data-foco-fase="on"] [data-foco-row] { animation:fc-row-beat 1.2s ease-out .2s 1; }
+html[data-foco="popover"][data-foco-fase="out"] [data-foco-row] > .fr.fr { background:transparent; }
+
+/* Empuja / Expande: abren espacio con grid-template-rows (0fr → 1fr), sin tapar la fila de abajo. */
+.fc-push { display:grid; grid-template-rows:1fr; animation:fc-open .3s var(--fc-in) both; }
+.fc-push.is-out { animation:fc-close .26s var(--fc-out) both; }
+.fc-push__in { min-height:0; animation:fc-clip .3s backwards; } .fc-push.is-out .fc-push__in { overflow:hidden; }
+@keyframes fc-open { from { grid-template-rows:0fr; opacity:0; } }
+@keyframes fc-close { to { grid-template-rows:0fr; opacity:0; } }
+.fc-push__card { position:relative; display:grid; grid-template-columns:32px minmax(0,1fr); align-items:center; gap:12px; margin:10px 0 12px; padding:14px 14px 14px 16px; border:1.5px solid transparent; border-radius:14px;
+  background:linear-gradient(var(--fc-tint), var(--fc-tint)) padding-box, var(--fc-grad) border-box; }
+.fc-push__card::before { content:""; position:absolute; left:34px; top:-8px; width:12px; height:12px; border-radius:2px 0 0 0; background:var(--fc-tint); box-shadow:-1.5px -1.5px 0 #A88AF8; transform:rotate(45deg); }
+.fc-push__card .fc-card__icon { grid-row:auto; padding:0; }
+.fc-push__card > .fc-ok, .fc-expand > .fc-ok { grid-column:-2; justify-self:end; } /* el botón (200 px) debajo: el texto no se aprieta */
+html[data-foco="empuja"][data-foco-fase] [data-foco-row] > .fr.fr { border-radius:12px; background:var(--fc-tint); transition:background .3s; }
+html[data-foco="empuja"][data-foco-fase="out"] [data-foco-row] > .fr.fr { background:transparent; }
+#sec-negociaciones .fs__list > div { transition:opacity .25s var(--fc-std); }
+html[data-foco="empuja"][data-foco-fase="on"] #sec-negociaciones .fs__list > div:not([data-foco-row]) { opacity:.4; }
+/* Expande: la fila y su aviso son una sola tarjeta teñida con marco degradado; late dos veces. */
+html[data-foco="expande"] [data-foco-row] { border-radius:14px; transition:background .3s; }
+html[data-foco="expande"][data-foco-fase="on"] [data-foco-row] { background:var(--fc-tint); animation:fc-row-beat 1.2s ease-out .3s 2; }
+html[data-foco="expande"][data-foco-fase="on"] [data-foco-row]::after { opacity:1; }
+.fc-expand { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; margin:0 10px; padding:12px 0 14px 62px; border-top:1px solid #E8DEFF; }
+
+/* Chip: marca que se queda en la fila (no hay nada que cerrar). */
+.fc-chip { display:flex; align-items:center; gap:6px; width:fit-content; max-width:calc(100% - 72px); box-sizing:border-box; margin:2px 0 10px 72px; /* bajo el texto de la fila; fit-content: no ensancha la lista */
+  padding:4px 10px 4px 8px; border-radius:9999px; background:var(--fc-tint); box-shadow:inset 0 0 0 1px #E8DEFF; color:#5A35C2; font-size:.75rem; font-weight:600; line-height:1.3; animation:fc-chip-in .3s var(--fc-in) .1s both; }
+.fc-chip svg { flex:none; }
+@keyframes fc-chip-in { from { opacity:0; transform:translateY(-4px); } }
+html[data-foco="chip"][data-foco-fase] [data-foco-row]::after, html[data-foco="toast"][data-foco-fase] [data-foco-row]::after { animation:fc-ring-flash 1.8s ease-out .2s both; }
+html[data-foco="chip"][data-foco-fase] [data-foco-row], html[data-foco="toast"][data-foco-fase] [data-foco-row] { animation:fc-tint-flash 1.8s ease-out .2s both; } /* tinte en el contenedor: cubre fila y chip, igual que el marco */
+
+/* Toast (Gmail / snackbar): abajo al centro, «Ver» lleva a la fila; la barra marca los 8 s y se detiene al pasar el mouse. */
+.fc-toast { position:fixed; z-index:97; bottom:24px; left:50%; translate:-50% 0; box-sizing:border-box; display:flex; align-items:center; gap:12px; width:min(540px, calc(100vw - 32px)); padding:12px;
+  border-radius:16px; background:#fff; color:var(--fc-ink); box-shadow:0 12px 32px rgba(34,0,92,.28), 0 0 0 1px #E6DEFF; overflow:hidden; animation:fc-toast-in .3s var(--fc-in) both; }
+.fc-toast.is-out { animation:fc-toast-out .2s var(--fc-out) both; }
+.fc-toast img { flex:none; width:56px; height:42px; border-radius:8px; object-fit:cover; }
+.fc-toast p { flex:1; min-width:0; display:grid; gap:2px; margin:0; } .fc-toast b { font-size:.875rem; font-weight:700; } .fc-toast small { font-size:.75rem; line-height:1.4; color:#5F5B6B; }
+.fc-toast__see { flex:none; min-height:36px; padding:0 16px; border:1.5px solid transparent; border-radius:9999px; background:linear-gradient(#fff, #fff) padding-box, var(--fc-grad) border-box; color:var(--fc-ink); font:inherit; font-size:.8125rem; font-weight:700; cursor:pointer; }
+.fc-toast__see:hover { background:linear-gradient(var(--fc-tint), var(--fc-tint)) padding-box, var(--fc-grad) border-box; }
+.fc-toast__x { flex:none; display:grid; place-items:center; width:32px; height:32px; border:0; border-radius:8px; background:none; color:#6B6878; cursor:pointer; }
+.fc-toast__x:hover { background:#F3EFFD; }
+.fc-toast__see:focus-visible, .fc-toast__x:focus-visible { outline:2px solid var(--fc-v); outline-offset:2px; }
+.fc-toast__time { position:absolute; left:0; right:0; bottom:0; height:3px; background:var(--fc-grad); transform-origin:left; animation:fc-time 8s linear .3s both; }
+.fc-toast:hover .fc-toast__time, .fc-toast:focus-within .fc-toast__time { animation-play-state:paused; }
+@keyframes fc-toast-in { from { opacity:0; transform:translateY(12px); } }
+@keyframes fc-toast-out { to { opacity:0; transform:translateY(8px); } }
+@keyframes fc-time { to { transform:scaleX(0); } }
+
+/* Actual: lo que hay hoy, tal cual (brillo cian de 2.4 s), para comparar. */
+html[data-foco="actual"][data-foco-fase] [data-foco-row] > .fr.fr { border-radius:12px; animation:fr-flash 2.4s ease-out .2s both; }
+
+/* ── Panel del lab: arriba a la derecha, sobre el velo, sobre el simulador del vendedor ─────────── */
+/* 420 px: a 1280 de ancho no tapa la columna de Tu actividad (termina en x 823). */
+.fc-panel { top:16px; bottom:auto; z-index:130; width:min(420px, calc(100vw - 32px)); max-width:none; box-sizing:border-box; gap:6px; } /* compacto: a 768 px de alto no llega al simulador */
+.fc-panel.f-sw--closed { width:auto; }
+.fc-panel .f-sw__bar { gap:6px; }
+.fc-panel .f-sw__g { gap:5px 4px; padding-top:6px; }
+.fc-panel .f-sw__g button { min-height:30px; padding:0 9px; font-size:.75rem; }
+.fc-panel__again { display:inline-flex; align-items:center; gap:6px; min-height:32px; padding:0 12px; border:0; border-radius:9999px; background:#F3EFFD; color:var(--fc-ink); font:inherit; font-size:.75rem; font-weight:700; cursor:pointer; }
+.fc-panel__again:hover { background:#E8DEFF; } .fc-panel__again:focus-visible { outline:2px solid var(--fc-v); outline-offset:2px; }
+.fc-panel__hint { padding-top:6px; border-top:1px solid #EEE9FB; line-height:1.4; }
+
+/* ── Móvil ───────────────────────────────────────────────────── */
+@media (max-width:600px) {
+  .fc-panel { top:12px; right:12px; width:calc(100vw - 24px); }
+  .fc-panel.f-sw--closed { width:auto; }
+  .fc-card { grid-template-columns:32px minmax(0,1fr); padding:14px; }
+  .fc-card > .fc-ok { grid-column:1 / -1; justify-self:center; }
+  .fc-strip__body, .fc-push__card { grid-template-columns:32px minmax(0,1fr); }
+  .fc-strip__body > .fc-ok, .fc-push__card > .fc-ok { grid-column:1 / -1; justify-self:center; }
+  .fc-drawer__card > .fc-ok { justify-self:center; }
+  .fc-expand { padding-left:0; } .fc-expand > .fc-ok { justify-self:center; }
+  .fc-chip { max-width:calc(100% - 96px); margin-left:84px; } /* en móvil el texto de la fila empieza a 84 px */
+  .fc-appear__bar { margin-left:0; }
+  .fc-toast { flex-wrap:wrap; } .fc-toast p { flex-basis:calc(100% - 120px); }
+  .fc-toast__see { order:3; flex-basis:100%; min-height:44px; }
+  body:has(.f-sw--buy) .fc-toast { bottom:156px; } /* lab: encima del simulador del vendedor, que ocupa el pie */
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .fc-veil, .fc-ring, .fc-card, .fc-lift, .fc-strip, .fc-drawer__card, .fc-ghost, .fc-push, .fc-chip, .fc-toast, .fc-appear, .fc-appear__bar { animation-duration:.01ms !important; animation-delay:0s !important; animation-iteration-count:1 !important; }
+  html[data-foco][data-foco-fase] [data-foco-row], html[data-foco][data-foco-fase] [data-foco-row] > .fr.fr { animation:none !important; transform:none !important; }
+}

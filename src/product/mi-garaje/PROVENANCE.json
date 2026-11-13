@@ -1,0 +1,544 @@
+{
+  "sourceRepository": "ahuacchillo/VMC-Laptop",
+  "sourceCommit": "c3053a9b816a17eba9ef0f6299e2e0bcb52ee33f",
+  "sourcePath": "D:/JULIO/VMC/Mi-Garaje-Lab/mi-garaje-lab",
+  "importedAt": "2026-11-13",
+  "state": "prototipo de referencia, no backend real",
+  "transforms": [
+    "Namespaced import aliases",
+    "Namespaced routes /m and /publicaciones",
+    "Namespaced public assets",
+    "Scoped global root variables for route layout"
+  ],
+  "preserved": "Original source checkout not changed; copy namespaced separately from canonical library",
+  "files": [
+    {
+      "path": "app/components/ComponentsLibrary.tsx",
+      "sha256": "f942e8c3904939a585b880d45443c3ae5068d28bcded84ed04e0e318c30532d4"
+    },
+    {
+      "path": "app/components/lib/drop-modal.css",
+      "sha256": "b48ded9168afa6d55878df8a712a89fa0f14f5924f373275215c3564fb7c8acb"
+    },
+    {
+      "path": "app/components/lib/DropModal.tsx",
+      "sha256": "3ee60b5ddb9bd3d4b60ebd87837c0f96c7e4672bd22b94e8beb8c5a329d29382"
+    },
+    {
+      "path": "app/components/lib/publication-badge.css",
+      "sha256": "e6ffa235c4dcc0645c7e374d622792add1642532fb5d39ef804ed26e04090241"
+    },
+    {
+      "path": "app/components/lib/PublicationBadge.tsx",
+      "sha256": "05b6c52de48a4f30bce7d0ae7fafe6587e02d516d2fb439f7555ed5b636380f1"
+    },
+    {
+      "path": "app/components/lib/qr-card.css",
+      "sha256": "ed53a64f97a41ee5dee9d8ffa55cc0227e74e5bd9c6f26144d5ff799dc01b2a6"
+    },
+    {
+      "path": "app/components/lib/QrCard.tsx",
+      "sha256": "abb5b1f4a8949886034327b9d931ac6f692cbf9d611ae8c2bc672d635d8c5e7a"
+    },
+    {
+      "path": "app/components/lib/QrCode.tsx",
+      "sha256": "1274f6f06ba3f21ec9de452642f31a7cc1f2ca6b4b15949148983c63eb0e0cb4"
+    },
+    {
+      "path": "app/components/lib/republish-modal.css",
+      "sha256": "0542f9230866c7213c7ecf6c55a48e91fb97c3d50a10cd942b74256051b8adb1"
+    },
+    {
+      "path": "app/components/lib/RepublishModal.tsx",
+      "sha256": "51117b1c97d474b8c655989d1c9c73d3cd0f6dde80087df94b93cc9aade11d93"
+    },
+    {
+      "path": "app/components/page.tsx",
+      "sha256": "d3d9ee8ac4a265aecdca1b313a9c05ebb81e1cae13c7db39430df9c3614ee7b4"
+    },
+    {
+      "path": "app/components/PublicationFlow.tsx",
+      "sha256": "e741042e5f947854e5691382efcf29a72a531b4d4c6c439b0cbc6864bfea2d1e"
+    },
+    {
+      "path": "app/components/QrRecibeOfertas.tsx",
+      "sha256": "dfb9905ceedbcad5c3dd2afac335a8c9d3db6f4892255674475d5fffff37b387"
+    },
+    {
+      "path": "app/components/QrSection.tsx",
+      "sha256": "62859aebe7d85456beee338172a90ce4bad984b9da6c696493081fa791b8600b"
+    },
+    {
+      "path": "app/iconos/vidrio.css",
+      "sha256": "21757b47603ef6c4665bf731af00e2fe036b04030593d2c97bdd8061fe0542db"
+    },
+    {
+      "path": "app/iconos/Vidrio.tsx",
+      "sha256": "0cbce86e6ed5c00193020e2da69467226a2e46029e144494653bd1d1649a1c05"
+    },
+    {
+      "path": "app/publicaciones/page.tsx",
+      "sha256": "7611db6c62317828a14897ca6ba83b25ceb0ca4db1ce7ac9de735315e4f9cf0d"
+    },
+    {
+      "path": "app/publicaciones/publicaciones.css",
+      "sha256": "848a67105f8970639b99f1a5751a485adca8188dc1abce93865e057a4d2369e3"
+    },
+    {
+      "path": "app/publicaciones/Publicaciones.tsx",
+      "sha256": "1fd8df36eaef6e9f55e4f06385c114d248dc73aa3655c94c9ad6956d1110b306"
+    },
+    {
+      "path": "concorde/blocks/detalle/desktop/Detalle.tsx",
+      "sha256": "919141b9abcb7311ad759c88ef026a9377feb6f9cae5f3d64eb5ac31843ae0c8"
+    },
+    {
+      "path": "concorde/blocks/detalle/desktop/dimensions.ts",
+      "sha256": "1408f931acbe5fc3f4fba2ff84908900ac94f3901a10806c99dff04afb5b9e96"
+    },
+    {
+      "path": "concorde/blocks/detalle/pills.ts",
+      "sha256": "eaa9ce2ae5fc4ca80357c09a5df2285173318cb9455f5a8efdcac1aace55919b"
+    },
+    {
+      "path": "concorde/bloques/header/desktop/dimensions.ts",
+      "sha256": "3f14fd2eb67b7566b887a6937646b4e468a1ebe04df8908e766212eb4f556235"
+    },
+    {
+      "path": "concorde/bloques/header/desktop/Header.tsx",
+      "sha256": "a7df2b4ea834b26fb82daed3ede5483435973d71ef16f071fd49b8e2712658e9"
+    },
+    {
+      "path": "concorde/bloques/homepage/desktop/AuctioneerSection.tsx",
+      "sha256": "afb5292c03e57357ec6d6fc6e8934dcea100e735d25db4a893b504a926aef4a4"
+    },
+    {
+      "path": "concorde/bloques/homepage/desktop/CategoriesSection.tsx",
+      "sha256": "8b7d1613b645bbbbce84791158b140908307174470d9028016a2a6dc29ef07b8"
+    },
+    {
+      "path": "concorde/bloques/homepage/desktop/dimensions.ts",
+      "sha256": "3e067fb0c2ca23b754311dacbcfafa9a75f0db513eda24599b54be5cb34cda5e"
+    },
+    {
+      "path": "concorde/bloques/homepage/desktop/Homepage.tsx",
+      "sha256": "bcff5c332ce390996ab57537444f4fe9c4d0f39def4aa7afdb2b0e796981dcdb"
+    },
+    {
+      "path": "concorde/bloques/homepage/mobile/dimensions.ts",
+      "sha256": "8e3f54866b10bc8ad74aeffe5a889e9ba4fb0f6e99a21d9d10b8c3e20a984c07"
+    },
+    {
+      "path": "concorde/bloques/homepage/mobile/HomepageMobile.tsx",
+      "sha256": "d3d9b47f62779ada219993bd5b330cce5f7ff2d017be1941a3d3a7cdb5fc7aa3"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/dimensions.ts",
+      "sha256": "3d90752ff2b9f93df9c3eabc3db963a80a53648115aa75ee796c00a08e1b779a"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/Sidebar.tsx",
+      "sha256": "295b3fbce25d45cdc7c7be2ff73809cb7df4697fc37644ae701438327dacba7b"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/SidebarBanner.tsx",
+      "sha256": "e59aea1867834b9da649a2ca3d48c9c892488a125fb37d79cb21c393260f86f7"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/SidebarHeader.tsx",
+      "sha256": "8500c46d20b432b2468c492d2f4b07909ce474ef949e0a98eae083054b830c82"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/SidebarIcon.tsx",
+      "sha256": "5730ec1606e99d6deda2cfc37f8b0735e1a8c6c614372db4c582d2f7daffb415"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/SidebarItem.tsx",
+      "sha256": "3f75ae20059d0942991246b937c7099791317f25fbbe0c8315c6744168494e34"
+    },
+    {
+      "path": "concorde/bloques/sidebar/desktop/SidebarSubItem.tsx",
+      "sha256": "13202a117b17eafaebb205bfa1c30d3f5c41ad41d15ea806e467dcef9cfe089f"
+    },
+    {
+      "path": "concorde/bloques/sidebar/mobile/dimensions.ts",
+      "sha256": "81bd8d9a9400bad7c2c403d77fab0afba93eac3669e420bc82d494f62fde09ce"
+    },
+    {
+      "path": "concorde/bloques/sidebar/mobile/SidebarMobile.tsx",
+      "sha256": "d1869ea557d0b8acbf1a9a617b980680996c767aa55faf1f6b3017a79f11d77d"
+    },
+    {
+      "path": "concorde/components/Accordion.tsx",
+      "sha256": "510d65e19e1d00d7b507a1ad9ab1d5963c23adea9a19297ca5cb842b70de35aa"
+    },
+    {
+      "path": "concorde/components/ActivityCard.tsx",
+      "sha256": "54f8fc91bb457eb619c0e19555f8732cf759fbc72cbac7b3a99048fe3b2d577f"
+    },
+    {
+      "path": "concorde/components/AmountOption.tsx",
+      "sha256": "e1d2fa443881abf0b487c5eb45a8e09083fc9fc6e455539df3f82cfea6861944"
+    },
+    {
+      "path": "concorde/components/AmountOptionGroup.tsx",
+      "sha256": "abd27ecb32637635cb4d9e73845a3ea57909089f551cf9239e5a6a7299d671c9"
+    },
+    {
+      "path": "concorde/components/AuctionStatus.tsx",
+      "sha256": "c2b135505baf224a52b5555f8e6bc1d4da4be2f7e3c906d149dfe30ee403bc44"
+    },
+    {
+      "path": "concorde/components/AvatarZone.tsx",
+      "sha256": "f637ea29b8e046ad2c455525313e59b2161bbe92634fbe8886a9e212b83e4321"
+    },
+    {
+      "path": "concorde/components/BadgeStatus.tsx",
+      "sha256": "155857884a73cf904b4187174fb2d2bf6f3fb444e9e09eb429e65d15ae833b02"
+    },
+    {
+      "path": "concorde/components/BidMessage.tsx",
+      "sha256": "0fab007eb534ea2f27e975b1837a361317871f424731a8cfe6519e7690812496"
+    },
+    {
+      "path": "concorde/components/BidPosition.tsx",
+      "sha256": "b1518373b0fd44b9d105f04c6f2aa66c7abbe51b4c3093192f185a60fb6667bf"
+    },
+    {
+      "path": "concorde/components/BidProposal.tsx",
+      "sha256": "c3c481103f2aa8cadd28e3bec22acd1d9ea63dab6ff5c1883ef786ad7c9f7c81"
+    },
+    {
+      "path": "concorde/components/BusinessIcon.tsx",
+      "sha256": "57612c792b4ecd90a6aa8eb7e8e4e5767e39c4d52e8a717f947b67455fdb57bd"
+    },
+    {
+      "path": "concorde/components/Button.tsx",
+      "sha256": "eb4ed39ffb196666414e64a03bfe8f0bc69602d566fd4c3f965cc381e3f69717"
+    },
+    {
+      "path": "concorde/components/CardTitle.tsx",
+      "sha256": "476aa525aac7a302725a10817b5023875ea432637ad95e573e303d1497be7443"
+    },
+    {
+      "path": "concorde/components/CardViewer.tsx",
+      "sha256": "b7c23f3be294e81311b889183d70523475ec8be9144d4517fb0c15f8b033e7eb"
+    },
+    {
+      "path": "concorde/components/CategoryCard.tsx",
+      "sha256": "6488ffe704634442ca7f67becea5c3e017d33a777f5014cd371900d13c735b0a"
+    },
+    {
+      "path": "concorde/components/CategoryIcon.tsx",
+      "sha256": "ee55ed00980bc09606067a46a52cfb22345084054ba5849465861047b376315d"
+    },
+    {
+      "path": "concorde/components/CheckIcon.tsx",
+      "sha256": "1c7aa1ccd260f46aadc1016900de83bc808102eb7a71f056b25e948f5981250e"
+    },
+    {
+      "path": "concorde/components/ConditionPill.tsx",
+      "sha256": "ebc5d4cc7c0d801d9c4c225e6983874fbae7dfa07a806deff0131594b8fcf726"
+    },
+    {
+      "path": "concorde/components/DetailCard.tsx",
+      "sha256": "60260d7f38ea1b5010976d412d27c9d2846eff5deb373512a4c2e6ef3ecde7b8"
+    },
+    {
+      "path": "concorde/components/DocButton.tsx",
+      "sha256": "f5f5d4a8569e2e778a14cb85e8de5e7fea9ad3a97d764c420c08b397acb78959"
+    },
+    {
+      "path": "concorde/components/EyeIcon.tsx",
+      "sha256": "1fba5efaa8653979fda1cf4ba93aa7d7b64c97ba362f1fa0209f8c8cb1300daa"
+    },
+    {
+      "path": "concorde/components/InfoIcon.tsx",
+      "sha256": "71587420bb6900d95039e882d1e9d083696b5a7fb70ad084c29e0a724226555d"
+    },
+    {
+      "path": "concorde/components/Input.tsx",
+      "sha256": "4caca3069c9836d69f37d0ad7e321dc4872f02e969c8a1443200eb12a1c67206"
+    },
+    {
+      "path": "concorde/components/LikeButton.tsx",
+      "sha256": "185bb7a87b19905ad2cf57040057492bf98d6bb81801a2de32486908855f0adb"
+    },
+    {
+      "path": "concorde/components/OfferCard.tsx",
+      "sha256": "a69b06cc90bc77dd6f87a576cdef0ed642789acbf120c6130401679172049f41"
+    },
+    {
+      "path": "concorde/components/OfferIcon.tsx",
+      "sha256": "8778967de65c7b7456f993c202edf64b20eff57e1af679e06177976edfa0ea8d"
+    },
+    {
+      "path": "concorde/components/OfferShelf.tsx",
+      "sha256": "e536b4660977f164c6f921cbd192f331e83130b18f1057f8ab129544d1a3dedf"
+    },
+    {
+      "path": "concorde/components/OfferType.tsx",
+      "sha256": "c868295dc344bb6ccea5564e65b25131585920ae2b1441fd821232935de097d7"
+    },
+    {
+      "path": "concorde/components/PriceBadge.tsx",
+      "sha256": "b43491218116dd114f0a4237cac559f1337d23f3b622acad56bc22158ca406c1"
+    },
+    {
+      "path": "concorde/components/PriceIcon.tsx",
+      "sha256": "273bc44813ac76a779af2a167082604d3407c6e869a18d1fb2191311288ebd69"
+    },
+    {
+      "path": "concorde/components/ProfileButton.tsx",
+      "sha256": "b27f406f782166280cb019f832d2a38f1ae5bd239e9cf11809655a07deba280f"
+    },
+    {
+      "path": "concorde/components/ProgressBar.tsx",
+      "sha256": "941602bf92937e7b51a1f7a54e4b0c2d397364f84f138f1a89d5064262461977"
+    },
+    {
+      "path": "concorde/components/SalaStatus.tsx",
+      "sha256": "02f577e7ed93e3bb8721ee862d251a09175e5bb83600aec364936c1d08e729ec"
+    },
+    {
+      "path": "concorde/components/SendBidIcon.tsx",
+      "sha256": "630be4ac591f35066a38fc475b9e1a64503f4d8a7a2a21b69581dc938a5a6d1b"
+    },
+    {
+      "path": "concorde/components/ServiceCenterIcon.tsx",
+      "sha256": "bc0968fae667be17d43907a4b7383ee627200dbb0ba935feb64fc1ece4f0e269"
+    },
+    {
+      "path": "concorde/components/Signal.tsx",
+      "sha256": "9b47677c1295929ded8e069877dc6d52fed06f6783605963159324be6e8f546e"
+    },
+    {
+      "path": "concorde/components/StarIcon.tsx",
+      "sha256": "835e29a68e8fd488a55f88093d613c70c695412b3070ceac8ecdf5822e9dbc33"
+    },
+    {
+      "path": "concorde/components/StatPill.tsx",
+      "sha256": "de783d8c01523b50f92bd845d1f3a7fe00516ea27f4fc3cee49e615d58a49d3d"
+    },
+    {
+      "path": "concorde/components/Table.tsx",
+      "sha256": "31433ff2b5dcc09e822cbd56da0f028206af47b2c1c10f21e787c41ca03c1d99"
+    },
+    {
+      "path": "concorde/components/TabSelector.tsx",
+      "sha256": "90e19d1098271c686b5a3b3ab4923cad3a7be02b0cb8fe5f8947c7c4950152c9"
+    },
+    {
+      "path": "concorde/components/TermsSelector.tsx",
+      "sha256": "7d708da7dbeebca94595ab00a60a02657c3a353038204520599d4aaad7b3de96"
+    },
+    {
+      "path": "concorde/components/TimerIcon.tsx",
+      "sha256": "e1ea0219472cb25191b2a77c94d99e1124c9a21fa59629dbe5b95c4a78bf5e8f"
+    },
+    {
+      "path": "concorde/components/TodayIcon.tsx",
+      "sha256": "bc342e0e7932797a5b71e38b721bd196a36eac8144d9c1317bbb0d3d9e0f767b"
+    },
+    {
+      "path": "concorde/components/UserProfileCard.tsx",
+      "sha256": "ac997516cca5e395377b7c47382b6abb00b33eb77ffa288a4ba673c43438537e"
+    },
+    {
+      "path": "concorde/components/WalletBalanceCard.tsx",
+      "sha256": "9a216a4722dbe203f52adecb2690f27831bb9da54f8e2e58f51cf6906db1ceb6"
+    },
+    {
+      "path": "globals.css",
+      "sha256": "032e1315f542a2a247423a2e01c13ac8e83608c140f2fa3e03969b2019ad0da0"
+    },
+    {
+      "path": "models/acuerdo.css",
+      "sha256": "690c52485789fb8388afd7609dd77b99b55390ac2c9043e96f88db5f4193ab19"
+    },
+    {
+      "path": "models/Acuerdo.tsx",
+      "sha256": "fbb5f6578656df0b15d5dcc1f1d13078c61e5184d94cd764ce4169458c5f1790"
+    },
+    {
+      "path": "models/avt/engine.js",
+      "sha256": "4ba51fff12a9bd878132071b7ce0c08a917060714eef44c2f4c9524642029a31"
+    },
+    {
+      "path": "models/avt/sellingSignal.js",
+      "sha256": "2062d3ddb7c31f4a662c48ba5297482d35f3a9f3da1a29dcd65cef114116e17a"
+    },
+    {
+      "path": "models/bannersVmc.ts",
+      "sha256": "a1f4ba13ff560363d4599cfd06aefd0b1fe7dc1286a4851335109ab2af10c199"
+    },
+    {
+      "path": "models/billetera.css",
+      "sha256": "ad6f9687af26e149e45846496eca91c8488bd18b6cf302b6244494e356f05e6f"
+    },
+    {
+      "path": "models/chat.ts",
+      "sha256": "a4be632d0e4320dac60b70db7f577aa6a7f5614d58ae65b4b4522350d8d61d8d"
+    },
+    {
+      "path": "models/concorde-plus.css",
+      "sha256": "50d0607706ff768d867497d7d5ab53c532a52f642bb6aa82ae557380785031e4"
+    },
+    {
+      "path": "models/ConcordePlus.tsx",
+      "sha256": "dad280f9109e48eed9dc4452845619bf0c962e3f781b0e983e294a66da30d7f5"
+    },
+    {
+      "path": "models/design-notes.css",
+      "sha256": "f5f45b742c52a57e03067c24938ab2016ebe89628148b5ad51c4b0665429f8ab"
+    },
+    {
+      "path": "models/DesignNotes.tsx",
+      "sha256": "1e0262e01e1ecb95891bd34c6c04b8c3fad926e0eeeadc27dc310622777be485"
+    },
+    {
+      "path": "models/flujo.css",
+      "sha256": "66f14f4b352aea8ec0b405c040e31f31af7ddb339eb61d2f958a85ec8576a820"
+    },
+    {
+      "path": "models/Flujo.tsx",
+      "sha256": "017f8c00bde3d0a900aa0ba10ea8fcb5f9e53008aafce55c9a9ec49ccac39918"
+    },
+    {
+      "path": "models/foco.css",
+      "sha256": "b56214264e65303bbef9f37edace0f8f2000e95b066bd23ab7f0c4126358cefd"
+    },
+    {
+      "path": "models/Foco.tsx",
+      "sha256": "722d7eac65c1a3f04de6947e08bc08cff78019aa2eb085f6b47a428607fd7940"
+    },
+    {
+      "path": "models/frame-mi-garaje-review.css",
+      "sha256": "7b9b8908fd4649a2b708e1ebe1a001c359cb2ca770892700ffc8f9b3f8eeedb2"
+    },
+    {
+      "path": "models/FrameMiGarajeReview.tsx",
+      "sha256": "62cfb6ecfd88f1df3b01ab78424f3b66849e7aaceda99400cb93603332c94d2f"
+    },
+    {
+      "path": "models/garaje.css",
+      "sha256": "5b751370e488697aececd978eb52b4dedee0d46f5c788a3c0a9ac2081ccbebbb"
+    },
+    {
+      "path": "models/Garaje.tsx",
+      "sha256": "958d37674fa2b2a901e5f574a088c6c5f3a1a088c73d465152c5ae15f95d4322"
+    },
+    {
+      "path": "models/kit.css",
+      "sha256": "00cf5e5a7208596f9085a0ee065377610bb38e914108d5182e20e0a4857cae32"
+    },
+    {
+      "path": "models/kit.tsx",
+      "sha256": "5b2ce465dc56b65bbb26ae1cb30078891e377e83baea4e6f71c18fabdaad3336"
+    },
+    {
+      "path": "models/LabPanel.tsx",
+      "sha256": "46acb0458a568a5b6763ffa7e5a8c17909384efb9c24b8e02a32c2810d6a511e"
+    },
+    {
+      "path": "models/mis-publicaciones.css",
+      "sha256": "e30dcbfb6cee4f6930b99fd73e8c4f984effbdada225946dd1a1b26caf1b1797"
+    },
+    {
+      "path": "models/MisPublicaciones.tsx",
+      "sha256": "d9788fb0094f7001530638768f2c7359b9cef887b8449cb420894e1ca13fe93a"
+    },
+    {
+      "path": "models/negociacion.css",
+      "sha256": "07763d90a9c8e50ac95a7f8eaaf129216be72b6e7646671e5a407c3f64089cc1"
+    },
+    {
+      "path": "models/Negociacion.tsx",
+      "sha256": "38a3f5fd839485eec7eef2c076442634acb40ea1f00ca44407fcd52de45d40b4"
+    },
+    {
+      "path": "models/notifs.css",
+      "sha256": "a20d82c03267bb67a5187fe7a78ebf234c12b9858b5938497ef2b71fca7520d2"
+    },
+    {
+      "path": "models/Notifs.tsx",
+      "sha256": "50c30efe2c3541060896c50b7c73b54b60a892de6c2a5a702a9df9a8bfe3386d"
+    },
+    {
+      "path": "models/Oferta.tsx",
+      "sha256": "a58f110f45817bce1a7191a09b173ab1a80702e0c01e345fa263db4933a7b4fa"
+    },
+    {
+      "path": "models/paginado.css",
+      "sha256": "e1309c21bd5f0bf581b68d9260ba17abd5cf8f9f374dc8084c8a5b944973196b"
+    },
+    {
+      "path": "models/Paginado.tsx",
+      "sha256": "dd7a7be6453c8b1ccb75244ccffbf3d81571d4fcbc394892e961d7b90a7a6a46"
+    },
+    {
+      "path": "models/plus-parts.tsx",
+      "sha256": "6c8084169befa69f246aff48067cc70b25119c4a21f29ec231a6059b21f053c3"
+    },
+    {
+      "path": "models/propuesta.css",
+      "sha256": "6fd66356dc1298d7f4e4e58cf5a3f347eb5f74f756a99c5f7a1944fe74ddae5c"
+    },
+    {
+      "path": "models/Propuesta.tsx",
+      "sha256": "a0e11ed65308ce8e308dfe205d7a3f677f60584078b8d3fb904082696cbe8e84"
+    },
+    {
+      "path": "models/react-dom.d.ts",
+      "sha256": "7c2566cb8b4ef0714f9835bb0ad408ff4fcd44be5977090e5c858de8ec38aa5e"
+    },
+    {
+      "path": "models/registry.ts",
+      "sha256": "605026d0c45893b7d61909dad46bfe1b15b35bd97a160f29184df2c930bdeba2"
+    },
+    {
+      "path": "models/resultado.css",
+      "sha256": "9a7baa3d1a6051115ea336833a8a9d98e0473ac9b1a178bc9e6a531363a0e787"
+    },
+    {
+      "path": "models/Resultado.tsx",
+      "sha256": "8dd224253e6d4c7788beb1fba4dfe9491628a6fac02c19c18013233d32c6dad8"
+    },
+    {
+      "path": "models/revela.css",
+      "sha256": "702c1e32c20a21d0edbd0475d2eb83f85ddb3592aa45e184f59979f5230336a4"
+    },
+    {
+      "path": "models/Revela.tsx",
+      "sha256": "0b9803f6749b0bb32f34b2b6570847df3d6bb01674514c18e67368f325e583f7"
+    },
+    {
+      "path": "models/subaschat.css",
+      "sha256": "288d445961f7ec78ada28c22ec65a70c18790c785ad975eaf6c0115650aaa55d"
+    },
+    {
+      "path": "models/SubasChat.tsx",
+      "sha256": "77710451237003926615047085f15146842a1db2d5f6399938ae3ee521c776e4"
+    },
+    {
+      "path": "models/valorizaciones-data.ts",
+      "sha256": "2f17e3a0da8782b96d9500e46c1dcb552cbf21034d0c6acdb798564e5e87fe80"
+    },
+    {
+      "path": "models/valorizaciones.css",
+      "sha256": "081751889b126794159620c4c7ca1443a6e4fc750247dcf2b95f61c24fc058ff"
+    },
+    {
+      "path": "models/Valorizaciones.tsx",
+      "sha256": "1cc5ee1f9e37ac027ef467d212786727890f52ea4821b71a9849e2a628afb7ba"
+    },
+    {
+      "path": "README.md",
+      "sha256": "01621e39c00aec37fd8e4b005867d23db593092eaa5e48c8f30b75380842662d"
+    },
+    {
+      "path": "verify-integration.cjs",
+      "sha256": "0ff1d845e2596ea9238667b7ab782c204462b94c06766e13aa5ddcd03d20ce3c"
+    }
+  ]
+}

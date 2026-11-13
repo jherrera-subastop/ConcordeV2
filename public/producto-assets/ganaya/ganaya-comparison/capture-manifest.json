@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-11-11T15:59:03.012Z",
+  "scope": "Screenshots of the local prototype at exactly the original viewport sizes; current design is a proposal.",
+  "pairs": [
+    {
+      "id": "index",
+      "path": "/qa/home-index-rebase",
+      "width": 1711,
+      "height": 1290
+    },
+    {
+      "id": "catalogo",
+      "path": "/ganaya",
+      "width": 1715,
+      "height": 1291
+    },
+    {
+      "id": "ficha",
+      "path": "/ganaya/detalle",
+      "width": 1712,
+      "height": 1292
+    },
+    {
+      "id": "mobile",
+      "path": "/ganaya/detalle",
+      "width": 435,
+      "height": 944
+    },
+    {
+      "id": "drawer",
+      "path": "/ganaya/detalle",
+      "width": 416,
+      "height": 944
+    }
+  ]
+}
